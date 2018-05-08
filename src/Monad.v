@@ -16,8 +16,23 @@ Parameter while_loop : forall {a}, (a -> IO (option a)) -> (a -> IO unit).
 
 Parameter unsafe_run : forall {a}, IO a -> unit.
 
-(* Add LoadPath "../ocaml-lib/". *)
-(* Declare ML Module "coq_io_lib". *)
+Module IONotations.
+
+Delimit Scope io_scope with io.
+
+Notation "c >>= f" := (bind c f)
+(at level 50, left associativity) : io_scope.
+
+Notation "f =<< c" := (bind c f)
+(at level 51, right associativity) : io_scope.
+
+Notation "x <- c1 ;; c2" := (bind c1 (fun x => c2))
+(at level 100, c1 at next level, right associativity) : io_scope.
+
+Notation "e1 ;; e2" := (_ <- e1%io ;; e2%io)%io
+(at level 100, right associativity) : io_scope.
+
+End IONotations.
 
 Extract Constant IO "'a" => "'a Coq_IO.t".
 Extract Constant ret => "Coq_IO.return".
