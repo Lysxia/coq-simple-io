@@ -5,8 +5,6 @@ Require Export ExtrOcamlBasic.
 Set Warnings "-extraction-opaque-accessed,-extraction".
 (* end hide *)
 
-Parameter ocaml_string : Type.
-
 Parameter IO : Type -> Type.
 
 Parameter ret : forall {a}, a -> IO a.
