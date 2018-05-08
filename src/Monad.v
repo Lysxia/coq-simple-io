@@ -11,8 +11,17 @@ Parameter IO : Type -> Type.
 
 Parameter ret : forall {a}, a -> IO a.
 Parameter bind : forall {a b}, IO a -> (a -> IO b) -> IO b.
-Parameter loop : forall {a void}, (a -> IO a) -> (a -> IO void).
-Parameter while_loop : forall {a}, (a -> IO (option a)) -> (a -> IO unit).
+Parameter fix_io : forall {a b}, ((a -> IO b) -> (a -> IO b)) -> a -> IO b.
+
+Definition loop : forall {a void}, (a -> IO a) -> (a -> IO void) :=
+  fun _ _ f => fix_io (fun k x => bind (f x) k).
+
+Definition while_loop : forall {a}, (a -> IO (option a)) -> (a -> IO unit) :=
+  fun _ f => fix_io (fun k x => bind (f x) (fun y' =>
+    match y' with
+    | None => ret tt
+    | Some y => k y
+    end)).
 
 Parameter unsafe_run : forall {a}, IO a -> unit.
 
@@ -37,6 +46,5 @@ End IONotations.
 Extract Constant IO "'a" => "'a Coq_IO.t".
 Extract Constant ret => "Coq_IO.return".
 Extract Constant bind => "Coq_IO.bind".
-Extract Constant loop => "Coq_IO.loop".
-Extract Constant while_loop => "Coq_IO.while_loop".
+Extract Constant fix_io => "Coq_IO.fix_io".
 Extract Constant unsafe_run => "Coq_IO.Impure.run".

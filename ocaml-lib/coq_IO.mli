@@ -7,5 +7,4 @@ end
 
 val return : 'a -> 'a t
 val bind : 'a t -> ('a -> 'b t) -> 'b t
-val loop : ('a -> 'a t) -> 'a -> 'void t
-val while_loop : ('a -> 'a option t) -> 'a -> unit t
+val fix_io : (('a -> 'b t) -> 'a -> 'b t) -> 'a -> 'b t
