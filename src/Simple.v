@@ -1,13 +1,15 @@
+Require Strings.Ascii.
 Require Extraction.
 Require Export ExtrOcamlIntConv.
 Require Export CoqIO.Monad.
+Require Export CoqIO.String.
 
 (* begin hide *)
 Set Warnings "-extraction-opaque-accessed,-extraction".
 (* end hide *)
 
-Parameter string : Type.
-Parameter char : Type.
+Definition string := ocaml_string.
+
 Parameter bytes : Type.
 Parameter in_channel : Type.
 Parameter out_channel : Type.
@@ -80,8 +82,6 @@ Parameter exit : forall {a}, int -> IO a.
 
 (**)
 
-Extract Constant string => "string".
-Extract Constant char => "char".
 Extract Constant bytes => "bytes".
 Extract Constant in_channel => "in_channel".
 Extract Constant out_channel => "out_channel".
