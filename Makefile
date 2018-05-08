@@ -22,6 +22,7 @@ clean:
 	$(RM) -f Makefile.coq* *.cmxs
 	$(RM) -rf _build/ build/
 	$(RM) {./,*/,*/*/}{*.{v.d,vo,glob},.*.aux}
+	$(RM) $(DEPS_DOT) $(DEPS_OUT)
 
 COQDEP=coqdep
 DEPS_DOT=deps.dot
