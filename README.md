@@ -2,6 +2,9 @@
 
 An IO monad with user-defined primitive operations.
 
+This library provides tools to implement IO programs directly in Coq, in a
+similar style to Haskell. Facilities for formal verification are not included.
+
 ## Gallina interface
 
 Combinators for IO actions.
@@ -34,3 +37,8 @@ end
 ## To do
 
 - Tutorial/introduction
+
+## Related
+
+- [Ynot](https://github.com/ynot-harvard/ynot)
+- [Coq.io](http://coq.io)
