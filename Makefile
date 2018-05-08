@@ -1,4 +1,4 @@
-.PHONY: all build install clean
+.PHONY: all build install clean example depgraph
 
 build: Makefile.coq
 	$(MAKE) -f $<
