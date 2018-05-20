@@ -1,12 +1,33 @@
+NAME=coq-simple-io
+OCAMLBUILD = ocamlbuild
+INCLUDE = -I ocaml-lib
+TARGETS = coqIO.cma coqIO.cmxa coqIO.a
+OCAML_LIB = ocaml-lib
+INSTALL_TARGETS = $(addprefix _build/, $(TARGETS))
+INSTALL_TARGETS += _build/$(OCAML_LIB)/*.cmi
+INSTALL_TARGETS += _build/$(OCAML_LIB)/*.cmo
+INSTALL_TARGETS += _build/$(OCAML_LIB)/*.o
+INSTALL_TARGETS += _build/$(OCAML_LIB)/*.mli
+INSTALL_TARGETS += _build/$(OCAML_LIB)/*.cmx
+
+MAKEFILE_COQ = Makefile.coq
+MAKE_COQ = $(MAKE) -f $(MAKEFILE_COQ)
+
 .PHONY: all build install clean example depgraph
 
-build: Makefile.coq
-	$(MAKE) -f $<
+build: $(MAKEFILE_COQ)
+	$(MAKE_COQ)
+	$(OCAMLBUILD) $(INCLUDE) $(TARGETS)
 
 install: build
-	echo "TODO"
+	$(MAKE_COQ) install
+	ocamlfind install $(NAME) META $(INSTALL_TARGETS)
 
-Makefile.coq: _CoqProject
+uninstall: $(MAKEFILE_COQ)
+	$(MAKE_COQ) uninstall
+	ocamlfind remove $(NAME)
+
+$(MAKEFILE_COQ): _CoqProject
 	coq_makefile -f $< -o $@
 
 example: build
