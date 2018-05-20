@@ -13,4 +13,5 @@ remove: [ make "uninstall" ]
 depends: [
   "coq"
   "ocamlbuild" {build & >= "0.9.0"}
+  "ocamlfind"
 ]
