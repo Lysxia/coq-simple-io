@@ -30,11 +30,21 @@ uninstall: $(MAKEFILE_COQ)
 $(MAKEFILE_COQ): _CoqProject
 	coq_makefile -f $< -o $@
 
+# With local source files
 example: build
 	mkdir -p build/out/
 	cd build; \
 	  coqc -Q ../src/ CoqIO ../test/Example.v
 	ocamlbuild -no-hygiene -I ocaml-lib -I test build/Example.native
+	mv Example.native build/out/
+	./build/out/Example.native
+
+# With installed library (check proper installation)
+test: build
+	mkdir -p build/out
+	cd build; \
+	  coqc ../test/Example.v
+	ocamlbuild -use-ocamlfind -pkg coq-simple-io -no-hygiene -I test build/Example.native
 	mv Example.native build/out/
 	./build/out/Example.native
 
