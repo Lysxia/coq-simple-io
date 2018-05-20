@@ -5,6 +5,14 @@ An IO monad with user-defined primitive operations.
 This library provides tools to implement IO programs directly in Coq, in a
 similar style to Haskell. Facilities for formal verification are not included.
 
+## Installation
+
+### From this repository
+
+```
+opam pin add -k git coq-simple-io .
+```
+
 ## Gallina interface
 
 Combinators for IO actions.
