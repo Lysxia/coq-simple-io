@@ -9,6 +9,7 @@ Set Warnings "-extraction-opaque-accessed,-extraction".
 (* end hide *)
 
 Definition string := ocaml_string.
+Definition char := Strings.Ascii.ascii.
 
 Parameter bytes : Type.
 Parameter in_channel : Type.

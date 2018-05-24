@@ -1,6 +1,7 @@
 Require Extraction.
 Require Import CoqIO.Simple.
 Import IONotations.
+
 Open Scope io_scope.
 Open Scope string_scope.
 
@@ -18,7 +19,7 @@ Definition f : IO unit := while_loop (fun b =>
   match b with
   | true =>
       print_bool false;;
-      print_endline (ocaml_of_string "Hello");;
+      print_endline (to_ocaml_string "Hello");;
       ret None
   | false =>
       print_bool true ;;
