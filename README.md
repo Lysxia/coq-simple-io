@@ -18,7 +18,7 @@ opam pin add -k git coq-simple-io .
 Combinators for IO actions.
 
 ```coq
-(* Coq module CoqIO.Monad, in src/Monad.v *)
+(* Coq module CoqIO.IOMonad, in src/IOMonad.v *)
 
 Parameter IO : Type -> Type.
 
@@ -37,7 +37,9 @@ Wrap and run IO actions.
 type +'a t (* IO type *)
 
 module Impure : sig
-  val mk_io : (unit -> 'a) -> 'a t
+  val mk_io_0 : (unit -> 'a) -> 'a t
+  val mk_io_1 : ('b -> 'a) -> 'b -> 'a t
+  val mk_io_2 : ('c -> 'b -> 'a) -> 'c -> 'b -> 'a t
   val run : 'a t -> unit
 end
 ```
