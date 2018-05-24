@@ -13,9 +13,9 @@ Require Extraction.
 Require Export ExtrOcamlBasic.
 Require Export ExtrOcamlIntConv.
 
-Require Export CoqIO.IOMonad.
-Require Export CoqIO.OcamlString.
-Require Export CoqIO.OcamlPervasives.
+Require Export CoqSimpleIO.IOMonad.
+Require Export CoqSimpleIO.OcamlString.
+Require Export CoqSimpleIO.OcamlPervasives.
 
 Import IONotations.
 Open Scope io_scope.

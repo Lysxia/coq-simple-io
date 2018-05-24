@@ -1,7 +1,7 @@
 Require Import String.
 
 Require Extraction.
-Require Import CoqIO.CoqPervasives.
+Require Import CoqSimpleIO.CoqPervasives.
 Import IONotations.
 
 Open Scope io_scope.
@@ -36,8 +36,8 @@ Definition run_main : unit := unsafe_run main.
 
 (* We extract the whole library to typecheck it. *)
 Separate Extraction
-  CoqIO.IOMonad
-  CoqIO.OcamlString
-  CoqIO.OcamlPervasives
-  CoqIO.CoqPervasives
+  CoqSimpleIO.IOMonad
+  CoqSimpleIO.OcamlString
+  CoqSimpleIO.OcamlPervasives
+  CoqSimpleIO.CoqPervasives
   run_main.

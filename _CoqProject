@@ -1,4 +1,4 @@
--Q src/ CoqIO
+-Q src/ CoqSimpleIO
 src/IOMonad.v
 src/OcamlPervasives.v
 src/CoqPervasives.v

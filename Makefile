@@ -1,7 +1,7 @@
 NAME=coq-simple-io
 OCAMLBUILD = ocamlbuild
 INCLUDE = -I ocaml-lib
-TARGETS = coqIO.cma coqIO.cmxa coqIO.a
+TARGETS = coqSimpleIO.cma coqSimpleIO.cmxa coqSimpleIO.a
 OCAML_LIB = ocaml-lib
 INSTALL_TARGETS = $(addprefix _build/, $(TARGETS))
 INSTALL_TARGETS += _build/$(OCAML_LIB)/*.cmi
@@ -34,7 +34,7 @@ $(MAKEFILE_COQ): _CoqProject
 example: build
 	mkdir -p build/out/
 	cd build; \
-	  coqc -Q ../src/ CoqIO ../test/Example.v
+	  coqc -Q ../src/ CoqSimpleIO ../test/Example.v
 	ocamlbuild -no-hygiene -I ocaml-lib build/Example.native
 	mv Example.native build/out/
 	./build/out/Example.native
@@ -51,7 +51,7 @@ test: build
 example-pervasives: build
 	mkdir -p build/out
 	cd build; \
-	  coqc -Q ../src/ CoqIO ../test/TestPervasives.v
+	  coqc -Q ../src/ CoqSimpleIO ../test/TestPervasives.v
 	ocamlbuild -I ocaml-lib -no-hygiene build/TestPervasives.native
 	mv TestPervasives.native build/out/
 	./build/out/TestPervasives.native
@@ -68,6 +68,6 @@ DEPS_DOT=deps.dot
 DEPS_OUT=deps.jpg
 
 depgraph:
-	$(COQDEP) -dumpgraph $(DEPS_DOT) -Q src/ CoqIO src > /dev/null 2>&1
+	$(COQDEP) -dumpgraph $(DEPS_DOT) -Q src/ CoqSimpleIO src > /dev/null 2>&1
 	sed 's%\("\([^"]*\)/\([^"/]*\)"\[label="\)%\1\2/\n%' -i deps.dot
 	dot $(DEPS_DOT) -Tjpg -o$(DEPS_OUT)

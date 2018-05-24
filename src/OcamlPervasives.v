@@ -5,17 +5,17 @@
   for a few basic types ([option], [list], [int]).
   Other types that do not have a natural counterpart in Coq are left abstract.
   In particular, this module does not assume any particular representation of
-  Coq's [string] and [ascii] (as opposed to [CoqIO.OcamlString] and
-  [CoqIO.CoqPervasives]).
+  Coq's [string] and [ascii] (as opposed to [CoqSimpleIO.OcamlString] and
+  [CoqSimpleIO.CoqPervasives]).
 *)
 
 Require Extraction.
 Require Import ExtrOcamlBasic.
 Require Import ExtrOcamlIntConv.
 
-Require Import CoqIO.IOMonad.
+Require Import CoqSimpleIO.IOMonad.
 
-Extraction Blacklist CoqIO Pervasives.
+Extraction Blacklist CoqSimpleIO Pervasives.
 
 (** * Types *)
 
@@ -127,68 +127,68 @@ Extract Inlined Constant stderr => "Pervasives.stderr".
 
 (** *** [stdout] *)
 
-Extract Constant print_char     => "CoqIO.Impure.mk_io_1 Pervasives.print_char".
-Extract Constant print_bytes    => "CoqIO.Impure.mk_io_1 Pervasives.print_bytes".
-Extract Constant print_int      => "CoqIO.Impure.mk_io_1 Pervasives.print_int".
-Extract Constant print_string'  => "CoqIO.Impure.mk_io_1 Pervasives.print_string".
-Extract Constant print_endline' => "CoqIO.Impure.mk_io_1 Pervasives.print_endline".
-Extract Constant print_newline  => "CoqIO.Impure.mk_io_0 Pervasives.print_newline".
+Extract Constant print_char     => "CoqSimpleIO.Impure.mk_io_1 Pervasives.print_char".
+Extract Constant print_bytes    => "CoqSimpleIO.Impure.mk_io_1 Pervasives.print_bytes".
+Extract Constant print_int      => "CoqSimpleIO.Impure.mk_io_1 Pervasives.print_int".
+Extract Constant print_string'  => "CoqSimpleIO.Impure.mk_io_1 Pervasives.print_string".
+Extract Constant print_endline' => "CoqSimpleIO.Impure.mk_io_1 Pervasives.print_endline".
+Extract Constant print_newline  => "CoqSimpleIO.Impure.mk_io_0 Pervasives.print_newline".
 
 (** *** [stderr] *)
 
-Extract Constant prerr_char     => "CoqIO.Impure.mk_io_1 Pervasives.prerr_char".
-Extract Constant prerr_bytes    => "CoqIO.Impure.mk_io_1 Pervasives.prerr_bytes".
-Extract Constant prerr_int      => "CoqIO.Impure.mk_io_1 Pervasives.prerr_int".
-Extract Constant prerr_string'  => "CoqIO.Impure.mk_io_1 Pervasives.prerr_string".
-Extract Constant prerr_endline' => "CoqIO.Impure.mk_io_1 Pervasives.prerr_endline".
-Extract Constant prerr_newline  => "CoqIO.Impure.mk_io_0 Pervasives.prerr_newline".
+Extract Constant prerr_char     => "CoqSimpleIO.Impure.mk_io_1 Pervasives.prerr_char".
+Extract Constant prerr_bytes    => "CoqSimpleIO.Impure.mk_io_1 Pervasives.prerr_bytes".
+Extract Constant prerr_int      => "CoqSimpleIO.Impure.mk_io_1 Pervasives.prerr_int".
+Extract Constant prerr_string'  => "CoqSimpleIO.Impure.mk_io_1 Pervasives.prerr_string".
+Extract Constant prerr_endline' => "CoqSimpleIO.Impure.mk_io_1 Pervasives.prerr_endline".
+Extract Constant prerr_newline  => "CoqSimpleIO.Impure.mk_io_0 Pervasives.prerr_newline".
 
 (** *** [stdin] *)
 
-Extract Constant read_line'   => "CoqIO.Impure.mk_io_0 Pervasives.read_line".
-Extract Constant read_int     => "CoqIO.Impure.mk_io_0 Pervasives.read_int".
-Extract Constant read_int_opt => "CoqIO.Impure.mk_io_0 Pervasives.read_int_opt".
+Extract Constant read_line'   => "CoqSimpleIO.Impure.mk_io_0 Pervasives.read_line".
+Extract Constant read_int     => "CoqSimpleIO.Impure.mk_io_0 Pervasives.read_int".
+Extract Constant read_int_opt => "CoqSimpleIO.Impure.mk_io_0 Pervasives.read_int_opt".
 
 (** ** File handles *)
 
 (** *** Output *)
 
-Extract Constant open_out' => "CoqIO.Impure.mk_io_1 Pervasives.open_out".
-Extract Constant flush     => "CoqIO.Impure.mk_io_1 Pervasives.flush".
-Extract Constant flush_all => "CoqIO.Impure.mk_io_0 Pervasives.flush_all".
+Extract Constant open_out' => "CoqSimpleIO.Impure.mk_io_1 Pervasives.open_out".
+Extract Constant flush     => "CoqSimpleIO.Impure.mk_io_1 Pervasives.flush".
+Extract Constant flush_all => "CoqSimpleIO.Impure.mk_io_0 Pervasives.flush_all".
 
-Extract Constant output_char    => "CoqIO.Impure.mk_io_2 Pervasives.output_char".
-Extract Constant output_string' => "CoqIO.Impure.mk_io_2 Pervasives.output_string".
-Extract Constant output_bytes   => "CoqIO.Impure.mk_io_2 Pervasives.output_bytes".
-Extract Constant output_byte    => "CoqIO.Impure.mk_io_2 Pervasives.output_byte".
+Extract Constant output_char    => "CoqSimpleIO.Impure.mk_io_2 Pervasives.output_char".
+Extract Constant output_string' => "CoqSimpleIO.Impure.mk_io_2 Pervasives.output_string".
+Extract Constant output_bytes   => "CoqSimpleIO.Impure.mk_io_2 Pervasives.output_bytes".
+Extract Constant output_byte    => "CoqSimpleIO.Impure.mk_io_2 Pervasives.output_byte".
 Extract Constant output_substring =>
-  "fun h s -> CoqIO.Impure.mk_io_2 (Pervasives.output_substring h s)".
+  "fun h s -> CoqSimpleIO.Impure.mk_io_2 (Pervasives.output_substring h s)".
 
-Extract Constant close_out => "CoqIO.Impure.mk_io_1 close_out".
+Extract Constant close_out => "CoqSimpleIO.Impure.mk_io_1 close_out".
 
 (** *** Input *)
 
-Extract Constant open_in' => "CoqIO.Impure.mk_io_1 Pervasives.open_in".
+Extract Constant open_in' => "CoqSimpleIO.Impure.mk_io_1 Pervasives.open_in".
 
-Extract Constant input_char  => "CoqIO.Impure.mk_io_1 Pervasives.input_char".
-Extract Constant input_line' => "CoqIO.Impure.mk_io_1 Pervasives.input_line".
-Extract Constant input_byte  => "CoqIO.Impure.mk_io_1 Pervasives.input_byte".
+Extract Constant input_char  => "CoqSimpleIO.Impure.mk_io_1 Pervasives.input_char".
+Extract Constant input_line' => "CoqSimpleIO.Impure.mk_io_1 Pervasives.input_line".
+Extract Constant input_byte  => "CoqSimpleIO.Impure.mk_io_1 Pervasives.input_byte".
 
-Extract Constant close_in => "CoqIO.Impure.mk_io_1 Pervasives.close_in".
+Extract Constant close_in => "CoqSimpleIO.Impure.mk_io_1 Pervasives.close_in".
 
 (** ** Mutable references *)
 
 (* Polymorphic definitions must be eta-expanded because of the value
    restriction. *)
 Extract Constant new_ref   =>
-  "fun x -> CoqIO.Impure.mk_io_1 Pervasives.ref x".
+  "fun x -> CoqSimpleIO.Impure.mk_io_1 Pervasives.ref x".
 Extract Constant read_ref  =>
-  "fun x -> CoqIO.Impure.mk_io_1 Pervasives.(!) x".
+  "fun x -> CoqSimpleIO.Impure.mk_io_1 Pervasives.(!) x".
 Extract Constant write_ref =>
-  "fun x -> CoqIO.Impure.mk_io_2 Pervasives.(:=) x".
-Extract Constant incr_ref  => "CoqIO.Impure.mk_io_1 Pervasives.incr".
-Extract Constant decr_ref  => "CoqIO.Impure.mk_io_1 Pervasives.decr".
+  "fun x -> CoqSimpleIO.Impure.mk_io_2 Pervasives.(:=) x".
+Extract Constant incr_ref  => "CoqSimpleIO.Impure.mk_io_1 Pervasives.incr".
+Extract Constant decr_ref  => "CoqSimpleIO.Impure.mk_io_1 Pervasives.decr".
 
 (** ** Program termination *)
 
-Extract Constant exit => "CoqIO.Impure.mk_io_1 Pervasives.exit".
+Extract Constant exit => "CoqSimpleIO.Impure.mk_io_1 Pervasives.exit".

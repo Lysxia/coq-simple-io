@@ -1,5 +1,5 @@
 Require Extraction.
-Require Import CoqIO.CoqPervasives.
+Require Import CoqSimpleIO.CoqPervasives.
 Import IONotations.
 
 Open Scope io_scope.
@@ -11,7 +11,7 @@ Set Warnings "-extraction-opaque-accessed,-extraction".
 
 Parameter print_bool : bool -> IO unit.
 Extract Constant print_bool =>
-  "CoqIO.Impure.mk_io_1 (fun b ->
+  "CoqSimpleIO.Impure.mk_io_1 (fun b ->
     Pervasives.print_endline (Pervasives.string_of_bool b))".
 
 Parameter int_constant : int.

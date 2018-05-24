@@ -5,7 +5,7 @@
 Require Extraction.
 Require Export ExtrOcamlBasic.
 
-Extraction Blacklist CoqIO.
+Extraction Blacklist CoqSimpleIO.
 
 (* begin hide *)
 Set Warnings "-extraction-opaque-accessed,-extraction".
@@ -60,8 +60,8 @@ Parameter unsafe_run : forall {a}, IO a -> unit.
 
 (** * Extraction *)
 
-Extract Constant IO "'a" => "'a CoqIO.t".
-Extract Inlined Constant ret => "CoqIO.return".
-Extract Inlined Constant bind => "CoqIO.bind".
-Extract Inlined Constant fix_io => "CoqIO.fix_io".
-Extract Inlined Constant unsafe_run => "CoqIO.Impure.run".
+Extract Constant IO "'a" => "'a CoqSimpleIO.t".
+Extract Inlined Constant ret => "CoqSimpleIO.return".
+Extract Inlined Constant bind => "CoqSimpleIO.bind".
+Extract Inlined Constant fix_io => "CoqSimpleIO.fix_io".
+Extract Inlined Constant unsafe_run => "CoqSimpleIO.Impure.run".
