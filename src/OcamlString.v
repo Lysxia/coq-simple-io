@@ -46,10 +46,8 @@ Axiom from_to_ostring : forall s,
 
 (* Extraction *)
 
-Extract Constant ocaml_string => "string".
-
-Extract Constant int_of_ascii => "Pervasives.int_of_char".
-Extract Constant ascii_of_int => "Pervasives.char_of_int".
+Extract Inlined Constant int_of_ascii => "Pervasives.int_of_char".
+Extract Inlined Constant ascii_of_int => "Pervasives.char_of_int".
 
 Extract Constant from_ostring =>
   "fun s ->

@@ -47,7 +47,7 @@ Notation "e1 ;; e2" := (_ <- e1%io ;; e2%io)%io
 End IONotations.
 
 Extract Constant IO "'a" => "'a CoqIO.t".
-Extract Constant ret => "CoqIO.return".
-Extract Constant bind => "CoqIO.bind".
-Extract Constant fix_io => "CoqIO.fix_io".
-Extract Constant unsafe_run => "CoqIO.Impure.run".
+Extract Inlined Constant ret => "CoqIO.return".
+Extract Inlined Constant bind => "CoqIO.bind".
+Extract Inlined Constant fix_io => "CoqIO.fix_io".
+Extract Inlined Constant unsafe_run => "CoqIO.Impure.run".
