@@ -1,3 +1,11 @@
+(**
+  This module assumes Coq strings are extracted using [ExtrOcamlString]:
+  - [ascii] is extracted to [char];
+  - [string] is extracted to [char list].
+
+  Convenience wrappers around [OcamlPervasives] using [string], [ascii], [nat].
+*)
+
 Require Import Strings.String.
 Require Import Strings.Ascii.
 
@@ -16,7 +24,9 @@ Open Scope io_scope.
 Set Warnings "-extraction-opaque-accessed,-extraction".
 (* end hide *)
 
-(* stdin *)
+(** ** Standard channels *)
+
+(** *** [stdin] *)
 
 Definition print_ascii : ascii -> IO unit :=
   fun a => print_char (char_of_ascii a).
@@ -27,7 +37,7 @@ Definition print_string : string -> IO unit :=
 Definition print_endline : string -> IO unit :=
   fun s => print_endline' (to_ostring s).
 
-(* stderr *)
+(** *** [stderr] *)
 
 Definition prerr_ascii : ascii -> IO unit :=
   fun a => prerr_char (char_of_ascii a).
@@ -38,12 +48,14 @@ Definition prerr_string : string -> IO unit :=
 Definition prerr_endline : string -> IO unit :=
   fun s => prerr_endline' (to_ostring s).
 
-(* stdin *)
+(** *** [stdin] *)
 
 Definition read_line : IO string :=
   map_io from_ostring read_line'.
 
-(* Output *)
+(** ** File handles *)
+
+(** *** Output *)
 
 Definition open_out : string -> IO out_channel :=
   fun s => open_out' (to_ostring s).
@@ -54,7 +66,7 @@ Definition output_ascii : out_channel -> ascii -> IO unit :=
 Definition output_string : out_channel -> string -> IO unit :=
   fun h s => output_string' h (to_ostring s).
 
-(* Input *)
+(** *** Input *)
 
 Definition open_in : string -> IO in_channel :=
   fun s => open_in' (to_ostring s).
@@ -65,8 +77,9 @@ Definition input_ascii : in_channel -> IO ascii :=
 Definition input_line : in_channel -> IO string :=
   fun h => map_io from_ostring (input_line' h).
 
-(* Functions with [nat] instead of [int].
-   Highly inefficient! *)
+(** * Functions using [nat] instead of [int] *)
+
+(** Highly inefficient! *)
 
 Definition print_nat : nat -> IO unit :=
   fun n => print_int (int_of_nat n).
@@ -94,7 +107,7 @@ Definition incr_ref_nat : ref nat -> IO unit :=
     n <- read_ref r;;
     write_ref r (Nat.succ n).
 
-(* N.B.: 0 decreases to 0. *)
+(** N.B.: 0 decreases to 0. *)
 Definition decr_ref_nat : ref nat -> IO unit :=
   fun r =>
     n <- read_ref r;;

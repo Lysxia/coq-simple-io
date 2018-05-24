@@ -1,3 +1,7 @@
+(**
+  The [IO] monad.
+*)
+
 Require Extraction.
 Require Export ExtrOcamlBasic.
 
@@ -7,7 +11,11 @@ Extraction Blacklist CoqIO.
 Set Warnings "-extraction-opaque-accessed,-extraction".
 (* end hide *)
 
+(** * Main interface *)
+
 Parameter IO : Type -> Type.
+
+(** ** Functions *)
 
 Parameter ret : forall {a}, a -> IO a.
 Parameter bind : forall {a b}, IO a -> (a -> IO b) -> IO b.
@@ -26,7 +34,7 @@ Definition while_loop : forall {a}, (a -> IO (option a)) -> (a -> IO unit) :=
     | Some y => k y
     end)).
 
-Parameter unsafe_run : forall {a}, IO a -> unit.
+(** ** Notations *)
 
 Module IONotations.
 
@@ -45,6 +53,12 @@ Notation "e1 ;; e2" := (_ <- e1%io ;; e2%io)%io
 (at level 100, right associativity) : io_scope.
 
 End IONotations.
+
+(** ** Run IO! *)
+
+Parameter unsafe_run : forall {a}, IO a -> unit.
+
+(** * Extraction *)
 
 Extract Constant IO "'a" => "'a CoqIO.t".
 Extract Inlined Constant ret => "CoqIO.return".

@@ -1,9 +1,16 @@
+(**
+  This module assumes Coq strings are extracted using [ExtrOcamlString]:
+  - [ascii] is extracted to [char];
+  - [string] is extracted to [char list].
+
+  Defines mappings between [ocaml_string], [char] (defined in
+  [OcamlPervasives]) and Coq's [string], [ascii].
+*)
+
 Require Import Strings.String.
 Require Import Strings.Ascii.
-Require Extraction.
 
-(* [ascii] is extracted to [char].
-   [string] is extracted to [char list]. *)
+Require Extraction.
 Require Import ExtrOcamlString.
 Require Import ExtrOcamlIntConv.
 
@@ -11,7 +18,7 @@ Require Import CoqIO.OcamlPervasives.
 
 Extraction Blacklist Bytes Pervasives String .
 
-(* Conversion functions *)
+(** * Conversion functions *)
 
 Parameter int_of_ascii : ascii -> int.
 Parameter ascii_of_int : int -> ascii.
@@ -19,7 +26,7 @@ Parameter ascii_of_int : int -> ascii.
 Parameter from_ostring : ocaml_string -> string.
 Parameter to_ostring : string -> ocaml_string.
 
-(* Axioms *)
+(** * Axioms *)
 
 Axiom char_is_ascii : char = ascii.
 
@@ -33,10 +40,13 @@ Definition ascii_of_char : char -> ascii :=
   | eq_refl => fun x => x
   end.
 
-(* The other round-trip is not true because [int]
-   is larger than [char]. *)
 Axiom char_of_int_of_char : forall c,
   char_of_int (int_of_char c) = c.
+
+(**
+  The other roundtrip direction "[int_of_char_of_int]" is not true because
+  [int] is larger than [char].
+*)
 
 Axiom to_from_ostring : forall s,
   from_ostring (to_ostring s) = s.
@@ -44,7 +54,7 @@ Axiom to_from_ostring : forall s,
 Axiom from_to_ostring : forall s,
   to_ostring (from_ostring s) = s.
 
-(* Extraction *)
+(** * Extraction *)
 
 Extract Inlined Constant int_of_ascii => "Pervasives.int_of_char".
 Extract Inlined Constant ascii_of_int => "Pervasives.char_of_int".
