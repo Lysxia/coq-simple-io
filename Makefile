@@ -48,6 +48,14 @@ test: build
 	mv Example.native build/out/
 	./build/out/Example.native
 
+example-pervasives: build
+	mkdir -p build/out
+	cd build; \
+	  coqc -Q ../src/ CoqIO ../test/TestPervasives.v
+	ocamlbuild -I ocaml-lib -no-hygiene build/TestPervasives.native
+	mv TestPervasives.native build/out/
+	./build/out/TestPervasives.native
+
 clean:
 	if [ -e Makefile.coq ]; then $(MAKE) -f Makefile.coq clean; fi
 	$(RM) -f Makefile.coq* *.cmxs
