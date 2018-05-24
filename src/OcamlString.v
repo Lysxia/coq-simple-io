@@ -40,19 +40,16 @@ Definition ascii_of_char : char -> ascii :=
   | eq_refl => fun x => x
   end.
 
-Axiom char_of_int_of_char : forall c,
-  char_of_int (int_of_char c) = c.
+Axiom char_of_int_of_char : forall c, char_of_int (int_of_char c) = c.
 
 (**
   The other roundtrip direction "[int_of_char_of_int]" is not true because
   [int] is larger than [char].
 *)
 
-Axiom to_from_ostring : forall s,
-  from_ostring (to_ostring s) = s.
+Axiom to_from_ostring : forall s, from_ostring (to_ostring s) = s.
 
-Axiom from_to_ostring : forall s,
-  to_ostring (from_ostring s) = s.
+Axiom from_to_ostring : forall s, to_ostring (from_ostring s) = s.
 
 (** * Extraction *)
 
