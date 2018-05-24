@@ -2,7 +2,10 @@
 type 'a t = { apply : 'r. ('a -> 'r) -> 'r } [@@unboxed]
 
 module Impure = struct
-  let mk_io f = { apply = fun k -> k (f ()) }
+  let mk_io_1 f x = { apply = fun k -> k (f x) }
+  let mk_io_2 f x y = { apply = fun k -> k (f x y) }
+
+  let mk_io_0 f = mk_io_1 f ()
 
   let run m = m.apply (fun _ -> ())
 end

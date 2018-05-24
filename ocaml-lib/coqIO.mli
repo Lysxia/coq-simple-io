@@ -1,7 +1,9 @@
 type +'a t
 
 module Impure : sig
-  val mk_io : (unit -> 'a) -> 'a t
+  val mk_io_0 : (unit -> 'a) -> 'a t
+  val mk_io_1 : ('b -> 'a) -> 'b -> 'a t
+  val mk_io_2 : ('c -> 'b -> 'a) -> 'c -> 'b -> 'a t
   val run : 'a t -> unit
 end
 

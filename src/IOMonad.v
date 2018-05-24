@@ -1,6 +1,8 @@
 Require Extraction.
 Require Export ExtrOcamlBasic.
 
+Extraction Blacklist CoqIO.
+
 (* begin hide *)
 Set Warnings "-extraction-opaque-accessed,-extraction".
 (* end hide *)
@@ -10,6 +12,9 @@ Parameter IO : Type -> Type.
 Parameter ret : forall {a}, a -> IO a.
 Parameter bind : forall {a b}, IO a -> (a -> IO b) -> IO b.
 Parameter fix_io : forall {a b}, ((a -> IO b) -> (a -> IO b)) -> a -> IO b.
+
+Definition map_io {a b} : (a -> b) -> IO a -> IO b :=
+  fun f m => bind m (fun a => ret (f a)).
 
 Definition loop : forall {a void}, (a -> IO a) -> (a -> IO void) :=
   fun _ _ f => fix_io (fun k x => bind (f x) k).

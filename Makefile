@@ -35,7 +35,7 @@ example: build
 	mkdir -p build/out/
 	cd build; \
 	  coqc -Q ../src/ CoqIO ../test/Example.v
-	ocamlbuild -no-hygiene -I ocaml-lib -I test build/Example.native
+	ocamlbuild -no-hygiene -I ocaml-lib build/Example.native
 	mv Example.native build/out/
 	./build/out/Example.native
 
@@ -44,7 +44,7 @@ test: build
 	mkdir -p build/out
 	cd build; \
 	  coqc ../test/Example.v
-	ocamlbuild -use-ocamlfind -pkg coq-simple-io -no-hygiene -I test build/Example.native
+	ocamlbuild -use-ocamlfind -pkg coq-simple-io -no-hygiene build/Example.native
 	mv Example.native build/out/
 	./build/out/Example.native
 

@@ -1,4 +1,5 @@
 -Q src/ CoqIO
-src/Monad.v
-src/Simple.v
-src/String.v
+src/IOMonad.v
+src/OcamlPervasives.v
+src/CoqPervasives.v
+src/OcamlString.v
