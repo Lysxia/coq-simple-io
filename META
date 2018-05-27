@@ -1,4 +1,4 @@
 description = "Simple IO monad for Coq"
 version = "0.1"
-archive(byte)    = "coqIO.cma"
-archive(native)  = "coqIO.cmxa"
+archive(byte)    = "coqSimpleIO.cma"
+archive(native)  = "coqSimpleIO.cmxa"
