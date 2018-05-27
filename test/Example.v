@@ -1,5 +1,5 @@
 Require Extraction.
-Require Import CoqSimpleIO.CoqPervasives.
+Require Import SimpleIO.CoqPervasives.
 Import IONotations.
 
 Open Scope io_scope.

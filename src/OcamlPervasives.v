@@ -5,15 +5,15 @@
   for a few basic types ([option], [list], [int]).
   Other types that do not have a natural counterpart in Coq are left abstract.
   In particular, this module does not assume any particular representation of
-  Coq's [string] and [ascii] (as opposed to [CoqSimpleIO.OcamlString] and
-  [CoqSimpleIO.CoqPervasives]).
+  Coq's [string] and [ascii] (as opposed to [SimpleIO.OcamlString] and
+  [SimpleIO.CoqPervasives]).
 *)
 
 Require Extraction.
 Require Import ExtrOcamlBasic.
 Require Import ExtrOcamlIntConv.
 
-Require Import CoqSimpleIO.IOMonad.
+Require Import SimpleIO.IOMonad.
 
 Extraction Blacklist CoqSimpleIO Pervasives.
 

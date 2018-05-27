@@ -14,7 +14,7 @@ Require Extraction.
 Require Import ExtrOcamlString.
 Require Import ExtrOcamlIntConv.
 
-Require Import CoqSimpleIO.OcamlPervasives.
+Require Import SimpleIO.OcamlPervasives.
 
 Extraction Blacklist Bytes Pervasives String .
 

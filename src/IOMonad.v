@@ -5,7 +5,7 @@
 Require Extraction.
 Require Export ExtrOcamlBasic.
 
-Extraction Blacklist CoqSimpleIO.
+Extraction Blacklist SimpleIO.
 
 (* begin hide *)
 Set Warnings "-extraction-opaque-accessed,-extraction".
