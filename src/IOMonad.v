@@ -54,7 +54,22 @@ Notation "e1 ;; e2" := (_ <- e1%io ;; e2%io)%io
 
 End IONotations.
 
-(** ** Run IO! *)
+(** ** Equations *)
+
+Axiom fix_io_equation : forall {a b} f, @fix_io a b f = f (fix_io f).
+
+(** *** Monad laws *)
+
+Axiom bind_ret :
+  forall {a b} (x : a) (k : a -> IO b), bind (ret x) k = k x.
+Axiom ret_bind : forall {a} (m : IO a), bind m ret = m.
+Axiom bind_bind :
+  forall {a b c} (m : IO a) (k : a -> IO b) (h : b -> IO c),
+    bind (bind m k) h = bind m (fun x => bind (k x) h).
+Axiom bind_ext : forall {a b} (m : IO a) (k k' : a -> IO b),
+    (forall x, k x = k' x) -> bind m k = bind m k'.
+
+(** ** Run! *)
 
 Parameter unsafe_run : forall {a}, IO a -> unit.
 
