@@ -18,7 +18,6 @@ Require Export SimpleIO.OcamlString.
 Require Export SimpleIO.OcamlPervasives.
 
 Import IONotations.
-Open Scope io_scope.
 
 (* begin hide *)
 Set Warnings "-extraction-opaque-accessed,-extraction".

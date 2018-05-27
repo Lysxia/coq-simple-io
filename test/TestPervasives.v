@@ -4,7 +4,6 @@ Require Extraction.
 Require Import SimpleIO.CoqPervasives.
 Import IONotations.
 
-Open Scope io_scope.
 Open Scope string_scope.
 
 Parameter int_constant : int.

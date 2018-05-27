@@ -52,6 +52,8 @@ Notation "x <- c1 ;; c2" := (bind c1 (fun x => c2))
 Notation "e1 ;; e2" := (_ <- e1%io ;; e2%io)%io
 (at level 100, right associativity) : io_scope.
 
+Open Scope io_scope.
+
 End IONotations.
 
 (** ** Equations *)
