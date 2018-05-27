@@ -32,7 +32,7 @@ Parameter fix_io : forall {a b}, ((a -> IO b) -> (a -> IO b)) -> a -> IO b.
 Wrap and run IO actions.
 
 ```ocaml
-(* OCaml module CoqIO, in ocaml-lib/coqIO.mli *)
+(* OCaml module CoqIO, in ocaml-lib/coqSimpleIO.mli *)
 
 type +'a t (* IO type *)
 
