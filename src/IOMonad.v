@@ -19,7 +19,9 @@ Parameter IO : Type -> Type.
 
 Parameter ret : forall {a}, a -> IO a.
 Parameter bind : forall {a b}, IO a -> (a -> IO b) -> IO b.
+(* Fixpoint combinator. *)
 Parameter fix_io : forall {a b}, ((a -> IO b) -> (a -> IO b)) -> a -> IO b.
+(* Delay eager evaluation. *)
 Parameter delay_io : forall {a}, (unit -> IO a) -> IO a.
 
 Definition map_io {a b} : (a -> b) -> IO a -> IO b :=
