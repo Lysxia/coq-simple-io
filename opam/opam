@@ -8,6 +8,7 @@ dev-repo: "https://github.com/Lysxia/coq-simple-io.git"
 bug-reports: "https://github.com/Lysxia/coq-simple-io/issues"
 license: "MIT"
 build: [ make "build" ]
+build-test: [ make "test" ]
 install: [ make "install" ]
 remove: [ make "uninstall" ]
 depends: [

@@ -19,30 +19,13 @@ $(MAKEFILE_COQ): _CoqProject
 	coq_makefile -f $< -o $@
 
 # With local source files
-example: build
-	mkdir -p build/out/
-	cd build; \
-	  coqc -Q ../src/ SimpleIO ../test/Example.v
-	ocamlbuild build/Example.native
-	mv Example.native build/out/
-	./build/out/Example.native
+test: build
+	sh test.sh Example
+	sh test.sh TestPervasives
 
 # With installed library (check proper installation)
-test: build
-	mkdir -p build/out
-	cd build; \
-	  coqc ../test/Example.v
-	ocamlbuild build/Example.native
-	mv Example.native build/out/
-	./build/out/Example.native
-
-example-pervasives: build
-	mkdir -p build/out
-	cd build; \
-	  coqc -Q ../src/ SimpleIO ../test/TestPervasives.v
-	ocamlbuild build/TestPervasives.native
-	mv TestPervasives.native build/out/
-	./build/out/TestPervasives.native
+install-test: build
+	sh test.sh Example -i ""
 
 clean:
 	if [ -e Makefile.coq ]; then $(MAKE) -f Makefile.coq clean; fi
