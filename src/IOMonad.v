@@ -20,6 +20,7 @@ Parameter IO : Type -> Type.
 Parameter ret : forall {a}, a -> IO a.
 Parameter bind : forall {a b}, IO a -> (a -> IO b) -> IO b.
 Parameter fix_io : forall {a b}, ((a -> IO b) -> (a -> IO b)) -> a -> IO b.
+Parameter delay_io : forall {a}, (unit -> IO a) -> IO a.
 
 Definition map_io {a b} : (a -> b) -> IO a -> IO b :=
   fun f m => bind m (fun a => ret (f a)).
@@ -52,6 +53,8 @@ Notation "x <- c1 ;; c2" := (bind c1 (fun x => c2))
 Notation "e1 ;; e2" := (_ <- e1%io ;; e2%io)%io
 (at level 100, right associativity) : io_scope.
 
+Notation delay io := (delay_io (fun _ => io)).
+
 Open Scope io_scope.
 
 End IONotations.
@@ -83,6 +86,7 @@ Extract Constant IO "'a" => "('a -> unit) -> unit".
 Extract Constant ret => "fun a k -> k a".
 Extract Constant bind => "fun io_a io_b k -> io_a (fun a -> io_b a k)".
 Extract Constant fix_io => "fun f -> let rec go k = f go k in go".
+Extract Constant delay_io => "fun f k -> f () k".
 
 Extract Inlined Constant io_unit => "unit".
 Extract Constant unsafe_run => "fun io -> io (fun _ -> ())".
