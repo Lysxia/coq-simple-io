@@ -13,7 +13,7 @@ similar style to Haskell. Facilities for formal verification are not included.
 opam pin add -k git coq-simple-io .
 ```
 
-## Gallina interface
+## Interface
 
 Combinators for IO actions.
 
@@ -27,26 +27,23 @@ Parameter bind : forall {a b}, IO a -> (a -> IO b) -> IO b.
 Parameter fix_io : forall {a b}, ((a -> IO b) -> (a -> IO b)) -> a -> IO b.
 ```
 
-## OCaml interface
+## Defining IO actions
 
-Wrap and run IO actions.
+The `IO` type extracts to the following definition in OCaml:
 
 ```ocaml
-(* OCaml module CoqIO, in ocaml-lib/coqSimpleIO.mli *)
-
-type +'a t (* IO type *)
-
-module Impure : sig
-  val mk_io_0 : (unit -> 'a) -> 'a t
-  val mk_io_1 : ('b -> 'a) -> 'b -> 'a t
-  val mk_io_2 : ('c -> 'b -> 'a) -> 'c -> 'b -> 'a t
-  val run : 'a t -> unit
-end
+type 'a iO = ('a -> unit) -> unit
 ```
 
-## To do
+So an effectful function `f : t -> u -> v` in OCaml can be wrapped
+as a Coq function `f : t -> u -> IO v` in the following way:
 
-- Tutorial/introduction
+```coq
+Parameter f : t -> u -> IO v.
+Extract Constant f => "fun a b k -> k (f a b)".
+```
+
+Basically, add an extra parameter `k` and apply it to the OCaml function call.
 
 ## Related
 

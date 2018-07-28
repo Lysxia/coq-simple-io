@@ -10,8 +10,7 @@ Set Warnings "-extraction-opaque-accessed,-extraction".
 
 Parameter print_bool : bool -> IO unit.
 Extract Constant print_bool =>
-  "CoqSimpleIO.Impure.mk_io_1 (fun b ->
-    Pervasives.print_endline (Pervasives.string_of_bool b))".
+  "fun b k -> k (Pervasives.print_endline (Pervasives.string_of_bool b))".
 
 Parameter int_constant : int.
 Extract Constant int_constant => "3".

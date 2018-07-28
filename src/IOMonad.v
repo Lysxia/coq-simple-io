@@ -73,12 +73,16 @@ Axiom bind_ext : forall {a b} (m : IO a) (k k' : a -> IO b),
 
 (** ** Run! *)
 
+Parameter io_unit : Type.
 Parameter unsafe_run : forall {a}, IO a -> unit.
 
 (** * Extraction *)
 
-Extract Constant IO "'a" => "'a CoqSimpleIO.t".
-Extract Inlined Constant ret => "CoqSimpleIO.return".
-Extract Inlined Constant bind => "CoqSimpleIO.bind".
-Extract Inlined Constant fix_io => "CoqSimpleIO.fix_io".
-Extract Inlined Constant unsafe_run => "CoqSimpleIO.Impure.run".
+(* CPS prevents stack overflows. *)
+Extract Constant IO "'a" => "('a -> unit) -> unit".
+Extract Constant ret => "fun a k -> k a".
+Extract Constant bind => "fun io_a io_b k -> io_a (fun a -> io_b a k)".
+Extract Constant fix_io => "fun f -> let rec go k = f go k in go".
+
+Extract Inlined Constant io_unit => "unit".
+Extract Constant unsafe_run => "fun io -> io (fun _ -> ())".

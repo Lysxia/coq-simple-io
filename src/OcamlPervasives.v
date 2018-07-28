@@ -15,7 +15,7 @@ Require Import ExtrOcamlIntConv.
 
 Require Import SimpleIO.IOMonad.
 
-Extraction Blacklist CoqSimpleIO Pervasives.
+Extraction Blacklist Pervasives.
 
 (** * Types *)
 
@@ -127,68 +127,66 @@ Extract Inlined Constant stderr => "Pervasives.stderr".
 
 (** *** [stdout] *)
 
-Extract Constant print_char     => "CoqSimpleIO.Impure.mk_io_1 Pervasives.print_char".
-Extract Constant print_bytes    => "CoqSimpleIO.Impure.mk_io_1 Pervasives.print_bytes".
-Extract Constant print_int      => "CoqSimpleIO.Impure.mk_io_1 Pervasives.print_int".
-Extract Constant print_string'  => "CoqSimpleIO.Impure.mk_io_1 Pervasives.print_string".
-Extract Constant print_endline' => "CoqSimpleIO.Impure.mk_io_1 Pervasives.print_endline".
-Extract Constant print_newline  => "CoqSimpleIO.Impure.mk_io_0 Pervasives.print_newline".
+Extract Constant print_char     => "fun c k -> k (Pervasives.print_char    c)".
+Extract Constant print_bytes    => "fun b k -> k (Pervasives.print_bytes   b)".
+Extract Constant print_int      => "fun n k -> k (Pervasives.print_int     n)".
+Extract Constant print_string'  => "fun s k -> k (Pervasives.print_string  s)".
+Extract Constant print_endline' => "fun s k -> k (Pervasives.print_endline s)".
+Extract Constant print_newline  => "fun   k -> k (Pervasives.print_newline ())".
 
 (** *** [stderr] *)
 
-Extract Constant prerr_char     => "CoqSimpleIO.Impure.mk_io_1 Pervasives.prerr_char".
-Extract Constant prerr_bytes    => "CoqSimpleIO.Impure.mk_io_1 Pervasives.prerr_bytes".
-Extract Constant prerr_int      => "CoqSimpleIO.Impure.mk_io_1 Pervasives.prerr_int".
-Extract Constant prerr_string'  => "CoqSimpleIO.Impure.mk_io_1 Pervasives.prerr_string".
-Extract Constant prerr_endline' => "CoqSimpleIO.Impure.mk_io_1 Pervasives.prerr_endline".
-Extract Constant prerr_newline  => "CoqSimpleIO.Impure.mk_io_0 Pervasives.prerr_newline".
+Extract Constant prerr_char     => "fun c  k -> k (Pervasives.prerr_char    c)".
+Extract Constant prerr_bytes    => "fun bs k -> k (Pervasives.prerr_bytes   bs)".
+Extract Constant prerr_int      => "fun n  k -> k (Pervasives.prerr_int     n)".
+Extract Constant prerr_string'  => "fun s  k -> k (Pervasives.prerr_string  s)".
+Extract Constant prerr_endline' => "fun s  k -> k (Pervasives.prerr_endline s)".
+Extract Constant prerr_newline  => "fun    k -> k (Pervasives.prerr_newline ())".
 
 (** *** [stdin] *)
 
-Extract Constant read_line'   => "CoqSimpleIO.Impure.mk_io_0 Pervasives.read_line".
-Extract Constant read_int     => "CoqSimpleIO.Impure.mk_io_0 Pervasives.read_int".
-Extract Constant read_int_opt => "CoqSimpleIO.Impure.mk_io_0 Pervasives.read_int_opt".
+Extract Constant read_line'   => "fun k -> k (Pervasives.read_line ())".
+Extract Constant read_int     => "fun k -> k (Pervasives.read_int  ())".
+Extract Constant read_int_opt => "fun k -> k (Pervasives.read_int_opt ())".
 
 (** ** File handles *)
 
 (** *** Output *)
 
-Extract Constant open_out' => "CoqSimpleIO.Impure.mk_io_1 Pervasives.open_out".
-Extract Constant flush     => "CoqSimpleIO.Impure.mk_io_1 Pervasives.flush".
-Extract Constant flush_all => "CoqSimpleIO.Impure.mk_io_0 Pervasives.flush_all".
+Extract Constant open_out' => "fun s k -> k (Pervasives.open_out s)".
+Extract Constant flush     => "fun h k -> k (Pervasives.flush h)".
+Extract Constant flush_all => "fun   k -> k (Pervasives.flush_all ())".
 
-Extract Constant output_char    => "CoqSimpleIO.Impure.mk_io_2 Pervasives.output_char".
-Extract Constant output_string' => "CoqSimpleIO.Impure.mk_io_2 Pervasives.output_string".
-Extract Constant output_bytes   => "CoqSimpleIO.Impure.mk_io_2 Pervasives.output_bytes".
-Extract Constant output_byte    => "CoqSimpleIO.Impure.mk_io_2 Pervasives.output_byte".
+Extract Constant output_char    => "fun h c k -> k (Pervasives.output_char h c)".
+Extract Constant output_string' => "fun h s k -> k (Pervasives.output_string h s)".
+Extract Constant output_bytes   => "fun h b k -> k (Pervasives.output_bytes h b)".
+Extract Constant output_byte    => "fun h b k -> k (Pervasives.output_byte h b)".
 Extract Constant output_substring =>
-  "fun h s -> CoqSimpleIO.Impure.mk_io_2 (Pervasives.output_substring h s)".
+  "fun h s i n k -> k (Pervasives.output_substring h s i n)".
 
-Extract Constant close_out => "CoqSimpleIO.Impure.mk_io_1 close_out".
+Extract Constant close_out => "fun h k -> k (close_out h)".
 
 (** *** Input *)
 
-Extract Constant open_in' => "CoqSimpleIO.Impure.mk_io_1 Pervasives.open_in".
+Extract Constant open_in' => "fun s k -> k (Pervasives.open_in s)".
 
-Extract Constant input_char  => "CoqSimpleIO.Impure.mk_io_1 Pervasives.input_char".
-Extract Constant input_line' => "CoqSimpleIO.Impure.mk_io_1 Pervasives.input_line".
-Extract Constant input_byte  => "CoqSimpleIO.Impure.mk_io_1 Pervasives.input_byte".
+Extract Constant input_char  => "fun h k -> k (Pervasives.input_char h)".
+Extract Constant input_line' => "fun h k -> k (Pervasives.input_line h)".
+Extract Constant input_byte  => "fun h k -> k (Pervasives.input_byte h)".
 
-Extract Constant close_in => "CoqSimpleIO.Impure.mk_io_1 Pervasives.close_in".
+Extract Constant close_in => "fun h k -> k (Pervasives.close_in h)".
 
 (** ** Mutable references *)
 
-(* Polymorphic definitions must be eta-expanded because of the value
-   restriction. *)
 Extract Constant new_ref   =>
-  "fun x -> CoqSimpleIO.Impure.mk_io_1 Pervasives.ref x".
+  "fun x k -> k (Pervasives.ref x)".
 Extract Constant read_ref  =>
-  "fun x -> CoqSimpleIO.Impure.mk_io_1 Pervasives.(!) x".
+  "fun r k -> k (Pervasives.(!) r)".
 Extract Constant write_ref =>
-  "fun x -> CoqSimpleIO.Impure.mk_io_2 Pervasives.(:=) x".
-Extract Constant incr_ref  => "CoqSimpleIO.Impure.mk_io_1 Pervasives.incr".
-Extract Constant decr_ref  => "CoqSimpleIO.Impure.mk_io_1 Pervasives.decr".
+  "fun r x k -> k (Pervasives.(:=) r x)".
+Extract Constant incr_ref  => "fun r k -> k (Pervasives.incr r)".
+Extract Constant decr_ref  => "fun r k -> k (Pervasives.decr r)".
 
 (** ** Program termination *)
 
-Extract Constant exit => "CoqSimpleIO.Impure.mk_io_1 Pervasives.exit".
+Extract Constant exit => "fun n k -> k (Pervasives.exit n)".

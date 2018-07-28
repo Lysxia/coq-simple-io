@@ -1,14 +1,5 @@
 NAME=coq-simple-io
 OCAMLBUILD = ocamlbuild
-INCLUDE = -I ocaml-lib
-TARGETS = coqSimpleIO.cma coqSimpleIO.cmxa coqSimpleIO.a
-OCAML_LIB = ocaml-lib
-INSTALL_TARGETS = $(addprefix _build/, $(TARGETS))
-INSTALL_TARGETS += _build/$(OCAML_LIB)/*.cmi
-INSTALL_TARGETS += _build/$(OCAML_LIB)/*.cmo
-INSTALL_TARGETS += _build/$(OCAML_LIB)/*.o
-INSTALL_TARGETS += _build/$(OCAML_LIB)/*.mli
-INSTALL_TARGETS += _build/$(OCAML_LIB)/*.cmx
 
 MAKEFILE_COQ = Makefile.coq
 MAKE_COQ = $(MAKE) -f $(MAKEFILE_COQ)
@@ -17,15 +8,12 @@ MAKE_COQ = $(MAKE) -f $(MAKEFILE_COQ)
 
 build: $(MAKEFILE_COQ)
 	$(MAKE_COQ)
-	$(OCAMLBUILD) $(INCLUDE) $(TARGETS)
 
 install: build
 	$(MAKE_COQ) install
-	ocamlfind install $(NAME) META $(INSTALL_TARGETS)
 
 uninstall: $(MAKEFILE_COQ)
 	$(MAKE_COQ) uninstall
-	ocamlfind remove $(NAME)
 
 $(MAKEFILE_COQ): _CoqProject
 	coq_makefile -f $< -o $@
@@ -34,8 +22,8 @@ $(MAKEFILE_COQ): _CoqProject
 example: build
 	mkdir -p build/out/
 	cd build; \
-	  coqc -Q ../src/ CoqSimpleIO ../test/Example.v
-	ocamlbuild -no-hygiene -I ocaml-lib build/Example.native
+	  coqc -Q ../src/ SimpleIO ../test/Example.v
+	ocamlbuild build/Example.native
 	mv Example.native build/out/
 	./build/out/Example.native
 
@@ -44,15 +32,15 @@ test: build
 	mkdir -p build/out
 	cd build; \
 	  coqc ../test/Example.v
-	ocamlbuild -use-ocamlfind -pkg coq-simple-io -no-hygiene build/Example.native
+	ocamlbuild build/Example.native
 	mv Example.native build/out/
 	./build/out/Example.native
 
 example-pervasives: build
 	mkdir -p build/out
 	cd build; \
-	  coqc -Q ../src/ CoqSimpleIO ../test/TestPervasives.v
-	ocamlbuild -I ocaml-lib -no-hygiene build/TestPervasives.native
+	  coqc -Q ../src/ SimpleIO ../test/TestPervasives.v
+	ocamlbuild build/TestPervasives.native
 	mv TestPervasives.native build/out/
 	./build/out/TestPervasives.native
 
