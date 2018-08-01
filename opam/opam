@@ -13,6 +13,6 @@ install: [ make "install" ]
 remove: [ make "uninstall" ]
 depends: [
   "coq"
-  "ocamlbuild" {build & >= "0.9.0"}
+  "ocamlbuild" {test & >= "0.9.0"}
   "ocamlfind"
 ]
