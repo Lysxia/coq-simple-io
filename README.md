@@ -1,9 +1,13 @@
 # Purely functional IO for Coq
 
-An IO monad with user-defined primitive operations.
+An IO monad with user-definable primitive operations.
 
 This library provides tools to implement IO programs directly in Coq, in a
-similar style to Haskell. Facilities for formal verification are not included.
+similar style to Haskell.
+
+Facilities for formal verification are not included.
+There is no canonical way to describe the effects of the arbitrary foreign
+constructs that this library allows, so this library commits to none.
 
 ## Installation
 
