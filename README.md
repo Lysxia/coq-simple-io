@@ -11,10 +11,16 @@ constructs that this library allows, so this library commits to none.
 
 ## Installation
 
-### From this repository
+### From OPAM
 
 ```
-opam pin add -k git coq-simple-io .
+opam install coq-simple-io
+```
+
+### From this repository as a local package
+
+```
+opam pin add -k git coq-simple-io path/to/this/repo
 ```
 
 ## Interface
