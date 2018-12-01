@@ -79,7 +79,10 @@ Axiom bind_ext : forall {a b} (m : IO a) (k k' : a -> IO b),
 (** ** Run! *)
 
 Parameter io_unit : Type.
-Parameter unsafe_run : forall {a}, IO a -> unit.
+Parameter unsafe_run : IO unit -> io_unit.
+Parameter unsafe_run' : forall {a}, IO a -> io_unit.
+
+Parameter very_unsafe_eval : forall {a}, IO a -> a.
 
 (** * Extraction *)
 
@@ -92,3 +95,11 @@ Extract Constant delay_io => "fun f k -> f () k".
 
 Extract Inlined Constant io_unit => "unit".
 Extract Constant unsafe_run => "fun io -> io (fun _ -> ())".
+Extract Constant unsafe_run' => "fun io -> io (fun _ -> ())".
+Extract Constant very_unsafe_eval => "fun io ->
+  let r = ref None in
+  io (fun a -> r := Some a);
+  match !r with
+  | None -> failwith ""SimpleIO: action did not return properly""
+  | Some a -> a
+  end".
