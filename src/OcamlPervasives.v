@@ -32,6 +32,10 @@ Parameter ref : Type -> Type.
 Parameter int_of_char : char -> int.
 Parameter char_of_int : int -> char.
 Parameter ostring_of_int : int -> ocaml_string.
+Parameter int_of_ostring_opt : ocaml_string -> option int.
+
+(* Notes:
+   - [int_of_ostring] throws exceptions. *)
 
 (** * Standard channels *)
 
@@ -118,6 +122,7 @@ Extract Constant ref "'a" => "'a Pervasives.ref".
 Extract Inlined Constant int_of_char => "Pervasives.int_of_char".
 Extract Inlined Constant char_of_int => "Pervasives.char_of_int".
 Extract Inlined Constant ostring_of_int => "Pervasives.string_of_int".
+Extract Inlined Constant int_of_ostring_opt => "Pervasives.int_of_string_opt".
 
 (** ** Standard channels *)
 
