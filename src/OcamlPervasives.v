@@ -29,13 +29,18 @@ Parameter ref : Type -> Type.
 
 (** * Misc *)
 
+Parameter ostring_eqb : ocaml_string -> ocaml_string -> bool.
+Parameter char_eqb : char -> char -> bool.
+
 Parameter int_of_char : char -> int.
 Parameter char_of_int : int -> char.
 Parameter ostring_of_int : int -> ocaml_string.
 Parameter int_of_ostring_opt : ocaml_string -> option int.
 
 (* Notes:
-   - [int_of_ostring] throws exceptions. *)
+   - [int_of_ostring] would throw exceptions.
+   - Comparisons between mutable structures should happen in IO.
+ *)
 
 (** * Standard channels *)
 
@@ -118,6 +123,9 @@ Extract Inlined Constant out_channel => "Pervasives.out_channel".
 Extract Constant ref "'a" => "'a Pervasives.ref".
 
 (** ** Misc *)
+
+Extract Inlined Constant ostring_eqb => "Pervasives.(=)".
+Extract Inlined Constant char_eqb => "Pervasives.(=)".
 
 Extract Inlined Constant int_of_char => "Pervasives.int_of_char".
 Extract Inlined Constant char_of_int => "Pervasives.char_of_int".
