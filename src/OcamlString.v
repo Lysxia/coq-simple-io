@@ -7,38 +7,41 @@ From SimpleIO Require Import OcamlPervasives.
 
 Extraction Blacklist Bytes Pervasives String .
 
-(** * Conversion functions *)
+Module OString.
 
-Parameter list_of_ostring : ocaml_string -> list char.
-Parameter ostring_of_list : list char -> ocaml_string.
+Parameter length : ocaml_string -> int.
+Extract Inlined Constant length => "String.length".
 
-(** * Axioms *)
+(* Equals [None] if out of bounds. *)
+Parameter get_opt : ocaml_string -> int -> option char.
+Extract Constant get_opt =>
+  "fun s i -> try Some (String.get s i)
+              with Invalid_argument _ -> None".
 
-Axiom char_of_int_of_char :
-  forall c, char_of_int_opt (int_of_char c) = Some c.
+(* Concatenates strings with a separator. *)
+Parameter concat : ocaml_string -> list ocaml_string -> ocaml_string.
+Extract Inlined Constant concat => "String.concat".
 
-(** The other roundtrip direction "[int_of_char_of_int]" is not true
-    because [int] is larger than [char]. *)
+Module Unsafe.
 
-Axiom to_from_ostring :
-  forall s, list_of_ostring (ostring_of_list s) = s.
-Axiom from_to_ostring :
-  forall s, ostring_of_list (list_of_ostring s) = s.
+(* Throws an exception if out of bounds. *)
+Parameter get : ocaml_string -> int -> char.
+Extract Inlined Constant get => "String.get".
 
-(** * Extraction *)
+(* Throws an exception if [n < 0] or [n > Sys.max_string_length]. *)
+Parameter make : int -> char -> ocaml_string.
+Extract Inlined Constant make => "String.make".
 
-Extract Constant list_of_ostring =>
-  "fun s ->
-    let rec go n z =
-      if n = -1 then z
-      else go (n-1) (String.get s n :: z)
-    in go (String.length s - 1) []".
+(* Throws an exception if [n < 0] or [n > Sys.max_string_length]. *)
+Parameter init : int -> (int -> char) -> ocaml_string.
+Extract Inlined Constant init => "String.init".
 
-Extract Constant ostring_of_list =>
-  "fun z -> Bytes.unsafe_to_string (
-    let b = Bytes.create (List.length z) in
-    let rec go z i =
-      match z with
-      | c :: z -> Bytes.set b i c; go z (i+1)
-      | [] -> b
-    in go z 0)".
+(* [sub i len s] is the substring of [s] with length [len]
+   starting at index [i].
+   Throws an exception if out of bounds. *)
+Parameter sub : ocaml_string -> int -> int -> ocaml_string.
+Extract Inlined Constant sub => "String.sub".
+
+End Unsafe.
+
+End OString.
