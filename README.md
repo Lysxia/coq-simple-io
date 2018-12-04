@@ -20,16 +20,24 @@ opam install coq-simple-io
 ### From this repository as a local package
 
 ```
-opam pin add -k git coq-simple-io path/to/this/repo
+# Clone this repository
+git clone https://github.com/Lysxia/coq-simple-io
+
+# Register it with opam (the last argument is the path to the repo)
+opam pin add -k git coq-simple-io ./coq-simple-io
 ```
 
 ## Interface
 
+To use this library:
+
+```coq
+Require Import SimpleIO.SimpleIO.
+```
+
 Combinators for IO actions.
 
 ```coq
-(* Coq module CoqIO.IOMonad, in src/IOMonad.v *)
-
 Parameter IO : Type -> Type.
 
 Module IO.
@@ -59,6 +67,40 @@ Extract Constant f => "fun a b k -> k (f a b)".
 ```
 
 Basically, add an extra parameter `k` and apply it to the OCaml function call.
+
+## Library organization
+
+The source code can be found under `src/`.
+
+- `SimpleIO.SimpleIO`: Reexports default modules.
+
+The following modules are imported with `SimpleIO.SimpleIO`.
+
+- `SimpleIO.IOMonad`: Definition of `IO` and basic combinators.
+- `SimpleIO.OcamlPervasives`: Wrappers around OCaml's standard library.
+- `SimpleIO.EasyPervasives`: `Pervasives` functions adapted to common types.
+- `SimpleIO.OcamlString`: Operations on OCaml strings.
+- `SimpleIO.SimpleIOUtils`: Miscellaneous definitions, catching common exceptions.
+
+The following modules can be imported separately.
+
+- `SimpleIO.Unsafe`: Unsafe operations.
+- `SimpleIO.RawChar`: Faster strings (see below).
+
+### Faster strings
+
+The extraction module `extraction.ExtrOcamlString` from the standard library is
+sometimes more convenient to use and more performant than the default
+extraction, by extracting Coq `ascii` to OCaml `char`. Some utilities relying
+on that extraction can be found in `RawChar`:
+
+```coq
+Require Import SimpleIO.RawChar.  (* instead of [SimpleIO.SimpleIO] *)
+```
+
+This is kept outside of the default modules in `SimpleIO.SimpleIO` because of
+the reliance on an extra extraction hack. Note that it only partially solves
+the performance problem since `string` gets extracted to the awful `list char`.
 
 ## Organization
 
