@@ -33,6 +33,7 @@ clean:
 	$(RM) -rf _build/ build/
 	$(RM) {./,*/,*/*/}{*.{v.d,vo,glob},.*.aux}
 	$(RM) $(DEPS_DOT) $(DEPS_OUT)
+	$(RM) test/*.ml{i,}
 
 COQDEP=coqdep
 DEPS_DOT=deps.dot
