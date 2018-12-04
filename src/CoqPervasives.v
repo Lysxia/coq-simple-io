@@ -17,7 +17,7 @@ Require Export SimpleIO.IOMonad.
 Require Export SimpleIO.OcamlString.
 Require Export SimpleIO.OcamlPervasives.
 
-Import IONotations.
+Import IO.Notations.
 
 (* begin hide *)
 Set Warnings "-extraction-opaque-accessed,-extraction".
@@ -50,7 +50,7 @@ Definition prerr_endline : string -> IO unit :=
 (** *** [stdin] *)
 
 Definition read_line : IO string :=
-  map_io from_ostring read_line'.
+  IO.map from_ostring read_line'.
 
 (** ** File handles *)
 
@@ -71,10 +71,10 @@ Definition open_in : string -> IO in_channel :=
   fun s => open_in' (to_ostring s).
 
 Definition input_ascii : in_channel -> IO ascii :=
-  fun h => map_io ascii_of_char (input_char h).
+  fun h => IO.map ascii_of_char (input_char h).
 
 Definition input_line : in_channel -> IO string :=
-  fun h => map_io from_ostring (input_line' h).
+  fun h => IO.map from_ostring (input_line' h).
 
 (** * Functions using [nat] instead of [int] *)
 
@@ -87,10 +87,10 @@ Definition prerr_nat : nat -> IO unit :=
   fun n => prerr_int (int_of_nat n).
 
 Definition read_nat : IO nat :=
-  map_io nat_of_int read_int.
+  IO.map nat_of_int read_int.
 
 Definition read_nat_opt : IO (option nat) :=
-  map_io (option_map nat_of_int) read_int_opt.
+  IO.map (option_map nat_of_int) read_int_opt.
 
 Definition output_nat : out_channel -> nat -> IO unit :=
   fun h n => output_string' h (ostring_of_int (int_of_nat n)).
@@ -99,7 +99,7 @@ Definition output_byte_nat : out_channel -> nat -> IO unit :=
   fun h n => output_byte h (int_of_nat n).
 
 Definition input_byte_nat : in_channel -> IO nat :=
-  fun h => map_io nat_of_int (input_byte h).
+  fun h => IO.map nat_of_int (input_byte h).
 
 Definition incr_ref_nat : ref nat -> IO unit :=
   fun r =>

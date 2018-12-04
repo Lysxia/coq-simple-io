@@ -15,6 +15,9 @@ Set Warnings "-extraction-opaque-accessed,-extraction".
 
 Parameter IO : Type -> Type.
 
+(* All identifiers are meant to be used qualified. *)
+Module IO.
+
 (** ** Functions *)
 
 Parameter ret : forall {a}, a -> IO a.
@@ -24,7 +27,7 @@ Parameter fix_io : forall {a b}, ((a -> IO b) -> (a -> IO b)) -> a -> IO b.
 (* Delay eager evaluation. *)
 Parameter delay_io : forall {a}, (unit -> IO a) -> IO a.
 
-Definition map_io {a b} : (a -> b) -> IO a -> IO b :=
+Definition map {a b} : (a -> b) -> IO a -> IO b :=
   fun f m => bind m (fun a => ret (f a)).
 
 Definition loop : forall {a void}, (a -> IO a) -> (a -> IO void) :=
@@ -39,7 +42,7 @@ Definition while_loop : forall {a}, (a -> IO (option a)) -> (a -> IO unit) :=
 
 (** ** Notations *)
 
-Module IONotations.
+Module Notations.
 
 Delimit Scope io_scope with io.
 
@@ -59,7 +62,7 @@ Notation delay io := (delay_io (fun _ => io)).
 
 Open Scope io_scope.
 
-End IONotations.
+End Notations.
 
 (** ** Equations *)
 
@@ -102,3 +105,5 @@ Extract Constant very_unsafe_eval => "fun io ->
   match !r with
   | None -> failwith ""SimpleIO: action did not return properly""
   | Some a -> a".
+
+End IO.
