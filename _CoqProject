@@ -6,6 +6,6 @@ src/EasyPervasives.v
 src/SimpleIOUtils.v
 src/SimpleIO.v
 
-src/Unsafe.v
+src/SimpleIOUnsafe.v
 
 src/RawChar.v
