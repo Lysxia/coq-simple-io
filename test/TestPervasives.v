@@ -31,7 +31,7 @@ Definition main : IO unit :=
   print_nat j;; print_newline;;
   exit_nat 0.
 
-Definition run_main : IO.io_unit := IO.unsafe_run main.
+Definition run_main : io_unit := IO.unsafe_run main.
 
 (* We extract the whole library to typecheck it. *)
 Separate Extraction

@@ -15,6 +15,16 @@ Set Warnings "-extraction-opaque-accessed,-extraction".
 
 Parameter IO : Type -> Type.
 
+(** The result type of [unsafe_run].
+
+    For example, to extract a program [main : IO unit] to
+    a file named [main.ml]:
+[[
+  Definition exe : io_unit := unsafe_run main.
+  Extraction "main.ml" exe.
+]] *)
+Parameter io_unit : Type.
+
 (* All identifiers are meant to be used qualified. *)
 Module IO.
 
@@ -81,7 +91,6 @@ Axiom bind_ext : forall {a b} (m : IO a) (k k' : a -> IO b),
 
 (** ** Run! *)
 
-Parameter io_unit : Type.
 Parameter unsafe_run : IO unit -> io_unit.
 Parameter unsafe_run' : forall {a}, IO a -> io_unit.
 

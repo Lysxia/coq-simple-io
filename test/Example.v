@@ -28,6 +28,6 @@ Definition f : IO unit := IO.while_loop (fun b =>
       IO.ret (Some true)
   end) false.
 
-Definition y : IO.io_unit := IO.unsafe_run f.
+Definition y : io_unit := IO.unsafe_run f.
 
 Separate Extraction y.
