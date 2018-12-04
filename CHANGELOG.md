@@ -10,8 +10,9 @@
 
 - New modules:
 
-    - `Lib` reexporting the core functionality with a single import.
-    - `Utils` for extra definitions that don't come straight from OCaml.
+    + `Lib` reexporting the core functionality with a single import.
+    + `EasyLib`, like `Lib` plus a few extra hacks.
+    + `Utils` for extra definitions that don't come straight from OCaml.
 
 # 0.2
 
