@@ -5,8 +5,7 @@
   for a few basic types ([option], [list], [int]).
   Other types that do not have a natural counterpart in Coq are left abstract.
   In particular, this module does not assume any particular representation of
-  Coq's [string] and [ascii] (as opposed to [SimpleIO.OcamlString] and
-  [SimpleIO.CoqPervasives]).
+  Coq's [string] and [ascii] (as opposed to the [RawChar] module).
 *)
 
 Require Extraction.
@@ -33,7 +32,14 @@ Parameter ostring_eqb : ocaml_string -> ocaml_string -> bool.
 Parameter char_eqb : char -> char -> bool.
 
 Parameter int_of_char : char -> int.
-Parameter char_of_int : int -> char.
+
+(* Equals [None] if the argument is greater than 255. *)
+Parameter char_of_int_opt : int -> option char.
+
+(* Throws an [Invalid_argument] exception if the argument is
+   greater than 255. *)
+Parameter char_of_int_io : int -> IO char.
+
 Parameter ostring_of_int : int -> ocaml_string.
 Parameter int_of_ostring_opt : ocaml_string -> option int.
 
@@ -128,7 +134,14 @@ Extract Inlined Constant ostring_eqb => "Pervasives.(=)".
 Extract Inlined Constant char_eqb => "Pervasives.(=)".
 
 Extract Inlined Constant int_of_char => "Pervasives.int_of_char".
-Extract Inlined Constant char_of_int => "Pervasives.char_of_int".
+
+Extract Constant char_of_int_opt =>
+  "fun n ->
+     try Some (Pervasives.char_of_int n)
+     with Invalid_argument _ -> None".
+
+Extract Constant char_of_int_io => "fun n k -> k (Pervasives.char_of_int n)".
+
 Extract Inlined Constant ostring_of_int => "Pervasives.string_of_int".
 Extract Inlined Constant int_of_ostring_opt => "Pervasives.int_of_string_opt".
 
