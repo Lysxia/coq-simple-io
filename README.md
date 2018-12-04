@@ -55,6 +55,11 @@ Extract Constant f => "fun a b k -> k (f a b)".
 
 Basically, add an extra parameter `k` and apply it to the OCaml function call.
 
+## Organization
+
+Regular development happens on the `master` branch. I will synchronize the `dev`
+branch regularly to publish changes to Coq CI and coq-extra-dev.
+
 ## Related
 
 - [Ynot](https://github.com/ynot-harvard/ynot)
