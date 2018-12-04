@@ -1,6 +1,5 @@
 From Coq Require Import String.
-Require Extraction.
-Require Import SimpleIO.CoqPervasives.
+From SimpleIO Require Import RawChar.
 Import IO.Notations.
 
 Open Scope string_scope.

@@ -1,7 +1,7 @@
 Require Import Ascii String.
 
 Require Extraction.
-Require Import SimpleIO.CoqPervasives.
+From SimpleIO Require Import RawChar.
 Import IO.Notations.
 
 Open Scope string_scope.
@@ -38,5 +38,5 @@ Separate Extraction
   SimpleIO.IOMonad
   SimpleIO.OcamlString
   SimpleIO.OcamlPervasives
-  SimpleIO.CoqPervasives
+  SimpleIO.RawChar
   run_main.
