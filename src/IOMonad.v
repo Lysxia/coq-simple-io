@@ -101,5 +101,4 @@ Extract Constant very_unsafe_eval => "fun io ->
   io (fun a -> r := Some a);
   match !r with
   | None -> failwith ""SimpleIO: action did not return properly""
-  | Some a -> a
-  end".
+  | Some a -> a".

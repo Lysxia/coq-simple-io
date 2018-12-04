@@ -1,3 +1,4 @@
+.coqdeps.d
 *.v.d
 *.vo
 *.aux

@@ -1,3 +1,4 @@
+From Coq Require Import String.
 Require Extraction.
 Require Import SimpleIO.CoqPervasives.
 Import IONotations.
@@ -28,6 +29,6 @@ Definition f : IO unit := while_loop (fun b =>
       ret (Some true)
   end) false.
 
-Definition y : unit := unsafe_run f.
+Definition y : io_unit := unsafe_run f.
 
 Separate Extraction y.
