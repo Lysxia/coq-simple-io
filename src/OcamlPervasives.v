@@ -50,6 +50,8 @@ Infix "<=?" := int_le (at level 70, no associativity) : int_scope.
 
 (** * Misc *)
 
+Parameter ostring_app : ocaml_string -> ocaml_string -> ocaml_string.
+
 Parameter ostring_eqb : ocaml_string -> ocaml_string -> bool.
 Parameter char_eqb : char -> char -> bool.
 
@@ -170,6 +172,8 @@ Extract Inlined Constant int_min => "Pervasives.min".
 Extract Inlined Constant int_max => "Pervasives.max".
 
 (** ** Misc *)
+
+Extract Inlined Constant ostring_app => "Pervasives.(^)".
 
 Extract Inlined Constant ostring_eqb => "Pervasives.(=)".
 Extract Inlined Constant char_eqb => "Pervasives.(=)".
