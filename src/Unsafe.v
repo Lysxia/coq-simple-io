@@ -7,6 +7,14 @@ Require Import ExtrOcamlIntConv.
 
 From SimpleIO Require Import OcamlPervasives.
 
+(* Throws an exception if the divisor is 0. *)
+Parameter unsafe_int_div : int -> int -> int.
+Extract Inlined Constant unsafe_int_div => "Pervasives.(/)".
+
+(* Throws an exception if the divisor is 0. *)
+Parameter unsafe_int_mod : int -> int -> int.
+Extract Inlined Constant unsafe_int_mod => "Pervasives.(mod)".
+
 (* Throws an exception if the argument is smaller than 0 or
    greater than 255. *)
 Parameter unsafe_char_of_int : int -> char.

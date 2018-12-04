@@ -26,6 +26,28 @@ Parameter in_channel : Type.
 Parameter out_channel : Type.
 Parameter ref : Type -> Type.
 
+(** * Operations on [int] *)
+
+Parameter int_add : int -> int -> int.
+Parameter int_sub : int -> int -> int.
+Parameter int_mul : int -> int -> int.
+Parameter int_div_opt : int -> int -> option int.
+Parameter int_mod_opt : int -> int -> option int.
+Parameter int_eqb : int -> int -> bool.
+Parameter int_neqb : int -> int -> bool.
+Parameter int_le : int -> int -> bool.
+Parameter int_lt : int -> int -> bool.
+Parameter int_min : int -> int -> int.
+Parameter int_max : int -> int -> int.
+
+Delimit Scope int_scope with int.
+Bind Scope int_scope with int.
+Infix "+" := int_add : int_scope.
+Infix "-" := int_sub : int_scope.
+Infix "*" := int_mul : int_scope.
+Infix "<?" := int_lt (at level 70, no associativity) : int_scope.
+Infix "<=?" := int_le (at level 70, no associativity) : int_scope.
+
 (** * Misc *)
 
 Parameter ostring_eqb : ocaml_string -> ocaml_string -> bool.
@@ -127,6 +149,25 @@ Extract Inlined Constant bytes => "bytes".
 Extract Inlined Constant in_channel => "Pervasives.in_channel".
 Extract Inlined Constant out_channel => "Pervasives.out_channel".
 Extract Constant ref "'a" => "'a Pervasives.ref".
+
+(** ** Operations on [int] *)
+
+Extract Inlined Constant int_add => "Pervasives.(+)".
+Extract Inlined Constant int_sub => "Pervasives.(-)".
+Extract Inlined Constant int_mul => "Pervasives.( * )".
+Extract Inlined Constant int_div_opt =>
+  "fun x y -> try Some (x Pervasives./ y)
+              with Division_by_zero -> None".
+Extract Inlined Constant int_mod_opt =>
+  "fun x y -> try Some Pervasives.(x mod y)
+              with Division_by_zero -> None".
+Extract Inlined Constant int_eqb => "Pervasives.(=)".
+Extract Inlined Constant int_neqb => "Pervasives.(<>)".
+Extract Inlined Constant int_le => "Pervasives.(<=)".
+Extract Inlined Constant int_lt => "Pervasives.(<)".
+
+Extract Inlined Constant int_min => "Pervasives.min".
+Extract Inlined Constant int_max => "Pervasives.max".
 
 (** ** Misc *)
 
