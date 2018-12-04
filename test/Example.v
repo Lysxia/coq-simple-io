@@ -1,7 +1,7 @@
 From Coq Require Import String.
 Require Extraction.
 Require Import SimpleIO.CoqPervasives.
-Import IONotations.
+Import IO.Notations.
 
 Open Scope string_scope.
 
@@ -16,19 +16,19 @@ Extract Constant print_bool =>
 Parameter int_constant : int.
 Extract Constant int_constant => "3".
 
-Definition f : IO unit := while_loop (fun b =>
+Definition f : IO unit := IO.while_loop (fun b =>
   match b with
   | true =>
       print_bool false;;
       print_endline "Hello";;
-      ret None
+      IO.ret None
   | false =>
       print_bool true ;;
       print_int int_constant;;
       print_newline;;
-      ret (Some true)
+      IO.ret (Some true)
   end) false.
 
-Definition y : io_unit := unsafe_run f.
+Definition y : IO.io_unit := IO.unsafe_run f.
 
 Separate Extraction y.

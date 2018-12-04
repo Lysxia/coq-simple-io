@@ -32,9 +32,14 @@ Combinators for IO actions.
 
 Parameter IO : Type -> Type.
 
+Module IO.
+
 Parameter ret : forall {a}, a -> IO a.
 Parameter bind : forall {a b}, IO a -> (a -> IO b) -> IO b.
 Parameter fix_io : forall {a b}, ((a -> IO b) -> (a -> IO b)) -> a -> IO b.
+(* etc. *)
+
+End IO.
 ```
 
 ## Defining IO actions
