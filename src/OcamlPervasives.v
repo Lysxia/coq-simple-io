@@ -52,6 +52,8 @@ Infix "-" := int_sub : int_scope.
 Infix "*" := int_mul : int_scope.
 Infix "<?" := int_lt (at level 70, no associativity) : int_scope.
 Infix "<=?" := int_le (at level 70, no associativity) : int_scope.
+Infix "=?" := int_eqb (at level 70, no associativity) : int_scope.
+Infix "<>?" := int_neqb (at level 70, no associativity) : int_scope.
 
 (** * Misc *)
 
