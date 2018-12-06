@@ -40,6 +40,11 @@ Parameter int_lt : int -> int -> bool.
 Parameter int_min : int -> int -> int.
 Parameter int_max : int -> int -> int.
 
+Parameter land : int -> int -> int.
+Parameter lor : int -> int -> int.
+Parameter lxor : int -> int -> int.
+Parameter lnot : int -> int -> int.
+
 Delimit Scope int_scope with int.
 Bind Scope int_scope with int.
 Infix "+" := int_add : int_scope.
@@ -170,6 +175,11 @@ Extract Inlined Constant int_lt => "Pervasives.(<)".
 
 Extract Inlined Constant int_min => "Pervasives.min".
 Extract Inlined Constant int_max => "Pervasives.max".
+
+Extract Inlined Constant land => "Pervasives.(land)".
+Extract Inlined Constant lor => "Pervasives.(lor)".
+Extract Inlined Constant lxor => "Pervasives.(lxor)".
+Extract Inlined Constant lnot => "Pervasives.lnot".
 
 (** ** Misc *)
 
