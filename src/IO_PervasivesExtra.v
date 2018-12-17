@@ -36,7 +36,7 @@ Definition read_nat_opt : IO (option nat) :=
   IO.map (option_map nat_of_int) read_int_opt.
 
 Definition output_nat : out_channel -> nat -> IO unit :=
-  fun h n => output_string' h (ostring_of_int (int_of_nat n)).
+  fun h n => output_string h (ostring_of_int (int_of_nat n)).
 
 Definition output_byte_nat : out_channel -> nat -> IO unit :=
   fun h n => output_byte h (int_of_nat n).

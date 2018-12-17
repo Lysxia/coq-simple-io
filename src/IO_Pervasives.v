@@ -97,8 +97,8 @@ Parameter stderr : out_channel.
 Parameter print_char : char -> IO unit.
 Parameter print_bytes : bytes -> IO unit.
 Parameter print_int : int -> IO unit.
-Parameter print_string' : ocaml_string -> IO unit.
-Parameter print_endline' : ocaml_string -> IO unit.
+Parameter print_string : ocaml_string -> IO unit.
+Parameter print_endline : ocaml_string -> IO unit.
 Parameter print_newline : IO unit.
 
 (** ** [stderr] *)
@@ -106,13 +106,13 @@ Parameter print_newline : IO unit.
 Parameter prerr_char : char -> IO unit.
 Parameter prerr_bytes : bytes -> IO unit.
 Parameter prerr_int : int -> IO unit.
-Parameter prerr_string' : ocaml_string -> IO unit.
-Parameter prerr_endline' : ocaml_string -> IO unit.
+Parameter prerr_string : ocaml_string -> IO unit.
+Parameter prerr_endline : ocaml_string -> IO unit.
 Parameter prerr_newline : IO unit.
 
 (** ** [stdin] *)
 
-Parameter read_line' : IO ocaml_string.
+Parameter read_line : IO ocaml_string.
 Parameter read_int : IO int.
 Parameter read_int_opt : IO (option int).
 
@@ -120,12 +120,12 @@ Parameter read_int_opt : IO (option int).
 
 (** ** Output *)
 
-Parameter open_out' : ocaml_string -> IO out_channel.
+Parameter open_out : ocaml_string -> IO out_channel.
 Parameter flush : out_channel -> IO unit.
 Parameter flush_all : IO unit.
 
 Parameter output_char : out_channel -> char -> IO unit.
-Parameter output_string' : out_channel -> ocaml_string -> IO unit.
+Parameter output_string : out_channel -> ocaml_string -> IO unit.
 Parameter output_bytes : out_channel -> bytes -> IO unit.
 Parameter output_substring : out_channel -> ocaml_string -> int -> int -> IO unit.
 Parameter output_byte : out_channel -> int -> IO unit.
@@ -134,10 +134,10 @@ Parameter close_out : out_channel -> IO unit.
 
 (** ** Input *)
 
-Parameter open_in' : ocaml_string -> IO in_channel.
+Parameter open_in : ocaml_string -> IO in_channel.
 
 Parameter input_char : in_channel -> IO char.
-Parameter input_line' : in_channel -> IO ocaml_string.
+Parameter input_line : in_channel -> IO ocaml_string.
 Parameter input_byte : in_channel -> IO int.
 
 Parameter close_in : in_channel -> IO unit.
@@ -225,8 +225,8 @@ Extract Inlined Constant stderr => "Pervasives.stderr".
 Extract Constant print_char     => "fun c k -> k (Pervasives.print_char    c)".
 Extract Constant print_bytes    => "fun b k -> k (Pervasives.print_bytes   b)".
 Extract Constant print_int      => "fun n k -> k (Pervasives.print_int     n)".
-Extract Constant print_string'  => "fun s k -> k (Pervasives.print_string  s)".
-Extract Constant print_endline' => "fun s k -> k (Pervasives.print_endline s)".
+Extract Constant print_string   => "fun s k -> k (Pervasives.print_string  s)".
+Extract Constant print_endline  => "fun s k -> k (Pervasives.print_endline s)".
 Extract Constant print_newline  => "fun   k -> k (Pervasives.print_newline ())".
 
 (** *** [stderr] *)
@@ -234,13 +234,13 @@ Extract Constant print_newline  => "fun   k -> k (Pervasives.print_newline ())".
 Extract Constant prerr_char     => "fun c  k -> k (Pervasives.prerr_char    c)".
 Extract Constant prerr_bytes    => "fun bs k -> k (Pervasives.prerr_bytes   bs)".
 Extract Constant prerr_int      => "fun n  k -> k (Pervasives.prerr_int     n)".
-Extract Constant prerr_string'  => "fun s  k -> k (Pervasives.prerr_string  s)".
-Extract Constant prerr_endline' => "fun s  k -> k (Pervasives.prerr_endline s)".
+Extract Constant prerr_string   => "fun s  k -> k (Pervasives.prerr_string  s)".
+Extract Constant prerr_endline  => "fun s  k -> k (Pervasives.prerr_endline s)".
 Extract Constant prerr_newline  => "fun    k -> k (Pervasives.prerr_newline ())".
 
 (** *** [stdin] *)
 
-Extract Constant read_line'   => "fun k -> k (Pervasives.read_line ())".
+Extract Constant read_line    => "fun k -> k (Pervasives.read_line ())".
 Extract Constant read_int     => "fun k -> k (Pervasives.read_int  ())".
 Extract Constant read_int_opt => "fun k -> k (Pervasives.read_int_opt ())".
 
@@ -248,12 +248,12 @@ Extract Constant read_int_opt => "fun k -> k (Pervasives.read_int_opt ())".
 
 (** *** Output *)
 
-Extract Constant open_out' => "fun s k -> k (Pervasives.open_out s)".
+Extract Constant open_out  => "fun s k -> k (Pervasives.open_out s)".
 Extract Constant flush     => "fun h k -> k (Pervasives.flush h)".
 Extract Constant flush_all => "fun   k -> k (Pervasives.flush_all ())".
 
 Extract Constant output_char    => "fun h c k -> k (Pervasives.output_char h c)".
-Extract Constant output_string' => "fun h s k -> k (Pervasives.output_string h s)".
+Extract Constant output_string  => "fun h s k -> k (Pervasives.output_string h s)".
 Extract Constant output_bytes   => "fun h b k -> k (Pervasives.output_bytes h b)".
 Extract Constant output_byte    => "fun h b k -> k (Pervasives.output_byte h b)".
 Extract Constant output_substring =>
@@ -263,10 +263,10 @@ Extract Constant close_out => "fun h k -> k (close_out h)".
 
 (** *** Input *)
 
-Extract Constant open_in' => "fun s k -> k (Pervasives.open_in s)".
+Extract Constant open_in     => "fun s k -> k (Pervasives.open_in s)".
 
 Extract Constant input_char  => "fun h k -> k (Pervasives.input_char h)".
-Extract Constant input_line' => "fun h k -> k (Pervasives.input_line h)".
+Extract Constant input_line  => "fun h k -> k (Pervasives.input_line h)".
 Extract Constant input_byte  => "fun h k -> k (Pervasives.input_byte h)".
 
 Extract Constant close_in => "fun h k -> k (Pervasives.close_in h)".
