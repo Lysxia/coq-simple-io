@@ -1,18 +1,6 @@
-# 0.3
+# 1.0.0
 
-- Changed the type of `unsafe_run` to an abstract `io_unit`, to discourage
-  using it in the middle of a function.
-- Definitions in `IOMonad` are now namespaced inside an `IO` module.
-- Added functions:
-
-    + `unsafe_run'` and `very_unsafe_eval` to `IOMonad`.
-    + `int_of_string_opt`, `ostring_eqb` and `char_eqb` to `OcamlPervasives`
-
-- New modules:
-
-    + `Lib` reexporting the core functionality with a single import.
-    + `EasyLib`, like `Lib` plus a few extra hacks.
-    + `Utils` for extra definitions that don't come straight from OCaml.
+- Big rewrite
 
 # 0.2
 
