@@ -40,6 +40,6 @@ DEPS_DOT=deps.dot
 DEPS_OUT=deps.jpg
 
 depgraph:
-	$(COQDEP) -dumpgraph $(DEPS_DOT) -Q src/ CoqSimpleIO src > /dev/null 2>&1
+	$(COQDEP) -dumpgraph $(DEPS_DOT) -Q src/ SimpleIO src > /dev/null 2>&1
 	sed 's%\("\([^"]*\)/\([^"/]*\)"\[label="\)%\1\2/\n%' -i deps.dot
 	dot $(DEPS_DOT) -Tjpg -o$(DEPS_OUT)
