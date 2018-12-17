@@ -1,5 +1,7 @@
 From SimpleIO Require Export
-     IOMonad
-     OcamlPervasives OcamlString
-     EasyPervasives
-     SimpleIOUtils.
+     IO_Monad
+     IO_Pervasives
+     IO_PervasivesExtra
+     IO_RawChar
+     IO_String
+     IO_Utils.

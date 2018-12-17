@@ -2,7 +2,7 @@ From Coq.extraction Require
      Extraction.
 
 From SimpleIO Require Import
-     IOMonad OcamlPervasives.
+     IO_Monad IO_Pervasives.
 
 (** * Catch common exceptions *)
 

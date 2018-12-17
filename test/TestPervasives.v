@@ -1,7 +1,10 @@
-Require Import Ascii String.
+From Coq.Strings Require Import
+     Ascii String.
 
-Require Extraction.
-From SimpleIO Require Import RawChar.
+From Coq.extraction Require Import
+     ExtrOcamlIntConv.
+
+From SimpleIO Require Import SimpleIO.
 Import IO.Notations.
 
 Open Scope string_scope.
@@ -35,8 +38,5 @@ Definition run_main : io_unit := IO.unsafe_run main.
 
 (* We extract the whole library to typecheck it. *)
 Separate Extraction
-  SimpleIO.IOMonad
-  SimpleIO.OcamlString
-  SimpleIO.OcamlPervasives
-  SimpleIO.RawChar
+  SimpleIO.SimpleIO
   run_main.

@@ -8,11 +8,13 @@
   Coq's [string] and [ascii] (as opposed to the [RawChar] module).
 *)
 
-Require Extraction.
-Require Import ExtrOcamlBasic.
-Require Import ExtrOcamlIntConv.
+From Coq.extraction Require Import
+     Extraction
+     ExtrOcamlBasic
+     ExtrOcamlIntConv.
 
-Require Import SimpleIO.IOMonad.
+From SimpleIO Require Import
+     IO_Monad.
 
 Extraction Blacklist Pervasives.
 
@@ -151,7 +153,7 @@ Parameter exit : forall {a}, int -> IO a.
 
 (** ** Types *)
 
-Extract Inlined Constant ocaml_string => "string".
+Extract Inlined Constant ocaml_string => "String.t".
 Extract Inlined Constant char => "char".
 
 Extract Inlined Constant bytes => "bytes".

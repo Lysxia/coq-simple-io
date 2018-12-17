@@ -1,11 +1,9 @@
 -Q src/ SimpleIO
-src/IOMonad.v
-src/OcamlPervasives.v
-src/OcamlString.v
-src/EasyPervasives.v
-src/SimpleIOUtils.v
+src/IO_Monad.v
+src/IO_Pervasives.v
+src/IO_String.v
+src/IO_PervasivesExtra.v
+src/IO_RawChar.v
+src/IO_Utils.v
+src/IO_Unsafe.v
 src/SimpleIO.v
-
-src/SimpleIOUnsafe.v
-
-src/RawChar.v

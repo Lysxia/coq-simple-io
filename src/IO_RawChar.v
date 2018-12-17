@@ -9,17 +9,16 @@
    this uses additional extraction hacks.
  *)
 
-From SimpleIO Require Export SimpleIO.
+From Coq.Strings Require Import
+     String Ascii.
 
+From Coq.extraction Require Import
+     ExtrOcamlIntConv
+     ExtrOcamlString.
 
-Require Import Strings.String.
-Require Import Strings.Ascii.
-
-Require Extraction.
-Require Import ExtrOcamlString.
-Require Import ExtrOcamlIntConv.
-
-Require Import SimpleIO.OcamlPervasives.
+From SimpleIO Require Import
+     IO_Monad
+     IO_Pervasives.
 
 Extraction Blacklist Bytes Pervasives String .
 

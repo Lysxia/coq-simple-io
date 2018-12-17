@@ -1,14 +1,17 @@
 (* Wrappers to easily use IO with common Coq types. *)
 
-Require Import Strings.String.
-Require Import Strings.Ascii.
+From Coq.Strings Require Import
+     String Ascii.
 
-Require Extraction.
-Require Export ExtrOcamlBasic.
-Require Export ExtrOcamlIntConv.
+From Coq.extraction Require Import
+     Extraction
+     ExtrOcamlBasic
+     ExtrOcamlIntConv.
 
 From SimpleIO Require Import
-     IOMonad OcamlPervasives OcamlString.
+     IO_Monad
+     IO_Pervasives
+     IO_String.
 
 Import IO.Notations.
 

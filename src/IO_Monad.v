@@ -2,10 +2,9 @@
   The [IO] monad.
 *)
 
-Require Extraction.
-Require Export ExtrOcamlBasic.
-
-Extraction Blacklist SimpleIO.
+From Coq.extraction Require Import
+     Extraction
+     ExtrOcamlBasic.
 
 (* begin hide *)
 Set Warnings "-extraction-opaque-accessed,-extraction".
@@ -13,6 +12,7 @@ Set Warnings "-extraction-opaque-accessed,-extraction".
 
 (** * Main interface *)
 
+(** The IO monad. *)
 Parameter IO : Type -> Type.
 
 (** The result type of [unsafe_run].
@@ -32,8 +32,11 @@ Module IO.
 
 Parameter ret : forall {a}, a -> IO a.
 Parameter bind : forall {a b}, IO a -> (a -> IO b) -> IO b.
+
 (* Fixpoint combinator. *)
-Parameter fix_io : forall {a b}, ((a -> IO b) -> (a -> IO b)) -> a -> IO b.
+Parameter fix_io : forall {a b},
+    ((a -> IO b) -> (a -> IO b)) -> a -> IO b.
+
 (* Delay eager evaluation. *)
 Parameter delay_io : forall {a}, (unit -> IO a) -> IO a.
 
@@ -76,7 +79,7 @@ End Notations.
 
 (** ** Equations *)
 
-Axiom fix_io_equation : forall {a b} f, @fix_io a b f = f (fix_io f).
+Axiom fixpoint_io : forall {a b} f, @fix_io a b f = f (fix_io f).
 
 (** *** Monad laws *)
 
@@ -99,20 +102,16 @@ Parameter very_unsafe_eval : forall {a}, IO a -> a.
 (** * Extraction *)
 
 (* CPS prevents stack overflows. *)
-Extract Constant IO "'a" => "('a -> unit) -> unit".
+(* [forall r, (a -> r) -> r] *)
+Extract Constant IO "'a" => "('a -> Obj.t) -> Obj.t".
 Extract Constant ret => "fun a k -> k a".
 Extract Constant bind => "fun io_a io_b k -> io_a (fun a -> io_b a k)".
-Extract Constant fix_io => "fun f -> let rec go k = f go k in go".
+Extract Constant fix_io => "fun f -> let rec go a k = f go a k in go".
 Extract Constant delay_io => "fun f k -> f () k".
 
 Extract Inlined Constant io_unit => "unit".
-Extract Constant unsafe_run => "fun io -> io (fun _ -> ())".
-Extract Constant unsafe_run' => "fun io -> io (fun _ -> ())".
-Extract Constant very_unsafe_eval => "fun io ->
-  let r = ref None in
-  io (fun a -> r := Some a);
-  match !r with
-  | None -> failwith ""SimpleIO: action did not return properly""
-  | Some a -> a".
+Extract Constant unsafe_run => "fun io -> Obj.magic io (fun () -> ())".
+Extract Constant unsafe_run' => "fun io -> Obj.magic io (fun _ -> ())".
+Extract Constant very_unsafe_eval => "fun io -> Obj.magic io (fun x -> x)".
 
 End IO.

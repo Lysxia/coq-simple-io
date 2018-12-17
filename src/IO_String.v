@@ -1,9 +1,10 @@
-
 From Coq Require Import
-     Strings.String Strings.Ascii
+     Strings.String
+     Strings.Ascii
      extraction.ExtrOcamlIntConv.
 
-From SimpleIO Require Import OcamlPervasives.
+From SimpleIO Require Import
+     IO_Pervasives.
 
 Extraction Blacklist Bytes Pervasives String .
 

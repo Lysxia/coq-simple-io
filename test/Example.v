@@ -1,5 +1,8 @@
-From Coq Require Import String.
-From SimpleIO Require Import RawChar.
+From Coq Require Import
+     Strings.String
+     extraction.ExtrOcamlIntConv.
+
+From SimpleIO Require Import SimpleIO.
 Import IO.Notations.
 
 Open Scope string_scope.
