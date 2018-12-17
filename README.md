@@ -55,7 +55,8 @@ End IO.
 The `IO` type extracts to the following definition in OCaml:
 
 ```ocaml
-type 'a iO = ('a -> unit) -> unit
+(* Implicitly [forall r, (a -> r) -> r]. *)
+type 'a coq_IO = ('a -> Obj.t) -> Obj.t
 ```
 
 So an effectful function `f : t -> u -> v` in OCaml can be wrapped
@@ -76,31 +77,16 @@ The source code can be found under `src/`.
 
 The following modules are imported with `SimpleIO.SimpleIO`.
 
-- `SimpleIO.IOMonad`: Definition of `IO` and basic combinators.
-- `SimpleIO.OcamlPervasives`: Wrappers around OCaml's standard library.
-- `SimpleIO.EasyPervasives`: `Pervasives` functions adapted to common types.
-- `SimpleIO.OcamlString`: Operations on OCaml strings.
-- `SimpleIO.SimpleIOUtils`: Miscellaneous definitions, catching common exceptions.
+- `SimpleIO.IO_Monad`: Definition of `IO` and basic combinators.
+- `SimpleIO.IO_Pervasives`: Wrappers around OCaml's standard library.
+- `SimpleIO.IO_PervasivesExtra`: `Pervasives` functions adapted to common types.
+- `SimpleIO.IO_RawChar`: Facilities that rely on `ExtrOcamlString`.
+- `SimpleIO.IO_String`: Operations on OCaml strings.
+- `SimpleIO.IO_Utils`: Miscellaneous definitions, catching common exceptions.
 
-The following modules can be imported separately.
+The following module can be imported separately.
 
-- `SimpleIO.Unsafe`: Unsafe operations.
-- `SimpleIO.RawChar`: Faster strings (see below).
-
-### Faster strings
-
-The extraction module `extraction.ExtrOcamlString` from the standard library is
-sometimes more convenient to use and more performant than the default
-extraction, by extracting Coq `ascii` to OCaml `char`. Some utilities relying
-on that extraction can be found in `RawChar`:
-
-```coq
-Require Import SimpleIO.RawChar.  (* instead of [SimpleIO.SimpleIO] *)
-```
-
-This is kept outside of the default modules in `SimpleIO.SimpleIO` because of
-the reliance on an extra extraction hack. Note that it only partially solves
-the performance problem since `string` gets extracted to the awful `list char`.
+- `SimpleIO.IO_Unsafe`: Unsafe operations.
 
 ## Organization
 
