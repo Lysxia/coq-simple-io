@@ -81,6 +81,11 @@ Parameter int_of_ostring_opt : ocaml_string -> option int.
    - Comparisons between mutable structures should happen in IO.
  *)
 
+(** * Exceptions *)
+
+Parameter invalid_arg : forall {a}, ocaml_string -> IO a.
+Parameter failwith : forall {a}, ocaml_string -> IO a.
+
 (** * Standard channels *)
 
 Parameter stdin : in_channel.
@@ -203,6 +208,11 @@ Extract Constant char_of_int_io => "fun n k -> k (Pervasives.char_of_int n)".
 
 Extract Inlined Constant ostring_of_int => "Pervasives.string_of_int".
 Extract Inlined Constant int_of_ostring_opt => "Pervasives.int_of_string_opt".
+
+(** ** Exceptions *)
+
+Extract Inlined Constant invalid_arg => "Pervasives.invalid_arg".
+Extract Inlined Constant failwith => "Pervasives.failwith".
 
 (** ** Standard channels *)
 
