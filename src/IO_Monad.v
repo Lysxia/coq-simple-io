@@ -6,6 +6,9 @@ From Coq.extraction Require Import
      Extraction
      ExtrOcamlBasic.
 
+From ExtLib.Structures Require Import
+     Functor Applicative Monad MonadFix.
+
 (* begin hide *)
 Set Warnings "-extraction-opaque-accessed,-extraction".
 (* end hide *)
@@ -115,3 +118,24 @@ Extract Constant unsafe_run' => "fun io -> Obj.magic io (fun _ -> ())".
 Extract Constant very_unsafe_eval => "fun io -> Obj.magic io (fun x -> x)".
 
 End IO.
+
+Instance Functor_IO : Functor IO := {
+  fmap _ _ := IO.map;
+}.
+
+Instance Applicative_IO : Applicative IO := {
+  pure _ := IO.ret;
+  ap _ _ iof iox :=
+    IO.bind iof (fun f =>
+    IO.bind iox (fun x =>
+    IO.ret (f x)));
+}.
+
+Instance Monad_IO : Monad IO := {
+  ret _ := IO.ret;
+  bind _ _ := IO.bind;
+}.
+
+Instance MonadFix_IO : MonadFix IO := {
+  mfix _ _ := IO.fix_io;
+}.
