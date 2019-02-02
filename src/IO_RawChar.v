@@ -1,14 +1,14 @@
 (**
-   [RawChar] reexports [SimpleIO] plus some additional features
-   assuming Coq strings are extracted using [ExtrOcamlString]:
+   [RawChar] provides some convenient operations to work with
+   Coq's standard [ascii] and [string] type, assuming they are
+   extracted using [ExtrOcamlString]:
 
    - [ascii] is extracted to [char];
    - [string] is extracted to [char list].
 
-   Though convenient, this is kept separate from [SimpleIO] because
-   this uses additional extraction hacks.
  *)
 
+(* begin hide *)
 From Coq.Strings Require Import
      String Ascii.
 
@@ -21,14 +21,17 @@ From SimpleIO Require Import
      IO_Pervasives.
 
 Extraction Blacklist Bytes Pervasives String .
+(* end hide *)
 
 (** * Conversions *)
 
+(** [ascii] and [int] *)
 Parameter int_of_ascii : ascii -> int.
 Parameter ascii_of_int : int -> ascii.
 
 Axiom char_is_ascii : char = ascii.
 
+(** [ascii] and [char] *)
 Definition char_of_ascii : ascii -> char :=
   match char_is_ascii in (_ = _ascii) return (_ascii -> char) with
   | eq_refl => fun c => c
@@ -42,6 +45,7 @@ Definition ascii_of_char : char -> ascii :=
 Extract Inlined Constant int_of_ascii => "Pervasives.int_of_char".
 Extract Inlined Constant ascii_of_int => "Pervasives.char_of_int".
 
+(** [string] and [ocaml_string] *)
 Parameter to_ostring : string -> ocaml_string.
 Parameter from_ostring : ocaml_string -> string.
 
@@ -63,6 +67,12 @@ Extract Constant from_ostring =>
 
 Coercion char_of_ascii : ascii >-> char.
 Coercion to_ostring : string >-> ocaml_string.
+
+(** * Input-output *)
+
+(** For output, you can use the functions on [char] and [ocaml_string]
+    from [IO_Pervasives] directly, thanks to the coercions
+    [char_of_ascii] and [to_ostring] above. *)
 
 (** ** Standard channels *)
 
