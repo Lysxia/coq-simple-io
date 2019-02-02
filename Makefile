@@ -9,6 +9,9 @@ MAKE_COQ = $(MAKE) -f $(MAKEFILE_COQ)
 build: $(MAKEFILE_COQ)
 	$(MAKE_COQ)
 
+doc:
+	$(MAKE_COQ) html
+
 install: build
 	$(MAKE_COQ) install
 
