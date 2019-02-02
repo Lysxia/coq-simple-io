@@ -1,13 +1,16 @@
 (**
   Extraction of Ocaml's [Pervasives] module.
 
-  This depends on [ExtrOcamlBasic] and [ExtrOcamlIntConv] that define extraction
-  for a few basic types ([option], [list], [int]).
-  Other types that do not have a natural counterpart in Coq are left abstract.
-  In particular, this module does not assume any particular representation of
-  Coq's [string] and [ascii] (as opposed to the [RawChar] module).
+  This depends on [ExtrOcamlBasic] and [ExtrOcamlIntConv] that define
+  extraction for a few basic types ([option], [list], [int]).
+  Other types that do not have a natural counterpart in Coq are left
+  abstract.
+  In particular, this module does not assume any particular
+  representation of Coq's [string] and [ascii] (as opposed to the
+  [RawChar] module).
 *)
 
+(* begin hide *)
 From Coq.extraction Require Import
      Extraction
      ExtrOcamlBasic
@@ -17,15 +20,24 @@ From SimpleIO Require Import
      IO_Monad.
 
 Extraction Blacklist Pervasives.
+(* end hide *)
 
 (** * Types *)
 
+(** The native [string] type in OCaml. *)
 Parameter ocaml_string : Type.
+
+(** Mutable bytestrings. *)
+Parameter bytes : Type.
+
+(** The native [char] type in OCaml (8 bit integers). *)
 Parameter char : Type.
 
-Parameter bytes : Type.
+(** Input-output channels. *)
 Parameter in_channel : Type.
 Parameter out_channel : Type.
+
+(** Mutable references. *)
 Parameter ref : Type -> Type.
 
 (** * Operations on [int] *)
@@ -57,33 +69,50 @@ Infix "<=?" := int_le (at level 70, no associativity) : int_scope.
 Infix "=?" := int_eqb (at level 70, no associativity) : int_scope.
 Infix "<>?" := int_neqb (at level 70, no associativity) : int_scope.
 
-(** * Misc *)
+(** * Strings and char *)
 
+(** Append strings. *)
 Parameter ostring_app : ocaml_string -> ocaml_string -> ocaml_string.
 
+(** Compare strings. *)
 Parameter ostring_eqb : ocaml_string -> ocaml_string -> bool.
+
+(** Compare characters. *)
 Parameter char_eqb : char -> char -> bool.
 
+(** Convert a [char] to an [int]. *)
 Parameter int_of_char : char -> int.
 
-(* Equals [None] if the argument is greater than 255. *)
+(** Convert an [int] to a [char].
+
+    Equals [None] if the argument is greater than 255. *)
 Parameter char_of_int_opt : int -> option char.
 
-(* Throws an [Invalid_argument] exception if the argument is
-   greater than 255. *)
+(** Convert an [int] to a [char], in [IO].
+
+    Throws an [Invalid_argument] exception if the argument is
+    greater than 255. *)
 Parameter char_of_int_io : int -> IO char.
 
+(** Show an [int] as an [ocaml_string]. *)
 Parameter ostring_of_int : int -> ocaml_string.
+
+(** Parse an [ocaml_string] into an [int]. *)
 Parameter int_of_ostring_opt : ocaml_string -> option int.
 
-(* Notes:
-   - [int_of_ostring] would throw exceptions.
-   - Comparisons between mutable structures should happen in IO.
+(** Notes:
+   - There is no total [int_of_ostring].
+     (See [IO_Unsafe.unsafe_int_of_ostring].)
+   - Comparisons between mutable structures ([bytes], [ref]) should
+     happen in IO.
  *)
 
 (** * Exceptions *)
 
+(** Throw an [Invalid_argument] exception. *)
 Parameter invalid_arg : forall {a}, ocaml_string -> IO a.
+
+(** Throw a [Failure] exception. *)
 Parameter failwith : forall {a}, ocaml_string -> IO a.
 
 (** * Standard channels *)
@@ -120,7 +149,13 @@ Parameter read_int_opt : IO (option int).
 
 (** ** Output *)
 
+(** Open a file for output. *)
 Parameter open_out : ocaml_string -> IO out_channel.
+
+(** Close an output file. *)
+Parameter close_out : out_channel -> IO unit.
+
+(** Flush output buffers. *)
 Parameter flush : out_channel -> IO unit.
 Parameter flush_all : IO unit.
 
@@ -130,17 +165,17 @@ Parameter output_bytes : out_channel -> bytes -> IO unit.
 Parameter output_substring : out_channel -> ocaml_string -> int -> int -> IO unit.
 Parameter output_byte : out_channel -> int -> IO unit.
 
-Parameter close_out : out_channel -> IO unit.
-
 (** ** Input *)
 
+(** Open a file for input. *)
 Parameter open_in : ocaml_string -> IO in_channel.
+
+(** Close an input file. *)
+Parameter close_in : in_channel -> IO unit.
 
 Parameter input_char : in_channel -> IO char.
 Parameter input_line : in_channel -> IO ocaml_string.
 Parameter input_byte : in_channel -> IO int.
-
-Parameter close_in : in_channel -> IO unit.
 
 (** * Mutable references *)
 
@@ -152,6 +187,7 @@ Parameter decr_ref : ref int -> IO unit.
 
 (** * Program termination *)
 
+(** Terminate with an exit code. (0 for success.) *)
 Parameter exit : forall {a}, int -> IO a.
 
 (** * Extraction *)
