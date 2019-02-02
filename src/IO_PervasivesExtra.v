@@ -1,5 +1,10 @@
-(* Wrappers to easily use IO with common Coq types. *)
+(** Wrappers to easily use IO with common Coq types.
 
+    Though convenient, many of these operations are actually unsafe,
+    hence this module is not included by default in
+    [SimpleIO.SimpleIO]. *)
+
+(* begin hide *)
 From Coq.Strings Require Import
      String Ascii.
 
@@ -15,13 +20,14 @@ From SimpleIO Require Import
 
 Import IO.Notations.
 
-(* begin hide *)
 Set Warnings "-extraction-opaque-accessed,-extraction".
 (* end hide *)
 
 (** * Functions using [nat] instead of [int] *)
 
-(** Highly inefficient! *)
+(** [nat] are unary numbers, highly inefficient!
+    These operations are unsafe when numbers exceed [max_int] in OCaml.
+  *)
 
 Definition print_nat : nat -> IO unit :=
   fun n => print_int (int_of_nat n).
