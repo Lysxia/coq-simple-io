@@ -67,4 +67,33 @@ Extract Inlined Constant sub => "String.sub".
 
 End Unsafe.
 
+(** * Extras *)
+
+(** Conversion between [ocaml_string] and [list char]. *)
+Parameter to_list : ocaml_string -> list char.
+Parameter of_list : list char -> ocaml_string.
+
+Axiom from_to_list :
+  forall s, to_list (of_list s) = s.
+Axiom to_from_list :
+  forall s, of_list (to_list s) = s.
+
+(** ** Extraction *)
+
+Extract Constant to_list =>
+  "fun s ->
+    let rec go n z =
+      if n = -1 then z
+      else go (n-1) (String.get s n :: z)
+    in go (String.length s - 1) []".
+
+Extract Constant of_list =>
+  "fun z -> Bytes.unsafe_to_string (
+    let b = Bytes.create (List.length z) in
+    let rec go z i =
+      match z with
+      | c :: z -> Bytes.set b i c; go z (i+1)
+      | [] -> b
+    in go z 0)".
+
 End OString.

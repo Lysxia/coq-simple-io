@@ -5,7 +5,6 @@ src/IO_PervasivesAxioms.v
 src/IO_Exceptions.v
 src/IO_String.v
 src/IO_RawChar.v
-src/IO_Utils.v
 src/IO_Unsafe.v
 src/IO_UnsafeNat.v
 src/SimpleIO.v

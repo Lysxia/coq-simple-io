@@ -83,7 +83,6 @@ The following modules are imported with `SimpleIO.SimpleIO`.
 - `SimpleIO.IO_Exceptions`: Catch common exceptions.
 - `SimpleIO.IO_RawChar`: Utilities that rely on `ExtrOcamlString`.
 - `SimpleIO.IO_String`: Operations on OCaml strings.
-- `SimpleIO.IO_Utils`: Miscellaneous definitions.
 
 The following module can be imported separately.
 

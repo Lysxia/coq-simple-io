@@ -4,5 +4,4 @@ From SimpleIO Require Export
      IO_PervasivesAxioms
      IO_Exceptions
      IO_RawChar
-     IO_String
-     IO_Utils.
+     IO_String.
