@@ -2,6 +2,7 @@
   The [IO] monad.
 *)
 
+(* begin hide *)
 From Coq.extraction Require Import
      Extraction
      ExtrOcamlBasic.
@@ -9,7 +10,6 @@ From Coq.extraction Require Import
 From ExtLib.Structures Require Import
      Functor Applicative Monad MonadFix.
 
-(* begin hide *)
 Set Warnings "-extraction-opaque-accessed,-extraction".
 (* end hide *)
 
@@ -22,10 +22,12 @@ Parameter IO : Type -> Type.
 
     For example, to extract a program [main : IO unit] to
     a file named [main.ml]:
+
 [[
   Definition exe : io_unit := unsafe_run main.
   Extraction "main.ml" exe.
-]] *)
+]]
+ *)
 Parameter io_unit : Type.
 
 (* All identifiers are meant to be used qualified. *)
@@ -36,19 +38,28 @@ Module IO.
 Parameter ret : forall {a}, a -> IO a.
 Parameter bind : forall {a b}, IO a -> (a -> IO b) -> IO b.
 
-(* Fixpoint combinator. *)
+(** Fixpoint combinator. *)
 Parameter fix_io : forall {a b},
     ((a -> IO b) -> (a -> IO b)) -> a -> IO b.
 
-(* Delay eager evaluation. *)
+(** Delay eager evaluation.
+
+    Some IO actions can be expensive closures.
+    [delay_io] allows the computation of the closure to
+    happen during execution, instead of eagerly during the
+    definition of the IO action.
+ *)
 Parameter delay_io : forall {a}, (unit -> IO a) -> IO a.
 
+(** Apply a pure function to the result of an action. *)
 Definition map {a b} : (a -> b) -> IO a -> IO b :=
   fun f m => bind m (fun a => ret (f a)).
 
+(** Infinite stateful loop. *)
 Definition loop : forall {a void}, (a -> IO a) -> (a -> IO void) :=
   fun _ _ f => fix_io (fun k x => bind (f x) k).
 
+(** While loop. Stops once the output is [None]. *)
 Definition while_loop : forall {a}, (a -> IO (option a)) -> (a -> IO unit) :=
   fun _ f => fix_io (fun k x => bind (f x) (fun y' =>
     match y' with
@@ -97,9 +108,18 @@ Axiom bind_ext : forall {a b} (m : IO a) (k k' : a -> IO b),
 
 (** ** Run! *)
 
+(** Run an IO action. See [io_unit] for usage.
+
+    Hiding the result in [io_unit] limits the breakage of
+    referential transparency somewhat. *)
 Parameter unsafe_run : IO unit -> io_unit.
+
+(** Run an IO action, ignoring the result. *)
 Parameter unsafe_run' : forall {a}, IO a -> io_unit.
 
+(** Run an IO action to produce a result.
+
+    This can break referential transparency quite badly. *)
 Parameter very_unsafe_eval : forall {a}, IO a -> a.
 
 (** * Extraction *)
@@ -118,6 +138,8 @@ Extract Constant unsafe_run' => "fun io -> Obj.magic io (fun _ -> ())".
 Extract Constant very_unsafe_eval => "fun io -> Obj.magic io (fun x -> x)".
 
 End IO.
+
+(** * Instances *)
 
 Instance Functor_IO : Functor IO := {
   fmap _ _ := IO.map;
