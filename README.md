@@ -24,7 +24,7 @@ opam install coq-simple-io
 git clone https://github.com/Lysxia/coq-simple-io
 
 # Register it with opam (the last argument is the path to the repo)
-opam pin add -k git coq-simple-io ./coq-simple-io
+opam pin add coq-simple-io ./coq-simple-io
 ```
 
 ## Interface
@@ -78,7 +78,7 @@ The source code can be found under `src/`.
 The following modules are imported with `SimpleIO.SimpleIO`.
 
 - `SimpleIO.IO_Monad`: Definition of `IO` and basic combinators.
-- `SimpleIO.IO_Pervasives`: Wrappers around OCaml's standard library.
+- `SimpleIO.IO_Pervasives`: Wrappers around `Pervasives` from OCaml's standard library.
 - `SimpleIO.IO_PervasivesExtra`: `Pervasives` functions adapted to common types.
 - `SimpleIO.IO_RawChar`: Facilities that rely on `ExtrOcamlString`.
 - `SimpleIO.IO_String`: Operations on OCaml strings.
