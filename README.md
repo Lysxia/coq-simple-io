@@ -79,14 +79,16 @@ The following modules are imported with `SimpleIO.SimpleIO`.
 
 - `SimpleIO.IO_Monad`: Definition of `IO` and basic combinators.
 - `SimpleIO.IO_Pervasives`: Wrappers around `Pervasives` from OCaml's standard library.
-- `SimpleIO.IO_PervasivesExtra`: `Pervasives` functions adapted to common types.
-- `SimpleIO.IO_RawChar`: Facilities that rely on `ExtrOcamlString`.
+- `SimpleIO.IO_PervasivesAxioms`: Theory for `IO_Pervasives`
+- `SimpleIO.IO_Exceptions`: Catch common exceptions.
+- `SimpleIO.IO_RawChar`: Utilities that rely on `ExtrOcamlString`.
 - `SimpleIO.IO_String`: Operations on OCaml strings.
-- `SimpleIO.IO_Utils`: Miscellaneous definitions, catching common exceptions.
+- `SimpleIO.IO_Utils`: Miscellaneous definitions.
 
 The following module can be imported separately.
 
 - `SimpleIO.IO_Unsafe`: Unsafe operations.
+- `SimpleIO.IO_UnsafeNat`: `Pervasives` functions adapted to `nat`.
 
 ## Organization
 
