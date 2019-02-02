@@ -1,4 +1,4 @@
-# Purely functional IO for Coq
+# Purely functional IO for Coq [![Build Status](https://travis-ci.org/Lysxia/coq-simple-io.svg?branch=master)](https://travis-ci.org/Lysxia/coq-simple-io)
 
 An IO monad with user-definable primitive operations.
 
