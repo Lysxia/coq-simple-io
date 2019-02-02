@@ -1,33 +1,21 @@
-(** Wrappers to easily use IO with common Coq types.
+(** Pervasives functions using [nat] instead of [int]
 
-    Though convenient, many of these operations are actually unsafe,
-    hence this module is not included by default in
-    [SimpleIO.SimpleIO]. *)
+    [nat] are unary numbers, so this highly inefficient!
+    These operations are unsafe when numbers exceed [max_int] in OCaml.
+  *)
 
 (* begin hide *)
-From Coq.Strings Require Import
-     String Ascii.
-
 From Coq.extraction Require Import
-     Extraction
-     ExtrOcamlBasic
      ExtrOcamlIntConv.
 
 From SimpleIO Require Import
      IO_Monad
-     IO_Pervasives
-     IO_String.
+     IO_Pervasives.
 
 Import IO.Notations.
 
 Set Warnings "-extraction-opaque-accessed,-extraction".
 (* end hide *)
-
-(** * Functions using [nat] instead of [int] *)
-
-(** [nat] are unary numbers, highly inefficient!
-    These operations are unsafe when numbers exceed [max_int] in OCaml.
-  *)
 
 Definition print_nat : nat -> IO unit :=
   fun n => print_int (int_of_nat n).

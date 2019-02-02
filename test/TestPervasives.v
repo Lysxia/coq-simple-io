@@ -4,7 +4,7 @@ From Coq.Strings Require Import
 From Coq.extraction Require Import
      ExtrOcamlIntConv.
 
-From SimpleIO Require Import SimpleIO.
+From SimpleIO Require Import SimpleIO IO_UnsafeNat.
 Import IO.Notations.
 
 Open Scope string_scope.
