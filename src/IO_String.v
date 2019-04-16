@@ -18,6 +18,7 @@ From SimpleIO Require Import
 Extraction Blacklist Bytes Pervasives String .
 (* end hide *)
 
+(** * String module *)
 Module OString.
 
 (** Length of an [ocaml_string]. *)
