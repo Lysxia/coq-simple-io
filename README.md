@@ -88,6 +88,9 @@ The following module can be imported separately.
 
 - `SimpleIO.IO_Unsafe`: Unsafe operations.
 - `SimpleIO.IO_UnsafeNat`: `Pervasives` functions adapted to `nat`.
+- `SimpleIO.IO_Bytes`: Byte sequence operations
+- `SimpleIO.IO_Random`: Pseudo-random number generators (PRNG)
+- `SimpleIO.IO_Unix`: Interface to the Unix system
 
 ## Organization
 

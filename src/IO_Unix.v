@@ -12,6 +12,8 @@ From SimpleIO Require Import
      IO_Pervasives.
 (* end hide *)
 
+Module OUnix.
+
 (** ** Basic file input/output  *)
 
 (** The abstract type of file descriptors. *)
@@ -101,3 +103,5 @@ Extract Constant socket => "fun d t p       k -> k (Unix.socket d t p)".
 Extract Constant recv   => "fun f b o l g   k -> k (Unix.recv f b o l g, b)".
 Extract Constant sendto => "fun f b o l g a k -> k (Unix.sendto f b o l g a)".
 (* end hide *)
+
+End OUnix.

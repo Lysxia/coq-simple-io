@@ -11,6 +11,8 @@ From SimpleIO Require Import
      IO_Pervasives.
 (* end hide *)
 
+Module ORandom.
+
 (** Initialize the generator with a random seed chosen in a system-dependent
     way.  If [/dev/urandom] is available on the host machine, it is used to
     provide a highly random initial seed.  Otherwise, a less random seed is
@@ -29,3 +31,5 @@ Extract Constant self_init => "fun t k -> k (Random.self_init t)".
 Extract Constant int       => "fun i k -> k (Random.int i)".
 Extract Constant bool         => "fun t k -> k (Random.bool t)".
 (* end hide *)
+
+End ORandom.

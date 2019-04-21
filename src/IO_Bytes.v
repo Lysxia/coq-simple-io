@@ -11,6 +11,8 @@ From SimpleIO Require Import
      IO_Pervasives.
 (* end hide *)
 
+Module OBytes.
+
 (** [create n] returns a new byte sequence of length [n]. The sequence is
     uninitialized and contains arbitrary bytes.
 
@@ -31,3 +33,5 @@ Extract Constant create => "fun n k -> k (Bytes.create n)".
 Extract Constant of_string => "Bytes.of_string".
 Extract Constant to_string => "Bytes.to_string".
 (* end hide *)
+
+End OBytes.
