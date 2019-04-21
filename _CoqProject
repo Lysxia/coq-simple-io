@@ -7,4 +7,7 @@ src/IO_String.v
 src/IO_RawChar.v
 src/IO_Unsafe.v
 src/IO_UnsafeNat.v
+src/IO_Bytes.v
+src/IO_Random.v
+src/IO_Unix.v
 src/SimpleIO.v
