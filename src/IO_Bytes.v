@@ -13,6 +13,9 @@ From SimpleIO Require Import
 
 Module OBytes.
 
+(** Return the length (number of bytes) of the argument. *)
+Parameter length : bytes -> int.
+
 (** [create n] returns a new byte sequence of length [n]. The sequence is
     uninitialized and contains arbitrary bytes.
 
@@ -29,6 +32,7 @@ Parameter of_string : ocaml_string -> bytes.
 Parameter to_string : bytes -> ocaml_string.
 
 (* begin hide *)
+Extract Constant length => "Bytes.length".
 Extract Constant create => "fun n k -> k (Bytes.create n)".
 Extract Constant of_string => "Bytes.of_string".
 Extract Constant to_string => "Bytes.to_string".

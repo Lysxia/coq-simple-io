@@ -22,10 +22,17 @@ Parameter file_descr : Set.
 (** Close a file descriptor. *)
 Parameter close : file_descr -> IO unit.
 
+(** ** Time functions *)
+Parameter sleep : int -> IO unit.
+
 (** ** Internet addresses  *)
 
 (** The abstract type of Internet addresses.  *)
 Parameter inet_addr  : Set.
+
+(** A special IPv4 address, for use only with [bind], representing all the
+    Internet addresses that the host machine possesses. *)
+Parameter inet_addr_any : inet_addr.
 
 (** A special IPv4 address representing the host machine ([127.0.0.1]). *)
 Parameter inet_addr_loopback : inet_addr.
@@ -62,6 +69,21 @@ Variant sockaddr :=
     of sockets. *)
 Parameter socket : socket_domain -> socket_type -> int -> IO file_descr.
 
+(** Accept connections on the given socket. The returned descriptor is a socket
+    connected to the client; the returned address is the address of the
+    connecting client. *)
+Parameter accept : file_descr -> IO (file_descr * sockaddr).
+
+(** Bind a socket to an address. *)
+Parameter bind : file_descr -> sockaddr -> IO unit.
+
+(** Connect a socket to an address. *)
+Parameter connect : file_descr -> sockaddr -> IO unit.
+
+(** Set up a socket for receiving connection requests. The integer argument is
+    the maximal number of pending requests. *)
+Parameter listen : file_descr -> int -> IO unit.
+
 (** The flags for [Unix.recvfrom] and [sendto]. *)
 Variant msg_flag :=
   MSG_OOB
@@ -72,13 +94,13 @@ Variant msg_flag :=
 Parameter recv :                (* LYS: better ways to handle side effects? *)
   file_descr -> bytes -> int -> int -> list msg_flag -> IO (int * bytes).
 
-(** Send data over an unconnected socket. *)
-Parameter sendto :
-  file_descr -> bytes -> int -> int -> list msg_flag -> sockaddr -> IO int.
+(** Send data over a connected socket. *)
+Parameter send : file_descr -> bytes -> int -> int -> list msg_flag -> IO int.
 
 (* begin hide *)
 Extract Inlined Constant file_descr         => "Unix.file_descr".
 Extract Inlined Constant inet_addr          => "Unix.inet_addr".
+Extract Inlined Constant inet_addr_any      => "Unix.inet_addr_any".
 Extract Inlined Constant inet_addr_loopback => "Unix.inet_addr_loopback".
 
 Extract Inductive socket_domain => "Unix.socket_domain"
@@ -99,9 +121,14 @@ Extract Inductive msg_flag      => "Unix.msg_flag"
                                   "Unix.MSG_PEEK"].
 
 Extract Constant close  => "fun f           k -> k (Unix.close f)".
+Extract Constant sleep  => "fun d           k -> k (Unix.sleep d)".
 Extract Constant socket => "fun d t p       k -> k (Unix.socket d t p)".
+Extract Constant accept => "fun f           k -> k (Unix.accept f)".
+Extract Constant bind   => "fun f a         k -> k (Unix.bind f a)".
+Extract Constant connect => "fun f a        k -> k (Unix.connect f a)".
+Extract Constant listen => "fun f i         k -> k (Unix.listen f i)".
 Extract Constant recv   => "fun f b o l g   k -> k (Unix.recv f b o l g, b)".
-Extract Constant sendto => "fun f b o l g a k -> k (Unix.sendto f b o l g a)".
+Extract Constant send   => "fun f b o l g   k -> k (Unix.send f b o l g)".
 (* end hide *)
 
 End OUnix.
