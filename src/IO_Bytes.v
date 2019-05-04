@@ -16,6 +16,12 @@ Module OBytes.
 (** Return the length (number of bytes) of the argument. *)
 Parameter length : bytes -> int.
 
+(** [get s n] returns the byte at index [n] in [s]. *)
+Parameter get : bytes -> int -> IO char.
+
+(** [set s n c] modifies [s], replacing the byte at index [n] with [c]. *)
+Parameter set : bytes -> int -> char -> IO unit.
+
 (** [create n] returns a new byte sequence of length [n]. The sequence is
     uninitialized and contains arbitrary bytes.
 
@@ -33,6 +39,8 @@ Parameter to_string : bytes -> ocaml_string.
 
 (* begin hide *)
 Extract Constant length => "Bytes.length".
+Extract Constant get => "fun s n k -> k (Bytes.get s n)".
+Extract Constant set => "fun s n c k -> k (Bytes.set s n)".
 Extract Constant create => "fun n k -> k (Bytes.create n)".
 Extract Constant of_string => "Bytes.of_string".
 Extract Constant to_string => "Bytes.to_string".
