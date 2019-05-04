@@ -1,3 +1,7 @@
+# 1.1.0
+
+- Added `IO_Stdlib`, `IO_Bytes`, `IO_Random`, `IO_Unix`
+
 # 1.0.0
 
 - Big rewrite
