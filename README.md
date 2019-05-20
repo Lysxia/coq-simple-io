@@ -92,6 +92,7 @@ The following module can be imported separately.
 - `SimpleIO.IO_Bytes`: Byte sequence operations
 - `SimpleIO.IO_Random`: Pseudo-random number generators (PRNG)
 - `SimpleIO.IO_Unix`: Interface to the Unix system
+- `SimpleIO.IO_Float`: Floating-point arithmetic
 
 ## Organization
 

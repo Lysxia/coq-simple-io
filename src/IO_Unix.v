@@ -9,6 +9,7 @@ From Coq Require Import
 
 From SimpleIO Require Import
      IO_Monad
+     IO_Stdlib
      IO_Pervasives.
 (* end hide *)
 
@@ -97,6 +98,18 @@ Parameter recv :                (* LYS: better ways to handle side effects? *)
 (** Send data over a connected socket. *)
 Parameter send : file_descr -> bytes -> int -> int -> list msg_flag -> IO int.
 
+(** ** Socket options *)
+
+Variant socket_float_option :=
+  SO_RCVTIMEO    (* Timeout for input operations *)
+| SO_SNDTIMEO.   (* Timeout for output operations *)
+
+(** Return the current status of a floating-point socket option. *)
+Parameter getsockopt_float : OUnix.file_descr -> socket_float_option -> IO float.
+
+(** Set a floating-point option in the given socket. *)
+Parameter setsockopt_float : OUnix.file_descr -> socket_float_option -> float -> IO unit.
+
 (* begin hide *)
 Extract Inlined Constant file_descr         => "Unix.file_descr".
 Extract Inlined Constant inet_addr          => "Unix.inet_addr".
@@ -119,6 +132,9 @@ Extract Inductive msg_flag      => "Unix.msg_flag"
                                  ["Unix.MSG_OOB"
                                   "Unix.MSG_DONTROUTE"
                                   "Unix.MSG_PEEK"].
+Extract Inductive socket_float_option => "Unix.socket_float_option"
+                                       ["Unix.SO_RCVTIMEO"
+                                        "Unix.SO_SNDTIMEO"].
 
 Extract Constant close  => "fun f           k -> k (Unix.close f)".
 Extract Constant sleep  => "fun d           k -> k (Unix.sleep d)".
@@ -129,6 +145,8 @@ Extract Constant connect => "fun f a        k -> k (Unix.connect f a)".
 Extract Constant listen => "fun f i         k -> k (Unix.listen f i)".
 Extract Constant recv   => "fun f b o l g   k -> k (Unix.recv f b o l g, b)".
 Extract Constant send   => "fun f b o l g   k -> k (Unix.send f b o l g)".
+Extract Constant getsockopt_float => "fun f o   k -> k (Unix.getsockopt_float f o)".
+Extract Constant setsockopt_float => "fun f o v k -> k (Unix.setsockopt_float f o v)".
 (* end hide *)
 
 End OUnix.

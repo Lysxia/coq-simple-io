@@ -11,4 +11,5 @@ src/IO_Stdlib.v
 src/IO_Bytes.v
 src/IO_Random.v
 src/IO_Unix.v
+src/IO_Float.v
 src/SimpleIO.v
