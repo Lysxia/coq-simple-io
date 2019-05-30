@@ -1,9 +1,10 @@
 # 1.2.0
 
 - Added module `IO_Float`
-- Added `OString.escaped`, `OUnix.setsock_timeout`
+- Added `OString.escaped`, `OUnix.setsock_timeout`, `OUnix.error`,
+  `OUnix.catch_error`, `OUnix.raise_error`
 - Fixed extraction of `OBytes.set`
-- Changed `IO_Unix.recv` to no longer returns the input buffer
+- Changed `IO_Unix.recv` to no longer return the input buffer
 - Changed `OBytes.to_string` and `OBytes.from_string` to be `IO` actions
   instead of pure functions
 
