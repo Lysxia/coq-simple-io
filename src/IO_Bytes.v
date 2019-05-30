@@ -40,7 +40,7 @@ Parameter to_string : bytes -> IO ocaml_string.
 (* begin hide *)
 Extract Constant length => "Bytes.length".
 Extract Constant get => "fun s n k -> k (Bytes.get s n)".
-Extract Constant set => "fun s n c k -> k (Bytes.set s n)".
+Extract Constant set => "fun s n c k -> k (Bytes.set s n c)".
 Extract Constant create => "fun n k -> k (Bytes.create n)".
 Extract Constant of_string => "fun s k -> k (Bytes.of_string s)".
 Extract Constant to_string => "fun b k -> k (Bytes.to_string b)".
