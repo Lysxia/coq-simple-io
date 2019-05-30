@@ -25,6 +25,7 @@ $(MAKEFILE_COQ): _CoqProject
 test: build
 	sh test.sh Example
 	sh test.sh TestPervasives
+	sh test.sh TestExtraction
 
 # With installed library (check proper installation)
 install-test: build
