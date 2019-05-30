@@ -37,7 +37,9 @@ Instance Print_option {a : Type} `{Print a} : Print (option a) :=
     | Some x => print_string "Some (";; print x;; print_string ")"
     end.
 
-Instance Eq_string : Eq string := String.eqb.
+(* Using coercions. [String.eqb] also exists since Coq 8.9 but this
+   test needs to be compatible with 8.8. *)
+Instance Eq_string : Eq string := ostring_eqb.
 Instance Print_string : Print string := print_string.
 
 Instance Eq_ostring : Eq ocaml_string := ostring_eqb.
