@@ -67,10 +67,10 @@ Definition main : IO unit :=
   print_int int_constant;; print_newline;;
   print_string "Hello";;
   print_endline " world!";;
-  h <- open_out "/tmp/test_file.txt";;
+  h <- open_out "test_file.txt";;
   output_byte_nat h 65;;
   close_out h;;
-  h <- open_in "/tmp/test_file.txt";;
+  h <- open_in "test_file.txt";;
   n <- input_byte_nat h;;
   close_in h;;
   assert_eq 65 n;;
