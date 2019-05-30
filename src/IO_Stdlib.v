@@ -6,6 +6,8 @@
 From SimpleIO Require Import
      IO_Monad
      IO_Pervasives.
+
+Include IO_Pervasives.
 (* end hide *)
 
 Parameter float : Type.
@@ -15,5 +17,5 @@ Parameter ostring_of_bool : bool -> ocaml_string.
 
 (* begin hide *)
 Extract Inlined Constant float => "float".
-Extract Constant ostring_of_bool => "Stdlib.string_of_bool".
+Extract Constant ostring_of_bool => "Pervasives.string_of_bool".
 (* end hide *)

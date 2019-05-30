@@ -38,8 +38,8 @@ Parameter to_int : float -> int.
 Parameter of_string : ocaml_string -> float.
 
 (* begin hide *)
-Extract Constant to_int    => "Float.to_int".
-Extract Constant of_string => "Float.of_string".
+Extract Constant to_int    => "Pervasives.int_of_float".
+Extract Constant of_string => "Pervasives.float_of_string".
 (* end hide *)
 
 End Unsafe.
@@ -51,9 +51,9 @@ Parameter of_string_opt : ocaml_string -> option float.
 Parameter to_string     : float -> ocaml_string.
 
 (* begin hide *)
-Extract Constant of_int        => "Float.of_int".
-Extract Constant of_string_opt => "Float.of_string_opt".
-Extract Constant to_string     => "Float.to_string".
+Extract Constant of_int        => "Pervasives.float_of_int".
+Extract Constant of_string_opt => "Pervasives.float_of_string_opt".
+Extract Constant to_string     => "Pervasives.string_of_float".
 Extract Constant micro         => "fun x -> x *. 10e-6".
 (* end hide *)
 
