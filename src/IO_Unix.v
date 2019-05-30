@@ -10,6 +10,7 @@ From Coq Require Import
 From SimpleIO Require Import
      IO_Monad
      IO_Stdlib
+     IO_Float
      IO_Pervasives.
 (* end hide *)
 
@@ -109,6 +110,24 @@ Parameter getsockopt_float : OUnix.file_descr -> socket_float_option -> IO float
 
 (** Set a floating-point option in the given socket. *)
 Parameter setsockopt_float : OUnix.file_descr -> socket_float_option -> float -> IO unit.
+
+(** Simple measure of time based on [int] to set socket timeouts with
+    [setsockopt_time]. *)
+Inductive time :=
+| Seconds : int -> time
+| Microsec : int -> time
+.
+
+(** Convert [time] to seconds as a [float]. *)
+Definition time_as_seconds (t : time) : float :=
+  match t with
+  | Seconds n => OFloat.of_int n
+  | Microsec n => OFloat.micro (OFloat.of_int n)
+  end.
+
+(** Set a timeout option in the given socket. *)
+Definition setsock_timeout : OUnix.file_descr -> socket_float_option -> time -> IO unit
+  := fun sock opt t => setsockopt_float sock opt (time_as_seconds t).
 
 (* begin hide *)
 Extract Inlined Constant file_descr         => "Unix.file_descr".

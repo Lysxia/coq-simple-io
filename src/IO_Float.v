@@ -10,6 +10,9 @@ Module OFloat.
 (** Convert an integer to floating-point. *)
 Parameter of_int : int -> float.
 
+(** Multiply by [10e-6]. *)
+Parameter micro : float -> float.
+
 Module Unsafe.
 
 (** Truncate the given floating-point number to an integer.
@@ -51,6 +54,7 @@ Parameter to_string     : float -> ocaml_string.
 Extract Constant of_int        => "Float.of_int".
 Extract Constant of_string_opt => "Float.of_string_opt".
 Extract Constant to_string     => "Float.to_string".
+Extract Constant micro         => "fun x -> x * 10e-6".
 (* end hide *)
 
 End OFloat.
