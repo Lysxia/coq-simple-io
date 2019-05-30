@@ -1,3 +1,12 @@
+# 1.2.0
+
+- Added module `IO_Float`
+- Added `OString.escaped`
+- Fixed extraction of `OBytes.set`
+- Changed `IO_Unix.recv` to no longer returns the input buffer
+- Changed `OBytes.to_string` and `OBytes.from_string` to be `IO` actions
+  instead of pure functions
+
 # 1.1.0
 
 - Added `IO_Stdlib`, `IO_Bytes`, `IO_Random`, `IO_Unix`
