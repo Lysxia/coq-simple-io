@@ -37,6 +37,11 @@ Extract Constant get_opt =>
 Parameter concat : ocaml_string -> list ocaml_string -> ocaml_string.
 Extract Inlined Constant concat => "String.concat".
 
+(** A representation of a string with special characters represented by their
+    escaped sequences. *)
+Parameter escaped : ocaml_string -> ocaml_string.
+Extract Inlined Constant escaped => "String.escaped".
+
 (** ** Unsafe functions *)
 
 Module Unsafe.
