@@ -92,8 +92,8 @@ Variant msg_flag :=
 | MSG_PEEK.
 
 (** Receive data from a connected socket. *)
-Parameter recv :                (* LYS: better ways to handle side effects? *)
-  file_descr -> bytes -> int -> int -> list msg_flag -> IO (int * bytes).
+Parameter recv :
+  file_descr -> bytes -> int -> int -> list msg_flag -> IO int.
 
 (** Send data over a connected socket. *)
 Parameter send : file_descr -> bytes -> int -> int -> list msg_flag -> IO int.
@@ -143,7 +143,7 @@ Extract Constant accept => "fun f           k -> k (Unix.accept f)".
 Extract Constant bind   => "fun f a         k -> k (Unix.bind f a)".
 Extract Constant connect => "fun f a        k -> k (Unix.connect f a)".
 Extract Constant listen => "fun f i         k -> k (Unix.listen f i)".
-Extract Constant recv   => "fun f b o l g   k -> k (Unix.recv f b o l g, b)".
+Extract Constant recv   => "fun f b o l g   k -> k (Unix.recv f b o l g)".
 Extract Constant send   => "fun f b o l g   k -> k (Unix.send f b o l g)".
 Extract Constant getsockopt_float => "fun f o   k -> k (Unix.getsockopt_float f o)".
 Extract Constant setsockopt_float => "fun f o v k -> k (Unix.setsockopt_float f o v)".
