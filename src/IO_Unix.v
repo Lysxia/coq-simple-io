@@ -129,6 +129,92 @@ Definition time_as_seconds (t : time) : float :=
 Definition setsock_timeout : OUnix.file_descr -> socket_float_option -> time -> IO unit
   := fun sock opt t => setsockopt_float sock opt (time_as_seconds t).
 
+(** The type of error codes.  Errors defined in the POSIX standard and additional
+    errors from UNIX98 and BSD. All other errors are mapped to [EUNKNOWNERR]. *)
+Inductive error :=
+| E2BIG  (* Argument list too long *)
+| EACCES  (* Permission denied *)
+| EAGAIN  (* Resource temporarily unavailable; try again *)
+| EBADF  (* Bad file descriptor *)
+| EBUSY  (* Resource unavailable *)
+| ECHILD  (* No child process *)
+| EDEADLK  (* Resource deadlock would occur *)
+| EDOM  (* Domain error for math functions, etc. *)
+| EEXIST  (* File exists *)
+| EFAULT  (* Bad address *)
+| EFBIG  (* File too large *)
+| EINTR  (* Function interrupted by signal *)
+| EINVAL  (* Invalid argument *)
+| EIO  (* Hardware I/O error *)
+| EISDIR  (* Is a directory *)
+| EMFILE  (* Too many open files by the process *)
+| EMLINK  (* Too many links *)
+| ENAMETOOLONG  (* Filename too long *)
+| ENFILE  (* Too many open files in the system *)
+| ENODEV  (* No such device *)
+| ENOENT  (* No such file or directory *)
+| ENOEXEC  (* Not an executable file *)
+| ENOLCK  (* No locks available *)
+| ENOMEM  (* Not enough memory *)
+| ENOSPC  (* No space left on device *)
+| ENOSYS  (* Function not supported *)
+| ENOTDIR  (* Not a directory *)
+| ENOTEMPTY  (* Directory not empty *)
+| ENOTTY  (* Inappropriate I/O control operation *)
+| ENXIO  (* No such device or address *)
+| EPERM  (* Operation not permitted *)
+| EPIPE  (* Broken pipe *)
+| ERANGE  (* Result too large *)
+| EROFS  (* Read-only file system *)
+| ESPIPE  (* Invalid seek e.g. on a pipe *)
+| ESRCH  (* No such process *)
+| EXDEV  (* Invalid link *)
+| EWOULDBLOCK  (* Operation would block *)
+| EINPROGRESS  (* Operation now in progress *)
+| EALREADY  (* Operation already in progress *)
+| ENOTSOCK  (* Socket operation on non-socket *)
+| EDESTADDRREQ  (* Destination address required *)
+| EMSGSIZE  (* Message too long *)
+| EPROTOTYPE  (* Protocol wrong type for socket *)
+| ENOPROTOOPT  (* Protocol not available *)
+| EPROTONOSUPPORT  (* Protocol not supported *)
+| ESOCKTNOSUPPORT  (* Socket type not supported *)
+| EOPNOTSUPP  (* Operation not supported on socket *)
+| EPFNOSUPPORT  (* Protocol family not supported *)
+| EAFNOSUPPORT  (* Address family not supported by protocol family *)
+| EADDRINUSE  (* Address already in use *)
+| EADDRNOTAVAIL  (* Can't assign requested address *)
+| ENETDOWN  (* Network is down *)
+| ENETUNREACH  (* Network is unreachable *)
+| ENETRESET  (* Network dropped connection on reset *)
+| ECONNABORTED  (* Software caused connection abort *)
+| ECONNRESET  (* Connection reset by peer *)
+| ENOBUFS  (* No buffer space available *)
+| EISCONN  (* Socket is already connected *)
+| ENOTCONN  (* Socket is not connected *)
+| ESHUTDOWN  (* Can't send after socket shutdown *)
+| ETOOMANYREFS  (* Too many references: can't splice *)
+| ETIMEDOUT  (* Connection timed out *)
+| ECONNREFUSED  (* Connection refused *)
+| EHOSTDOWN  (* Host is down *)
+| EHOSTUNREACH  (* No route to host *)
+| ELOOP  (* Too many levels of symbolic links *)
+| EOVERFLOW  (* File size or position not representable *)
+| EUNKNOWNERR (code : int) (* Unknown error *)
+.
+
+(** Catch a Unix error.
+
+    The first component is the error code; the second component is the function
+    name; the third component is the string parameter to the function, if it
+    has one, or the empty string otherwise. *)
+Parameter catch_error
+  : forall {a}, IO a -> (error -> ocaml_string -> ocaml_string -> IO a) -> IO a.
+
+
+(** Raise a Unix error. Useful to rethrow errors that can't be handled. *)
+Parameter raise_error : forall {a}, error -> ocaml_string -> ocaml_string -> IO a.
+
 (* begin hide *)
 Extract Inlined Constant file_descr         => "Unix.file_descr".
 Extract Inlined Constant inet_addr          => "Unix.inet_addr".
@@ -166,6 +252,84 @@ Extract Constant recv   => "fun f b o l g   k -> k (Unix.recv f b o l g)".
 Extract Constant send   => "fun f b o l g   k -> k (Unix.send f b o l g)".
 Extract Constant getsockopt_float => "fun f o   k -> k (Unix.getsockopt_float f o)".
 Extract Constant setsockopt_float => "fun f o v k -> k (Unix.setsockopt_float f o v)".
+
+Extract Inductive error => "Unix.error"
+[ "E2BIG"
+  "EACCES"
+  "EAGAIN"
+  "EBADF"
+  "EBUSY"
+  "ECHILD"
+  "EDEADLK"
+  "EDOM"
+  "EEXIST"
+  "EFAULT"
+  "EFBIG"
+  "EINTR"
+  "EINVAL"
+  "EIO"
+  "EISDIR"
+  "EMFILE"
+  "EMLINK"
+  "ENAMETOOLONG"
+  "ENFILE"
+  "ENODEV"
+  "ENOENT"
+  "ENOEXEC"
+  "ENOLCK"
+  "ENOMEM"
+  "ENOSPC"
+  "ENOSYS"
+  "ENOTDIR"
+  "ENOTEMPTY"
+  "ENOTTY"
+  "ENXIO"
+  "EPERM"
+  "EPIPE"
+  "ERANGE"
+  "EROFS"
+  "ESPIPE"
+  "ESRCH"
+  "EXDEV"
+  "EWOULDBLOCK"
+  "EINPROGRESS"
+  "EALREADY"
+  "ENOTSOCK"
+  "EDESTADDRREQ"
+  "EMSGSIZE"
+  "EPROTOTYPE"
+  "ENOPROTOOPT"
+  "EPROTONOSUPPORT"
+  "ESOCKTNOSUPPORT"
+  "EOPNOTSUPP"
+  "EPFNOSUPPORT"
+  "EAFNOSUPPORT"
+  "EADDRINUSE"
+  "EADDRNOTAVAIL"
+  "ENETDOWN"
+  "ENETUNREACH"
+  "ENETRESET"
+  "ECONNABORTED"
+  "ECONNRESET"
+  "ENOBUFS"
+  "EISCONN"
+  "ENOTCONN"
+  "ESHUTDOWN"
+  "ETOOMANYREFS"
+  "ETIMEDOUT"
+  "ECONNREFUSED"
+  "EHOSTDOWN"
+  "EHOSTUNREACH"
+  "ELOOP"
+  "EOVERFLOW"
+  "EUNKNOWNERR" ].
+
+Extract Constant catch_error => "fun u h k ->
+  k (try u (fun a -> a) with
+     | Unix.Unix_error (e, fname, sparam) -> h e fname sparam)".
+
+Extract Constant raise_error =>
+  "fun e fname sparam _k -> raise (Unix.Unix_error (e, fname, sparam))".
 (* end hide *)
 
 End OUnix.
