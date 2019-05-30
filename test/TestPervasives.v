@@ -1,10 +1,12 @@
 From Coq.Strings Require Import
      Ascii String.
+From Coq Require Import List.
+Import ListNotations.
 
 From Coq.extraction Require Import
      ExtrOcamlIntConv.
 
-From SimpleIO Require Import SimpleIO IO_UnsafeNat.
+From SimpleIO Require Import SimpleIO IO_UnsafeNat IO_Bytes.
 Import IO.Notations.
 
 Local Open Scope string_scope.
@@ -24,6 +26,10 @@ Instance Print_nat : Print nat := print_nat.
 Instance Eq_string : Eq string := String.eqb.
 Instance Print_string : Print string := print_string.
 
+Instance Eq_char : Eq char := char_eqb.
+Instance Print_char : Print char :=
+  fun c => print_string (OString.escaped (OString.of_list [c])).
+
 Definition assert_eq {a} `{Eq a} `{Print a} (expect actual : a) : IO unit :=
   if eqb expect actual then
     IO.ret tt
@@ -33,6 +39,8 @@ Definition assert_eq {a} `{Eq a} `{Print a} (expect actual : a) : IO unit :=
      exit_nat 1).
 
 Definition main : IO unit :=
+  (* Pervasives *)
+
   print_char (char_of_ascii "a");; print_newline;;
   print_int int_constant;; print_newline;;
   print_string "Hello";;
@@ -52,6 +60,24 @@ Definition main : IO unit :=
   decr_ref_nat r;;
   j <- read_ref r;;
   assert_eq 0 j;;
+
+  (* Bytes *)
+
+  b <- OBytes.of_string "test";;
+  s <- OBytes.to_string b;;
+  assert_eq "test" (from_ostring s);;
+
+  let n := nat_of_int (OBytes.length b) in
+  assert_eq 4 n;;
+
+  let i0 := int_of_nat 0 in
+  OBytes.set b i0 "r"%char;;
+  r <- OBytes.get b i0;;
+  assert_eq ("r"%char : char) r;;
+
+  b <- OBytes.create (int_of_nat 1);;
+  assert_eq 1 (nat_of_int (OBytes.length b));;
+
   exit_nat 0.
 
 Definition run_main : io_unit := IO.unsafe_run main.
