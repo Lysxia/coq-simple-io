@@ -116,11 +116,6 @@ The following module can be imported separately.
 - `SimpleIO.IO_UnsafeNat`: `Pervasives` functions adapted to `nat`
   (unsafety because of overflow and underflow).
 
-## Organization
-
-Regular development happens on the `master` branch. I will synchronize the `dev`
-branch regularly to publish changes to Coq CI and coq-extra-dev.
-
 ## Related
 
 - [Ynot](https://github.com/ynot-harvard/ynot)
