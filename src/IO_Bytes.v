@@ -31,19 +31,19 @@ Parameter create : int -> IO bytes.
 
 (** Return a new byte sequence that contains the same bytes as the given
     string. *)
-Parameter of_string : ocaml_string -> bytes.
+Parameter of_string : ocaml_string -> IO bytes.
 
 (** Return a new string that contains the same bytes as the given byte
     sequence. *)
-Parameter to_string : bytes -> ocaml_string.
+Parameter to_string : bytes -> IO ocaml_string.
 
 (* begin hide *)
 Extract Constant length => "Bytes.length".
 Extract Constant get => "fun s n k -> k (Bytes.get s n)".
 Extract Constant set => "fun s n c k -> k (Bytes.set s n)".
 Extract Constant create => "fun n k -> k (Bytes.create n)".
-Extract Constant of_string => "Bytes.of_string".
-Extract Constant to_string => "Bytes.to_string".
+Extract Constant of_string => "fun s k -> k (Bytes.of_string s)".
+Extract Constant to_string => "fun b k -> k (Bytes.to_string b)".
 (* end hide *)
 
 End OBytes.
