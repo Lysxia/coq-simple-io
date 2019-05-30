@@ -33,6 +33,12 @@ To use this library:
 
 ```coq
 Require Import SimpleIO.SimpleIO.
+
+(* And to use the monadic notations: *)
+Import IO.Notations.
+Local Open Scope io_scope.
+
+(* Equivalent notations can be found ext-lib, using its [Monad] type class. *)
 ```
 
 Combinators for IO actions.
@@ -46,6 +52,14 @@ Parameter ret : forall {a}, a -> IO a.
 Parameter bind : forall {a b}, IO a -> (a -> IO b) -> IO b.
 Parameter fix_io : forall {a b}, ((a -> IO b) -> (a -> IO b)) -> a -> IO b.
 (* etc. *)
+
+Module Notations.
+Notation "c >>= f" := (bind c f)
+Notation "f =<< c" := (bind c f)
+Notation "x <- c1 ;; c2" := (bind c1 (fun x => c2))
+Notation "e1 ;; e2" := (_ <- e1%io ;; e2%io)%io
+Notation delay io := (delay_io (fun _ => io)).
+End Notations.
 
 End IO.
 ```
@@ -75,24 +89,32 @@ The source code can be found under `src/`.
 
 - `SimpleIO.SimpleIO`: Reexports default modules.
 
+# Default modules
+
 The following modules are imported with `SimpleIO.SimpleIO`.
 
 - `SimpleIO.IO_Monad`: Definition of `IO` and basic combinators.
 - `SimpleIO.IO_Pervasives`: Wrappers around `Pervasives` from OCaml's standard library.
-- `SimpleIO.IO_PervasivesAxioms`: Theory for `IO_Pervasives`
+- `SimpleIO.IO_PervasivesAxioms`: Basic theory for pure functions.
 - `SimpleIO.IO_Stdlib`: Wrappers around `Stdlib` from OCaml's standard library.
 - `SimpleIO.IO_Exceptions`: Catch common exceptions.
 - `SimpleIO.IO_RawChar`: Utilities that rely on `ExtrOcamlString`.
 - `SimpleIO.IO_String`: Operations on OCaml strings.
 
+# Auxiliary modules
+
 The following module can be imported separately.
 
+- `SimpleIO.IO_Bytes`: Mutable byte sequences.
+- `SimpleIO.IO_Random`: Pseudo-random number generators (PRNG).
+- `SimpleIO.IO_Unix`: Interface to the Unix system.
+- `SimpleIO.IO_Float`: Floating-point arithmetic.
+
+## Unsafe modules
+
 - `SimpleIO.IO_Unsafe`: Unsafe operations.
-- `SimpleIO.IO_UnsafeNat`: `Pervasives` functions adapted to `nat`.
-- `SimpleIO.IO_Bytes`: Byte sequence operations
-- `SimpleIO.IO_Random`: Pseudo-random number generators (PRNG)
-- `SimpleIO.IO_Unix`: Interface to the Unix system
-- `SimpleIO.IO_Float`: Floating-point arithmetic
+- `SimpleIO.IO_UnsafeNat`: `Pervasives` functions adapted to `nat`
+  (unsafety because of overflow and underflow).
 
 ## Organization
 
