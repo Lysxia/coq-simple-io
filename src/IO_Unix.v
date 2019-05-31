@@ -10,8 +10,7 @@ From Coq Require Import
 From SimpleIO Require Import
      IO_Monad
      IO_Stdlib
-     IO_Float
-     IO_Pervasives.
+     IO_Float.
 (* end hide *)
 
 Module OUnix.

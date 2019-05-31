@@ -8,7 +8,7 @@ From SimpleIO Require Import
   IO_UnsafeNat.
 
 Definition test :=
-  ( IO_Pervasives.print_string,
+  ( IO_Stdlib.print_string,
     @IO_Exceptions.catch_eof,
     IO_RawChar.int_of_ascii,
     IO_String.OString.length,

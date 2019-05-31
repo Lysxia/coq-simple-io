@@ -18,7 +18,7 @@ From Coq.extraction Require Import
 
 From SimpleIO Require Import
      IO_Monad
-     IO_Pervasives.
+     IO_Stdlib.
 
 Extraction Blacklist Bytes Pervasives String .
 (* end hide *)
@@ -71,7 +71,7 @@ Coercion to_ostring : string >-> ocaml_string.
 (** * Input-output *)
 
 (** For output, you can use the functions on [char] and [ocaml_string]
-    from [IO_Pervasives] directly, thanks to the coercions
+    from [IO_Stdlib] directly, thanks to the coercions
     [char_of_ascii] and [to_ostring] above. *)
 
 (** ** Standard channels *)

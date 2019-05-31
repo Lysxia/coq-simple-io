@@ -1,7 +1,7 @@
-(** Theory for [IO_Pervasives] *)
+(** Theory for [IO_Stdlib] *)
 
 (* begin hide *)
-From SimpleIO Require Import IO_Pervasives.
+From SimpleIO Require Import IO_Stdlib.
 (* end hide *)
 
 Axiom char_of_int_of_char :

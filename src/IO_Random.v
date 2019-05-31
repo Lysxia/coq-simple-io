@@ -8,7 +8,7 @@ From Coq Require Import
      ExtrOcamlIntConv.
 From SimpleIO Require Import
      IO_Monad
-     IO_Pervasives.
+     IO_Stdlib.
 (* end hide *)
 
 Module ORandom.

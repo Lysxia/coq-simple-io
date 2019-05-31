@@ -10,7 +10,7 @@ From Coq.extraction Require Import
 
 From SimpleIO Require Import
      IO_Monad
-     IO_Pervasives.
+     IO_Stdlib.
 
 Import IO.Notations.
 

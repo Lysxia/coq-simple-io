@@ -5,7 +5,7 @@ From Coq.extraction Require Import
      ExtrOcamlIntConv.
 
 From SimpleIO Require Import
-     IO_Pervasives.
+     IO_Stdlib.
 
 (** Throws an exception if the divisor is 0. *)
 Parameter unsafe_int_div : int -> int -> int.

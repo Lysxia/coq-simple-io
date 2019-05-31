@@ -13,7 +13,7 @@ From Coq Require Import
      extraction.ExtrOcamlIntConv.
 
 From SimpleIO Require Import
-     IO_Pervasives.
+     IO_Stdlib.
 
 Extraction Blacklist Bytes Pervasives String .
 (* end hide *)

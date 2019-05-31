@@ -94,9 +94,8 @@ The source code can be found under `src/`.
 The following modules are imported with `SimpleIO.SimpleIO`.
 
 - `SimpleIO.IO_Monad`: Definition of `IO` and basic combinators.
-- `SimpleIO.IO_Pervasives`: Wrappers around `Pervasives` from OCaml's standard library.
-- `SimpleIO.IO_PervasivesAxioms`: Basic theory for pure functions.
 - `SimpleIO.IO_Stdlib`: Wrappers around `Stdlib` from OCaml's standard library.
+- `SimpleIO.IO_StdlibAxioms`: Basic theory for pure `Stdlib` functions.
 - `SimpleIO.IO_Exceptions`: Catch common exceptions.
 - `SimpleIO.IO_RawChar`: Utilities that rely on `ExtrOcamlString`.
 - `SimpleIO.IO_String`: Operations on OCaml strings.

@@ -1,6 +1,5 @@
 From Coq Require Import ExtrOcamlIntConv.
 From SimpleIO Require Import
-     IO_Pervasives
      IO_Stdlib.
 
 Module OFloat.
