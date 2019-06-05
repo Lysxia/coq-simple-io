@@ -9,7 +9,9 @@ env:
   - OPAMWITHTEST=true
   matrix:
   - OCAML_VERSION=4.05 COQ_VERSION="8.8.2"
-  - OCAML_VERSION=4.07 COQ_VERSION="8.9.0"
+  - OCAML_VERSION=4.07 COQ_VERSION="8.9.1"
+  - OCAML_VERSION=4.07 COQ_VERSION="8.10.dev"
+  - OCAML_VERSION=4.07 COQ_VERSION="dev"
 matrix:
   fast_finish: true
   allow_failures:
@@ -31,7 +33,8 @@ install:
 - eval $(opam config env)
 - opam repo add coq-released https://coq.inria.fr/opam/released
 - opam repo add coq-extra-dev https://coq.inria.fr/opam/extra-dev
-- opam pin add coq $COQ_VERSION
+- opam repo add coq-core-dev https://coq.inria.fr/opam/core-dev
+- opam pin add coq -k version $COQ_VERSION
 - opam pin add $THIS_PACKAGE --kind=path . -n  # Make opam aware of our dependency constraints
 - opam install $THIS_PACKAGE --deps-only -v
 - opam list
@@ -41,3 +44,7 @@ script:
 - opam install $THIS_PACKAGE -v
 - opam upgrade
 - opam remove $THIS_PACKAGE -v
+
+before_cache:
+- if [ $TRAVIS_OS_NAME = osx ]; then brew cleanup; fi
+- opam clean
