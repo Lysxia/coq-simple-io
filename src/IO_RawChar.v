@@ -20,7 +20,7 @@ From SimpleIO Require Import
      IO_Monad
      IO_Stdlib.
 
-Extraction Blacklist Bytes Pervasives String .
+Extraction Blacklist Bytes List Pervasives String .
 (* end hide *)
 
 (** * Conversions *)
