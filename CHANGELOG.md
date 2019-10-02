@@ -1,3 +1,7 @@
+# 1.2.1
+
+- Blacklisted `List`
+
 # 1.2.0
 
 - Added module `IO_Float`
