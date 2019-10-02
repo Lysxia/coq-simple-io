@@ -4,13 +4,12 @@ OCAMLBUILD = ocamlbuild
 MAKEFILE_COQ = Makefile.coq
 MAKE_COQ = $(MAKE) -f $(MAKEFILE_COQ)
 
-.PHONY: all build install clean example depgraph html html-raw
+.PHONY: all build install clean example depgraph doc html html-raw
 
 build: $(MAKEFILE_COQ)
 	$(MAKE_COQ)
 
-doc: $(MAKEFILE_COQ)
-	$(MAKE_COQ) html
+doc: html
 
 install: build
 	$(MAKE_COQ) install
@@ -32,10 +31,9 @@ install-test: build
 	sh test.sh Example -i ""
 
 clean:
-	if [ -e Makefile.coq ]; then $(MAKE) -f Makefile.coq clean; fi
-	$(RM) -f Makefile.coq* *.cmxs
-	$(RM) -rf _build/ build/
-	$(RM) {./,*/,*/*/}{*.{v.d,vo,glob},.*.aux}
+	if [ -e Makefile.coq ]; then $(MAKE) -f Makefile.coq cleanall; fi
+	$(RM) Makefile.coq* *.cmxs
+	$(RM) -r _build/ build/
 	$(RM) $(DEPS_DOT) $(DEPS_OUT)
 	$(RM) test/*.ml{i,}
 
@@ -67,6 +65,6 @@ export COQDOCFLAGS
 
 html-raw: Makefile.coq
 	rm -rf html
-	$(MAKE) -f Makefile.coq html
+	$(MAKE_COQ) html
 
 ## -------------------------------------------------------
