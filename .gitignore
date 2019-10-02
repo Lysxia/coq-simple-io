@@ -13,3 +13,5 @@ deps.dot
 deps.jpg
 Makefile.coq
 Makefile.coq.conf
+doc/
+html/
