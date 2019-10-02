@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link href="coqdoc.css" rel="stylesheet" type="text/css" />
+<link href="coqdocjs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript" src="coqdocjs.js"></script>
+</head>
+
+<body onload="document.getElementById('content').focus()">
+  <div id="header">
+    <span class="left">
+      <span class="modulename"> <script> document.write(document.title) </script> </span>
+    </span>
+
+    <span class="button" id="toggle-proofs"></span>
+
+    <span class="right">
+      <a href="../">Project Page</a>
+      <a href="./indexpage.html"> Index </a>
+      <a href="./toc.html"> Table of Contents </a>
+    </span>
+</div>
+    <div id="content" tabindex="-1" onblur="document.getElementById('content').focus()">
+    <div id="main">
+<h1 class="libtitle">SimpleIO.IO_String</h1>
+
+<div class="code">
+</div>
+
+<div class="doc">
+<a name="lab11"></a><h1 class="section">Strings</h1>
+
+<div class="paragraph"> </div>
+
+ The <span class="inlinecode"><span class="id" title="library">String</span></span> module from OCaml's standard library.
+
+<div class="paragraph"> </div>
+
+    Operations are meant to be used qualified, e.g., <span class="inlinecode"><span class="id" title="var">OString.length</span></span>.
+
+<div class="paragraph"> </div>
+
+    The inner module is named <span class="inlinecode"><a class="idref" href="SimpleIO.IO_String.html#OString"><span class="id" title="module">OString</span></a></span> to avoid the conflict with
+    with <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.String.html#"><span class="id" title="library">Coq.Strings.String</span></a></span>.
+ 
+</div>
+<div class="code">
+
+<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab12"></a><h1 class="section">String module</h1>
+
+</div>
+<div class="code">
+<span class="id" title="keyword">Module</span> <a name="OString"><span class="id" title="module">OString</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Length of an <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a></span>. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="OString.length"><span class="id" title="axiom">length</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>.<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Inlined</span> <span class="id" title="var">Constant</span> <span class="id" title="var">length</span> =&gt; "String.length".<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Index into an <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a></span>.
+
+<div class="paragraph"> </div>
+
+    Equals <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#None"><span class="id" title="constructor">None</span></a></span> if out of bounds. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="OString.get_opt"><span class="id" title="axiom">get_opt</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#option"><span class="id" title="inductive">option</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a>.<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">get_opt</span> =&gt;<br/>
+&nbsp;&nbsp;"fun s i -&gt; try Some (String.get s i)
+              with Invalid_argument _ -&gt; None".<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Concatenates strings with a separator. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="OString.concat"><span class="id" title="axiom">concat</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Inlined</span> <span class="id" title="var">Constant</span> <span class="id" title="var">concat</span> =&gt; "String.concat".<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+A representation of a string with special characters represented by their
+    escaped sequences. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="OString.escaped"><span class="id" title="axiom">escaped</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Inlined</span> <span class="id" title="var">Constant</span> <span class="id" title="var">escaped</span> =&gt; "String.escaped".<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab13"></a><h2 class="section">Unsafe functions</h2>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Module</span> <a name="OString.Unsafe"><span class="id" title="module">Unsafe</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Index into an <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a></span>, without an <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#option"><span class="id" title="inductive">option</span></a></span> wrapper.
+
+<div class="paragraph"> </div>
+
+    Throws an exception if out of bounds. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="OString.Unsafe.get"><span class="id" title="axiom">get</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a>.<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Inlined</span> <span class="id" title="var">Constant</span> <span class="id" title="var">get</span> =&gt; "String.get".<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Create a string of repeated characters.
+
+<div class="paragraph"> </div>
+
+    Throws an exception if <span class="inlinecode"><a class="idref" href="SimpleIO.IO_UnsafeNat.html#n"><span class="id" title="variable">n</span></a></span> <span class="inlinecode">&lt;</span> <span class="inlinecode">0</span> or <span class="inlinecode"><a class="idref" href="SimpleIO.IO_UnsafeNat.html#n"><span class="id" title="variable">n</span></a></span> <span class="inlinecode">&gt;</span> <span class="inlinecode"><span class="id" title="var">Sys.max_string_length</span></span>. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="OString.Unsafe.make"><span class="id" title="axiom">make</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Inlined</span> <span class="id" title="var">Constant</span> <span class="id" title="var">make</span> =&gt; "String.make".<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Create a string with a function from indices to characters.
+
+<div class="paragraph"> </div>
+
+    Throws an exception if <span class="inlinecode"><a class="idref" href="SimpleIO.IO_UnsafeNat.html#n"><span class="id" title="variable">n</span></a></span> <span class="inlinecode">&lt;</span> <span class="inlinecode">0</span> or <span class="inlinecode"><a class="idref" href="SimpleIO.IO_UnsafeNat.html#n"><span class="id" title="variable">n</span></a></span> <span class="inlinecode">&gt;</span> <span class="inlinecode"><span class="id" title="var">Sys.max_string_length</span></span>. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="OString.Unsafe.init"><span class="id" title="axiom">init</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">(</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Inlined</span> <span class="id" title="var">Constant</span> <span class="id" title="var">init</span> =&gt; "String.init".<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<span class="inlinecode"><a class="idref" href="SimpleIO.IO_String.html#OString.Unsafe.sub"><span class="id" title="axiom">sub</span></a></span> <span class="inlinecode"><span class="id" title="var">i</span></span> <span class="inlinecode"><span class="id" title="var">len</span></span> <span class="inlinecode"><a class="idref" href="SimpleIO.IO_String.html#s"><span class="id" title="variable">s</span></a></span> is the substring of <span class="inlinecode"><a class="idref" href="SimpleIO.IO_String.html#s"><span class="id" title="variable">s</span></a></span> with length <span class="inlinecode"><span class="id" title="var">len</span></span>
+    starting at index <span class="inlinecode"><span class="id" title="var">i</span></span>.
+
+<div class="paragraph"> </div>
+
+    Throws an exception if out of bounds. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="OString.Unsafe.sub"><span class="id" title="axiom">sub</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Inlined</span> <span class="id" title="var">Constant</span> <span class="id" title="var">sub</span> =&gt; "String.sub".<br/>
+
+<br/>
+<span class="id" title="keyword">End</span> <a class="idref" href="SimpleIO.IO_String.html#OString.Unsafe"><span class="id" title="module">Unsafe</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab14"></a><h1 class="section">Extras</h1>
+
+<div class="paragraph"> </div>
+
+ Conversion between <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a></span> and <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a></span> <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a></span>. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="OString.to_list"><span class="id" title="axiom">to_list</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a name="OString.of_list"><span class="id" title="axiom">of_list</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Axiom</span> <a name="OString.from_to_list"><span class="id" title="axiom">from_to_list</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">forall</span> <span class="id" title="var">s</span>, <a class="idref" href="SimpleIO.IO_String.html#OString.to_list"><span class="id" title="axiom">to_list</span></a> (<a class="idref" href="SimpleIO.IO_String.html#OString.of_list"><span class="id" title="axiom">of_list</span></a> <a class="idref" href="SimpleIO.IO_String.html#s"><span class="id" title="variable">s</span></a>) <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"><span class="id" title="notation">=</span></a> <a class="idref" href="SimpleIO.IO_String.html#s"><span class="id" title="variable">s</span></a>.<br/>
+<span class="id" title="keyword">Axiom</span> <a name="OString.to_from_list"><span class="id" title="axiom">to_from_list</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">forall</span> <span class="id" title="var">s</span>, <a class="idref" href="SimpleIO.IO_String.html#OString.of_list"><span class="id" title="axiom">of_list</span></a> (<a class="idref" href="SimpleIO.IO_String.html#OString.to_list"><span class="id" title="axiom">to_list</span></a> <a class="idref" href="SimpleIO.IO_String.html#s"><span class="id" title="variable">s</span></a>) <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"><span class="id" title="notation">=</span></a> <a class="idref" href="SimpleIO.IO_String.html#s"><span class="id" title="variable">s</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab15"></a><h2 class="section">Extraction</h2>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">to_list</span> =&gt;<br/>
+&nbsp;&nbsp;"fun s -&gt;
+    let rec go n z =
+      if n = -1 then z
+      else go (n-1) (String.get s n :: z)
+    in go (String.length s - 1) []".<br/>
+
+<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">of_list</span> =&gt;<br/>
+&nbsp;&nbsp;"fun z -&gt; Bytes.unsafe_to_string (
+    let b = Bytes.create (List.length z) in
+    let rec go z i =
+      match z with
+      | c :: z -&gt; Bytes.set b i c; go z (i+1)
+      | [] -&gt; b
+    in go z 0)".<br/>
+
+<br/>
+<span class="id" title="keyword">End</span> <a class="idref" href="SimpleIO.IO_String.html#OString"><span class="id" title="module">OString</span></a>.<br/>
+</div>
+</div>
+<div id="footer">
+  Generated by <a href="http://coq.inria.fr/">coqdoc</a> and improved with <a href="https://github.com/tebbi/coqdocjs">CoqdocJS</a>
+</div>
+</div>
+</body>
+
+</html>

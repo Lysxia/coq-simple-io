@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link href="coqdoc.css" rel="stylesheet" type="text/css" />
+<link href="coqdocjs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript" src="coqdocjs.js"></script>
+</head>
+
+<body onload="document.getElementById('content').focus()">
+  <div id="header">
+    <span class="left">
+      <span class="modulename"> <script> document.write(document.title) </script> </span>
+    </span>
+
+    <span class="button" id="toggle-proofs"></span>
+
+    <span class="right">
+      <a href="../">Project Page</a>
+      <a href="./indexpage.html"> Index </a>
+      <a href="./toc.html"> Table of Contents </a>
+    </span>
+</div>
+    <div id="content" tabindex="-1" onblur="document.getElementById('content').focus()">
+    <div id="main">
+<h1 class="libtitle">SimpleIO.IO_Monad</h1>
+
+<div class="code">
+</div>
+
+<div class="doc">
+<a name="lab1"></a><h1 class="section">The <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="module">IO</span></a></span> monad</h1>
+
+</div>
+<div class="code">
+
+<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab2"></a><h1 class="section">Main interface</h1>
+
+<div class="paragraph"> </div>
+
+ The IO monad. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="IO"><span class="id" title="axiom">IO</span></a> : <span class="id" title="keyword">Type</span> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <span class="id" title="keyword">Type</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+The result type of <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Monad.html#IO.unsafe_run"><span class="id" title="axiom">unsafe_run</span></a></span>.
+
+<div class="paragraph"> </div>
+
+    For example, to extract a program <span class="inlinecode"><span class="id" title="var">main</span></span> <span class="inlinecode">:</span> <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="module">IO</span></a></span> <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a></span> to
+    a file named <span class="inlinecode"><span class="id" title="var">main.ml</span></span>:
+
+<div class="paragraph"> </div>
+
+<br/>
+<span class="inlinecode">&nbsp;&nbsp;<span class="id" title="keyword">Definition</span> <span class="id" title="var">exe</span> : <a class="idref" href="SimpleIO.IO_Monad.html#io_unit"><span class="id" title="axiom">io_unit</span></a> := <a class="idref" href="SimpleIO.IO_Monad.html#IO.unsafe_run"><span class="id" title="axiom">unsafe_run</span></a> <span class="id" title="var">main</span>.<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Extraction</span> "main.ml" <span class="id" title="var">exe</span>.
+<div class="paragraph"> </div>
+
+</span> 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="io_unit"><span class="id" title="axiom">io_unit</span></a> : <span class="id" title="keyword">Type</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+All identifiers are meant to be used qualified. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Module</span> <a name="IO"><span class="id" title="module">IO</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab3"></a><h2 class="section">Functions</h2>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Parameter</span> <a name="IO.ret"><span class="id" title="axiom">ret</span></a> : <span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span>}, <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a name="IO.bind"><span class="id" title="axiom">bind</span></a> : <span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span> <span class="id" title="var">b</span>}, <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">(</span></a><a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#b"><span class="id" title="variable">b</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#b"><span class="id" title="variable">b</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Fixpoint combinator. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="IO.fix_io"><span class="id" title="axiom">fix_io</span></a> : <span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span> <span class="id" title="var">b</span>},<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">((</span></a><a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#b"><span class="id" title="variable">b</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">(</span></a><a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#b"><span class="id" title="variable">b</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">))</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#b"><span class="id" title="variable">b</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Delay eager evaluation.
+
+<div class="paragraph"> </div>
+
+    Some IO actions can be expensive closures.
+    <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Monad.html#IO.delay_io"><span class="id" title="axiom">delay_io</span></a></span> allows the computation of the closure to
+    happen during execution, instead of eagerly during the
+    definition of the IO action.
+ 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="IO.delay_io"><span class="id" title="axiom">delay_io</span></a> : <span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span>}, <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">(</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Apply a pure function to the result of an action. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Definition</span> <a name="IO.map"><span class="id" title="definition">map</span></a> {<span class="id" title="var">a</span> <span class="id" title="var">b</span>} : <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">(</span></a><a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#b"><span class="id" title="variable">b</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#b"><span class="id" title="variable">b</span></a> :=<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">fun</span> <span class="id" title="var">f</span> <span class="id" title="var">m</span> =&gt; <a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#m"><span class="id" title="variable">m</span></a> (<span class="id" title="keyword">fun</span> <span class="id" title="var">a</span> =&gt; <a class="idref" href="SimpleIO.IO_Monad.html#IO.ret"><span class="id" title="axiom">ret</span></a> (<a class="idref" href="SimpleIO.IO_Monad.html#f"><span class="id" title="variable">f</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a>)).<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Infinite stateful loop. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Definition</span> <a name="IO.loop"><span class="id" title="definition">loop</span></a> : <span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span> <span class="id" title="var">void</span>}, <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">(</span></a><a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">(</span></a><a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#void"><span class="id" title="variable">void</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">)</span></a> :=<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">fun</span> <span class="id" title="var">_</span> <span class="id" title="var">_</span> <span class="id" title="var">f</span> =&gt; <a class="idref" href="SimpleIO.IO_Monad.html#IO.fix_io"><span class="id" title="axiom">fix_io</span></a> (<span class="id" title="keyword">fun</span> <span class="id" title="var">k</span> <span class="id" title="var">x</span> =&gt; <a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> (<a class="idref" href="SimpleIO.IO_Monad.html#f"><span class="id" title="variable">f</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#x"><span class="id" title="variable">x</span></a>) <a class="idref" href="SimpleIO.IO_Monad.html#k"><span class="id" title="variable">k</span></a>).<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+While loop. Stops once the output is <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#None"><span class="id" title="constructor">None</span></a></span>. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Definition</span> <a name="IO.while_loop"><span class="id" title="definition">while_loop</span></a> : <span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span>}, <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">(</span></a><a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#option"><span class="id" title="inductive">option</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a>)<a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">(</span></a><a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">)</span></a> :=<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">fun</span> <span class="id" title="var">_</span> <span class="id" title="var">f</span> =&gt; <a class="idref" href="SimpleIO.IO_Monad.html#IO.fix_io"><span class="id" title="axiom">fix_io</span></a> (<span class="id" title="keyword">fun</span> <span class="id" title="var">k</span> <span class="id" title="var">x</span> =&gt; <a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> (<a class="idref" href="SimpleIO.IO_Monad.html#f"><span class="id" title="variable">f</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#x"><span class="id" title="variable">x</span></a>) (<span class="id" title="keyword">fun</span> <span class="id" title="var">y'</span> =&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="keyword">match</span> <a class="idref" href="SimpleIO.IO_Monad.html#y'"><span class="id" title="variable">y'</span></a> <span class="id" title="keyword">with</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#None"><span class="id" title="constructor">None</span></a> =&gt; <a class="idref" href="SimpleIO.IO_Monad.html#IO.ret"><span class="id" title="axiom">ret</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#tt"><span class="id" title="constructor">tt</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;| <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#Some"><span class="id" title="constructor">Some</span></a> <span class="id" title="var">y</span> =&gt; <a class="idref" href="SimpleIO.IO_Monad.html#k"><span class="id" title="variable">k</span></a> <span class="id" title="var">y</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="keyword">end</span>)).<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab4"></a><h2 class="section">Notations</h2>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Module</span> <a name="IO.Notations"><span class="id" title="module">Notations</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Delimit</span> <span class="id" title="keyword">Scope</span> <span class="id" title="var">io_scope</span> <span class="id" title="keyword">with</span> <span class="id" title="var">io</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Notation</span> <a name="3cd93ac874989291e714dd9264c9a62c"><span class="id" title="notation">&quot;</span></a>c &gt;&gt;= f" := (<a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> <span class="id" title="var">c</span> <span class="id" title="var">f</span>)<br/>
+(<span class="id" title="tactic">at</span> <span class="id" title="keyword">level</span> 50, <span class="id" title="tactic">left</span> <span class="id" title="keyword">associativity</span>) : <span class="id" title="var">io_scope</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Notation</span> <a name="6d1ca9e53ae71f736ad68472349e4c9e"><span class="id" title="notation">&quot;</span></a>f =&lt;&lt; c" := (<a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> <span class="id" title="var">c</span> <span class="id" title="var">f</span>)<br/>
+(<span class="id" title="tactic">at</span> <span class="id" title="keyword">level</span> 51, <span class="id" title="tactic">right</span> <span class="id" title="keyword">associativity</span>) : <span class="id" title="var">io_scope</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Notation</span> <a name="164113ba0bd5a05cfd732828da5c8e55"><span class="id" title="notation">&quot;</span></a>x &lt;- c1 ;; c2" := (<a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> <span class="id" title="var">c1</span> (<span class="id" title="keyword">fun</span> <span class="id" title="var">x</span> =&gt; <span class="id" title="var">c2</span>))<br/>
+(<span class="id" title="tactic">at</span> <span class="id" title="keyword">level</span> 100, <span class="id" title="var">c1</span> <span class="id" title="tactic">at</span> <span class="id" title="var">next</span> <span class="id" title="keyword">level</span>, <span class="id" title="tactic">right</span> <span class="id" title="keyword">associativity</span>) : <span class="id" title="var">io_scope</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Notation</span> <a name="de50b9c597ea8777d678998be4ddbc71"><span class="id" title="notation">&quot;</span></a>e1 ;; e2" := (<span class="id" title="var">_</span> <a class="idref" href="SimpleIO.IO_Monad.html#164113ba0bd5a05cfd732828da5c8e55"><span class="id" title="notation">&lt;-</span></a> <span class="id" title="var">e1</span>%<span class="id" title="var">io</span> <a class="idref" href="SimpleIO.IO_Monad.html#164113ba0bd5a05cfd732828da5c8e55"><span class="id" title="notation">;;</span></a> <span class="id" title="var">e2</span>%<span class="id" title="var">io</span>)%<span class="id" title="var">io</span><br/>
+(<span class="id" title="tactic">at</span> <span class="id" title="keyword">level</span> 100, <span class="id" title="tactic">right</span> <span class="id" title="keyword">associativity</span>) : <span class="id" title="var">io_scope</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Notation</span> <a name="IO.Notations.delay"><span class="id" title="abbreviation">delay</span></a> <span class="id" title="var">io</span> := (<a class="idref" href="SimpleIO.IO_Monad.html#IO.delay_io"><span class="id" title="axiom">delay_io</span></a> (<span class="id" title="keyword">fun</span> <span class="id" title="var">_</span> =&gt; <span class="id" title="var">io</span>)).<br/>
+
+<br/>
+<span class="id" title="keyword">Open</span> <span class="id" title="keyword">Scope</span> <span class="id" title="var">io_scope</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">End</span> <a class="idref" href="SimpleIO.IO_Monad.html#IO.Notations"><span class="id" title="module">Notations</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab5"></a><h2 class="section">Equations</h2>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Axiom</span> <a name="IO.fixpoint_io"><span class="id" title="axiom">fixpoint_io</span></a> : <span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span> <span class="id" title="var">b</span>} <span class="id" title="var">f</span>, @<a class="idref" href="SimpleIO.IO_Monad.html#IO.fix_io"><span class="id" title="axiom">fix_io</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#b"><span class="id" title="variable">b</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#f"><span class="id" title="variable">f</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"><span class="id" title="notation">=</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#f"><span class="id" title="variable">f</span></a> (<a class="idref" href="SimpleIO.IO_Monad.html#IO.fix_io"><span class="id" title="axiom">fix_io</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#f"><span class="id" title="variable">f</span></a>).<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab6"></a><h3 class="section">Monad laws</h3>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Axiom</span> <a name="IO.bind_ret"><span class="id" title="axiom">bind_ret</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span> <span class="id" title="var">b</span>} (<span class="id" title="var">x</span> : <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a>) (<span class="id" title="var">k</span> : <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#b"><span class="id" title="variable">b</span></a>), <a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> (<a class="idref" href="SimpleIO.IO_Monad.html#IO.ret"><span class="id" title="axiom">ret</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#x"><span class="id" title="variable">x</span></a>) <a class="idref" href="SimpleIO.IO_Monad.html#k"><span class="id" title="variable">k</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"><span class="id" title="notation">=</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#k"><span class="id" title="variable">k</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#x"><span class="id" title="variable">x</span></a>.<br/>
+<span class="id" title="keyword">Axiom</span> <a name="IO.ret_bind"><span class="id" title="axiom">ret_bind</span></a> : <span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span>} (<span class="id" title="var">m</span> : <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a>), <a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#m"><span class="id" title="variable">m</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO.ret"><span class="id" title="axiom">ret</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"><span class="id" title="notation">=</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#m"><span class="id" title="variable">m</span></a>.<br/>
+<span class="id" title="keyword">Axiom</span> <a name="IO.bind_bind"><span class="id" title="axiom">bind_bind</span></a> :<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span> <span class="id" title="var">b</span> <span class="id" title="var">c</span>} (<span class="id" title="var">m</span> : <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a>) (<span class="id" title="var">k</span> : <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#b"><span class="id" title="variable">b</span></a>) (<span class="id" title="var">h</span> : <a class="idref" href="SimpleIO.IO_Monad.html#b"><span class="id" title="variable">b</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#c"><span class="id" title="variable">c</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> (<a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#m"><span class="id" title="variable">m</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#k"><span class="id" title="variable">k</span></a>) <a class="idref" href="SimpleIO.IO_Monad.html#h"><span class="id" title="variable">h</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"><span class="id" title="notation">=</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#m"><span class="id" title="variable">m</span></a> (<span class="id" title="keyword">fun</span> <span class="id" title="var">x</span> =&gt; <a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> (<a class="idref" href="SimpleIO.IO_Monad.html#k"><span class="id" title="variable">k</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#x"><span class="id" title="variable">x</span></a>) <a class="idref" href="SimpleIO.IO_Monad.html#h"><span class="id" title="variable">h</span></a>).<br/>
+<span class="id" title="keyword">Axiom</span> <a name="IO.bind_ext"><span class="id" title="axiom">bind_ext</span></a> : <span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span> <span class="id" title="var">b</span>} (<span class="id" title="var">m</span> : <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a>) (<span class="id" title="var">k</span> <span class="id" title="var">k'</span> : <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#b"><span class="id" title="variable">b</span></a>),<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">(</span></a><span class="id" title="keyword">forall</span> <span class="id" title="var">x</span>, <a class="idref" href="SimpleIO.IO_Monad.html#k"><span class="id" title="variable">k</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#x"><span class="id" title="variable">x</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"><span class="id" title="notation">=</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#k'"><span class="id" title="variable">k'</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#x"><span class="id" title="variable">x</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#m"><span class="id" title="variable">m</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#k"><span class="id" title="variable">k</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"><span class="id" title="notation">=</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO.bind"><span class="id" title="axiom">bind</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#m"><span class="id" title="variable">m</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#k'"><span class="id" title="variable">k'</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab7"></a><h2 class="section">Run!</h2>
+
+<div class="paragraph"> </div>
+
+ Run an IO action. See <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Monad.html#io_unit"><span class="id" title="axiom">io_unit</span></a></span> for usage.
+
+<div class="paragraph"> </div>
+
+    Hiding the result in <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Monad.html#io_unit"><span class="id" title="axiom">io_unit</span></a></span> limits the breakage of
+    referential transparency somewhat. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="IO.unsafe_run"><span class="id" title="axiom">unsafe_run</span></a> : <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#io_unit"><span class="id" title="axiom">io_unit</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Run an IO action, ignoring the result. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="IO.unsafe_run'"><span class="id" title="axiom">unsafe_run'</span></a> : <span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span>}, <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#io_unit"><span class="id" title="axiom">io_unit</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Run an IO action to produce a result.
+
+<div class="paragraph"> </div>
+
+    This can break referential transparency quite badly. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="IO.very_unsafe_eval"><span class="id" title="axiom">very_unsafe_eval</span></a> : <span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span>}, <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#a"><span class="id" title="variable">a</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab8"></a><h1 class="section">Extraction</h1>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="comment">(*&nbsp;CPS&nbsp;prevents&nbsp;stack&nbsp;overflows.&nbsp;*)</span><br/>
+<span class="comment">(*&nbsp;<span class="inlinecode"><span class="id" title="keyword">forall</span></span> <span class="inlinecode"><span class="id" title="var">r</span>,</span> <span class="inlinecode">(<span class="id" title="var">a</span></span> <span class="inlinecode">-&gt;</span> <span class="inlinecode"><span class="id" title="var">r</span>)</span> <span class="inlinecode">-&gt;</span> <span class="inlinecode"><span class="id" title="var">r</span></span>&nbsp;*)</span><br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">IO</span> "'a" =&gt; "('a -&gt; Obj.t) -&gt; Obj.t".<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">ret</span> =&gt; "fun a k -&gt; k a".<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">bind</span> =&gt; "fun io_a io_b k -&gt; io_a (fun a -&gt; io_b a k)".<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">fix_io</span> =&gt; "fun f -&gt; let rec go a k = f go a k in go".<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">delay_io</span> =&gt; "fun f k -&gt; f () k".<br/>
+
+<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Inlined</span> <span class="id" title="var">Constant</span> <span class="id" title="var">io_unit</span> =&gt; "unit".<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">unsafe_run</span> =&gt; "fun io -&gt; Obj.magic io (fun () -&gt; ())".<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">unsafe_run'</span> =&gt; "fun io -&gt; Obj.magic io (fun _ -&gt; ())".<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">very_unsafe_eval</span> =&gt; "fun io -&gt; Obj.magic io (fun x -&gt; x)".<br/>
+
+<br/>
+<span class="id" title="keyword">End</span> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="module">IO</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab9"></a><h1 class="section">Instances</h1>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Instance</span> <a name="Functor_IO"><span class="id" title="instance">Functor_IO</span></a> : <span class="id" title="class">Functor</span> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> := {<br/>
+&nbsp;&nbsp;<span class="id" title="method">fmap</span> <span class="id" title="var">_</span> <span class="id" title="var">_</span> := <a class="idref" href="SimpleIO.IO_Monad.html#map"><span class="id" title="definition">IO.map</span></a>;<br/>
+}.<br/>
+
+<br/>
+<span class="id" title="keyword">Instance</span> <a name="Applicative_IO"><span class="id" title="instance">Applicative_IO</span></a> : <span class="id" title="class">Applicative</span> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> := {<br/>
+&nbsp;&nbsp;<span class="id" title="method">pure</span> <span class="id" title="var">_</span> := <a class="idref" href="SimpleIO.IO_Monad.html#ret"><span class="id" title="axiom">IO.ret</span></a>;<br/>
+&nbsp;&nbsp;<span class="id" title="method">ap</span> <span class="id" title="var">_</span> <span class="id" title="var">_</span> <span class="id" title="var">iof</span> <span class="id" title="var">iox</span> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="SimpleIO.IO_Monad.html#bind"><span class="id" title="axiom">IO.bind</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#iof"><span class="id" title="variable">iof</span></a> (<span class="id" title="keyword">fun</span> <span class="id" title="var">f</span> =&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="SimpleIO.IO_Monad.html#bind"><span class="id" title="axiom">IO.bind</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#iox"><span class="id" title="variable">iox</span></a> (<span class="id" title="keyword">fun</span> <span class="id" title="var">x</span> =&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="SimpleIO.IO_Monad.html#ret"><span class="id" title="axiom">IO.ret</span></a> (<a class="idref" href="SimpleIO.IO_Monad.html#f"><span class="id" title="variable">f</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#x"><span class="id" title="variable">x</span></a>)));<br/>
+}.<br/>
+
+<br/>
+<span class="id" title="keyword">Instance</span> <a name="Monad_IO"><span class="id" title="instance">Monad_IO</span></a> : <span class="id" title="class">Monad</span> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> := {<br/>
+&nbsp;&nbsp;<span class="id" title="method">ret</span> <span class="id" title="var">_</span> := <a class="idref" href="SimpleIO.IO_Monad.html#ret"><span class="id" title="axiom">IO.ret</span></a>;<br/>
+&nbsp;&nbsp;<span class="id" title="method">bind</span> <span class="id" title="var">_</span> <span class="id" title="var">_</span> := <a class="idref" href="SimpleIO.IO_Monad.html#bind"><span class="id" title="axiom">IO.bind</span></a>;<br/>
+}.<br/>
+
+<br/>
+<span class="id" title="keyword">Instance</span> <a name="MonadFix_IO"><span class="id" title="instance">MonadFix_IO</span></a> : <span class="id" title="class">MonadFix</span> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> := {<br/>
+&nbsp;&nbsp;<span class="id" title="method">mfix</span> <span class="id" title="var">_</span> <span class="id" title="var">_</span> := <a class="idref" href="SimpleIO.IO_Monad.html#fix_io"><span class="id" title="axiom">IO.fix_io</span></a>;<br/>
+}.<br/>
+</div>
+</div>
+<div id="footer">
+  Generated by <a href="http://coq.inria.fr/">coqdoc</a> and improved with <a href="https://github.com/tebbi/coqdocjs">CoqdocJS</a>
+</div>
+</div>
+</body>
+
+</html>

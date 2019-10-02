@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link href="coqdoc.css" rel="stylesheet" type="text/css" />
+<link href="coqdocjs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript" src="coqdocjs.js"></script>
+</head>
+
+<body onload="document.getElementById('content').focus()">
+  <div id="header">
+    <span class="left">
+      <span class="modulename"> <script> document.write(document.title) </script> </span>
+    </span>
+
+    <span class="button" id="toggle-proofs"></span>
+
+    <span class="right">
+      <a href="../">Project Page</a>
+      <a href="./indexpage.html"> Index </a>
+      <a href="./toc.html"> Table of Contents </a>
+    </span>
+</div>
+    <div id="content" tabindex="-1" onblur="document.getElementById('content').focus()">
+    <div id="main">
+<h1 class="libtitle">SimpleIO.IO_RawChar</h1>
+
+<div class="code">
+</div>
+
+<div class="doc">
+<a name="lab16"></a><h1 class="section">Extraction of <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a></span> and <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.String.html#string"><span class="id" title="inductive">string</span></a></span></h1>
+
+<div class="paragraph"> </div>
+
+
+<div class="paragraph"> </div>
+
+   <span class="inlinecode"><span class="id" title="var">RawChar</span></span> provides some convenient operations to work with
+   Coq's standard <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.Ascii.html#ascii"><span class="id" title="inductive">ascii</span></a></span> and <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.String.html#string"><span class="id" title="inductive">string</span></a></span> type, assuming they are
+   extracted using <span class="inlinecode"><span class="id" title="library">ExtrOcamlString</span></span>:
+
+<div class="paragraph"> </div>
+
+<ul class="doclist">
+<li> <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.Ascii.html#ascii"><span class="id" title="inductive">ascii</span></a></span> is extracted to <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a></span>;
+
+</li>
+<li> <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.String.html#string"><span class="id" title="inductive">string</span></a></span> is extracted to <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a></span> <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a></span>.
+
+</li>
+</ul>
+
+<div class="paragraph"> </div>
+
+ 
+</div>
+<div class="code">
+
+<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab17"></a><h1 class="section">Conversions</h1>
+
+<div class="paragraph"> </div>
+
+ <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.Ascii.html#ascii"><span class="id" title="inductive">ascii</span></a></span> and <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Random.html#ORandom.int"><span class="id" title="axiom">int</span></a></span> 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="int_of_ascii"><span class="id" title="axiom">int_of_ascii</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.Ascii.html#ascii"><span class="id" title="inductive">ascii</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a name="ascii_of_int"><span class="id" title="axiom">ascii_of_int</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.Ascii.html#ascii"><span class="id" title="inductive">ascii</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Axiom</span> <a name="char_is_ascii"><span class="id" title="axiom">char_is_ascii</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"><span class="id" title="notation">=</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.Ascii.html#ascii"><span class="id" title="inductive">ascii</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.Ascii.html#ascii"><span class="id" title="inductive">ascii</span></a></span> and <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a></span> 
+</div>
+<div class="code">
+<span class="id" title="keyword">Definition</span> <a name="char_of_ascii"><span class="id" title="definition">char_of_ascii</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.Ascii.html#ascii"><span class="id" title="inductive">ascii</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a> :=<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">match</span> <a class="idref" href="SimpleIO.IO_RawChar.html#char_is_ascii"><span class="id" title="axiom">char_is_ascii</span></a> <span class="id" title="tactic">in</span> (<span class="id" title="var">_</span> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"><span class="id" title="notation">=</span></a> <span class="id" title="var">_ascii</span>) <span class="id" title="keyword">return</span> (<a class="idref" href="SimpleIO.IO_RawChar.html#_ascii"><span class="id" title="variable">_ascii</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a>) <span class="id" title="keyword">with</span><br/>
+&nbsp;&nbsp;| <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#eq_refl"><span class="id" title="constructor">eq_refl</span></a> =&gt; <span class="id" title="keyword">fun</span> <span class="id" title="var">c</span> =&gt; <a class="idref" href="SimpleIO.IO_RawChar.html#c"><span class="id" title="variable">c</span></a><br/>
+&nbsp;&nbsp;<span class="id" title="keyword">end</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="ascii_of_char"><span class="id" title="definition">ascii_of_char</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.Ascii.html#ascii"><span class="id" title="inductive">ascii</span></a> :=<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">match</span> <a class="idref" href="SimpleIO.IO_RawChar.html#char_is_ascii"><span class="id" title="axiom">char_is_ascii</span></a> <span class="id" title="tactic">in</span> (<span class="id" title="var">_</span> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"><span class="id" title="notation">=</span></a> <span class="id" title="var">_ascii</span>) <span class="id" title="keyword">return</span> (<a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#_ascii"><span class="id" title="variable">_ascii</span></a>) <span class="id" title="keyword">with</span><br/>
+&nbsp;&nbsp;| <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#eq_refl"><span class="id" title="constructor">eq_refl</span></a> =&gt; <span class="id" title="keyword">fun</span> <span class="id" title="var">x</span> =&gt; <a class="idref" href="SimpleIO.IO_RawChar.html#x"><span class="id" title="variable">x</span></a><br/>
+&nbsp;&nbsp;<span class="id" title="keyword">end</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Inlined</span> <span class="id" title="var">Constant</span> <span class="id" title="var">int_of_ascii</span> =&gt; "Pervasives.int_of_char".<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Inlined</span> <span class="id" title="var">Constant</span> <span class="id" title="var">ascii_of_int</span> =&gt; "Pervasives.char_of_int".<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.String.html#string"><span class="id" title="inductive">string</span></a></span> and <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a></span> 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a name="to_ostring"><span class="id" title="axiom">to_ostring</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.String.html#string"><span class="id" title="inductive">string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a name="from_ostring"><span class="id" title="axiom">from_ostring</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.String.html#string"><span class="id" title="inductive">string</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">to_ostring</span> =&gt;<br/>
+&nbsp;&nbsp;"fun z -&gt; Bytes.unsafe_to_string (
+    let b = Bytes.create (List.length z) in
+    let rec go z i =
+      match z with
+      | c :: z -&gt; Bytes.set b i c; go z (i+1)
+      | [] -&gt; b
+    in go z 0)".<br/>
+
+<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">from_ostring</span> =&gt;<br/>
+&nbsp;&nbsp;"fun s -&gt;
+    let rec go n z =
+      if n = -1 then z
+      else go (n-1) (String.get s n :: z)
+    in go (String.length s - 1) []".<br/>
+
+<br/>
+<span class="id" title="keyword">Coercion</span> <a class="idref" href="SimpleIO.IO_RawChar.html#char_of_ascii"><span class="id" title="definition">char_of_ascii</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#char_of_ascii"><span class="id" title="definition">:</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#char_of_ascii"><span class="id" title="definition">ascii</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#char_of_ascii"><span class="id" title="definition">&gt;-&gt;</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#char_of_ascii"><span class="id" title="definition">char</span></a>.<br/>
+<span class="id" title="keyword">Coercion</span> <a class="idref" href="SimpleIO.IO_RawChar.html#to_ostring"><span class="id" title="axiom">to_ostring</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#to_ostring"><span class="id" title="axiom">:</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#to_ostring"><span class="id" title="axiom">string</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#to_ostring"><span class="id" title="axiom">&gt;-&gt;</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#to_ostring"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab18"></a><h1 class="section">Input-output</h1>
+
+<div class="paragraph"> </div>
+
+ For output, you can use the functions on <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a></span> and <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a></span>
+    from <span class="inlinecode"><span class="id" title="library">IO_Stdlib</span></span> directly, thanks to the coercions
+    <span class="inlinecode"><a class="idref" href="SimpleIO.IO_RawChar.html#char_of_ascii"><span class="id" title="definition">char_of_ascii</span></a></span> and <span class="inlinecode"><a class="idref" href="SimpleIO.IO_RawChar.html#to_ostring"><span class="id" title="axiom">to_ostring</span></a></span> above. 
+<div class="paragraph"> </div>
+
+<a name="lab19"></a><h2 class="section">Standard channels</h2>
+
+<div class="paragraph"> </div>
+
+<a name="lab20"></a><h3 class="section"><span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#stdin"><span class="id" title="axiom">stdin</span></a></span></h3>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="read_line'"><span class="id" title="definition">read_line'</span></a> : <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.String.html#string"><span class="id" title="inductive">string</span></a> :=<br/>
+&nbsp;&nbsp;<a class="idref" href="SimpleIO.IO_Monad.html#IO.map"><span class="id" title="definition">IO.map</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#from_ostring"><span class="id" title="axiom">from_ostring</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#read_line"><span class="id" title="axiom">read_line</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a name="lab21"></a><h2 class="section">File handles</h2>
+
+<div class="paragraph"> </div>
+
+<a name="lab22"></a><h3 class="section">Input</h3>
+
+</div>
+<div class="code">
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="input_ascii"><span class="id" title="definition">input_ascii</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#in_channel"><span class="id" title="axiom">in_channel</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.Ascii.html#ascii"><span class="id" title="inductive">ascii</span></a> :=<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">fun</span> <span class="id" title="var">h</span> =&gt; <a class="idref" href="SimpleIO.IO_Monad.html#IO.map"><span class="id" title="definition">IO.map</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#ascii_of_char"><span class="id" title="definition">ascii_of_char</span></a> (<a class="idref" href="SimpleIO.IO_Stdlib.html#input_char"><span class="id" title="axiom">input_char</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#h"><span class="id" title="variable">h</span></a>).<br/>
+
+<br/>
+<span class="id" title="keyword">Definition</span> <a name="input_line'"><span class="id" title="definition">input_line'</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#in_channel"><span class="id" title="axiom">in_channel</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Strings.String.html#string"><span class="id" title="inductive">string</span></a> :=<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">fun</span> <span class="id" title="var">h</span> =&gt; <a class="idref" href="SimpleIO.IO_Monad.html#IO.map"><span class="id" title="definition">IO.map</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#from_ostring"><span class="id" title="axiom">from_ostring</span></a> (<a class="idref" href="SimpleIO.IO_Stdlib.html#input_line"><span class="id" title="axiom">input_line</span></a> <a class="idref" href="SimpleIO.IO_RawChar.html#h"><span class="id" title="variable">h</span></a>).<br/>
+</div>
+</div>
+<div id="footer">
+  Generated by <a href="http://coq.inria.fr/">coqdoc</a> and improved with <a href="https://github.com/tebbi/coqdocjs">CoqdocJS</a>
+</div>
+</div>
+</body>
+
+</html>
