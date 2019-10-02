@@ -1,5 +1,7 @@
+(** * OCaml standard library *)
+
 (**
-  Extraction of Ocaml's [Pervasives] module.
+  Extraction of OCaml's [Stdlib] module.
 
   This depends on [ExtrOcamlBasic] and [ExtrOcamlIntConv] that define
   extraction for a few basic types ([option], [list], [int]).

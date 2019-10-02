@@ -1,6 +1,6 @@
-(** Pervasives functions using [nat] instead of [int]
+(** * Stdlib functions using [nat] instead of [int] *)
 
-    [nat] are unary numbers, so this highly inefficient!
+(** [nat] are unary numbers, so this highly inefficient!
     These operations are unsafe when numbers exceed [max_int] in OCaml.
   *)
 

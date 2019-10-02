@@ -1,10 +1,12 @@
+(** * Floating-point arithmetic *)
+
+(* begin hide *)
 From Coq Require Import ExtrOcamlIntConv.
 From SimpleIO Require Import
      IO_Stdlib.
+(* end hide *)
 
 Module OFloat.
-
-(** Floating-point arithmetic *)
 
 (** Convert an integer to floating-point. *)
 Parameter of_int : int -> float.

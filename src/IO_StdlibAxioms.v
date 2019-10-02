@@ -1,4 +1,4 @@
-(** Theory for [IO_Stdlib] *)
+(** * Theory for [IO_Stdlib] *)
 
 (* begin hide *)
 From SimpleIO Require Import IO_Stdlib.

@@ -1,3 +1,5 @@
+(** * Strings *)
+
 (** The [String] module from OCaml's standard library.
 
     Operations are meant to be used qualified, e.g., [OString.length].

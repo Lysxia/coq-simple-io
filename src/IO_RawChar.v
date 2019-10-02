@@ -1,3 +1,5 @@
+(** * Extraction of [char] and [string] *)
+
 (**
    [RawChar] provides some convenient operations to work with
    Coq's standard [ascii] and [string] type, assuming they are

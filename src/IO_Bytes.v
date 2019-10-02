@@ -1,6 +1,7 @@
 (** * Byte sequence operations *)
 
 (** Note: description of the interfaces are derived from OCaml's documentation:
+
     https://github.com/ocaml/ocaml/blob/trunk/stdlib/bytes.mli *)
 
 (* begin hide *)

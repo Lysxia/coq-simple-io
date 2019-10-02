@@ -1,6 +1,4 @@
-(**
-  The [IO] monad.
-*)
+(** * The [IO] monad *)
 
 (* begin hide *)
 From Coq.extraction Require Import
@@ -30,7 +28,7 @@ Parameter IO : Type -> Type.
  *)
 Parameter io_unit : Type.
 
-(* All identifiers are meant to be used qualified. *)
+(** All identifiers are meant to be used qualified. *)
 Module IO.
 
 (** ** Functions *)

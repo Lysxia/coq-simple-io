@@ -1,5 +1,4 @@
-(** Unsafe but convenient primitives.
- *)
+(** * Unsafe primitives *)
 
 From Coq.extraction Require Import
      ExtrOcamlIntConv.
