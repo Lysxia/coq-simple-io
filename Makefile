@@ -56,7 +56,7 @@ ifdef COQDOCJS_DIR
 COQDOCFLAGS+=--with-header $(COQDOCJS_DIR)/extra/header.html --with-footer $(COQDOCJS_DIR)/extra/footer.html
 
 html: html-raw
-	cp $(COQDOCJS_DIR)/extra/resources/* html
+	cp $(COQDOCJS_DIR)/extra/resources/* doc
 else
 html: html-raw
 endif
@@ -66,5 +66,6 @@ export COQDOCFLAGS
 html-raw: Makefile.coq
 	rm -rf html
 	$(MAKE_COQ) html
+	cp -r html/. doc/
 
 ## -------------------------------------------------------
