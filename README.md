@@ -27,6 +27,14 @@ git clone https://github.com/Lysxia/coq-simple-io
 opam pin add coq-simple-io ./coq-simple-io
 ```
 
+## Documentation
+
+The documentation of the latest released version is available on website at
+https://lysxia.github.io/coq-simple-io/toc.html
+
+Consult the [OCaml user manual](https://caml.inria.fr/pub/docs/manual-ocaml/)
+for detailed description of extracted code.
+
 ## Interface
 
 To use this library:
