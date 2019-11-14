@@ -20,8 +20,23 @@ Module OUnix.
 (** The abstract type of file descriptors. *)
 Parameter file_descr : Set.
 
+Parameter file_descr_eqb : file_descr -> file_descr -> bool.
+
 (** Close a file descriptor. *)
 Parameter close : file_descr -> IO unit.
+
+(** ** Polling  *)
+(** Wait until some input/output operations become possible on some channels.
+   The three list arguments are, respectively, a set of descriptors to check for
+   reading (first argument), for writing (second argument), or for exceptional
+   conditions (third argument).
+   The fourth argument is the maximal timeout, in seconds; a negative fourth
+   argument means no timeout (unbounded wait).
+   The result is composed of three sets of descriptors: those ready for reading
+   (first component), ready for writing (second component), and over which an
+   exceptional condition is pending (third component). *)
+Parameter select : list file_descr -> list file_descr -> list file_descr -> float ->
+                   IO (list file_descr * list file_descr * list file_descr).
 
 (** ** Time functions *)
 Parameter sleep : int -> IO unit.
@@ -216,6 +231,7 @@ Parameter raise_error : forall {a}, error -> ocaml_string -> ocaml_string -> IO 
 
 (* begin hide *)
 Extract Inlined Constant file_descr         => "Unix.file_descr".
+Extract Inlined Constant file_descr_eqb     => "(=)".
 Extract Inlined Constant inet_addr          => "Unix.inet_addr".
 Extract Inlined Constant inet_addr_any      => "Unix.inet_addr_any".
 Extract Inlined Constant inet_addr_loopback => "Unix.inet_addr_loopback".
@@ -251,6 +267,9 @@ Extract Constant recv   => "fun f b o l g   k -> k (Unix.recv f b o l g)".
 Extract Constant send   => "fun f b o l g   k -> k (Unix.send f b o l g)".
 Extract Constant getsockopt_float => "fun f o   k -> k (Unix.getsockopt_float f o)".
 Extract Constant setsockopt_float => "fun f o v k -> k (Unix.setsockopt_float f o v)".
+Extract Constant select => "fun r w e t k ->
+                             k (let (r',w',e') = Unix.select r w e t in
+                                ((r',w'),e'))".
 
 Extract Inductive error => "Unix.error"
 [ "Unix.E2BIG"
