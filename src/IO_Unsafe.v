@@ -17,7 +17,7 @@ Extract Inlined Constant unsafe_int_mod => "Pervasives.(mod)".
 (** Throws an exception if the argument is smaller than 0 or
     greater than 255. *)
 Parameter unsafe_char_of_int : int -> char.
-Extract Constant unsafe_char_of_int => "Pervasives.char_of_int".
+Extract Inlined Constant unsafe_char_of_int => "Pervasives.char_of_int".
 
 (** Throws an exception if the argument string does not represent
     an integer. *)
