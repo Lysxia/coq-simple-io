@@ -45,35 +45,6 @@ commands:
         command: |
           make clean
           ls -AGR
-  deploy:
-    steps:
-    - run:
-        name: Build Documentation
-        command: make html
-    - run:
-        name: Configure Git
-        command: |
-          git config --global core.autocrlf input
-          git config --global user.name  "Yishuai Li"
-          git config --global user.email "yishuai@cis.upenn.edu"
-    - run:
-        name: Deploy GitHub Pages
-        command: |
-          if [ -z "$CIRCLE_TAG" ]
-          then TAG=$CIRCLE_BRANCH
-          else TAG=$CIRCLE_TAG
-          fi
-          PAGES=$CIRCLE_PROJECT_REPONAME/$TAG
-          if [ -z "$CIRCLE_PULL_REQUESTS" ]
-          then git clone -b gh-pages --depth 1 $CIRCLE_REPOSITORY_URL
-               rm -rf $PAGES/*
-               mkdir -p $PAGES
-               cp -LRf html/* $PAGES
-               cd $CIRCLE_PROJECT_REPONAME
-               git add .
-               git commit -m "$TAG $CIRCLE_SHA1" || true
-               git push
-          fi
 
 jobs:
   coq 8_8:
