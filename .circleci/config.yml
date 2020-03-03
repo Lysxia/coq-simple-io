@@ -6,6 +6,9 @@ defaults: &defaults
     OPAMWITHTEST: true
     OPAMYES: true
     TERM: xterm
+  steps:
+  - startup
+  - build
 
 commands:
   startup:
@@ -49,30 +52,22 @@ commands:
 jobs:
   coq 8_8:
     <<: *defaults
-    steps:
-    - startup
-    - build
     docker:
     - image: coqorg/coq:8.8
   coq 8_9:
     <<: *defaults
-    steps:
-    - startup
-    - build
     docker:
     - image: coqorg/coq:8.9
   coq 8_10:
     <<: *defaults
-    steps:
-    - startup
-    - build
     docker:
     - image: coqorg/coq:8.10
+  coq 8_11:
+    <<: *defaults
+    docker:
+    - image: coqorg/coq:8.11
   coq dev:
     <<: *defaults
-    steps:
-    - startup
-    - build
     docker:
     - image: coqorg/coq:dev
 
@@ -80,27 +75,8 @@ workflows:
   version: 2
   build:
     jobs:
-    - coq 8_8:
-        filters:
-          branches:
-            ignore: gh-pages
-          tags:
-            only: /^\d.*/
-    - coq 8_9:
-        filters:
-          branches:
-            ignore: gh-pages
-          tags:
-            only: /^\d.*/
-    - coq 8_10:
-        filters:
-          branches:
-            ignore: gh-pages
-          tags:
-            only: /^\d.*/
-    - coq dev:
-        filters:
-          branches:
-            ignore: gh-pages
-          tags:
-            only: /^\d.*/
+    - coq 8_8
+    - coq 8_9
+    - coq 8_10
+    - coq 8_11
+    - coq dev
