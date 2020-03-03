@@ -1,5 +1,8 @@
 .coqdeps.d
 *~
+*.coq.d
+*.vok
+*.vos
 *.v.d
 *.vo
 *.aux
