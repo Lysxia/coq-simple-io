@@ -97,7 +97,7 @@ The source code can be found under `src/`.
 
 - `SimpleIO.SimpleIO`: Reexports default modules.
 
-# Default modules
+### Default modules
 
 The following modules are imported with `SimpleIO.SimpleIO`.
 
@@ -108,16 +108,18 @@ The following modules are imported with `SimpleIO.SimpleIO`.
 - `SimpleIO.IO_RawChar`: Utilities that rely on `ExtrOcamlString`.
 - `SimpleIO.IO_String`: Operations on OCaml strings.
 
-# Auxiliary modules
+### Auxiliary modules
 
 The following module can be imported separately.
+They correspond to modules from the OCaml standard library.
 
 - `SimpleIO.IO_Bytes`: Mutable byte sequences.
 - `SimpleIO.IO_Random`: Pseudo-random number generators (PRNG).
-- `SimpleIO.IO_Unix`: Interface to the Unix system.
 - `SimpleIO.IO_Float`: Floating-point arithmetic.
+- `SimpleIO.IO_Unix`: Interface to the Unix system.
+- `SimpleIO.IO_Sys`: System interface.
 
-## Unsafe modules
+### Unsafe modules
 
 - `SimpleIO.IO_Unsafe`: Unsafe operations.
 - `SimpleIO.IO_UnsafeNat`: `Pervasives` functions adapted to `nat`
