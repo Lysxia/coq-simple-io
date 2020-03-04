@@ -125,10 +125,10 @@ Parameter very_unsafe_eval : forall {a}, IO a -> a.
 (* CPS prevents stack overflows. *)
 (* [forall r, (a -> r) -> r] *)
 Extract Constant IO "'a" => "('a -> Obj.t) -> Obj.t".
-Extract Constant ret => "fun a k -> k a".
-Extract Constant bind => "fun io_a io_b k -> io_a (fun a -> io_b a k)".
-Extract Constant fix_io => "fun f -> let rec go a k = f go a k in go".
-Extract Constant delay_io => "fun f k -> f () k".
+Extract Constant ret => "fun a k -> (k a : Obj.t)".
+Extract Constant bind => "fun io_a io_b (k : _ -> Obj.t) -> (io_a (fun a -> (io_b a k : Obj.t)) : Obj.t)".
+Extract Constant fix_io => "fun f -> let rec go a (k : _ -> Obj.t) : Obj.t = f go a k in go".
+Extract Constant delay_io => "fun f (k : _ -> Obj.t) -> (f () k : Obj.t)".
 
 Extract Inlined Constant io_unit => "unit".
 Extract Constant unsafe_run => "fun io -> Obj.magic io (fun () -> ())".

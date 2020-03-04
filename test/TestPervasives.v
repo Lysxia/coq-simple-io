@@ -60,7 +60,7 @@ Definition assert_eq {a} `{Eq a} `{Print a} (expect actual : a) : IO unit :=
 
 Coercion int_of_nat : nat >-> int.
 
-Definition main : IO unit :=
+Definition main (_ : unit) : IO unit :=
   (* Pervasives *)
 
   print_char (char_of_ascii "a");; print_newline;;
@@ -113,7 +113,7 @@ Definition main : IO unit :=
 
   exit_nat 0.
 
-Definition run_main : io_unit := IO.unsafe_run main.
+Definition run_main : io_unit := IO.unsafe_run (main tt).
 
 (* We extract the whole library to typecheck it. *)
 Separate Extraction
