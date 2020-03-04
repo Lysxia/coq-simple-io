@@ -80,8 +80,13 @@ Coercion to_ostring : string >-> ocaml_string.
 
 (** *** [stdin] *)
 
+Local Definition _read_line' : unit -> IO string :=
+  fun _ => IO.map from_ostring read_line.
+
 Definition read_line' : IO string :=
-  IO.map from_ostring read_line.
+  _read_line' tt.
+
+Extraction Inline read_line'.
 
 (** ** File handles *)
 
