@@ -1,7 +1,7 @@
 (** * System interface *)
 
 (** Note: descriptions of the interface are derived from OCaml's documentation:
-    http://caml.inria.fr/pub/docs/manual-ocaml/libref/Sys.html *)
+    https://caml.inria.fr/pub/docs/manual-ocaml/libref/Sys.html *)
 
 (* begin hide *)
 From Coq Require Import

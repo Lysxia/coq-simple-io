@@ -1,7 +1,7 @@
 (** * Pseudo-random number generators (PRNG) *)
 
 (** Note: descriptions of the interface are derived from OCaml's documentation:
-    http://caml.inria.fr/pub/docs/manual-ocaml/libref/Random.html *)
+    https://caml.inria.fr/pub/docs/manual-ocaml/libref/Random.html *)
 
 (* begin hide *)
 From Coq Require Import
