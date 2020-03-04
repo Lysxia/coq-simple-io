@@ -1,7 +1,7 @@
 (** * Interface to the Unix system *)
 
-(** Note: description of the interfaces are derived from OCaml's documentation:
-    https://github.com/ocaml/ocaml/blob/trunk/otherlibs/unix/unix.mli *)
+(** Note: descriptions of the interface are derived from OCaml's documentation:
+    http://caml.inria.fr/pub/docs/manual-ocaml/libref/Unix.html *)
 
 (* begin hide *)
 From Coq Require Import

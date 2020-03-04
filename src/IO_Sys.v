@@ -1,7 +1,7 @@
 (** * System interface *)
 
-(** Note: description of the intercaces are derived from OCaml's documentation:
-    https://github.com/ocaml/ocaml/blob/trunk/stdlib/sys.mli *)
+(** Note: descriptions of the interface are derived from OCaml's documentation:
+    http://caml.inria.fr/pub/docs/manual-ocaml/libref/Sys.html *)
 
 (* begin hide *)
 From Coq Require Import
