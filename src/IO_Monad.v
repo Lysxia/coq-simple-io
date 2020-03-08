@@ -72,16 +72,16 @@ Module Notations.
 Delimit Scope io_scope with io.
 
 Notation "c >>= f" := (bind c f)
-(at level 50, left associativity) : io_scope.
+(at level 58, left associativity) : io_scope.
 
 Notation "f =<< c" := (bind c f)
-(at level 51, right associativity) : io_scope.
+(at level 61, right associativity) : io_scope.
 
 Notation "x <- c1 ;; c2" := (bind c1 (fun x => c2))
-(at level 100, c1 at next level, right associativity) : io_scope.
+(at level 61, c1 at next level, right associativity) : io_scope.
 
 Notation "e1 ;; e2" := (_ <- e1%io ;; e2%io)%io
-(at level 100, right associativity) : io_scope.
+(at level 61, right associativity) : io_scope.
 
 Notation delay io := (delay_io (fun _ => io)).
 
