@@ -1,3 +1,12 @@
+# 1.3.0
+
+- Fix the extraction of core `IO` constants with type annotations to avoid
+  type errors caused by the value restriction.
+- Add `IO_Sys`, based on `Sys` from the OCaml stdlib.
+- Add `file_descr_eqb` and `select` in `IO_Unix`.
+- Fix extraction of `error` and `catch_error` in `IO_Unix`.
+- Update `IO.Notations` to agree with *coq-ext-lib* 0.11.1
+
 # 1.2.1
 
 - Blacklisted `List`
