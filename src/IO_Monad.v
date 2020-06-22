@@ -155,7 +155,3 @@ Instance Monad_IO : Monad IO := {
   ret _ := IO.ret;
   bind _ _ := IO.bind;
 }.
-
-Instance MonadFix_IO : MonadFix IO := {
-  mfix _ _ := IO.fix_io;
-}.
