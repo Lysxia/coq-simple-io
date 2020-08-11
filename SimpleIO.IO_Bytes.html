@@ -35,11 +35,8 @@
 
 <div class="paragraph"> </div>
 
- Note: description of the interfaces are derived from OCaml's documentation:
-
-<div class="paragraph"> </div>
-
-    https://github.com/ocaml/ocaml/blob/trunk/stdlib/bytes.mli 
+ Note: descriptions of the interface are derived from OCaml's documentation:
+    https://caml.inria.fr/pub/docs/manual-ocaml/libref/Bytes.html
 </div>
 <div class="code">
 
@@ -55,7 +52,7 @@
 Return the length (number of bytes) of the argument. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OBytes.length"><span class="id" title="axiom">length</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a name="OBytes.length"><span class="id" title="axiom">length</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>.<br/>
 
 <br/>
 </div>
@@ -64,7 +61,7 @@ Return the length (number of bytes) of the argument.
 <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Bytes.html#OBytes.get"><span class="id" title="axiom">get</span></a></span> <span class="inlinecode"><a class="idref" href="SimpleIO.IO_String.html#s"><span class="id" title="variable">s</span></a></span> <span class="inlinecode"><a class="idref" href="SimpleIO.IO_UnsafeNat.html#n"><span class="id" title="variable">n</span></a></span> returns the byte at index <span class="inlinecode"><a class="idref" href="SimpleIO.IO_UnsafeNat.html#n"><span class="id" title="variable">n</span></a></span> in <span class="inlinecode"><a class="idref" href="SimpleIO.IO_String.html#s"><span class="id" title="variable">s</span></a></span>. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OBytes.get"><span class="id" title="axiom">get</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a name="OBytes.get"><span class="id" title="axiom">get</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a>.<br/>
 
 <br/>
 </div>
@@ -73,7 +70,7 @@ Return the length (number of bytes) of the argument.
 <span class="inlinecode"><span class="id" title="tactic">set</span></span> <span class="inlinecode"><a class="idref" href="SimpleIO.IO_String.html#s"><span class="id" title="variable">s</span></a></span> <span class="inlinecode"><a class="idref" href="SimpleIO.IO_UnsafeNat.html#n"><span class="id" title="variable">n</span></a></span> <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Monad.html#c"><span class="id" title="variable">c</span></a></span> modifies <span class="inlinecode"><a class="idref" href="SimpleIO.IO_String.html#s"><span class="id" title="variable">s</span></a></span>, replacing the byte at index <span class="inlinecode"><a class="idref" href="SimpleIO.IO_UnsafeNat.html#n"><span class="id" title="variable">n</span></a></span> with <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Monad.html#c"><span class="id" title="variable">c</span></a></span>. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OBytes.set"><span class="id" title="axiom">set</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a name="OBytes.set"><span class="id" title="axiom">set</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#char"><span class="id" title="axiom">char</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
 
 <br/>
 </div>
@@ -88,7 +85,7 @@ Return the length (number of bytes) of the argument.
     byte sequences. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OBytes.create"><span class="id" title="axiom">create</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a name="OBytes.create"><span class="id" title="axiom">create</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a>.<br/>
 
 <br/>
 </div>
@@ -98,7 +95,7 @@ Return a new byte sequence that contains the same bytes as the given
     string. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OBytes.of_string"><span class="id" title="axiom">of_string</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a name="OBytes.of_string"><span class="id" title="axiom">of_string</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a>.<br/>
 
 <br/>
 </div>
@@ -108,7 +105,7 @@ Return a new string that contains the same bytes as the given byte
     sequence. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OBytes.to_string"><span class="id" title="axiom">to_string</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.9.1/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a name="OBytes.to_string"><span class="id" title="axiom">to_string</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
 
 <br/>
 

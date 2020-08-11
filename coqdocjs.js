@@ -6,7 +6,13 @@ function replace(s){
   if (m = s.match(/^(.+)'/)) {
     return replace(m[1])+"'";
   } else if (m = s.match(/^([A-Za-z]+)_?(\d+)$/)) {
-    return replace(m[1])+m[2].replace(/\d/g, function(d){return coqdocjs.subscr[d]});
+    return replace(m[1])+m[2].replace(/\d/g, function(d){
+      if (coqdocjs.subscr.hasOwnProperty(d)) {
+        return coqdocjs.subscr[d];
+      } else {
+        return d;
+      }
+    });
   } else if (coqdocjs.repl.hasOwnProperty(s)){
     return coqdocjs.repl[s]
   } else {
@@ -67,8 +73,9 @@ function isVernacStart(l, t){
   return false;
 }
 
-function isProofStart(s){
-  return isVernacStart(["Proof"], s);
+function isProofStart(n){
+    return isVernacStart(["Proof"], n.textContent) ||
+        (isVernacStart(["Next"], n.textContent) && isVernacStart(["Obligation"], n.nextSibling.nextSibling.textContent));
 }
 
 function isProofEnd(s){
@@ -103,7 +110,7 @@ function foldProofs() {
     nodes = document.getElementsByClassName("id");
   }
   toArray(nodes).forEach(function(node){
-    if(isProofStart(node.textContent)) {
+    if(isProofStart(node)) {
       var proof = document.createElement("span");
       proof.setAttribute("class", "proof");
 
