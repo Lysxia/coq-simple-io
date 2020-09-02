@@ -115,9 +115,29 @@ Parameter send : file_descr -> bytes -> int -> int -> list msg_flag -> IO int.
 
 (** ** Socket options *)
 
+(** The socket options that can be consulted with [IO_Unix.getsockopt]
+    and modified with [IO_Unix.setsockopt].  These options have a boolean
+    ([true]/[false]) value. *)
+Variant socket_bool_option :=
+  SO_DEBUG       (* Record debugging information *)
+| SO_BROADCAST   (* Permit sending of broadcast messages *)
+| SO_REUSEADDR   (* Allow reuse of local addresses for bind *)
+| SO_KEEPALIVE   (* Keep connection active *)
+| SO_DONTROUTE   (* Bypass the standard routing algorithms *)
+| SO_OOBINLINE   (* Leave out-of-band data in line *)
+| SO_ACCEPTCONN  (* Report whether socket listening is enabled *)
+| TCP_NODELAY    (* Control the Nagle algorithm for TCP sockets *)
+| IPV6_ONLY.     (* Forbid binding an IPv6 socket to an IPv4 address *)
+
 Variant socket_float_option :=
   SO_RCVTIMEO    (* Timeout for input operations *)
 | SO_SNDTIMEO.   (* Timeout for output operations *)
+
+(** Return the current status of a boolean-valued option in the given socket. *)
+Parameter getsockopt : file_descr -> socket_bool_option -> IO bool.
+
+(** Set or clear a boolean-valued option in the given socket. *)
+Parameter setsockopt : file_descr -> socket_bool_option -> bool -> IO unit.
 
 (** Return the current status of a floating-point socket option. *)
 Parameter getsockopt_float : OUnix.file_descr -> socket_float_option -> IO float.
@@ -252,6 +272,16 @@ Extract Inductive msg_flag      => "Unix.msg_flag"
                                  ["Unix.MSG_OOB"
                                   "Unix.MSG_DONTROUTE"
                                   "Unix.MSG_PEEK"].
+Extract Inductive socket_bool_option => "Unix.socket_bool_option"
+                                      ["Unix.SO_DEBUG"
+                                       "Unix.SO_BROADCAST"
+                                       "Unix.SO_REUSEADDR"
+                                       "Unix.SO_KEEPALIVE"
+                                       "Unix.SO_DONTROUTE"
+                                       "Unix.OOBINLINE"
+                                       "Unix.SO_ACCEPTCONN"
+                                       "Unix.TCP_NODELAY"
+                                       "Unix.IPV6_ONLY"].
 Extract Inductive socket_float_option => "Unix.socket_float_option"
                                        ["Unix.SO_RCVTIMEO"
                                         "Unix.SO_SNDTIMEO"].
@@ -265,6 +295,8 @@ Extract Constant connect => "fun f a        k -> k (Unix.connect f a)".
 Extract Constant listen => "fun f i         k -> k (Unix.listen f i)".
 Extract Constant recv   => "fun f b o l g   k -> k (Unix.recv f b o l g)".
 Extract Constant send   => "fun f b o l g   k -> k (Unix.send f b o l g)".
+Extract Constant getsockopt =>       "fun f o   k -> k (Unix.getsockopt f o)".
+Extract Constant setsockopt =>       "fun f o b k -> k (Unix.setsockopt f o b)".
 Extract Constant getsockopt_float => "fun f o   k -> k (Unix.getsockopt_float f o)".
 Extract Constant setsockopt_float => "fun f o v k -> k (Unix.setsockopt_float f o v)".
 Extract Constant select => "fun r w e t k ->
