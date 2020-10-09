@@ -46,6 +46,19 @@ Parameter sleep : int -> IO unit.
 (** The abstract type of Internet addresses.  *)
 Parameter inet_addr  : Set.
 
+(** Conversion from the printable representation of an Internet
+    address to its internal representation.  The argument string
+    consists of 4 numbers separated by periods ([XXX.YYY.ZZZ.TTT])
+    for IPv4 addresses, and up to 8 numbers separated by colons
+    for IPv6 addresses.
+    @raise Failure when given a string that does not match these formats. *)
+Parameter inet_addr_of_string : ocaml_string -> IO inet_addr.
+
+(** Return the printable representation of the given Internet address.
+    See [inet_addr_of_string] for a description of the
+    printable representation. *)
+Parameter string_of_inet_addr : inet_addr -> ocaml_string.
+
 (** A special IPv4 address, for use only with [bind], representing all the
     Internet addresses that the host machine possesses. *)
 Parameter inet_addr_any : inet_addr.
@@ -255,6 +268,7 @@ Extract Inlined Constant file_descr_eqb     => "(=)".
 Extract Inlined Constant inet_addr          => "Unix.inet_addr".
 Extract Inlined Constant inet_addr_any      => "Unix.inet_addr_any".
 Extract Inlined Constant inet_addr_loopback => "Unix.inet_addr_loopback".
+Extract Inlined Constant string_of_inet_addr => "Unix.string_of_inet_addr".
 
 Extract Inductive socket_domain => "Unix.socket_domain"
                                  ["Unix.PF_UNIX"
@@ -299,6 +313,7 @@ Extract Constant getsockopt =>       "fun f o   k -> k (Unix.getsockopt f o)".
 Extract Constant setsockopt =>       "fun f o b k -> k (Unix.setsockopt f o b)".
 Extract Constant getsockopt_float => "fun f o   k -> k (Unix.getsockopt_float f o)".
 Extract Constant setsockopt_float => "fun f o v k -> k (Unix.setsockopt_float f o v)".
+Extract Constant inet_addr_of_string => "fun  s k -> k (Unix.inet_addr_of_string s)".
 Extract Constant select => "fun r w e t k ->
                              k (let (r',w',e') = Unix.select r w e t in
                                 ((r',w'),e'))".
