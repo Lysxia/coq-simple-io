@@ -250,6 +250,9 @@ Inductive error :=
 | EUNKNOWNERR (code : int) (* Unknown error *)
 .
 
+(** Return a string describing the given error code. *)
+Parameter error_message : error -> ocaml_string.
+
 (** Catch a Unix error.
 
     The first component is the error code; the second component is the function
@@ -388,6 +391,8 @@ Extract Inductive error => "Unix.error"
   "Unix.ELOOP"
   "Unix.EOVERFLOW"
   "Unix.EUNKNOWNERR" ].
+
+Extract Inlined Constant error_message => "Unix.error_message".
 
 Extract Constant catch_error => "fun u h k ->
   match Obj.magic u (fun a -> a) with
