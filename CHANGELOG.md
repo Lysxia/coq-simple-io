@@ -1,3 +1,12 @@
+# 1.4.0
+
+- Remove instance `MonadFix_IO` (was causing universe inconsistencies)
+- Add in `Unix`:
+
+    + `inet_addr_of_string`, `string_of_inet_addr`
+    + `socket_bool_option`, `getsockopt`, setsockopt`
+    + `error_message`
+
 # 1.3.0
 
 - Fix the extraction of core `IO` constants with type annotations to avoid
