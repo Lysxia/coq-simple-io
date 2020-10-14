@@ -1,37 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="coqdoc.css" rel="stylesheet" type="text/css" />
-<link href="coqdocjs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="config.js"></script>
-<script type="text/javascript" src="coqdocjs.js"></script>
+<title>SimpleIO.IO_Sys</title>
 </head>
 
-<body onload="document.getElementById('content').focus()">
-  <div id="header">
-    <span class="left">
-      <span class="modulename"> <script> document.write(document.title) </script> </span>
-    </span>
+<body>
 
-    <span class="button" id="toggle-proofs"></span>
+<div id="page">
 
-    <span class="right">
-      <a href="../">Project Page</a>
-      <a href="./indexpage.html"> Index </a>
-      <a href="./toc.html"> Table of Contents </a>
-    </span>
+<div id="header">
 </div>
-    <div id="content" tabindex="-1" onblur="document.getElementById('content').focus()">
-    <div id="main">
+
+<div id="main">
+
 <h1 class="libtitle">SimpleIO.IO_Sys</h1>
 
 <div class="code">
 </div>
 
 <div class="doc">
-<a name="lab64"></a><h1 class="section">System interface</h1>
+<a id="lab64"></a><h1 class="section">System interface</h1>
 
 <div class="paragraph"> </div>
 
@@ -43,7 +34,7 @@
 <br/>
 
 <br/>
-<span class="id" title="keyword">Module</span> <a name="OSys"><span class="id" title="module">OSys</span></a>.<br/>
+<span class="id" title="keyword">Module</span> <a id="OSys" class="idref" href="#OSys"><span class="id" title="module">OSys</span></a>.<br/>
 
 <br/>
 </div>
@@ -53,23 +44,23 @@ Return the value associated to a variable in the process environment.
     Raise <span class="inlinecode"><span class="id" title="var">Not_found</span></span> if the variable is unbound. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OSys.getenv"><span class="id" title="axiom">getenv</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OSys.getenv" class="idref" href="#OSys.getenv"><span class="id" title="axiom">getenv</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
 
 <br/>
 </div>
 
 <div class="doc">
 Return the value associated to a variable in the process environment or
-    <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#None"><span class="id" title="constructor">None</span></a></span> if the variable is unbound. 
+    <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#None"><span class="id" title="constructor">None</span></a></span> if the variable is unbound. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OSys.getenv_opt"><span class="id" title="axiom">getenv_opt</span></a>: <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#option"><span class="id" title="inductive">option</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>).<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OSys.getenv_opt" class="idref" href="#OSys.getenv_opt"><span class="id" title="axiom">getenv_opt</span></a>: <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#option"><span class="id" title="inductive">option</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>).<br/>
 
 <br/>
 </div>
 
 <div class="doc">
-<a name="lab65"></a><h2 class="section">Extraction</h2>
+<a id="lab65"></a><h2 class="section">Extraction</h2>
 
 </div>
 <div class="code">
@@ -82,10 +73,12 @@ Return the value associated to a variable in the process environment or
 <span class="id" title="keyword">End</span> <a class="idref" href="SimpleIO.IO_Sys.html#OSys"><span class="id" title="module">OSys</span></a>.<br/>
 </div>
 </div>
-<div id="footer">
-  Generated by <a href="http://coq.inria.fr/">coqdoc</a> and improved with <a href="https://github.com/tebbi/coqdocjs">CoqdocJS</a>
-</div>
-</div>
-</body>
 
+<div id="footer">
+<hr/><a href="indexpage.html">Index</a><hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
+</div>
+
+</div>
+
+</body>
 </html>

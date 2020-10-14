@@ -1,65 +1,56 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="coqdoc.css" rel="stylesheet" type="text/css" />
-<link href="coqdocjs.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="config.js"></script>
-<script type="text/javascript" src="coqdocjs.js"></script>
+<title>SimpleIO.IO_Unix</title>
 </head>
 
-<body onload="document.getElementById('content').focus()">
-  <div id="header">
-    <span class="left">
-      <span class="modulename"> <script> document.write(document.title) </script> </span>
-    </span>
+<body>
 
-    <span class="button" id="toggle-proofs"></span>
+<div id="page">
 
-    <span class="right">
-      <a href="../">Project Page</a>
-      <a href="./indexpage.html"> Index </a>
-      <a href="./toc.html"> Table of Contents </a>
-    </span>
+<div id="header">
 </div>
-    <div id="content" tabindex="-1" onblur="document.getElementById('content').focus()">
-    <div id="main">
+
+<div id="main">
+
 <h1 class="libtitle">SimpleIO.IO_Unix</h1>
 
 <div class="code">
 </div>
 
 <div class="doc">
-<a name="lab56"></a><h1 class="section">Interface to the Unix system</h1>
+<a id="lab56"></a><h1 class="section">Interface to the Unix system</h1>
 
 <div class="paragraph"> </div>
 
  Note: descriptions of the interface are derived from OCaml's documentation:
-    https://caml.inria.fr/pub/docs/manual-ocaml/libref/Unix.html
+    https://caml.inria.fr/pub/docs/manual-ocaml/libref/Unix.html 
 </div>
 <div class="code">
 
 <br/>
 
 <br/>
-<span class="id" title="keyword">Module</span> <a name="OUnix"><span class="id" title="module">OUnix</span></a>.<br/>
+<span class="id" title="keyword">Module</span> <a id="OUnix" class="idref" href="#OUnix"><span class="id" title="module">OUnix</span></a>.<br/>
 
 <br/>
 </div>
 
 <div class="doc">
-<a name="lab57"></a><h2 class="section">Basic file input/output</h2>
+<a id="lab57"></a><h2 class="section">Basic file input/output</h2>
 
 <div class="paragraph"> </div>
 
  The abstract type of file descriptors. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> : <span class="id" title="keyword">Set</span>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.file_descr" class="idref" href="#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> : <span class="id" title="keyword">Set</span>.<br/>
 
 <br/>
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.file_descr_eqb"><span class="id" title="axiom">file_descr_eqb</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#bool"><span class="id" title="inductive">bool</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.file_descr_eqb" class="idref" href="#OUnix.file_descr_eqb"><span class="id" title="axiom">file_descr_eqb</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#bool"><span class="id" title="inductive">bool</span></a>.<br/>
 
 <br/>
 </div>
@@ -68,13 +59,13 @@
 Close a file descriptor. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.close"><span class="id" title="axiom">close</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.close" class="idref" href="#OUnix.close"><span class="id" title="axiom">close</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
 
 <br/>
 </div>
 
 <div class="doc">
-<a name="lab58"></a><h2 class="section">Polling</h2>
+<a id="lab58"></a><h2 class="section">Polling</h2>
  Wait until some input/output operations become possible on some channels.
    The three list arguments are, respectively, a set of descriptors to check for
    reading (first argument), for writing (second argument), or for exceptional
@@ -83,34 +74,59 @@ Close a file descriptor.
    argument means no timeout (unbounded wait).
    The result is composed of three sets of descriptors: those ready for reading
    (first component), ready for writing (second component), and over which an
-   exceptional condition is pending (third component).
+   exceptional condition is pending (third component). 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.select"><span class="id" title="axiom">select</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a><br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#11c698c8685bb8ab1cf725545c085ac4"><span class="id" title="notation">*</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#11c698c8685bb8ab1cf725545c085ac4"><span class="id" title="notation">*</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a>).<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.select" class="idref" href="#OUnix.select"><span class="id" title="axiom">select</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#11c698c8685bb8ab1cf725545c085ac4"><span class="id" title="notation">*</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#11c698c8685bb8ab1cf725545c085ac4"><span class="id" title="notation">*</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a>).<br/>
 
 <br/>
 </div>
 
 <div class="doc">
-<a name="lab59"></a><h2 class="section">Time functions</h2>
+<a id="lab59"></a><h2 class="section">Time functions</h2>
 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.sleep"><span class="id" title="axiom">sleep</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.sleep" class="idref" href="#OUnix.sleep"><span class="id" title="axiom">sleep</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
 
 <br/>
 </div>
 
 <div class="doc">
-<a name="lab60"></a><h2 class="section">Internet addresses</h2>
+<a id="lab60"></a><h2 class="section">Internet addresses</h2>
 
 <div class="paragraph"> </div>
 
  The abstract type of Internet addresses.  
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.inet_addr"><span class="id" title="axiom">inet_addr</span></a>  : <span class="id" title="keyword">Set</span>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.inet_addr" class="idref" href="#OUnix.inet_addr"><span class="id" title="axiom">inet_addr</span></a>  : <span class="id" title="keyword">Set</span>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Conversion from the printable representation of an Internet
+    address to its internal representation.  The argument string
+    consists of 4 numbers separated by periods (<span class="inlinecode"><span class="id" title="var">XXX.YYY.ZZZ.TTT</span></span>)
+    for IPv4 addresses, and up to 8 numbers separated by colons
+    for IPv6 addresses.
+    @raise Failure when given a string that does not match these formats. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.inet_addr_of_string" class="idref" href="#OUnix.inet_addr_of_string"><span class="id" title="axiom">inet_addr_of_string</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.inet_addr"><span class="id" title="axiom">inet_addr</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Return the printable representation of the given Internet address.
+    See <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Unix.html#OUnix.inet_addr_of_string"><span class="id" title="axiom">inet_addr_of_string</span></a></span> for a description of the
+    printable representation. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.string_of_inet_addr" class="idref" href="#OUnix.string_of_inet_addr"><span class="id" title="axiom">string_of_inet_addr</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.inet_addr"><span class="id" title="axiom">inet_addr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
 
 <br/>
 </div>
@@ -120,7 +136,7 @@ A special IPv4 address, for use only with <span class="inlinecode"><a class="idr
     Internet addresses that the host machine possesses. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.inet_addr_any"><span class="id" title="axiom">inet_addr_any</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.inet_addr"><span class="id" title="axiom">inet_addr</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.inet_addr_any" class="idref" href="#OUnix.inet_addr_any"><span class="id" title="axiom">inet_addr_any</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.inet_addr"><span class="id" title="axiom">inet_addr</span></a>.<br/>
 
 <br/>
 </div>
@@ -129,13 +145,13 @@ A special IPv4 address, for use only with <span class="inlinecode"><a class="idr
 A special IPv4 address representing the host machine (<span class="inlinecode">127.0.0.1</span>). 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.inet_addr_loopback"><span class="id" title="axiom">inet_addr_loopback</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.inet_addr"><span class="id" title="axiom">inet_addr</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.inet_addr_loopback" class="idref" href="#OUnix.inet_addr_loopback"><span class="id" title="axiom">inet_addr_loopback</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.inet_addr"><span class="id" title="axiom">inet_addr</span></a>.<br/>
 
 <br/>
 </div>
 
 <div class="doc">
-<a name="lab61"></a><h2 class="section">Sockets</h2>
+<a id="lab61"></a><h2 class="section">Sockets</h2>
 
 <div class="paragraph"> </div>
 
@@ -143,20 +159,20 @@ A special IPv4 address representing the host machine (<span class="inlinecode">1
     <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Unix.html#OUnix.PF_INET6"><span class="id" title="constructor">PF_INET6</span></a></span>). Windows does not support <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Unix.html#OUnix.PF_UNIX"><span class="id" title="constructor">PF_UNIX</span></a></span>. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Variant</span> <a name="OUnix.socket_domain"><span class="id" title="inductive">socket_domain</span></a> :=<br/>
-&nbsp;&nbsp;<a name="OUnix.PF_UNIX"><span class="id" title="constructor">PF_UNIX</span></a>                       </div>
+<span class="id" title="keyword">Variant</span> <a id="OUnix.socket_domain" class="idref" href="#OUnix.socket_domain"><span class="id" title="inductive">socket_domain</span></a> :=<br/>
+&nbsp;&nbsp;<a id="OUnix.PF_UNIX" class="idref" href="#OUnix.PF_UNIX"><span class="id" title="constructor">PF_UNIX</span></a>                       </div>
 
 <div class="doc">
 Unix domain 
 </div>
 <div class="code">
-| <a name="OUnix.PF_INET"><span class="id" title="constructor">PF_INET</span></a>                       </div>
+| <a id="OUnix.PF_INET" class="idref" href="#OUnix.PF_INET"><span class="id" title="constructor">PF_INET</span></a>                       </div>
 
 <div class="doc">
 Internet domain (IPv4) 
 </div>
 <div class="code">
-| <a name="OUnix.PF_INET6"><span class="id" title="constructor">PF_INET6</span></a>. </div>
+| <a id="OUnix.PF_INET6" class="idref" href="#OUnix.PF_INET6"><span class="id" title="constructor">PF_INET6</span></a>. </div>
 
 <div class="doc">
 Internet domain (IPv6) 
@@ -168,26 +184,26 @@ Internet domain (IPv6)
     of the machine, and <span class="inlinecode"><span class="id" title="var">port</span></span> is the port number. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Variant</span> <a name="OUnix.socket_type"><span class="id" title="inductive">socket_type</span></a> :=<br/>
-&nbsp;&nbsp;<a name="OUnix.SOCK_STREAM"><span class="id" title="constructor">SOCK_STREAM</span></a>                   </div>
+<span class="id" title="keyword">Variant</span> <a id="OUnix.socket_type" class="idref" href="#OUnix.socket_type"><span class="id" title="inductive">socket_type</span></a> :=<br/>
+&nbsp;&nbsp;<a id="OUnix.SOCK_STREAM" class="idref" href="#OUnix.SOCK_STREAM"><span class="id" title="constructor">SOCK_STREAM</span></a>                   </div>
 
 <div class="doc">
 Stream socket 
 </div>
 <div class="code">
-| <a name="OUnix.SOCK_DGRAM"><span class="id" title="constructor">SOCK_DGRAM</span></a>                    </div>
+| <a id="OUnix.SOCK_DGRAM" class="idref" href="#OUnix.SOCK_DGRAM"><span class="id" title="constructor">SOCK_DGRAM</span></a>                    </div>
 
 <div class="doc">
 Datagram socket 
 </div>
 <div class="code">
-| <a name="OUnix.SOCK_RAW"><span class="id" title="constructor">SOCK_RAW</span></a>                      </div>
+| <a id="OUnix.SOCK_RAW" class="idref" href="#OUnix.SOCK_RAW"><span class="id" title="constructor">SOCK_RAW</span></a>                      </div>
 
 <div class="doc">
 Raw socket 
 </div>
 <div class="code">
-| <a name="OUnix.SOCK_SEQPACKET"><span class="id" title="constructor">SOCK_SEQPACKET</span></a>. </div>
+| <a id="OUnix.SOCK_SEQPACKET" class="idref" href="#OUnix.SOCK_SEQPACKET"><span class="id" title="constructor">SOCK_SEQPACKET</span></a>. </div>
 
 <div class="doc">
 Sequenced packets socket 
@@ -199,9 +215,9 @@ Sequenced packets socket
     of the machine, and <span class="inlinecode"><span class="id" title="var">port</span></span> is the port number. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Variant</span> <a name="OUnix.sockaddr"><span class="id" title="inductive">sockaddr</span></a> :=<br/>
-&nbsp;&nbsp;<a name="OUnix.ADDR_UNIX"><span class="id" title="constructor">ADDR_UNIX</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>    <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#sockaddr"><span class="id" title="inductive">sockaddr</span></a><br/>
-| <a name="OUnix.ADDR_INET"><span class="id" title="constructor">ADDR_INET</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.inet_addr"><span class="id" title="axiom">inet_addr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#sockaddr"><span class="id" title="inductive">sockaddr</span></a>.<br/>
+<span class="id" title="keyword">Variant</span> <a id="OUnix.sockaddr" class="idref" href="#OUnix.sockaddr"><span class="id" title="inductive">sockaddr</span></a> :=<br/>
+&nbsp;&nbsp;<a id="OUnix.ADDR_UNIX" class="idref" href="#OUnix.ADDR_UNIX"><span class="id" title="constructor">ADDR_UNIX</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>    <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#sockaddr:15"><span class="id" title="inductive">sockaddr</span></a><br/>
+| <a id="OUnix.ADDR_INET" class="idref" href="#OUnix.ADDR_INET"><span class="id" title="constructor">ADDR_INET</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.inet_addr"><span class="id" title="axiom">inet_addr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#sockaddr:15"><span class="id" title="inductive">sockaddr</span></a>.<br/>
 
 <br/>
 </div>
@@ -212,7 +228,7 @@ Create a new socket in the given domain, and with the given kind. The third
     of sockets. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.socket"><span class="id" title="axiom">socket</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.socket_domain"><span class="id" title="inductive">socket_domain</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.socket_type"><span class="id" title="inductive">socket_type</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.socket" class="idref" href="#OUnix.socket"><span class="id" title="axiom">socket</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.socket_domain"><span class="id" title="inductive">socket_domain</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.socket_type"><span class="id" title="inductive">socket_type</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a>.<br/>
 
 <br/>
 </div>
@@ -223,7 +239,7 @@ Accept connections on the given socket. The returned descriptor is a socket
     connecting client. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.accept"><span class="id" title="axiom">accept</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> (<a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#11c698c8685bb8ab1cf725545c085ac4"><span class="id" title="notation">*</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.sockaddr"><span class="id" title="inductive">sockaddr</span></a>).<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.accept" class="idref" href="#OUnix.accept"><span class="id" title="axiom">accept</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> (<a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#11c698c8685bb8ab1cf725545c085ac4"><span class="id" title="notation">*</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.sockaddr"><span class="id" title="inductive">sockaddr</span></a>).<br/>
 
 <br/>
 </div>
@@ -232,7 +248,7 @@ Accept connections on the given socket. The returned descriptor is a socket
 Bind a socket to an address. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.bind"><span class="id" title="axiom">bind</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.sockaddr"><span class="id" title="inductive">sockaddr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.bind" class="idref" href="#OUnix.bind"><span class="id" title="axiom">bind</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.sockaddr"><span class="id" title="inductive">sockaddr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
 
 <br/>
 </div>
@@ -241,7 +257,7 @@ Bind a socket to an address.
 Connect a socket to an address. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.connect"><span class="id" title="axiom">connect</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.sockaddr"><span class="id" title="inductive">sockaddr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.connect" class="idref" href="#OUnix.connect"><span class="id" title="axiom">connect</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.sockaddr"><span class="id" title="inductive">sockaddr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
 
 <br/>
 </div>
@@ -251,7 +267,7 @@ Set up a socket for receiving connection requests. The integer argument is
     the maximal number of pending requests. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.listen"><span class="id" title="axiom">listen</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.listen" class="idref" href="#OUnix.listen"><span class="id" title="axiom">listen</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
 
 <br/>
 </div>
@@ -260,10 +276,10 @@ Set up a socket for receiving connection requests. The integer argument is
 The flags for <span class="inlinecode"><span class="id" title="var">Unix.recvfrom</span></span> and <span class="inlinecode"><span class="id" title="var">sendto</span></span>. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Variant</span> <a name="OUnix.msg_flag"><span class="id" title="inductive">msg_flag</span></a> :=<br/>
-&nbsp;&nbsp;<a name="OUnix.MSG_OOB"><span class="id" title="constructor">MSG_OOB</span></a><br/>
-| <a name="OUnix.MSG_DONTROUTE"><span class="id" title="constructor">MSG_DONTROUTE</span></a><br/>
-| <a name="OUnix.MSG_PEEK"><span class="id" title="constructor">MSG_PEEK</span></a>.<br/>
+<span class="id" title="keyword">Variant</span> <a id="OUnix.msg_flag" class="idref" href="#OUnix.msg_flag"><span class="id" title="inductive">msg_flag</span></a> :=<br/>
+&nbsp;&nbsp;<a id="OUnix.MSG_OOB" class="idref" href="#OUnix.MSG_OOB"><span class="id" title="constructor">MSG_OOB</span></a><br/>
+| <a id="OUnix.MSG_DONTROUTE" class="idref" href="#OUnix.MSG_DONTROUTE"><span class="id" title="constructor">MSG_DONTROUTE</span></a><br/>
+| <a id="OUnix.MSG_PEEK" class="idref" href="#OUnix.MSG_PEEK"><span class="id" title="constructor">MSG_PEEK</span></a>.<br/>
 
 <br/>
 </div>
@@ -272,8 +288,8 @@ The flags for <span class="inlinecode"><span class="id" title="var">Unix.recvfro
 Receive data from a connected socket. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.recv"><span class="id" title="axiom">recv</span></a> :<br/>
-&nbsp;&nbsp;<a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.msg_flag"><span class="id" title="inductive">msg_flag</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.recv" class="idref" href="#OUnix.recv"><span class="id" title="axiom">recv</span></a> :<br/>
+&nbsp;&nbsp;<a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.msg_flag"><span class="id" title="inductive">msg_flag</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>.<br/>
 
 <br/>
 </div>
@@ -282,21 +298,54 @@ Receive data from a connected socket.
 Send data over a connected socket. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.send"><span class="id" title="axiom">send</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.msg_flag"><span class="id" title="inductive">msg_flag</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.send" class="idref" href="#OUnix.send"><span class="id" title="axiom">send</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#bytes"><span class="id" title="axiom">bytes</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#list"><span class="id" title="inductive">list</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.msg_flag"><span class="id" title="inductive">msg_flag</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>.<br/>
 
 <br/>
 </div>
 
 <div class="doc">
-<a name="lab62"></a><h2 class="section">Socket options</h2>
+<a id="lab62"></a><h2 class="section">Socket options</h2>
 
+<div class="paragraph"> </div>
+
+ The socket options that can be consulted with <span class="inlinecode"><span class="id" title="var">IO_Unix.getsockopt</span></span>
+    and modified with <span class="inlinecode"><span class="id" title="var">IO_Unix.setsockopt</span></span>.  These options have a boolean
+    (<span class="inlinecode"><span class="id" title="var">true</span></span>/<span class="inlinecode"><span class="id" title="var">false</span></span>) value. 
 </div>
 <div class="code">
+<span class="id" title="keyword">Variant</span> <a id="OUnix.socket_bool_option" class="idref" href="#OUnix.socket_bool_option"><span class="id" title="inductive">socket_bool_option</span></a> :=<br/>
+&nbsp;&nbsp;<a id="OUnix.SO_DEBUG" class="idref" href="#OUnix.SO_DEBUG"><span class="id" title="constructor">SO_DEBUG</span></a>       <span class="comment">(*&nbsp;Record&nbsp;debugging&nbsp;information&nbsp;*)</span><br/>
+| <a id="OUnix.SO_BROADCAST" class="idref" href="#OUnix.SO_BROADCAST"><span class="id" title="constructor">SO_BROADCAST</span></a>   <span class="comment">(*&nbsp;Permit&nbsp;sending&nbsp;of&nbsp;broadcast&nbsp;messages&nbsp;*)</span><br/>
+| <a id="OUnix.SO_REUSEADDR" class="idref" href="#OUnix.SO_REUSEADDR"><span class="id" title="constructor">SO_REUSEADDR</span></a>   <span class="comment">(*&nbsp;Allow&nbsp;reuse&nbsp;of&nbsp;local&nbsp;addresses&nbsp;for&nbsp;bind&nbsp;*)</span><br/>
+| <a id="OUnix.SO_KEEPALIVE" class="idref" href="#OUnix.SO_KEEPALIVE"><span class="id" title="constructor">SO_KEEPALIVE</span></a>   <span class="comment">(*&nbsp;Keep&nbsp;connection&nbsp;active&nbsp;*)</span><br/>
+| <a id="OUnix.SO_DONTROUTE" class="idref" href="#OUnix.SO_DONTROUTE"><span class="id" title="constructor">SO_DONTROUTE</span></a>   <span class="comment">(*&nbsp;Bypass&nbsp;the&nbsp;standard&nbsp;routing&nbsp;algorithms&nbsp;*)</span><br/>
+| <a id="OUnix.SO_OOBINLINE" class="idref" href="#OUnix.SO_OOBINLINE"><span class="id" title="constructor">SO_OOBINLINE</span></a>   <span class="comment">(*&nbsp;Leave&nbsp;out-of-band&nbsp;data&nbsp;in&nbsp;line&nbsp;*)</span><br/>
+| <a id="OUnix.SO_ACCEPTCONN" class="idref" href="#OUnix.SO_ACCEPTCONN"><span class="id" title="constructor">SO_ACCEPTCONN</span></a>  <span class="comment">(*&nbsp;Report&nbsp;whether&nbsp;socket&nbsp;listening&nbsp;is&nbsp;enabled&nbsp;*)</span><br/>
+| <a id="OUnix.TCP_NODELAY" class="idref" href="#OUnix.TCP_NODELAY"><span class="id" title="constructor">TCP_NODELAY</span></a>    <span class="comment">(*&nbsp;Control&nbsp;the&nbsp;Nagle&nbsp;algorithm&nbsp;for&nbsp;TCP&nbsp;sockets&nbsp;*)</span><br/>
+| <a id="OUnix.IPV6_ONLY" class="idref" href="#OUnix.IPV6_ONLY"><span class="id" title="constructor">IPV6_ONLY</span></a>. <span class="comment">(*&nbsp;Forbid&nbsp;binding&nbsp;an&nbsp;IPv6&nbsp;socket&nbsp;to&nbsp;an&nbsp;IPv4&nbsp;address&nbsp;*)</span><br/>
 
 <br/>
-<span class="id" title="keyword">Variant</span> <a name="OUnix.socket_float_option"><span class="id" title="inductive">socket_float_option</span></a> :=<br/>
-&nbsp;&nbsp;<a name="OUnix.SO_RCVTIMEO"><span class="id" title="constructor">SO_RCVTIMEO</span></a>    <span class="comment">(*&nbsp;Timeout&nbsp;for&nbsp;input&nbsp;operations&nbsp;*)</span><br/>
-| <a name="OUnix.SO_SNDTIMEO"><span class="id" title="constructor">SO_SNDTIMEO</span></a>. <span class="comment">(*&nbsp;Timeout&nbsp;for&nbsp;output&nbsp;operations&nbsp;*)</span><br/>
+<span class="id" title="keyword">Variant</span> <a id="OUnix.socket_float_option" class="idref" href="#OUnix.socket_float_option"><span class="id" title="inductive">socket_float_option</span></a> :=<br/>
+&nbsp;&nbsp;<a id="OUnix.SO_RCVTIMEO" class="idref" href="#OUnix.SO_RCVTIMEO"><span class="id" title="constructor">SO_RCVTIMEO</span></a>    <span class="comment">(*&nbsp;Timeout&nbsp;for&nbsp;input&nbsp;operations&nbsp;*)</span><br/>
+| <a id="OUnix.SO_SNDTIMEO" class="idref" href="#OUnix.SO_SNDTIMEO"><span class="id" title="constructor">SO_SNDTIMEO</span></a>. <span class="comment">(*&nbsp;Timeout&nbsp;for&nbsp;output&nbsp;operations&nbsp;*)</span><br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Return the current status of a boolean-valued option in the given socket. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.getsockopt" class="idref" href="#OUnix.getsockopt"><span class="id" title="axiom">getsockopt</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.socket_bool_option"><span class="id" title="inductive">socket_bool_option</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#bool"><span class="id" title="inductive">bool</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Set or clear a boolean-valued option in the given socket. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.setsockopt" class="idref" href="#OUnix.setsockopt"><span class="id" title="axiom">setsockopt</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.socket_bool_option"><span class="id" title="inductive">socket_bool_option</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#bool"><span class="id" title="inductive">bool</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
 
 <br/>
 </div>
@@ -305,7 +354,7 @@ Send data over a connected socket.
 Return the current status of a floating-point socket option. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.getsockopt_float"><span class="id" title="axiom">getsockopt_float</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">OUnix.file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.socket_float_option"><span class="id" title="inductive">socket_float_option</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.getsockopt_float" class="idref" href="#OUnix.getsockopt_float"><span class="id" title="axiom">getsockopt_float</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">OUnix.file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.socket_float_option"><span class="id" title="inductive">socket_float_option</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
 
 <br/>
 </div>
@@ -314,7 +363,7 @@ Return the current status of a floating-point socket option.
 Set a floating-point option in the given socket. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.setsockopt_float"><span class="id" title="axiom">setsockopt_float</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">OUnix.file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.socket_float_option"><span class="id" title="inductive">socket_float_option</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.setsockopt_float" class="idref" href="#OUnix.setsockopt_float"><span class="id" title="axiom">setsockopt_float</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">OUnix.file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.socket_float_option"><span class="id" title="inductive">socket_float_option</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
 
 <br/>
 </div>
@@ -324,9 +373,9 @@ Simple measure of time based on <span class="inlinecode"><a class="idref" href="
     <span class="inlinecode"><span class="id" title="var">setsockopt_time</span></span>. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Inductive</span> <a name="OUnix.time"><span class="id" title="inductive">time</span></a> :=<br/>
-| <a name="OUnix.Seconds"><span class="id" title="constructor">Seconds</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#time"><span class="id" title="inductive">time</span></a><br/>
-| <a name="OUnix.Microsec"><span class="id" title="constructor">Microsec</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#time"><span class="id" title="inductive">time</span></a><br/>
+<span class="id" title="keyword">Inductive</span> <a id="OUnix.time" class="idref" href="#OUnix.time"><span class="id" title="inductive">time</span></a> :=<br/>
+| <a id="OUnix.Seconds" class="idref" href="#OUnix.Seconds"><span class="id" title="constructor">Seconds</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#time:34"><span class="id" title="inductive">time</span></a><br/>
+| <a id="OUnix.Microsec" class="idref" href="#OUnix.Microsec"><span class="id" title="constructor">Microsec</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#time:34"><span class="id" title="inductive">time</span></a><br/>
 .<br/>
 
 <br/>
@@ -336,8 +385,8 @@ Simple measure of time based on <span class="inlinecode"><a class="idref" href="
 Convert <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Unix.html#OUnix.time"><span class="id" title="inductive">time</span></a></span> to seconds as a <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a></span>. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Definition</span> <a name="OUnix.time_as_seconds"><span class="id" title="definition">time_as_seconds</span></a> (<span class="id" title="var">t</span> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.time"><span class="id" title="inductive">time</span></a>) : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> :=<br/>
-&nbsp;&nbsp;<span class="id" title="keyword">match</span> <a class="idref" href="SimpleIO.IO_Unix.html#t"><span class="id" title="variable">t</span></a> <span class="id" title="keyword">with</span><br/>
+<span class="id" title="keyword">Definition</span> <a id="OUnix.time_as_seconds" class="idref" href="#OUnix.time_as_seconds"><span class="id" title="definition">time_as_seconds</span></a> (<a id="t:36" class="idref" href="#t:36"><span class="id" title="binder">t</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.time"><span class="id" title="inductive">time</span></a>) : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> :=<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">match</span> <a class="idref" href="SimpleIO.IO_Unix.html#t:36"><span class="id" title="variable">t</span></a> <span class="id" title="keyword">with</span><br/>
 &nbsp;&nbsp;| <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.Seconds"><span class="id" title="constructor">Seconds</span></a> <span class="id" title="var">n</span> =&gt; <a class="idref" href="SimpleIO.IO_Float.html#OFloat.of_int"><span class="id" title="axiom">OFloat.of_int</span></a> <span class="id" title="var">n</span><br/>
 &nbsp;&nbsp;| <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.Microsec"><span class="id" title="constructor">Microsec</span></a> <span class="id" title="var">n</span> =&gt; <a class="idref" href="SimpleIO.IO_Float.html#OFloat.micro"><span class="id" title="axiom">OFloat.micro</span></a> (<a class="idref" href="SimpleIO.IO_Float.html#OFloat.of_int"><span class="id" title="axiom">OFloat.of_int</span></a> <span class="id" title="var">n</span>)<br/>
 &nbsp;&nbsp;<span class="id" title="keyword">end</span>.<br/>
@@ -349,8 +398,8 @@ Convert <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Unix.html#OU
 Set a timeout option in the given socket. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Definition</span> <a name="OUnix.setsock_timeout"><span class="id" title="definition">setsock_timeout</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">OUnix.file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.socket_float_option"><span class="id" title="inductive">socket_float_option</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.time"><span class="id" title="inductive">time</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a><br/>
-&nbsp;&nbsp;:= <span class="id" title="keyword">fun</span> <span class="id" title="var">sock</span> <span class="id" title="var">opt</span> <span class="id" title="var">t</span> =&gt; <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.setsockopt_float"><span class="id" title="axiom">setsockopt_float</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#sock"><span class="id" title="variable">sock</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#opt"><span class="id" title="variable">opt</span></a> (<a class="idref" href="SimpleIO.IO_Unix.html#OUnix.time_as_seconds"><span class="id" title="definition">time_as_seconds</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#t"><span class="id" title="variable">t</span></a>).<br/>
+<span class="id" title="keyword">Definition</span> <a id="OUnix.setsock_timeout" class="idref" href="#OUnix.setsock_timeout"><span class="id" title="definition">setsock_timeout</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.file_descr"><span class="id" title="axiom">OUnix.file_descr</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.socket_float_option"><span class="id" title="inductive">socket_float_option</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.time"><span class="id" title="inductive">time</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a><br/>
+&nbsp;&nbsp;:= <span class="id" title="keyword">fun</span> <a id="sock:38" class="idref" href="#sock:38"><span class="id" title="binder">sock</span></a> <a id="opt:39" class="idref" href="#opt:39"><span class="id" title="binder">opt</span></a> <a id="t:40" class="idref" href="#t:40"><span class="id" title="binder">t</span></a> =&gt; <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.setsockopt_float"><span class="id" title="axiom">setsockopt_float</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#sock:38"><span class="id" title="variable">sock</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#opt:39"><span class="id" title="variable">opt</span></a> (<a class="idref" href="SimpleIO.IO_Unix.html#OUnix.time_as_seconds"><span class="id" title="definition">time_as_seconds</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#t:40"><span class="id" title="variable">t</span></a>).<br/>
 
 <br/>
 </div>
@@ -360,77 +409,86 @@ The type of error codes.  Errors defined in the POSIX standard and additional
     errors from UNIX98 and BSD. All other errors are mapped to <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Unix.html#OUnix.EUNKNOWNERR"><span class="id" title="constructor">EUNKNOWNERR</span></a></span>. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Inductive</span> <a name="OUnix.error"><span class="id" title="inductive">error</span></a> :=<br/>
-| <a name="OUnix.E2BIG"><span class="id" title="constructor">E2BIG</span></a>  <span class="comment">(*&nbsp;Argument&nbsp;list&nbsp;too&nbsp;long&nbsp;*)</span><br/>
-| <a name="OUnix.EACCES"><span class="id" title="constructor">EACCES</span></a>  <span class="comment">(*&nbsp;Permission&nbsp;denied&nbsp;*)</span><br/>
-| <a name="OUnix.EAGAIN"><span class="id" title="constructor">EAGAIN</span></a>  <span class="comment">(*&nbsp;Resource&nbsp;temporarily&nbsp;unavailable;&nbsp;try&nbsp;again&nbsp;*)</span><br/>
-| <a name="OUnix.EBADF"><span class="id" title="constructor">EBADF</span></a>  <span class="comment">(*&nbsp;Bad&nbsp;file&nbsp;descriptor&nbsp;*)</span><br/>
-| <a name="OUnix.EBUSY"><span class="id" title="constructor">EBUSY</span></a>  <span class="comment">(*&nbsp;Resource&nbsp;unavailable&nbsp;*)</span><br/>
-| <a name="OUnix.ECHILD"><span class="id" title="constructor">ECHILD</span></a>  <span class="comment">(*&nbsp;No&nbsp;child&nbsp;process&nbsp;*)</span><br/>
-| <a name="OUnix.EDEADLK"><span class="id" title="constructor">EDEADLK</span></a>  <span class="comment">(*&nbsp;Resource&nbsp;deadlock&nbsp;would&nbsp;occur&nbsp;*)</span><br/>
-| <a name="OUnix.EDOM"><span class="id" title="constructor">EDOM</span></a>  <span class="comment">(*&nbsp;Domain&nbsp;error&nbsp;for&nbsp;math&nbsp;functions,&nbsp;etc.&nbsp;*)</span><br/>
-| <a name="OUnix.EEXIST"><span class="id" title="constructor">EEXIST</span></a>  <span class="comment">(*&nbsp;File&nbsp;exists&nbsp;*)</span><br/>
-| <a name="OUnix.EFAULT"><span class="id" title="constructor">EFAULT</span></a>  <span class="comment">(*&nbsp;Bad&nbsp;address&nbsp;*)</span><br/>
-| <a name="OUnix.EFBIG"><span class="id" title="constructor">EFBIG</span></a>  <span class="comment">(*&nbsp;File&nbsp;too&nbsp;large&nbsp;*)</span><br/>
-| <a name="OUnix.EINTR"><span class="id" title="constructor">EINTR</span></a>  <span class="comment">(*&nbsp;Function&nbsp;interrupted&nbsp;by&nbsp;signal&nbsp;*)</span><br/>
-| <a name="OUnix.EINVAL"><span class="id" title="constructor">EINVAL</span></a>  <span class="comment">(*&nbsp;Invalid&nbsp;argument&nbsp;*)</span><br/>
-| <a name="OUnix.EIO"><span class="id" title="constructor">EIO</span></a>  <span class="comment">(*&nbsp;Hardware&nbsp;I/O&nbsp;error&nbsp;*)</span><br/>
-| <a name="OUnix.EISDIR"><span class="id" title="constructor">EISDIR</span></a>  <span class="comment">(*&nbsp;Is&nbsp;a&nbsp;directory&nbsp;*)</span><br/>
-| <a name="OUnix.EMFILE"><span class="id" title="constructor">EMFILE</span></a>  <span class="comment">(*&nbsp;Too&nbsp;many&nbsp;open&nbsp;files&nbsp;by&nbsp;the&nbsp;process&nbsp;*)</span><br/>
-| <a name="OUnix.EMLINK"><span class="id" title="constructor">EMLINK</span></a>  <span class="comment">(*&nbsp;Too&nbsp;many&nbsp;links&nbsp;*)</span><br/>
-| <a name="OUnix.ENAMETOOLONG"><span class="id" title="constructor">ENAMETOOLONG</span></a>  <span class="comment">(*&nbsp;Filename&nbsp;too&nbsp;long&nbsp;*)</span><br/>
-| <a name="OUnix.ENFILE"><span class="id" title="constructor">ENFILE</span></a>  <span class="comment">(*&nbsp;Too&nbsp;many&nbsp;open&nbsp;files&nbsp;in&nbsp;the&nbsp;system&nbsp;*)</span><br/>
-| <a name="OUnix.ENODEV"><span class="id" title="constructor">ENODEV</span></a>  <span class="comment">(*&nbsp;No&nbsp;such&nbsp;device&nbsp;*)</span><br/>
-| <a name="OUnix.ENOENT"><span class="id" title="constructor">ENOENT</span></a>  <span class="comment">(*&nbsp;No&nbsp;such&nbsp;file&nbsp;or&nbsp;directory&nbsp;*)</span><br/>
-| <a name="OUnix.ENOEXEC"><span class="id" title="constructor">ENOEXEC</span></a>  <span class="comment">(*&nbsp;Not&nbsp;an&nbsp;executable&nbsp;file&nbsp;*)</span><br/>
-| <a name="OUnix.ENOLCK"><span class="id" title="constructor">ENOLCK</span></a>  <span class="comment">(*&nbsp;No&nbsp;locks&nbsp;available&nbsp;*)</span><br/>
-| <a name="OUnix.ENOMEM"><span class="id" title="constructor">ENOMEM</span></a>  <span class="comment">(*&nbsp;Not&nbsp;enough&nbsp;memory&nbsp;*)</span><br/>
-| <a name="OUnix.ENOSPC"><span class="id" title="constructor">ENOSPC</span></a>  <span class="comment">(*&nbsp;No&nbsp;space&nbsp;left&nbsp;on&nbsp;device&nbsp;*)</span><br/>
-| <a name="OUnix.ENOSYS"><span class="id" title="constructor">ENOSYS</span></a>  <span class="comment">(*&nbsp;Function&nbsp;not&nbsp;supported&nbsp;*)</span><br/>
-| <a name="OUnix.ENOTDIR"><span class="id" title="constructor">ENOTDIR</span></a>  <span class="comment">(*&nbsp;Not&nbsp;a&nbsp;directory&nbsp;*)</span><br/>
-| <a name="OUnix.ENOTEMPTY"><span class="id" title="constructor">ENOTEMPTY</span></a>  <span class="comment">(*&nbsp;Directory&nbsp;not&nbsp;empty&nbsp;*)</span><br/>
-| <a name="OUnix.ENOTTY"><span class="id" title="constructor">ENOTTY</span></a>  <span class="comment">(*&nbsp;Inappropriate&nbsp;I/O&nbsp;control&nbsp;operation&nbsp;*)</span><br/>
-| <a name="OUnix.ENXIO"><span class="id" title="constructor">ENXIO</span></a>  <span class="comment">(*&nbsp;No&nbsp;such&nbsp;device&nbsp;or&nbsp;address&nbsp;*)</span><br/>
-| <a name="OUnix.EPERM"><span class="id" title="constructor">EPERM</span></a>  <span class="comment">(*&nbsp;Operation&nbsp;not&nbsp;permitted&nbsp;*)</span><br/>
-| <a name="OUnix.EPIPE"><span class="id" title="constructor">EPIPE</span></a>  <span class="comment">(*&nbsp;Broken&nbsp;pipe&nbsp;*)</span><br/>
-| <a name="OUnix.ERANGE"><span class="id" title="constructor">ERANGE</span></a>  <span class="comment">(*&nbsp;Result&nbsp;too&nbsp;large&nbsp;*)</span><br/>
-| <a name="OUnix.EROFS"><span class="id" title="constructor">EROFS</span></a>  <span class="comment">(*&nbsp;Read-only&nbsp;file&nbsp;system&nbsp;*)</span><br/>
-| <a name="OUnix.ESPIPE"><span class="id" title="constructor">ESPIPE</span></a>  <span class="comment">(*&nbsp;Invalid&nbsp;seek&nbsp;e.g.&nbsp;on&nbsp;a&nbsp;pipe&nbsp;*)</span><br/>
-| <a name="OUnix.ESRCH"><span class="id" title="constructor">ESRCH</span></a>  <span class="comment">(*&nbsp;No&nbsp;such&nbsp;process&nbsp;*)</span><br/>
-| <a name="OUnix.EXDEV"><span class="id" title="constructor">EXDEV</span></a>  <span class="comment">(*&nbsp;Invalid&nbsp;link&nbsp;*)</span><br/>
-| <a name="OUnix.EWOULDBLOCK"><span class="id" title="constructor">EWOULDBLOCK</span></a>  <span class="comment">(*&nbsp;Operation&nbsp;would&nbsp;block&nbsp;*)</span><br/>
-| <a name="OUnix.EINPROGRESS"><span class="id" title="constructor">EINPROGRESS</span></a>  <span class="comment">(*&nbsp;Operation&nbsp;now&nbsp;in&nbsp;progress&nbsp;*)</span><br/>
-| <a name="OUnix.EALREADY"><span class="id" title="constructor">EALREADY</span></a>  <span class="comment">(*&nbsp;Operation&nbsp;already&nbsp;in&nbsp;progress&nbsp;*)</span><br/>
-| <a name="OUnix.ENOTSOCK"><span class="id" title="constructor">ENOTSOCK</span></a>  <span class="comment">(*&nbsp;Socket&nbsp;operation&nbsp;on&nbsp;non-socket&nbsp;*)</span><br/>
-| <a name="OUnix.EDESTADDRREQ"><span class="id" title="constructor">EDESTADDRREQ</span></a>  <span class="comment">(*&nbsp;Destination&nbsp;address&nbsp;required&nbsp;*)</span><br/>
-| <a name="OUnix.EMSGSIZE"><span class="id" title="constructor">EMSGSIZE</span></a>  <span class="comment">(*&nbsp;Message&nbsp;too&nbsp;long&nbsp;*)</span><br/>
-| <a name="OUnix.EPROTOTYPE"><span class="id" title="constructor">EPROTOTYPE</span></a>  <span class="comment">(*&nbsp;Protocol&nbsp;wrong&nbsp;type&nbsp;for&nbsp;socket&nbsp;*)</span><br/>
-| <a name="OUnix.ENOPROTOOPT"><span class="id" title="constructor">ENOPROTOOPT</span></a>  <span class="comment">(*&nbsp;Protocol&nbsp;not&nbsp;available&nbsp;*)</span><br/>
-| <a name="OUnix.EPROTONOSUPPORT"><span class="id" title="constructor">EPROTONOSUPPORT</span></a>  <span class="comment">(*&nbsp;Protocol&nbsp;not&nbsp;supported&nbsp;*)</span><br/>
-| <a name="OUnix.ESOCKTNOSUPPORT"><span class="id" title="constructor">ESOCKTNOSUPPORT</span></a>  <span class="comment">(*&nbsp;Socket&nbsp;type&nbsp;not&nbsp;supported&nbsp;*)</span><br/>
-| <a name="OUnix.EOPNOTSUPP"><span class="id" title="constructor">EOPNOTSUPP</span></a>  <span class="comment">(*&nbsp;Operation&nbsp;not&nbsp;supported&nbsp;on&nbsp;socket&nbsp;*)</span><br/>
-| <a name="OUnix.EPFNOSUPPORT"><span class="id" title="constructor">EPFNOSUPPORT</span></a>  <span class="comment">(*&nbsp;Protocol&nbsp;family&nbsp;not&nbsp;supported&nbsp;*)</span><br/>
-| <a name="OUnix.EAFNOSUPPORT"><span class="id" title="constructor">EAFNOSUPPORT</span></a>  <span class="comment">(*&nbsp;Address&nbsp;family&nbsp;not&nbsp;supported&nbsp;by&nbsp;protocol&nbsp;family&nbsp;*)</span><br/>
-| <a name="OUnix.EADDRINUSE"><span class="id" title="constructor">EADDRINUSE</span></a>  <span class="comment">(*&nbsp;Address&nbsp;already&nbsp;in&nbsp;use&nbsp;*)</span><br/>
-| <a name="OUnix.EADDRNOTAVAIL"><span class="id" title="constructor">EADDRNOTAVAIL</span></a>  <span class="comment">(*&nbsp;Can't&nbsp;assign&nbsp;requested&nbsp;address&nbsp;*)</span><br/>
-| <a name="OUnix.ENETDOWN"><span class="id" title="constructor">ENETDOWN</span></a>  <span class="comment">(*&nbsp;Network&nbsp;is&nbsp;down&nbsp;*)</span><br/>
-| <a name="OUnix.ENETUNREACH"><span class="id" title="constructor">ENETUNREACH</span></a>  <span class="comment">(*&nbsp;Network&nbsp;is&nbsp;unreachable&nbsp;*)</span><br/>
-| <a name="OUnix.ENETRESET"><span class="id" title="constructor">ENETRESET</span></a>  <span class="comment">(*&nbsp;Network&nbsp;dropped&nbsp;connection&nbsp;on&nbsp;reset&nbsp;*)</span><br/>
-| <a name="OUnix.ECONNABORTED"><span class="id" title="constructor">ECONNABORTED</span></a>  <span class="comment">(*&nbsp;Software&nbsp;caused&nbsp;connection&nbsp;abort&nbsp;*)</span><br/>
-| <a name="OUnix.ECONNRESET"><span class="id" title="constructor">ECONNRESET</span></a>  <span class="comment">(*&nbsp;Connection&nbsp;reset&nbsp;by&nbsp;peer&nbsp;*)</span><br/>
-| <a name="OUnix.ENOBUFS"><span class="id" title="constructor">ENOBUFS</span></a>  <span class="comment">(*&nbsp;No&nbsp;buffer&nbsp;space&nbsp;available&nbsp;*)</span><br/>
-| <a name="OUnix.EISCONN"><span class="id" title="constructor">EISCONN</span></a>  <span class="comment">(*&nbsp;Socket&nbsp;is&nbsp;already&nbsp;connected&nbsp;*)</span><br/>
-| <a name="OUnix.ENOTCONN"><span class="id" title="constructor">ENOTCONN</span></a>  <span class="comment">(*&nbsp;Socket&nbsp;is&nbsp;not&nbsp;connected&nbsp;*)</span><br/>
-| <a name="OUnix.ESHUTDOWN"><span class="id" title="constructor">ESHUTDOWN</span></a>  <span class="comment">(*&nbsp;Can't&nbsp;send&nbsp;after&nbsp;socket&nbsp;shutdown&nbsp;*)</span><br/>
-| <a name="OUnix.ETOOMANYREFS"><span class="id" title="constructor">ETOOMANYREFS</span></a>  <span class="comment">(*&nbsp;Too&nbsp;many&nbsp;references:&nbsp;can't&nbsp;splice&nbsp;*)</span><br/>
-| <a name="OUnix.ETIMEDOUT"><span class="id" title="constructor">ETIMEDOUT</span></a>  <span class="comment">(*&nbsp;Connection&nbsp;timed&nbsp;out&nbsp;*)</span><br/>
-| <a name="OUnix.ECONNREFUSED"><span class="id" title="constructor">ECONNREFUSED</span></a>  <span class="comment">(*&nbsp;Connection&nbsp;refused&nbsp;*)</span><br/>
-| <a name="OUnix.EHOSTDOWN"><span class="id" title="constructor">EHOSTDOWN</span></a>  <span class="comment">(*&nbsp;Host&nbsp;is&nbsp;down&nbsp;*)</span><br/>
-| <a name="OUnix.EHOSTUNREACH"><span class="id" title="constructor">EHOSTUNREACH</span></a>  <span class="comment">(*&nbsp;No&nbsp;route&nbsp;to&nbsp;host&nbsp;*)</span><br/>
-| <a name="OUnix.ELOOP"><span class="id" title="constructor">ELOOP</span></a>  <span class="comment">(*&nbsp;Too&nbsp;many&nbsp;levels&nbsp;of&nbsp;symbolic&nbsp;links&nbsp;*)</span><br/>
-| <a name="OUnix.EOVERFLOW"><span class="id" title="constructor">EOVERFLOW</span></a>  <span class="comment">(*&nbsp;File&nbsp;size&nbsp;or&nbsp;position&nbsp;not&nbsp;representable&nbsp;*)</span><br/>
-| <a name="OUnix.EUNKNOWNERR"><span class="id" title="constructor">EUNKNOWNERR</span></a> (<span class="id" title="var">code</span> : <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>) <span class="comment">(*&nbsp;Unknown&nbsp;error&nbsp;*)</span><br/>
+<span class="id" title="keyword">Inductive</span> <a id="OUnix.error" class="idref" href="#OUnix.error"><span class="id" title="inductive">error</span></a> :=<br/>
+| <a id="OUnix.E2BIG" class="idref" href="#OUnix.E2BIG"><span class="id" title="constructor">E2BIG</span></a>  <span class="comment">(*&nbsp;Argument&nbsp;list&nbsp;too&nbsp;long&nbsp;*)</span><br/>
+| <a id="OUnix.EACCES" class="idref" href="#OUnix.EACCES"><span class="id" title="constructor">EACCES</span></a>  <span class="comment">(*&nbsp;Permission&nbsp;denied&nbsp;*)</span><br/>
+| <a id="OUnix.EAGAIN" class="idref" href="#OUnix.EAGAIN"><span class="id" title="constructor">EAGAIN</span></a>  <span class="comment">(*&nbsp;Resource&nbsp;temporarily&nbsp;unavailable;&nbsp;try&nbsp;again&nbsp;*)</span><br/>
+| <a id="OUnix.EBADF" class="idref" href="#OUnix.EBADF"><span class="id" title="constructor">EBADF</span></a>  <span class="comment">(*&nbsp;Bad&nbsp;file&nbsp;descriptor&nbsp;*)</span><br/>
+| <a id="OUnix.EBUSY" class="idref" href="#OUnix.EBUSY"><span class="id" title="constructor">EBUSY</span></a>  <span class="comment">(*&nbsp;Resource&nbsp;unavailable&nbsp;*)</span><br/>
+| <a id="OUnix.ECHILD" class="idref" href="#OUnix.ECHILD"><span class="id" title="constructor">ECHILD</span></a>  <span class="comment">(*&nbsp;No&nbsp;child&nbsp;process&nbsp;*)</span><br/>
+| <a id="OUnix.EDEADLK" class="idref" href="#OUnix.EDEADLK"><span class="id" title="constructor">EDEADLK</span></a>  <span class="comment">(*&nbsp;Resource&nbsp;deadlock&nbsp;would&nbsp;occur&nbsp;*)</span><br/>
+| <a id="OUnix.EDOM" class="idref" href="#OUnix.EDOM"><span class="id" title="constructor">EDOM</span></a>  <span class="comment">(*&nbsp;Domain&nbsp;error&nbsp;for&nbsp;math&nbsp;functions,&nbsp;etc.&nbsp;*)</span><br/>
+| <a id="OUnix.EEXIST" class="idref" href="#OUnix.EEXIST"><span class="id" title="constructor">EEXIST</span></a>  <span class="comment">(*&nbsp;File&nbsp;exists&nbsp;*)</span><br/>
+| <a id="OUnix.EFAULT" class="idref" href="#OUnix.EFAULT"><span class="id" title="constructor">EFAULT</span></a>  <span class="comment">(*&nbsp;Bad&nbsp;address&nbsp;*)</span><br/>
+| <a id="OUnix.EFBIG" class="idref" href="#OUnix.EFBIG"><span class="id" title="constructor">EFBIG</span></a>  <span class="comment">(*&nbsp;File&nbsp;too&nbsp;large&nbsp;*)</span><br/>
+| <a id="OUnix.EINTR" class="idref" href="#OUnix.EINTR"><span class="id" title="constructor">EINTR</span></a>  <span class="comment">(*&nbsp;Function&nbsp;interrupted&nbsp;by&nbsp;signal&nbsp;*)</span><br/>
+| <a id="OUnix.EINVAL" class="idref" href="#OUnix.EINVAL"><span class="id" title="constructor">EINVAL</span></a>  <span class="comment">(*&nbsp;Invalid&nbsp;argument&nbsp;*)</span><br/>
+| <a id="OUnix.EIO" class="idref" href="#OUnix.EIO"><span class="id" title="constructor">EIO</span></a>  <span class="comment">(*&nbsp;Hardware&nbsp;I/O&nbsp;error&nbsp;*)</span><br/>
+| <a id="OUnix.EISDIR" class="idref" href="#OUnix.EISDIR"><span class="id" title="constructor">EISDIR</span></a>  <span class="comment">(*&nbsp;Is&nbsp;a&nbsp;directory&nbsp;*)</span><br/>
+| <a id="OUnix.EMFILE" class="idref" href="#OUnix.EMFILE"><span class="id" title="constructor">EMFILE</span></a>  <span class="comment">(*&nbsp;Too&nbsp;many&nbsp;open&nbsp;files&nbsp;by&nbsp;the&nbsp;process&nbsp;*)</span><br/>
+| <a id="OUnix.EMLINK" class="idref" href="#OUnix.EMLINK"><span class="id" title="constructor">EMLINK</span></a>  <span class="comment">(*&nbsp;Too&nbsp;many&nbsp;links&nbsp;*)</span><br/>
+| <a id="OUnix.ENAMETOOLONG" class="idref" href="#OUnix.ENAMETOOLONG"><span class="id" title="constructor">ENAMETOOLONG</span></a>  <span class="comment">(*&nbsp;Filename&nbsp;too&nbsp;long&nbsp;*)</span><br/>
+| <a id="OUnix.ENFILE" class="idref" href="#OUnix.ENFILE"><span class="id" title="constructor">ENFILE</span></a>  <span class="comment">(*&nbsp;Too&nbsp;many&nbsp;open&nbsp;files&nbsp;in&nbsp;the&nbsp;system&nbsp;*)</span><br/>
+| <a id="OUnix.ENODEV" class="idref" href="#OUnix.ENODEV"><span class="id" title="constructor">ENODEV</span></a>  <span class="comment">(*&nbsp;No&nbsp;such&nbsp;device&nbsp;*)</span><br/>
+| <a id="OUnix.ENOENT" class="idref" href="#OUnix.ENOENT"><span class="id" title="constructor">ENOENT</span></a>  <span class="comment">(*&nbsp;No&nbsp;such&nbsp;file&nbsp;or&nbsp;directory&nbsp;*)</span><br/>
+| <a id="OUnix.ENOEXEC" class="idref" href="#OUnix.ENOEXEC"><span class="id" title="constructor">ENOEXEC</span></a>  <span class="comment">(*&nbsp;Not&nbsp;an&nbsp;executable&nbsp;file&nbsp;*)</span><br/>
+| <a id="OUnix.ENOLCK" class="idref" href="#OUnix.ENOLCK"><span class="id" title="constructor">ENOLCK</span></a>  <span class="comment">(*&nbsp;No&nbsp;locks&nbsp;available&nbsp;*)</span><br/>
+| <a id="OUnix.ENOMEM" class="idref" href="#OUnix.ENOMEM"><span class="id" title="constructor">ENOMEM</span></a>  <span class="comment">(*&nbsp;Not&nbsp;enough&nbsp;memory&nbsp;*)</span><br/>
+| <a id="OUnix.ENOSPC" class="idref" href="#OUnix.ENOSPC"><span class="id" title="constructor">ENOSPC</span></a>  <span class="comment">(*&nbsp;No&nbsp;space&nbsp;left&nbsp;on&nbsp;device&nbsp;*)</span><br/>
+| <a id="OUnix.ENOSYS" class="idref" href="#OUnix.ENOSYS"><span class="id" title="constructor">ENOSYS</span></a>  <span class="comment">(*&nbsp;Function&nbsp;not&nbsp;supported&nbsp;*)</span><br/>
+| <a id="OUnix.ENOTDIR" class="idref" href="#OUnix.ENOTDIR"><span class="id" title="constructor">ENOTDIR</span></a>  <span class="comment">(*&nbsp;Not&nbsp;a&nbsp;directory&nbsp;*)</span><br/>
+| <a id="OUnix.ENOTEMPTY" class="idref" href="#OUnix.ENOTEMPTY"><span class="id" title="constructor">ENOTEMPTY</span></a>  <span class="comment">(*&nbsp;Directory&nbsp;not&nbsp;empty&nbsp;*)</span><br/>
+| <a id="OUnix.ENOTTY" class="idref" href="#OUnix.ENOTTY"><span class="id" title="constructor">ENOTTY</span></a>  <span class="comment">(*&nbsp;Inappropriate&nbsp;I/O&nbsp;control&nbsp;operation&nbsp;*)</span><br/>
+| <a id="OUnix.ENXIO" class="idref" href="#OUnix.ENXIO"><span class="id" title="constructor">ENXIO</span></a>  <span class="comment">(*&nbsp;No&nbsp;such&nbsp;device&nbsp;or&nbsp;address&nbsp;*)</span><br/>
+| <a id="OUnix.EPERM" class="idref" href="#OUnix.EPERM"><span class="id" title="constructor">EPERM</span></a>  <span class="comment">(*&nbsp;Operation&nbsp;not&nbsp;permitted&nbsp;*)</span><br/>
+| <a id="OUnix.EPIPE" class="idref" href="#OUnix.EPIPE"><span class="id" title="constructor">EPIPE</span></a>  <span class="comment">(*&nbsp;Broken&nbsp;pipe&nbsp;*)</span><br/>
+| <a id="OUnix.ERANGE" class="idref" href="#OUnix.ERANGE"><span class="id" title="constructor">ERANGE</span></a>  <span class="comment">(*&nbsp;Result&nbsp;too&nbsp;large&nbsp;*)</span><br/>
+| <a id="OUnix.EROFS" class="idref" href="#OUnix.EROFS"><span class="id" title="constructor">EROFS</span></a>  <span class="comment">(*&nbsp;Read-only&nbsp;file&nbsp;system&nbsp;*)</span><br/>
+| <a id="OUnix.ESPIPE" class="idref" href="#OUnix.ESPIPE"><span class="id" title="constructor">ESPIPE</span></a>  <span class="comment">(*&nbsp;Invalid&nbsp;seek&nbsp;e.g.&nbsp;on&nbsp;a&nbsp;pipe&nbsp;*)</span><br/>
+| <a id="OUnix.ESRCH" class="idref" href="#OUnix.ESRCH"><span class="id" title="constructor">ESRCH</span></a>  <span class="comment">(*&nbsp;No&nbsp;such&nbsp;process&nbsp;*)</span><br/>
+| <a id="OUnix.EXDEV" class="idref" href="#OUnix.EXDEV"><span class="id" title="constructor">EXDEV</span></a>  <span class="comment">(*&nbsp;Invalid&nbsp;link&nbsp;*)</span><br/>
+| <a id="OUnix.EWOULDBLOCK" class="idref" href="#OUnix.EWOULDBLOCK"><span class="id" title="constructor">EWOULDBLOCK</span></a>  <span class="comment">(*&nbsp;Operation&nbsp;would&nbsp;block&nbsp;*)</span><br/>
+| <a id="OUnix.EINPROGRESS" class="idref" href="#OUnix.EINPROGRESS"><span class="id" title="constructor">EINPROGRESS</span></a>  <span class="comment">(*&nbsp;Operation&nbsp;now&nbsp;in&nbsp;progress&nbsp;*)</span><br/>
+| <a id="OUnix.EALREADY" class="idref" href="#OUnix.EALREADY"><span class="id" title="constructor">EALREADY</span></a>  <span class="comment">(*&nbsp;Operation&nbsp;already&nbsp;in&nbsp;progress&nbsp;*)</span><br/>
+| <a id="OUnix.ENOTSOCK" class="idref" href="#OUnix.ENOTSOCK"><span class="id" title="constructor">ENOTSOCK</span></a>  <span class="comment">(*&nbsp;Socket&nbsp;operation&nbsp;on&nbsp;non-socket&nbsp;*)</span><br/>
+| <a id="OUnix.EDESTADDRREQ" class="idref" href="#OUnix.EDESTADDRREQ"><span class="id" title="constructor">EDESTADDRREQ</span></a>  <span class="comment">(*&nbsp;Destination&nbsp;address&nbsp;required&nbsp;*)</span><br/>
+| <a id="OUnix.EMSGSIZE" class="idref" href="#OUnix.EMSGSIZE"><span class="id" title="constructor">EMSGSIZE</span></a>  <span class="comment">(*&nbsp;Message&nbsp;too&nbsp;long&nbsp;*)</span><br/>
+| <a id="OUnix.EPROTOTYPE" class="idref" href="#OUnix.EPROTOTYPE"><span class="id" title="constructor">EPROTOTYPE</span></a>  <span class="comment">(*&nbsp;Protocol&nbsp;wrong&nbsp;type&nbsp;for&nbsp;socket&nbsp;*)</span><br/>
+| <a id="OUnix.ENOPROTOOPT" class="idref" href="#OUnix.ENOPROTOOPT"><span class="id" title="constructor">ENOPROTOOPT</span></a>  <span class="comment">(*&nbsp;Protocol&nbsp;not&nbsp;available&nbsp;*)</span><br/>
+| <a id="OUnix.EPROTONOSUPPORT" class="idref" href="#OUnix.EPROTONOSUPPORT"><span class="id" title="constructor">EPROTONOSUPPORT</span></a>  <span class="comment">(*&nbsp;Protocol&nbsp;not&nbsp;supported&nbsp;*)</span><br/>
+| <a id="OUnix.ESOCKTNOSUPPORT" class="idref" href="#OUnix.ESOCKTNOSUPPORT"><span class="id" title="constructor">ESOCKTNOSUPPORT</span></a>  <span class="comment">(*&nbsp;Socket&nbsp;type&nbsp;not&nbsp;supported&nbsp;*)</span><br/>
+| <a id="OUnix.EOPNOTSUPP" class="idref" href="#OUnix.EOPNOTSUPP"><span class="id" title="constructor">EOPNOTSUPP</span></a>  <span class="comment">(*&nbsp;Operation&nbsp;not&nbsp;supported&nbsp;on&nbsp;socket&nbsp;*)</span><br/>
+| <a id="OUnix.EPFNOSUPPORT" class="idref" href="#OUnix.EPFNOSUPPORT"><span class="id" title="constructor">EPFNOSUPPORT</span></a>  <span class="comment">(*&nbsp;Protocol&nbsp;family&nbsp;not&nbsp;supported&nbsp;*)</span><br/>
+| <a id="OUnix.EAFNOSUPPORT" class="idref" href="#OUnix.EAFNOSUPPORT"><span class="id" title="constructor">EAFNOSUPPORT</span></a>  <span class="comment">(*&nbsp;Address&nbsp;family&nbsp;not&nbsp;supported&nbsp;by&nbsp;protocol&nbsp;family&nbsp;*)</span><br/>
+| <a id="OUnix.EADDRINUSE" class="idref" href="#OUnix.EADDRINUSE"><span class="id" title="constructor">EADDRINUSE</span></a>  <span class="comment">(*&nbsp;Address&nbsp;already&nbsp;in&nbsp;use&nbsp;*)</span><br/>
+| <a id="OUnix.EADDRNOTAVAIL" class="idref" href="#OUnix.EADDRNOTAVAIL"><span class="id" title="constructor">EADDRNOTAVAIL</span></a>  <span class="comment">(*&nbsp;Can't&nbsp;assign&nbsp;requested&nbsp;address&nbsp;*)</span><br/>
+| <a id="OUnix.ENETDOWN" class="idref" href="#OUnix.ENETDOWN"><span class="id" title="constructor">ENETDOWN</span></a>  <span class="comment">(*&nbsp;Network&nbsp;is&nbsp;down&nbsp;*)</span><br/>
+| <a id="OUnix.ENETUNREACH" class="idref" href="#OUnix.ENETUNREACH"><span class="id" title="constructor">ENETUNREACH</span></a>  <span class="comment">(*&nbsp;Network&nbsp;is&nbsp;unreachable&nbsp;*)</span><br/>
+| <a id="OUnix.ENETRESET" class="idref" href="#OUnix.ENETRESET"><span class="id" title="constructor">ENETRESET</span></a>  <span class="comment">(*&nbsp;Network&nbsp;dropped&nbsp;connection&nbsp;on&nbsp;reset&nbsp;*)</span><br/>
+| <a id="OUnix.ECONNABORTED" class="idref" href="#OUnix.ECONNABORTED"><span class="id" title="constructor">ECONNABORTED</span></a>  <span class="comment">(*&nbsp;Software&nbsp;caused&nbsp;connection&nbsp;abort&nbsp;*)</span><br/>
+| <a id="OUnix.ECONNRESET" class="idref" href="#OUnix.ECONNRESET"><span class="id" title="constructor">ECONNRESET</span></a>  <span class="comment">(*&nbsp;Connection&nbsp;reset&nbsp;by&nbsp;peer&nbsp;*)</span><br/>
+| <a id="OUnix.ENOBUFS" class="idref" href="#OUnix.ENOBUFS"><span class="id" title="constructor">ENOBUFS</span></a>  <span class="comment">(*&nbsp;No&nbsp;buffer&nbsp;space&nbsp;available&nbsp;*)</span><br/>
+| <a id="OUnix.EISCONN" class="idref" href="#OUnix.EISCONN"><span class="id" title="constructor">EISCONN</span></a>  <span class="comment">(*&nbsp;Socket&nbsp;is&nbsp;already&nbsp;connected&nbsp;*)</span><br/>
+| <a id="OUnix.ENOTCONN" class="idref" href="#OUnix.ENOTCONN"><span class="id" title="constructor">ENOTCONN</span></a>  <span class="comment">(*&nbsp;Socket&nbsp;is&nbsp;not&nbsp;connected&nbsp;*)</span><br/>
+| <a id="OUnix.ESHUTDOWN" class="idref" href="#OUnix.ESHUTDOWN"><span class="id" title="constructor">ESHUTDOWN</span></a>  <span class="comment">(*&nbsp;Can't&nbsp;send&nbsp;after&nbsp;socket&nbsp;shutdown&nbsp;*)</span><br/>
+| <a id="OUnix.ETOOMANYREFS" class="idref" href="#OUnix.ETOOMANYREFS"><span class="id" title="constructor">ETOOMANYREFS</span></a>  <span class="comment">(*&nbsp;Too&nbsp;many&nbsp;references:&nbsp;can't&nbsp;splice&nbsp;*)</span><br/>
+| <a id="OUnix.ETIMEDOUT" class="idref" href="#OUnix.ETIMEDOUT"><span class="id" title="constructor">ETIMEDOUT</span></a>  <span class="comment">(*&nbsp;Connection&nbsp;timed&nbsp;out&nbsp;*)</span><br/>
+| <a id="OUnix.ECONNREFUSED" class="idref" href="#OUnix.ECONNREFUSED"><span class="id" title="constructor">ECONNREFUSED</span></a>  <span class="comment">(*&nbsp;Connection&nbsp;refused&nbsp;*)</span><br/>
+| <a id="OUnix.EHOSTDOWN" class="idref" href="#OUnix.EHOSTDOWN"><span class="id" title="constructor">EHOSTDOWN</span></a>  <span class="comment">(*&nbsp;Host&nbsp;is&nbsp;down&nbsp;*)</span><br/>
+| <a id="OUnix.EHOSTUNREACH" class="idref" href="#OUnix.EHOSTUNREACH"><span class="id" title="constructor">EHOSTUNREACH</span></a>  <span class="comment">(*&nbsp;No&nbsp;route&nbsp;to&nbsp;host&nbsp;*)</span><br/>
+| <a id="OUnix.ELOOP" class="idref" href="#OUnix.ELOOP"><span class="id" title="constructor">ELOOP</span></a>  <span class="comment">(*&nbsp;Too&nbsp;many&nbsp;levels&nbsp;of&nbsp;symbolic&nbsp;links&nbsp;*)</span><br/>
+| <a id="OUnix.EOVERFLOW" class="idref" href="#OUnix.EOVERFLOW"><span class="id" title="constructor">EOVERFLOW</span></a>  <span class="comment">(*&nbsp;File&nbsp;size&nbsp;or&nbsp;position&nbsp;not&nbsp;representable&nbsp;*)</span><br/>
+| <a id="OUnix.EUNKNOWNERR" class="idref" href="#OUnix.EUNKNOWNERR"><span class="id" title="constructor">EUNKNOWNERR</span></a> (<a id="code:43" class="idref" href="#code:43"><span class="id" title="binder">code</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>) <span class="comment">(*&nbsp;Unknown&nbsp;error&nbsp;*)</span><br/>
 .<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Return a string describing the given error code. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.error_message" class="idref" href="#OUnix.error_message"><span class="id" title="axiom">error_message</span></a> : <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.error"><span class="id" title="inductive">error</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
 
 <br/>
 </div>
@@ -445,8 +503,8 @@ Catch a Unix error.
     has one, or the empty string otherwise. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.catch_error"><span class="id" title="axiom">catch_error</span></a><br/>
-&nbsp;&nbsp;: <span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span>}, <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#a"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">(</span></a><a class="idref" href="SimpleIO.IO_Unix.html#OUnix.error"><span class="id" title="inductive">error</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#a"><span class="id" title="variable">a</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#a"><span class="id" title="variable">a</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.catch_error" class="idref" href="#OUnix.catch_error"><span class="id" title="axiom">catch_error</span></a><br/>
+&nbsp;&nbsp;: <span class="id" title="keyword">forall</span> {<a id="a:45" class="idref" href="#a:45"><span class="id" title="binder">a</span></a>}, <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#a:45"><span class="id" title="variable">a</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">(</span></a><a class="idref" href="SimpleIO.IO_Unix.html#OUnix.error"><span class="id" title="inductive">error</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#a:45"><span class="id" title="variable">a</span></a><a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">)</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#a:45"><span class="id" title="variable">a</span></a>.<br/>
 
 <br/>
 </div>
@@ -455,7 +513,7 @@ Catch a Unix error.
 Raise a Unix error. Useful to rethrow errors that can't be handled. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a name="OUnix.raise_error"><span class="id" title="axiom">raise_error</span></a> : <span class="id" title="keyword">forall</span> {<span class="id" title="var">a</span>}, <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.error"><span class="id" title="inductive">error</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.11.2/stdlib//Coq.Init.Logic.html#1c93e43e07fbeaeb6a625cb6614beb5d"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#a"><span class="id" title="variable">a</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OUnix.raise_error" class="idref" href="#OUnix.raise_error"><span class="id" title="axiom">raise_error</span></a> : <span class="id" title="keyword">forall</span> {<a id="a:47" class="idref" href="#a:47"><span class="id" title="binder">a</span></a>}, <a class="idref" href="SimpleIO.IO_Unix.html#OUnix.error"><span class="id" title="inductive">error</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Unix.html#a:47"><span class="id" title="variable">a</span></a>.<br/>
 
 <br/>
 
@@ -463,10 +521,12 @@ Raise a Unix error. Useful to rethrow errors that can't be handled.
 <span class="id" title="keyword">End</span> <a class="idref" href="SimpleIO.IO_Unix.html#OUnix"><span class="id" title="module">OUnix</span></a>.<br/>
 </div>
 </div>
-<div id="footer">
-  Generated by <a href="http://coq.inria.fr/">coqdoc</a> and improved with <a href="https://github.com/tebbi/coqdocjs">CoqdocJS</a>
-</div>
-</div>
-</body>
 
+<div id="footer">
+<hr/><a href="indexpage.html">Index</a><hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
+</div>
+
+</div>
+
+</body>
 </html>
