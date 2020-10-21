@@ -91,6 +91,9 @@ Extract Constant f => "fun a b k -> k (f a b)".
 
 Basically, add an extra parameter `k` and apply it to the OCaml function call.
 
+This boilerplate can also be generated from OCaml interfaces using
+[coqffi](https://github.com/coq-community/coqffi).
+
 ## Library organization
 
 The source code can be found under `src/`.
@@ -127,5 +130,6 @@ They correspond to modules from the OCaml standard library.
 
 ## Related
 
+- [coqffi](https://github.com/coq-community/coqffi)
 - [Ynot](https://github.com/ynot-harvard/ynot)
 - [Coq.io](http://coq.io)
