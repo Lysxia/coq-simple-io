@@ -14,6 +14,24 @@ Parameter of_int : int -> float.
 (** Multiply by [10e-6]. *)
 Parameter micro : float -> float.
 
+(** Unary negation. *)
+Parameter neg : float -> float.
+
+(** Floating-point addition. *)
+Parameter add : float -> float -> float.
+
+(** Floating-point subtraction. *)
+Parameter sub : float -> float -> float.
+
+(** Floating-point multiplication. *)
+Parameter mul : float -> float -> float.
+
+(** Floating-point division. *)
+Parameter div : float -> float -> float.
+
+(** Exponentiation. *)
+Parameter pow : float -> float -> float.
+
 Module Unsafe.
 
 (** Truncate the given floating-point number to an integer.
@@ -56,6 +74,24 @@ Extract Constant of_int        => "Pervasives.float_of_int".
 Extract Constant of_string_opt => "Pervasives.float_of_string_opt".
 Extract Constant to_string     => "Pervasives.string_of_float".
 Extract Constant micro         => "fun x -> x *. 10e-6".
+Extract Constant neg           => "( ~-. )".
+Extract Constant add           => "(  +. )".
+Extract Constant sub           => "(  -. )".
+Extract Constant mul           => "(  *. )".
+Extract Constant div           => "(  /. )".
+Extract Constant pow           => "( **  )".
 (* end hide *)
 
 End OFloat.
+
+Module FloatNotations.
+Import OFloat.
+
+Notation "- x" := (neg x).
+Infix    "+"   :=  add.
+Infix    "-"   :=  sub.
+Infix    "*"   :=  mul.
+Infix    "/"   :=  div.
+Infix    "^"   :=  pow.
+
+End FloatNotations.
