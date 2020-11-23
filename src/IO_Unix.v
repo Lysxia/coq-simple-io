@@ -187,6 +187,25 @@ Definition setsock_timeout : OUnix.file_descr -> socket_float_option -> time -> 
 
 End Time.
 
+Record addr_info : Type := Mk_addr_info
+  { ai_family : socket_domain
+  ; ai_socktype : socket_type
+  ; ai_protocol : int
+  ; ai_addr : sockaddr
+  ; ai_canonname : ocaml_string
+  }.
+
+Inductive getaddrinfo_option : Type :=
+| AI_FAMILY (sd : socket_domain)
+| AI_SOCKTYPE (st : socket_type)
+| AI_PROTOCOL (proto : int)
+| AI_NUMERICHOST
+| AI_CANONNAME
+| AI_PASSIVE
+.
+
+Parameter getaddrinfo : ocaml_string -> ocaml_string -> list getaddrinfo_option -> IO (list addr_info).
+
 (** The type of error codes.  Errors defined in the POSIX standard and additional
     errors from UNIX98 and BSD. All other errors are mapped to [EUNKNOWNERR]. *)
 Inductive error :=
@@ -333,6 +352,21 @@ Extract Constant inet_addr_of_string => "fun  s k -> k (Unix.inet_addr_of_string
 Extract Constant select => "fun r w e t k ->
                              k (let (r',w',e') = Unix.select r w e t in
                                 ((r',w'),e'))".
+
+Extract Inductive addr_info => "Unix.addr_info"
+[ "(fun ai_family ai_socktype ai_protocol ai_addr ai_canonname -> Unix.{ ai_family ; ai_socktype ; ai_protocol ; ai_addr ; ai_canonname }" ]
+"Unix.(fun f ai -> f ai.ai_family ai.ai_socktype ai.ai_protocol ai.ai_addr ai.ai_canonname)".
+
+Extract Inductive getaddrinfo_option => "Unix.getaddrinfo_option"
+[ "Unix.AI_FAMILY"
+  "Unix.AI_SOCKTYPE"
+  "Unix.AI_PROTOCOL"
+  "Unix.AI_NUMERICHOST"
+  "Unix.AI_CANONNAME"
+  "Unix.AI_PASSIVE"
+].
+
+Extract Constant getaddrinfo => "fun host service opts k -> k (Unix.getaddrinfo host service opts)".
 
 Extract Inductive error => "Unix.error"
 [ "Unix.E2BIG"
