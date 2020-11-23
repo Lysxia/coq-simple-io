@@ -39,6 +39,13 @@ Parameter select : list file_descr -> list file_descr -> list file_descr -> floa
                    IO (list file_descr * list file_descr * list file_descr).
 
 (** ** Time functions *)
+(** Return the current time since 00:00:00 GMT, Jan. 1, 1970, in seconds. *)
+Parameter time : IO float.
+
+(** Same as [time], but with resolution better than 1 second. *)
+Parameter gettimeofday : IO float.
+
+(** Stop execution for the given number of seconds. *)
 Parameter sleep : int -> IO unit.
 
 (** ** Internet addresses  *)
@@ -158,6 +165,8 @@ Parameter getsockopt_float : OUnix.file_descr -> socket_float_option -> IO float
 (** Set a floating-point option in the given socket. *)
 Parameter setsockopt_float : OUnix.file_descr -> socket_float_option -> float -> IO unit.
 
+Module Time.
+
 (** Simple measure of time based on [int] to set socket timeouts with
     [setsockopt_time]. *)
 Inductive time :=
@@ -175,6 +184,8 @@ Definition time_as_seconds (t : time) : float :=
 (** Set a timeout option in the given socket. *)
 Definition setsock_timeout : OUnix.file_descr -> socket_float_option -> time -> IO unit
   := fun sock opt t => setsockopt_float sock opt (time_as_seconds t).
+
+End Time.
 
 (** The type of error codes.  Errors defined in the POSIX standard and additional
     errors from UNIX98 and BSD. All other errors are mapped to [EUNKNOWNERR]. *)
@@ -304,6 +315,8 @@ Extract Inductive socket_float_option => "Unix.socket_float_option"
                                         "Unix.SO_SNDTIMEO"].
 
 Extract Constant close  => "fun f           k -> k (Unix.close f)".
+Extract Constant time   => "fun             k -> k (Unix.time ())".
+Extract Constant gettimeofday => "fun       k -> k (Unix.gettimeofday ())".
 Extract Constant sleep  => "fun d           k -> k (Unix.sleep d)".
 Extract Constant socket => "fun d t p       k -> k (Unix.socket d t p)".
 Extract Constant accept => "fun f           k -> k (Unix.accept f)".

@@ -22,9 +22,14 @@ Parameter getenv : ocaml_string -> IO ocaml_string.
     [None] if the variable is unbound. *)
 Parameter getenv_opt: ocaml_string -> IO (option ocaml_string).
 
+(** Return the processor time, in seconds, used by the program
+    since the beginning of execution. *)
+Parameter time : IO float.
+
 (** ** Extraction *)
 
 Extract Constant getenv     => "fun e k -> k (Sys.getenv     e)".
 Extract Constant getenv_opt => "fun e k -> k (Sys.getenv_opt e)".
+Extract Constant time       => "fun   k -> k (Sys.time      ())".
 
 End OSys.
