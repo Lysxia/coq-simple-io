@@ -22,6 +22,11 @@ Parameter get : bytes -> int -> IO char.
 (** [set s n c] modifies [s], replacing the byte at index [n] with [c]. *)
 Parameter set : bytes -> int -> char -> IO unit.
 
+(** [sub s start len] returns a new byte sequence of length [len],
+    containing the subsequence of [s] that starts at position [start]
+    and has length [len]. *)
+Parameter sub : bytes -> int -> int -> IO bytes.
+
 (** [create n] returns a new byte sequence of length [n]. The sequence is
     uninitialized and contains arbitrary bytes.
 
@@ -41,6 +46,7 @@ Parameter to_string : bytes -> IO ocaml_string.
 Extract Constant length => "Bytes.length".
 Extract Constant get => "fun s n k -> k (Bytes.get s n)".
 Extract Constant set => "fun s n c k -> k (Bytes.set s n c)".
+Extract Constant sub => "fun s start len k -> k (Bytes.sub s start len)".
 Extract Constant create => "fun n k -> k (Bytes.create n)".
 Extract Constant of_string => "fun s k -> k (Bytes.of_string s)".
 Extract Constant to_string => "fun b k -> k (Bytes.to_string b)".
