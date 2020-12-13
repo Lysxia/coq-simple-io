@@ -1,5 +1,6 @@
 -Q src/ SimpleIO
 src/IO_Monad.v
+src/IO_MonadFix.v
 src/IO_Exceptions.v
 src/IO_String.v
 src/IO_RawChar.v
