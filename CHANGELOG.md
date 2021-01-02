@@ -1,3 +1,9 @@
+# 1.5.0
+
+- Add `IO_MonadFix` with the `MonadFix` instance in its own module.
+- Add float arithmeti.
+- Add `Bytes.sub`, `Unix.getaddrinfo`, `Sys.time` (and related definitions)
+
 # 1.4.0
 
 - Remove instance `MonadFix_IO` (was causing universe inconsistencies)
