@@ -50,18 +50,6 @@ commands:
           ls -AGR
 
 jobs:
-  coq 8_8:
-    <<: *defaults
-    docker:
-    - image: coqorg/coq:8.8
-  coq 8_9:
-    <<: *defaults
-    docker:
-    - image: coqorg/coq:8.9
-  coq 8_10:
-    <<: *defaults
-    docker:
-    - image: coqorg/coq:8.10
   coq 8_11:
     <<: *defaults
     docker:
@@ -70,6 +58,10 @@ jobs:
     <<: *defaults
     docker:
     - image: coqorg/coq:8.12
+  coq 8_13:
+    <<: *defaults
+    docker:
+    - image: coqorg/coq:8.13
   coq dev:
     <<: *defaults
     docker:
@@ -79,9 +71,7 @@ workflows:
   version: 2
   build:
     jobs:
-    - coq 8_8
-    - coq 8_9
-    - coq 8_10
     - coq 8_11
     - coq 8_12
+    - coq 8_13
     - coq dev

@@ -25,6 +25,7 @@ test: build
 	sh test.sh Example
 	sh test.sh TestPervasives
 	sh test.sh TestExtraction
+	sh test.sh RunIO -n
 
 # With installed library (check proper installation)
 install-test: build

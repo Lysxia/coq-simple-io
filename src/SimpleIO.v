@@ -10,3 +10,5 @@ From SimpleIO Require Export
      IO_Exceptions
      IO_RawChar
      IO_String.
+
+Declare ML Module "coqsimpleio_plugin".
