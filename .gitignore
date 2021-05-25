@@ -10,6 +10,10 @@
 *.o
 *.cmo
 *.cmx
+*.cmxs
+*.cmi
+*.ml
+*.mlg.d
 build
 _build
 deps.dot

@@ -1,3 +1,7 @@
+-I plugin/
+plugin/coqsimpleio.mlg
+plugin/coqsimpleio_plugin.mlpack
+
 -Q src/ SimpleIO
 src/IO_Monad.v
 src/IO_MonadFix.v
