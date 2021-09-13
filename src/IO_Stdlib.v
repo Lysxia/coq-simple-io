@@ -166,6 +166,9 @@ Parameter open_out : ocaml_string -> IO out_channel.
 (** Close an output file. *)
 Parameter close_out : out_channel -> IO unit.
 
+(** Same as [close_out], but ignore all errors. *)
+Parameter close_out_noerr : out_channel -> IO unit.
+
 (** Flush output buffers. *)
 Parameter flush : out_channel -> IO unit.
 Parameter flush_all : IO unit.
@@ -184,9 +187,20 @@ Parameter open_in : ocaml_string -> IO in_channel.
 (** Close an input file. *)
 Parameter close_in : in_channel -> IO unit.
 
+(** Same as [close_in], but ignore all errors. *)
+Parameter close_in_noerr : in_channel -> IO unit.
+
 Parameter input_char : in_channel -> IO char.
 Parameter input_line : in_channel -> IO ocaml_string.
 Parameter input_byte : in_channel -> IO int.
+
+(** Return the size (number of characters) of the regular file
+    on which the given channel is opened.  If the channel is opened
+    on a file that is not a regular file, the result is meaningless.
+    The returned size does not take into account the end-of-line
+    translations that can be performed when reading from a channel
+    opened in text mode. *)
+Parameter in_channel_length : in_channel -> IO int.
 
 (** * Mutable references *)
 
@@ -312,6 +326,7 @@ Extract Constant output_substring =>
   "fun h s i n k -> k (Pervasives.output_substring h s i n)".
 
 Extract Constant close_out => "fun h k -> k (close_out h)".
+Extract Constant close_out_noerr => "fun h k -> k (close_out_noerr h)".
 
 (** *** Input *)
 
@@ -320,8 +335,11 @@ Extract Constant open_in     => "fun s k -> k (Pervasives.open_in s)".
 Extract Constant input_char  => "fun h k -> k (Pervasives.input_char h)".
 Extract Constant input_line  => "fun h k -> k (Pervasives.input_line h)".
 Extract Constant input_byte  => "fun h k -> k (Pervasives.input_byte h)".
+Extract Constant in_channel_length =>
+  "fun h k -> k (Pervasives.in_channel_length h)".
 
 Extract Constant close_in => "fun h k -> k (Pervasives.close_in h)".
+Extract Constant close_in_noerr => "fun h k -> k (Pervasives.close_in_noerr h)".
 
 (** ** Mutable references *)
 
