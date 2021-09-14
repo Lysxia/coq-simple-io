@@ -16,6 +16,7 @@
 *.cmi
 *.ml
 *.ml.d
+*.mlg
 *.mlg.d
 *.mlpack.d
 build

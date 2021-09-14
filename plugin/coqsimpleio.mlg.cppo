@@ -198,7 +198,11 @@ let run tm =
   let evd = Evd.from_env env in
   let msg = "Running " ^ Pp.string_of_ppcmds (Ppconstr.pr_constr_expr env evd tm) ^ "..." in
   Feedback.msg_info (Pp.str msg);
-  let c = CAst.make @@ Compat._CApp(run_ast, [(tm, None)]) in
+#if COQ_VERSION < (8, 15, 0)
+  let c = CAst.make @@ CApp((None,run_ast), [(tm, None)]) in
+#else
+  let c = CAst.make @@ CApp(run_ast, [(tm, None)]) in
+#endif
   runTest c env evd
 }
 
