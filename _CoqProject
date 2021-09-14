@@ -1,4 +1,5 @@
 -I plugin/
+plugin/compat.ml
 plugin/coqsimpleio.mlg
 plugin/coqsimpleio_plugin.mlpack
 
