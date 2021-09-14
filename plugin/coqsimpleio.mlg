@@ -16,19 +16,19 @@ let coq_simple_io = "coq_simple_io"
 (* Handle extra ocaml directory to be copied *)
 let empty_slist : string list = []           
 let extra_dir : string list ref =
-  Summary.ref ~name:"QC_ocaml_dir" empty_slist
+  Summary.ref ~name:"simpleio_ocaml_dir" empty_slist
 let add_extra_dir s = extra_dir := s :: !extra_dir
 
 let extra_pkg : string list ref =
-  Summary.ref ~name:"QC_ocaml_pkg" empty_slist
+  Summary.ref ~name:"simpleio_ocaml_pkg" empty_slist
 let add_extra_pkg s = extra_pkg := s :: !extra_pkg
 
 let dune_file : string option ref =
-  Summary.ref ~name:"QC_dune_file" None
+  Summary.ref ~name:"simpleio_dune_file" None
 let set_dune_file s = dune_file := Some s
 
 let modules_to_open : string list ref =
-  Summary.ref ~name:"QC_modules_to_open" empty_slist
+  Summary.ref ~name:"simpleio_modules_to_open" empty_slist
 let add_module_to_open s = modules_to_open := s :: !modules_to_open  
 
 (* [mkdir -p]: recursively make the parent directories if they do not exist. *)
@@ -206,18 +206,18 @@ VERNAC COMMAND EXTEND RunIO CLASSIFIED AS SIDEFF
   | ["RunIO" constr(c)] -> {run c}
 END
 
-VERNAC COMMAND EXTEND QCInclude CLASSIFIED AS SIDEFF
+VERNAC COMMAND EXTEND RunIOInclude CLASSIFIED AS SIDEFF
   | ["RunIOInclude" string(s)] -> { add_extra_dir s }
 END
 
-VERNAC COMMAND EXTEND QCOpen CLASSIFIED AS SIDEFF
+VERNAC COMMAND EXTEND RunIOOpen CLASSIFIED AS SIDEFF
   | ["RunIOOpen" string(s)] -> { add_module_to_open s }
 END
 
-VERNAC COMMAND EXTEND QCPackage CLASSIFIED AS SIDEFF
+VERNAC COMMAND EXTEND RunIOPackage CLASSIFIED AS SIDEFF
   | ["RunIOPackage" string(s)] -> { add_extra_pkg s }
 END
 
-VERNAC COMMAND EXTEND QCdune CLASSIFIED AS SIDEFF
+VERNAC COMMAND EXTEND RunIOdune CLASSIFIED AS SIDEFF
   | ["RunIODune" string(s)] -> { set_dune_file s }
 END
