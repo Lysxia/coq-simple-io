@@ -7,13 +7,17 @@
 *.vo
 *.aux
 *.glob
+*.a
 *.o
 *.cmo
 *.cmx
+*.cmxa
 *.cmxs
 *.cmi
 *.ml
+*.ml.d
 *.mlg.d
+*.mlpack.d
 build
 _build
 deps.dot

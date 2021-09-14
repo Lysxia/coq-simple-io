@@ -4,9 +4,9 @@ OCAMLBUILD = ocamlbuild
 MAKEFILE_COQ = Makefile.coq
 MAKE_COQ = $(MAKE) -f $(MAKEFILE_COQ)
 
-.PHONY: all build install clean example depgraph doc html html-raw
+.PHONY: all build install clean example depgraph doc html html-raw compat
 
-build: $(MAKEFILE_COQ)
+build: $(MAKEFILE_COQ) compat
 	$(MAKE_COQ)
 
 doc: html
@@ -19,6 +19,13 @@ uninstall: $(MAKEFILE_COQ)
 
 $(MAKEFILE_COQ): _CoqProject
 	coq_makefile -f $< -o $@
+
+COMPATFILES:=plugin/compat.ml
+
+compat: $(COMPATFILES)
+
+$(COMPATFILES): compat.pl
+	$(V)perl -- compat.pl $(COMPATFILES)
 
 # With local source files
 test: build
@@ -37,6 +44,7 @@ clean:
 	$(RM) -r _build/ build/
 	$(RM) $(DEPS_DOT) $(DEPS_OUT)
 	$(RM) test/*.ml{i,}
+	$(RM) $(COMPATFILES)
 
 COQDEP=coqdep
 DEPS_DOT=deps.dot
