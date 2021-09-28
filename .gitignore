@@ -16,6 +16,7 @@
 *.cmi
 *.ml
 *.ml.d
+plugin/coqsimpleio.mlg
 *.mlg.d
 *.mlpack.d
 build

@@ -1,14 +1,20 @@
 version: 2.1
 
-defaults: &defaults
-  environment:
-    OPAMVERBOSE: 1
-    OPAMWITHTEST: true
-    OPAMYES: true
-    TERM: xterm
-  steps:
-  - startup
-  - build
+jobs:
+  test:
+    parameters:
+      coq:
+        type: string
+    docker:
+      - image: coqorg/coq:<<parameters.coq>>
+    environment:
+      OPAMVERBOSE: 1
+      OPAMWITHTEST: true
+      OPAMYES: true
+      TERM: xterm
+    steps:
+      - startup
+      - build
 
 commands:
   startup:
@@ -49,29 +55,22 @@ commands:
           make clean
           ls -AGR
 
-jobs:
-  coq 8_11:
-    <<: *defaults
-    docker:
-    - image: coqorg/coq:8.11
-  coq 8_12:
-    <<: *defaults
-    docker:
-    - image: coqorg/coq:8.12
-  coq 8_13:
-    <<: *defaults
-    docker:
-    - image: coqorg/coq:8.13
-  coq dev:
-    <<: *defaults
-    docker:
-    - image: coqorg/coq:dev
-
 workflows:
   version: 2
   build:
     jobs:
-    - coq 8_11
-    - coq 8_12
-    - coq 8_13
-    - coq dev
+      - test:
+          name: 'Coq 8.11'
+          coq: '8.11'
+      - test:
+          name: 'Coq 8.12'
+          coq: '8.12'
+      - test:
+          name: 'Coq 8.13'
+          coq: '8.13'
+      - test:
+          name: 'Coq 8.14'
+          coq: '8.14'
+      - test:
+          name: 'Coq dev'
+          coq: 'dev'

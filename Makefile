@@ -20,12 +20,12 @@ uninstall: $(MAKEFILE_COQ)
 $(MAKEFILE_COQ): _CoqProject
 	coq_makefile -f $< -o $@
 
-COMPATFILES:=plugin/compat.ml
+COMPATFILES:=plugin/coqsimpleio.mlg
 
 compat: $(COMPATFILES)
 
-$(COMPATFILES): compat.pl
-	$(V)perl -- compat.pl $(COMPATFILES)
+%: %.cppo
+	$(V)cppo -V COQ:$(word 1, $(shell coqc -print-version)) -n -o $@ $^
 
 # With local source files
 test: build
