@@ -45,7 +45,6 @@ let rec mkdir_ dname =
 let temp_dirname =
   let dname = Filename.(concat (get_temp_dir_name ()) coq_simple_io) in
   mkdir_ dname;
-  Filename.set_temp_dir_name dname;
   dname
 
 (* Rewrite a file line by line *)
