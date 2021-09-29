@@ -61,17 +61,6 @@ let sed_file file f =
         Sys.rename tmpfile file
   in go ()
 
-let ocamlopt = "ocamlopt"
-let ocamlc = "ocamlc"
-
-let comp_ml_cmd fn out =
-  Printf.sprintf "%s -w a -I %s %s -o %s" ocamlopt
-    (Filename.dirname fn) fn out
-
-let comp_mli_cmd fn =
-  Printf.sprintf "%s -w a -I %s %s" ocamlopt
-    (Filename.dirname fn) fn
-
 let fresh_name n =
     let base = Id.of_string n in
 
