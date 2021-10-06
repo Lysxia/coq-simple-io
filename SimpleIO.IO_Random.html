@@ -1,28 +1,37 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link href="coqdoc.css" rel="stylesheet" type="text/css" />
-<title>SimpleIO.IO_Random</title>
+<link href="coqdocjs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript" src="coqdocjs.js"></script>
 </head>
 
-<body>
+<body onload="document.getElementById('content').focus()">
+  <div id="header">
+    <span class="left">
+      <span class="modulename"> <script> document.write(document.title) </script> </span>
+    </span>
 
-<div id="page">
+    <span class="button" id="toggle-proofs"></span>
 
-<div id="header">
+    <span class="right">
+      <a href="../">Project Page</a>
+      <a href="./indexpage.html"> Index </a>
+      <a href="./toc.html"> Table of Contents </a>
+    </span>
 </div>
-
-<div id="main">
-
+    <div id="content" tabindex="-1" onblur="document.getElementById('content').focus()">
+    <div id="main">
 <h1 class="libtitle">SimpleIO.IO_Random</h1>
 
 <div class="code">
 </div>
 
 <div class="doc">
-<a id="lab55"></a><h1 class="section">Pseudo-random number generators (PRNG)</h1>
+<a id="lab56"></a><h1 class="section">Pseudo-random number generators (PRNG)</h1>
 
 <div class="paragraph"> </div>
 
@@ -46,7 +55,7 @@ Initialize the generator with a random seed chosen in a system-dependent
     computed from system parameters (current time, process IDs). 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a id="ORandom.self_init" class="idref" href="#ORandom.self_init"><span class="id" title="axiom">self_init</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="ORandom.self_init" class="idref" href="#ORandom.self_init"><span class="id" title="axiom">self_init</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a>.<br/>
 
 <br/>
 </div>
@@ -56,16 +65,16 @@ Initialize the generator with a random seed chosen in a system-dependent
     <span class="inlinecode"><span class="id" title="var">bound</span></span> (exclusive). <span class="inlinecode"><span class="id" title="var">bound</span></span> must be greater than 0 and less than 2{^30}. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a id="ORandom.int" class="idref" href="#ORandom.int"><span class="id" title="axiom">int</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="ORandom.int" class="idref" href="#ORandom.int"><span class="id" title="axiom">int</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>.<br/>
 
 <br/>
 </div>
 
 <div class="doc">
-<span class="inlinecode"><span class="id" title="var">IO_Random.bool</span></span> <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#tt"><span class="id" title="constructor">tt</span></a></span> returns <span class="inlinecode"><span class="id" title="var">true</span></span> or <span class="inlinecode"><span class="id" title="var">false</span></span> with probability 0.5 each. 
+<span class="inlinecode"><span class="id" title="var">IO_Random.bool</span></span> <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Datatypes.html#tt"><span class="id" title="constructor">tt</span></a></span> returns <span class="inlinecode"><span class="id" title="var">true</span></span> or <span class="inlinecode"><span class="id" title="var">false</span></span> with probability 0.5 each. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a id="ORandom.bool" class="idref" href="#ORandom.bool"><span class="id" title="axiom">bool</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#bool"><span class="id" title="inductive">bool</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="ORandom.bool" class="idref" href="#ORandom.bool"><span class="id" title="axiom">bool</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Datatypes.html#unit"><span class="id" title="inductive">unit</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Datatypes.html#bool"><span class="id" title="inductive">bool</span></a>.<br/>
 
 <br/>
 
@@ -73,12 +82,10 @@ Initialize the generator with a random seed chosen in a system-dependent
 <span class="id" title="keyword">End</span> <a class="idref" href="SimpleIO.IO_Random.html#ORandom"><span class="id" title="module">ORandom</span></a>.<br/>
 </div>
 </div>
-
 <div id="footer">
-<hr/><a href="indexpage.html">Index</a><hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
+  Generated by <a href="http://coq.inria.fr/">coqdoc</a> and improved with <a href="https://github.com/tebbi/coqdocjs">CoqdocJS</a>
 </div>
-
 </div>
-
 </body>
+
 </html>

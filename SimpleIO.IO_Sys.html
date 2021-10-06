@@ -1,28 +1,37 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link href="coqdoc.css" rel="stylesheet" type="text/css" />
-<title>SimpleIO.IO_Sys</title>
+<link href="coqdocjs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript" src="coqdocjs.js"></script>
 </head>
 
-<body>
+<body onload="document.getElementById('content').focus()">
+  <div id="header">
+    <span class="left">
+      <span class="modulename"> <script> document.write(document.title) </script> </span>
+    </span>
 
-<div id="page">
+    <span class="button" id="toggle-proofs"></span>
 
-<div id="header">
+    <span class="right">
+      <a href="../">Project Page</a>
+      <a href="./indexpage.html"> Index </a>
+      <a href="./toc.html"> Table of Contents </a>
+    </span>
 </div>
-
-<div id="main">
-
+    <div id="content" tabindex="-1" onblur="document.getElementById('content').focus()">
+    <div id="main">
 <h1 class="libtitle">SimpleIO.IO_Sys</h1>
 
 <div class="code">
 </div>
 
 <div class="doc">
-<a id="lab64"></a><h1 class="section">System interface</h1>
+<a id="lab65"></a><h1 class="section">System interface</h1>
 
 <div class="paragraph"> </div>
 
@@ -40,45 +49,79 @@
 </div>
 
 <div class="doc">
+Execute the given shell command and return its exit code.
+  The argument of <span class="inlinecode"><span class="id" title="var">Sys.command</span></span> is generally the name of a
+  command followed by zero, one or several arguments, separated
+  by whitespace.  The given argument is interpreted by a
+  shell: either the Windows shell <span class="inlinecode"><span class="id" title="var">cmd.exe</span></span> for the Win32 ports of
+  OCaml, or the POSIX shell <span class="inlinecode"><span class="id" title="var">sh</span></span> for other ports.  It can contain
+  shell builtin commands such as <span class="inlinecode"><span class="id" title="var">echo</span></span>, and also special characters
+  such as file redirections <span class="inlinecode">&gt;</span> and <span class="inlinecode">&lt;</span>, which will be honored by the
+  shell.
+  Conversely, whitespace or special shell characters occurring in
+  command names or in their arguments must be quoted or escaped
+  so that the shell does not interpret them.  The quoting rules vary
+  between the POSIX shell and the Windows shell.
+  The <span class="inlinecode"><span class="id" title="var">Filename.quote_command</span></span> performs the appropriate quoting
+  given a command name, a list of arguments, and optional file redirections.
+
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a id="OSys.command" class="idref" href="#OSys.command"><span class="id" title="axiom">command</span></a>: <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
 Return the value associated to a variable in the process environment.
     Raise <span class="inlinecode"><span class="id" title="var">Not_found</span></span> if the variable is unbound. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a id="OSys.getenv" class="idref" href="#OSys.getenv"><span class="id" title="axiom">getenv</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OSys.getenv" class="idref" href="#OSys.getenv"><span class="id" title="axiom">getenv</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
 
 <br/>
 </div>
 
 <div class="doc">
 Return the value associated to a variable in the process environment or
-    <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#None"><span class="id" title="constructor">None</span></a></span> if the variable is unbound. 
+    <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Datatypes.html#None"><span class="id" title="constructor">None</span></a></span> if the variable is unbound. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a id="OSys.getenv_opt" class="idref" href="#OSys.getenv_opt"><span class="id" title="axiom">getenv_opt</span></a>: <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#option"><span class="id" title="inductive">option</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>).<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OSys.getenv_opt" class="idref" href="#OSys.getenv_opt"><span class="id" title="axiom">getenv_opt</span></a>: <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> (<a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Datatypes.html#option"><span class="id" title="inductive">option</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>).<br/>
 
 <br/>
 </div>
 
 <div class="doc">
-<a id="lab65"></a><h2 class="section">Extraction</h2>
+Return the processor time, in seconds, used by the program
+    since the beginning of execution. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a id="OSys.time" class="idref" href="#OSys.time"><span class="id" title="axiom">time</span></a> : <a class="idref" href="SimpleIO.IO_Monad.html#IO"><span class="id" title="axiom">IO</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+<a id="lab66"></a><h2 class="section">Extraction</h2>
 
 </div>
 <div class="code">
 
 <br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">command</span>    =&gt; "fun c k -&gt; k (Sys.command    c)".<br/>
 <span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">getenv</span>     =&gt; "fun e k -&gt; k (Sys.getenv     e)".<br/>
 <span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">getenv_opt</span> =&gt; "fun e k -&gt; k (Sys.getenv_opt e)".<br/>
+<span class="id" title="keyword">Extract</span> <span class="id" title="var">Constant</span> <span class="id" title="var">time</span>       =&gt; "fun   k -&gt; k (Sys.time      ())".<br/>
 
 <br/>
 <span class="id" title="keyword">End</span> <a class="idref" href="SimpleIO.IO_Sys.html#OSys"><span class="id" title="module">OSys</span></a>.<br/>
 </div>
 </div>
-
 <div id="footer">
-<hr/><a href="indexpage.html">Index</a><hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
+  Generated by <a href="http://coq.inria.fr/">coqdoc</a> and improved with <a href="https://github.com/tebbi/coqdocjs">CoqdocJS</a>
 </div>
-
 </div>
-
 </body>
+
 </html>

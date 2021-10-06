@@ -1,21 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link href="coqdoc.css" rel="stylesheet" type="text/css" />
-<title>Simple IO</title>
+<link href="coqdocjs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript" src="coqdocjs.js"></script>
 </head>
 
-<body>
+<body onload="document.getElementById('content').focus()">
+  <div id="header">
+    <span class="left">
+      <span class="modulename"> <script> document.write(document.title) </script> </span>
+    </span>
 
-<div id="page">
+    <span class="button" id="toggle-proofs"></span>
 
-<div id="header">
+    <span class="right">
+      <a href="../">Project Page</a>
+      <a href="./indexpage.html"> Index </a>
+      <a href="./toc.html"> Table of Contents </a>
+    </span>
 </div>
-
-<div id="main">
-
+    <div id="content" tabindex="-1" onblur="document.getElementById('content').focus()">
+    <div id="main">
 <div id="toc">
 <h2><a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a></h2>
 <ul class="doclist">
@@ -46,28 +55,34 @@
 
 </li>
 </ul>
+<h2><a href="SimpleIO.IO_MonadFix.html">SimpleIO.IO_MonadFix</a></h2>
+<ul class="doclist">
+<li><a href="SimpleIO.IO_MonadFix.html#lab10"><span class="inlinecode"><span class="id" title="var">MonadFix</span></span> <span class="inlinecode"><span class="id" title="var">IO</span></span> instance</a>
+
+</li>
+</ul>
 <h2><a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a></h2>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_Exceptions.html#lab10">Exception handling</a>
+<li><a href="SimpleIO.IO_Exceptions.html#lab11">Exception handling</a>
 
 </li>
 </ul>
 <h2><a href="SimpleIO.IO_String.html">SimpleIO.IO_String</a></h2>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_String.html#lab11">Strings</a>
+<li><a href="SimpleIO.IO_String.html#lab12">Strings</a>
 
 </li>
-<li><a href="SimpleIO.IO_String.html#lab12">String module</a>
+<li><a href="SimpleIO.IO_String.html#lab13">String module</a>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_String.html#lab13">Unsafe functions</a>
+<li><a href="SimpleIO.IO_String.html#lab14">Unsafe functions</a>
 
 </li>
 </ul>
 
 </li>
-<li><a href="SimpleIO.IO_String.html#lab14">Extras</a>
+<li><a href="SimpleIO.IO_String.html#lab15">Extras</a>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_String.html#lab15">Extraction</a>
+<li><a href="SimpleIO.IO_String.html#lab16">Extraction</a>
 
 </li>
 </ul>
@@ -76,18 +91,18 @@
 </ul>
 <h2><a href="SimpleIO.IO_RawChar.html">SimpleIO.IO_RawChar</a></h2>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_RawChar.html#lab16">Extraction of <span class="inlinecode"><span class="id" title="var">char</span></span> and <span class="inlinecode"><span class="id" title="var">string</span></span></a>
+<li><a href="SimpleIO.IO_RawChar.html#lab17">Extraction of <span class="inlinecode"><span class="id" title="var">char</span></span> and <span class="inlinecode"><span class="id" title="var">string</span></span></a>
 
 </li>
-<li><a href="SimpleIO.IO_RawChar.html#lab17">Conversions</a>
+<li><a href="SimpleIO.IO_RawChar.html#lab18">Conversions</a>
 
 </li>
-<li><a href="SimpleIO.IO_RawChar.html#lab18">Input-output</a>
+<li><a href="SimpleIO.IO_RawChar.html#lab19">Input-output</a>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_RawChar.html#lab19">Standard channels</a>
+<li><a href="SimpleIO.IO_RawChar.html#lab20">Standard channels</a>
 
 </li>
-<li><a href="SimpleIO.IO_RawChar.html#lab21">File handles</a>
+<li><a href="SimpleIO.IO_RawChar.html#lab22">File handles</a>
 
 </li>
 </ul>
@@ -96,88 +111,88 @@
 </ul>
 <h2><a href="SimpleIO.IO_Unsafe.html">SimpleIO.IO_Unsafe</a></h2>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_Unsafe.html#lab23">Unsafe primitives</a>
+<li><a href="SimpleIO.IO_Unsafe.html#lab24">Unsafe primitives</a>
 
 </li>
 </ul>
 <h2><a href="SimpleIO.IO_UnsafeNat.html">SimpleIO.IO_UnsafeNat</a></h2>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_UnsafeNat.html#lab24">Stdlib functions using <span class="inlinecode"><span class="id" title="var">nat</span></span> instead of <span class="inlinecode"><span class="id" title="var">int</span></span></a>
+<li><a href="SimpleIO.IO_UnsafeNat.html#lab25">Stdlib functions using <span class="inlinecode"><span class="id" title="var">nat</span></span> instead of <span class="inlinecode"><span class="id" title="var">int</span></span></a>
 
 </li>
 </ul>
 <h2><a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a></h2>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_Stdlib.html#lab25">OCaml standard library</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab26">OCaml standard library</a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab26">Types</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab27">Types</a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab27">Operations on <span class="inlinecode"><span class="id" title="var">int</span></span></a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab28">Operations on <span class="inlinecode"><span class="id" title="var">int</span></span></a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab28">Strings and char</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab29">Strings and char</a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab29">Exceptions</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab30">Exceptions</a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab30">Standard channels</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab31">Standard channels</a>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_Stdlib.html#lab31"><span class="inlinecode"><span class="id" title="var">stdout</span></span></a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab32"><span class="inlinecode"><span class="id" title="var">stdout</span></span></a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab32"><span class="inlinecode"><span class="id" title="var">stderr</span></span></a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab33"><span class="inlinecode"><span class="id" title="var">stderr</span></span></a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab33"><span class="inlinecode"><span class="id" title="var">stdin</span></span></a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab34"><span class="inlinecode"><span class="id" title="var">stdin</span></span></a>
 
 </li>
 </ul>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab34">File handles</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab35">File handles</a>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_Stdlib.html#lab35">Output</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab36">Output</a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab36">Input</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab37">Input</a>
 
 </li>
 </ul>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab37">Mutable references</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab38">Mutable references</a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab38">Program termination</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab39">Program termination</a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab39">Extraction</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab40">Extraction</a>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_Stdlib.html#lab40">Types</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab41">Types</a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab41">Operations on <span class="inlinecode"><span class="id" title="var">int</span></span></a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab42">Operations on <span class="inlinecode"><span class="id" title="var">int</span></span></a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab42">Misc</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab43">Misc</a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab43">Exceptions</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab44">Exceptions</a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab44">Standard channels</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab45">Standard channels</a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab48">File handles</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab49">File handles</a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab51">Mutable references</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab52">Mutable references</a>
 
 </li>
-<li><a href="SimpleIO.IO_Stdlib.html#lab52">Program termination</a>
+<li><a href="SimpleIO.IO_Stdlib.html#lab53">Program termination</a>
 
 </li>
 </ul>
@@ -186,42 +201,42 @@
 </ul>
 <h2><a href="SimpleIO.IO_StdlibAxioms.html">SimpleIO.IO_StdlibAxioms</a></h2>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_StdlibAxioms.html#lab53">Theory for <span class="inlinecode"><span class="id" title="var">IO_Stdlib</span></span></a>
+<li><a href="SimpleIO.IO_StdlibAxioms.html#lab54">Theory for <span class="inlinecode"><span class="id" title="var">IO_Stdlib</span></span></a>
 
 </li>
 </ul>
 <h2><a href="SimpleIO.IO_Bytes.html">SimpleIO.IO_Bytes</a></h2>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_Bytes.html#lab54">Byte sequence operations</a>
+<li><a href="SimpleIO.IO_Bytes.html#lab55">Byte sequence operations</a>
 
 </li>
 </ul>
 <h2><a href="SimpleIO.IO_Random.html">SimpleIO.IO_Random</a></h2>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_Random.html#lab55">Pseudo-random number generators (PRNG)</a>
+<li><a href="SimpleIO.IO_Random.html#lab56">Pseudo-random number generators (PRNG)</a>
 
 </li>
 </ul>
 <h2><a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a></h2>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_Unix.html#lab56">Interface to the Unix system</a>
+<li><a href="SimpleIO.IO_Unix.html#lab57">Interface to the Unix system</a>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_Unix.html#lab57">Basic file input/output</a>
+<li><a href="SimpleIO.IO_Unix.html#lab58">Basic file input/output</a>
 
 </li>
-<li><a href="SimpleIO.IO_Unix.html#lab58">Polling</a>
+<li><a href="SimpleIO.IO_Unix.html#lab59">Polling</a>
 
 </li>
-<li><a href="SimpleIO.IO_Unix.html#lab59">Time functions</a>
+<li><a href="SimpleIO.IO_Unix.html#lab60">Time functions</a>
 
 </li>
-<li><a href="SimpleIO.IO_Unix.html#lab60">Internet addresses</a>
+<li><a href="SimpleIO.IO_Unix.html#lab61">Internet addresses</a>
 
 </li>
-<li><a href="SimpleIO.IO_Unix.html#lab61">Sockets</a>
+<li><a href="SimpleIO.IO_Unix.html#lab62">Sockets</a>
 
 </li>
-<li><a href="SimpleIO.IO_Unix.html#lab62">Socket options</a>
+<li><a href="SimpleIO.IO_Unix.html#lab63">Socket options</a>
 
 </li>
 </ul>
@@ -230,15 +245,15 @@
 </ul>
 <h2><a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a></h2>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_Float.html#lab63">Floating-point arithmetic</a>
+<li><a href="SimpleIO.IO_Float.html#lab64">Floating-point arithmetic</a>
 
 </li>
 </ul>
 <h2><a href="SimpleIO.IO_Sys.html">SimpleIO.IO_Sys</a></h2>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_Sys.html#lab64">System interface</a>
+<li><a href="SimpleIO.IO_Sys.html#lab65">System interface</a>
 <ul class="doclist">
-<li><a href="SimpleIO.IO_Sys.html#lab65">Extraction</a>
+<li><a href="SimpleIO.IO_Sys.html#lab66">Extraction</a>
 
 </li>
 </ul>
@@ -247,15 +262,16 @@
 </ul>
 <h2><a href="SimpleIO.SimpleIO.html">SimpleIO.SimpleIO</a></h2>
 <ul class="doclist">
-<li><a href="SimpleIO.SimpleIO.html#lab66">Main module</a>
+<li><a href="SimpleIO.SimpleIO.html#lab67">Main module</a>
 
 </li>
 </ul>
 </div>
-<hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
 </div>
-
+<div id="footer">
+  Generated by <a href="http://coq.inria.fr/">coqdoc</a> and improved with <a href="https://github.com/tebbi/coqdocjs">CoqdocJS</a>
 </div>
-
+</div>
 </body>
+
 </html>

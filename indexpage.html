@@ -1,21 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link href="coqdoc.css" rel="stylesheet" type="text/css" />
-<title>Simple IO</title>
+<link href="coqdocjs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript" src="coqdocjs.js"></script>
 </head>
 
-<body>
+<body onload="document.getElementById('content').focus()">
+  <div id="header">
+    <span class="left">
+      <span class="modulename"> <script> document.write(document.title) </script> </span>
+    </span>
 
-<div id="page">
+    <span class="button" id="toggle-proofs"></span>
 
-<div id="header">
+    <span class="right">
+      <a href="../">Project Page</a>
+      <a href="./indexpage.html"> Index </a>
+      <a href="./toc.html"> Table of Contents </a>
+    </span>
 </div>
-
-<div id="main">
-
+    <div id="content" tabindex="-1" onblur="document.getElementById('content').focus()">
+    <div id="main">
 <h1>Simple IO</h1>
 <table>
 <tr>
@@ -48,7 +57,7 @@
 <td>Z</td>
 <td>_</td>
 <td><a href="indexpage.html#global_*">other</a></td>
-<td>(405 entries)</td>
+<td>(449 entries)</td>
 </tr>
 <tr>
 <td>Notation Index</td>
@@ -57,7 +66,7 @@
 <td>C</td>
 <td>D</td>
 <td>E</td>
-<td>F</td>
+<td><a href="indexpage.html#notation_F">F</a></td>
 <td>G</td>
 <td>H</td>
 <td><a href="indexpage.html#notation_I">I</a></td>
@@ -80,7 +89,7 @@
 <td>Z</td>
 <td>_</td>
 <td><a href="indexpage.html#notation_*">other</a></td>
-<td>(11 entries)</td>
+<td>(17 entries)</td>
 </tr>
 <tr>
 <td>Binder Index</td>
@@ -99,7 +108,7 @@
 <td><a href="indexpage.html#binder_M">M</a></td>
 <td><a href="indexpage.html#binder_N">N</a></td>
 <td><a href="indexpage.html#binder_O">O</a></td>
-<td>P</td>
+<td><a href="indexpage.html#binder_P">P</a></td>
 <td>Q</td>
 <td><a href="indexpage.html#binder_R">R</a></td>
 <td><a href="indexpage.html#binder_S">S</a></td>
@@ -112,7 +121,7 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(87 entries)</td>
+<td>(91 entries)</td>
 </tr>
 <tr>
 <td>Module Index</td>
@@ -121,7 +130,7 @@
 <td>C</td>
 <td>D</td>
 <td>E</td>
-<td>F</td>
+<td><a href="indexpage.html#module_F">F</a></td>
 <td>G</td>
 <td>H</td>
 <td><a href="indexpage.html#module_I">I</a></td>
@@ -144,7 +153,7 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(10 entries)</td>
+<td>(12 entries)</td>
 </tr>
 <tr>
 <td>Library Index</td>
@@ -176,7 +185,7 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(14 entries)</td>
+<td>(15 entries)</td>
 </tr>
 <tr>
 <td>Axiom Index</td>
@@ -208,7 +217,7 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(157 entries)</td>
+<td>(173 entries)</td>
 </tr>
 <tr>
 <td>Constructor Index</td>
@@ -240,7 +249,7 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(94 entries)</td>
+<td>(101 entries)</td>
 </tr>
 <tr>
 <td>Inductive Index</td>
@@ -272,7 +281,39 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(8 entries)</td>
+<td>(9 entries)</td>
+</tr>
+<tr>
+<td>Projection Index</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td>G</td>
+<td>H</td>
+<td>I</td>
+<td>J</td>
+<td>K</td>
+<td>L</td>
+<td>M</td>
+<td>N</td>
+<td><a href="indexpage.html#projection_O">O</a></td>
+<td>P</td>
+<td>Q</td>
+<td>R</td>
+<td>S</td>
+<td>T</td>
+<td>U</td>
+<td>V</td>
+<td>W</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+<td>_</td>
+<td>other</td>
+<td>(5 entries)</td>
 </tr>
 <tr>
 <td>Instance Index</td>
@@ -304,7 +345,7 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(3 entries)</td>
+<td>(4 entries)</td>
 </tr>
 <tr>
 <td>Abbreviation Index</td>
@@ -323,6 +364,38 @@
 <td>M</td>
 <td>N</td>
 <td>O</td>
+<td>P</td>
+<td>Q</td>
+<td>R</td>
+<td>S</td>
+<td>T</td>
+<td>U</td>
+<td>V</td>
+<td>W</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+<td>_</td>
+<td>other</td>
+<td>(1 entry)</td>
+</tr>
+<tr>
+<td>Record Index</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td>G</td>
+<td>H</td>
+<td>I</td>
+<td>J</td>
+<td>K</td>
+<td>L</td>
+<td>M</td>
+<td>N</td>
+<td><a href="indexpage.html#record_O">O</a></td>
 <td>P</td>
 <td>Q</td>
 <td>R</td>
@@ -392,19 +465,20 @@
 <a href="SimpleIO.IO_Stdlib.html#a:36">a:36</a> [binder, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:39">a:39</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:42">a:42</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#a:45">a:45</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#a:47">a:47</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:5">a:5</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Exceptions.html#a:5">a:5</a> [binder, in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:50">a:50</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:58">a:58</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#a:59">a:59</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:60">a:60</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#a:61">a:61</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Exceptions.html#a:7">a:7</a> [binder, in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
-<a href="SimpleIO.IO_Stdlib.html#a:70">a:70</a> [binder, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
-<a href="SimpleIO.IO_Stdlib.html#a:72">a:72</a> [binder, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
-<a href="SimpleIO.IO_Stdlib.html#a:74">a:74</a> [binder, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
-<a href="SimpleIO.IO_Stdlib.html#a:78">a:78</a> [binder, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#a:73">a:73</a> [binder, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#a:75">a:75</a> [binder, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#a:77">a:77</a> [binder, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:8">a:8</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#a:81">a:81</a> [binder, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Exceptions.html#a:9">a:9</a> [binder, in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
 <br/><br/><a id="global_B"></a><h2>B </h2>
 <a href="SimpleIO.IO_Stdlib.html#bytes">bytes</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#b:14">b:14</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
@@ -415,6 +489,7 @@
 <a href="SimpleIO.IO_Monad.html#b:6">b:6</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#b:9">b:9</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <br/><br/><a id="global_C"></a><h2>C </h2>
+<a href="SimpleIO.IO_Exceptions.html#catch_sys_error">catch_sys_error</a> [axiom, in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
 <a href="SimpleIO.IO_Exceptions.html#catch_not_found">catch_not_found</a> [axiom, in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
 <a href="SimpleIO.IO_Exceptions.html#catch_failure">catch_failure</a> [axiom, in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
 <a href="SimpleIO.IO_Exceptions.html#catch_invalid_arg">catch_invalid_arg</a> [axiom, in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
@@ -426,9 +501,11 @@
 <a href="SimpleIO.IO_Stdlib.html#char_of_int_io">char_of_int_io</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#char_of_int_opt">char_of_int_opt</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#char_eqb">char_eqb</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#close_in_noerr">close_in_noerr</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#close_in">close_in</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#close_out_noerr">close_out_noerr</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#close_out">close_out</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#code:43">code:43</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#code:57">code:57</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_StdlibAxioms.html#c:1">c:1</a> [binder, in <a href="SimpleIO.IO_StdlibAxioms.html">SimpleIO.IO_StdlibAxioms</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#c:44">c:44</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_RawChar.html#c:5">c:5</a> [binder, in <a href="SimpleIO.IO_RawChar.html">SimpleIO.IO_RawChar</a>]<br/>
@@ -441,6 +518,13 @@
 <br/><br/><a id="global_F"></a><h2>F </h2>
 <a href="SimpleIO.IO_Stdlib.html#failwith">failwith</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#float">float</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Float.html#FloatNotations">FloatNotations</a> [module, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#1087cf590ead9a6e8a19e0c198640ccf">_ ^ _</a> [notation, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#91dc76ebbfcbb65c1ed58c3a0d9010fc">_ / _</a> [notation, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#63e6e665757a285682996a80f0df284c">_ * _</a> [notation, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#FloatNotations.:::x_'-'_x">_ - _</a> [notation, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#d3412fea06f7817f9d0c9fa92159965e">_ + _</a> [notation, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#FloatNotations.:::'-'_x">- _</a> [notation, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#flush">flush</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#flush_all">flush_all</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_RawChar.html#from_ostring">from_ostring</a> [axiom, in <a href="SimpleIO.IO_RawChar.html">SimpleIO.IO_RawChar</a>]<br/>
@@ -481,6 +565,7 @@
 <a href="SimpleIO.IO_Stdlib.html#int_sub">int_sub</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#int_add">int_add</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#invalid_arg">invalid_arg</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#in_channel_length">in_channel_length</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#in_channel">in_channel</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#IO">IO</a> [module, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#IO">IO</a> [axiom, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
@@ -498,6 +583,7 @@
 <a href="SimpleIO.IO_Stdlib.html">IO_Stdlib</a> [library]<br/>
 <a href="SimpleIO.IO_Sys.html">IO_Sys</a> [library]<br/>
 <a href="SimpleIO.IO_StdlibAxioms.html">IO_StdlibAxioms</a> [library]<br/>
+<a href="SimpleIO.IO_MonadFix.html">IO_MonadFix</a> [library]<br/>
 <a href="SimpleIO.IO_String.html">IO_String</a> [library]<br/>
 <a href="SimpleIO.IO_UnsafeNat.html">IO_UnsafeNat</a> [library]<br/>
 <a href="SimpleIO.IO_Monad.html#IO.bind">IO.bind</a> [axiom, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
@@ -512,9 +598,9 @@
 <a href="SimpleIO.IO_Monad.html#IO.Notations">IO.Notations</a> [module, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#IO.Notations.delay">IO.Notations.delay</a> [abbreviation, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#de50b9c597ea8777d678998be4ddbc71">_ ;; _ (io_scope)</a> [notation, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
-<a href="SimpleIO.IO_Monad.html#164113ba0bd5a05cfd732828da5c8e55">_ <- _ ;; _ (io_scope)</a> [notation, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
-<a href="SimpleIO.IO_Monad.html#6d1ca9e53ae71f736ad68472349e4c9e">_ =<< _ (io_scope)</a> [notation, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
-<a href="SimpleIO.IO_Monad.html#3cd93ac874989291e714dd9264c9a62c">_ >>= _ (io_scope)</a> [notation, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
+<a href="SimpleIO.IO_Monad.html#164113ba0bd5a05cfd732828da5c8e55">_ &lt;- _ ;; _ (io_scope)</a> [notation, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
+<a href="SimpleIO.IO_Monad.html#6d1ca9e53ae71f736ad68472349e4c9e">_ =&lt;&lt; _ (io_scope)</a> [notation, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
+<a href="SimpleIO.IO_Monad.html#3cd93ac874989291e714dd9264c9a62c">_ &gt;&gt;= _ (io_scope)</a> [notation, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#IO.ret">IO.ret</a> [axiom, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#IO.ret_bind">IO.ret_bind</a> [axiom, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#IO.unsafe_run'">IO.unsafe_run'</a> [axiom, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
@@ -536,6 +622,7 @@
 <br/><br/><a id="global_M"></a><h2>M </h2>
 <a href="SimpleIO.IO_Stdlib.html#max_int">max_int</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#min_int">min_int</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_MonadFix.html#MonadFix_IO">MonadFix_IO</a> [instance, in <a href="SimpleIO.IO_MonadFix.html">SimpleIO.IO_MonadFix</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#Monad_IO">Monad_IO</a> [instance, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#m:16">m:16</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#m:40">m:40</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
@@ -557,19 +644,26 @@
 <a href="SimpleIO.IO_Bytes.html#OBytes.length">OBytes.length</a> [axiom, in <a href="SimpleIO.IO_Bytes.html">SimpleIO.IO_Bytes</a>]<br/>
 <a href="SimpleIO.IO_Bytes.html#OBytes.of_string">OBytes.of_string</a> [axiom, in <a href="SimpleIO.IO_Bytes.html">SimpleIO.IO_Bytes</a>]<br/>
 <a href="SimpleIO.IO_Bytes.html#OBytes.set">OBytes.set</a> [axiom, in <a href="SimpleIO.IO_Bytes.html">SimpleIO.IO_Bytes</a>]<br/>
+<a href="SimpleIO.IO_Bytes.html#OBytes.sub">OBytes.sub</a> [axiom, in <a href="SimpleIO.IO_Bytes.html">SimpleIO.IO_Bytes</a>]<br/>
 <a href="SimpleIO.IO_Bytes.html#OBytes.to_string">OBytes.to_string</a> [axiom, in <a href="SimpleIO.IO_Bytes.html">SimpleIO.IO_Bytes</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#ocaml_string">ocaml_string</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat">OFloat</a> [module, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#OFloat.add">OFloat.add</a> [axiom, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#OFloat.div">OFloat.div</a> [axiom, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat.micro">OFloat.micro</a> [axiom, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#OFloat.mul">OFloat.mul</a> [axiom, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#OFloat.neg">OFloat.neg</a> [axiom, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat.of_string_opt">OFloat.of_string_opt</a> [axiom, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat.of_int">OFloat.of_int</a> [axiom, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#OFloat.pow">OFloat.pow</a> [axiom, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#OFloat.sub">OFloat.sub</a> [axiom, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat.to_string">OFloat.to_string</a> [axiom, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat.Unsafe">OFloat.Unsafe</a> [module, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat.Unsafe.of_string">OFloat.Unsafe.of_string</a> [axiom, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat.Unsafe.to_int">OFloat.Unsafe.to_int</a> [axiom, in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#open_in">open_in</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#open_out">open_out</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#opt:39">opt:39</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#opt:41">opt:41</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Random.html#ORandom">ORandom</a> [module, in <a href="SimpleIO.IO_Random.html">SimpleIO.IO_Random</a>]<br/>
 <a href="SimpleIO.IO_Random.html#ORandom.bool">ORandom.bool</a> [axiom, in <a href="SimpleIO.IO_Random.html">SimpleIO.IO_Random</a>]<br/>
 <a href="SimpleIO.IO_Random.html#ORandom.int">ORandom.int</a> [axiom, in <a href="SimpleIO.IO_Random.html">SimpleIO.IO_Random</a>]<br/>
@@ -593,12 +687,26 @@
 <a href="SimpleIO.IO_String.html#OString.Unsafe.make">OString.Unsafe.make</a> [axiom, in <a href="SimpleIO.IO_String.html">SimpleIO.IO_String</a>]<br/>
 <a href="SimpleIO.IO_String.html#OString.Unsafe.sub">OString.Unsafe.sub</a> [axiom, in <a href="SimpleIO.IO_String.html">SimpleIO.IO_String</a>]<br/>
 <a href="SimpleIO.IO_Sys.html#OSys">OSys</a> [module, in <a href="SimpleIO.IO_Sys.html">SimpleIO.IO_Sys</a>]<br/>
+<a href="SimpleIO.IO_Sys.html#OSys.command">OSys.command</a> [axiom, in <a href="SimpleIO.IO_Sys.html">SimpleIO.IO_Sys</a>]<br/>
 <a href="SimpleIO.IO_Sys.html#OSys.getenv">OSys.getenv</a> [axiom, in <a href="SimpleIO.IO_Sys.html">SimpleIO.IO_Sys</a>]<br/>
 <a href="SimpleIO.IO_Sys.html#OSys.getenv_opt">OSys.getenv_opt</a> [axiom, in <a href="SimpleIO.IO_Sys.html">SimpleIO.IO_Sys</a>]<br/>
+<a href="SimpleIO.IO_Sys.html#OSys.time">OSys.time</a> [axiom, in <a href="SimpleIO.IO_Sys.html">SimpleIO.IO_Sys</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix">OUnix</a> [module, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.accept">OUnix.accept</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.addr_info">OUnix.addr_info</a> [record, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.ADDR_INET">OUnix.ADDR_INET</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.ADDR_UNIX">OUnix.ADDR_UNIX</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.AI_PASSIVE">OUnix.AI_PASSIVE</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.AI_CANONNAME">OUnix.AI_CANONNAME</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.AI_NUMERICHOST">OUnix.AI_NUMERICHOST</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.AI_PROTOCOL">OUnix.AI_PROTOCOL</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.AI_SOCKTYPE">OUnix.AI_SOCKTYPE</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.AI_FAMILY">OUnix.AI_FAMILY</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.ai_canonname">OUnix.ai_canonname</a> [projection, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.ai_addr">OUnix.ai_addr</a> [projection, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.ai_protocol">OUnix.ai_protocol</a> [projection, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.ai_socktype">OUnix.ai_socktype</a> [projection, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.ai_family">OUnix.ai_family</a> [projection, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.bind">OUnix.bind</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.catch_error">OUnix.catch_error</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.close">OUnix.close</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
@@ -676,15 +784,18 @@
 <a href="SimpleIO.IO_Unix.html#OUnix.E2BIG">OUnix.E2BIG</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.file_descr_eqb">OUnix.file_descr_eqb</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.file_descr">OUnix.file_descr</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.getaddrinfo">OUnix.getaddrinfo</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.getaddrinfo_option">OUnix.getaddrinfo_option</a> [inductive, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.getsockopt">OUnix.getsockopt</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.getsockopt_float">OUnix.getsockopt_float</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.gettimeofday">OUnix.gettimeofday</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.inet_addr_loopback">OUnix.inet_addr_loopback</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.inet_addr_any">OUnix.inet_addr_any</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.inet_addr_of_string">OUnix.inet_addr_of_string</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.inet_addr">OUnix.inet_addr</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.IPV6_ONLY">OUnix.IPV6_ONLY</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.listen">OUnix.listen</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#OUnix.Microsec">OUnix.Microsec</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Mk_addr_info">OUnix.Mk_addr_info</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.MSG_PEEK">OUnix.MSG_PEEK</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.MSG_DONTROUTE">OUnix.MSG_DONTROUTE</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.MSG_OOB">OUnix.MSG_OOB</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
@@ -694,12 +805,10 @@
 <a href="SimpleIO.IO_Unix.html#OUnix.PF_UNIX">OUnix.PF_UNIX</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.raise_error">OUnix.raise_error</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.recv">OUnix.recv</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#OUnix.Seconds">OUnix.Seconds</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.select">OUnix.select</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.send">OUnix.send</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.setsockopt">OUnix.setsockopt</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.setsockopt_float">OUnix.setsockopt_float</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#OUnix.setsock_timeout">OUnix.setsock_timeout</a> [definition, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.sleep">OUnix.sleep</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.sockaddr">OUnix.sockaddr</a> [inductive, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.socket">OUnix.socket</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
@@ -722,8 +831,13 @@
 <a href="SimpleIO.IO_Unix.html#OUnix.SO_DEBUG">OUnix.SO_DEBUG</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.string_of_inet_addr">OUnix.string_of_inet_addr</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.TCP_NODELAY">OUnix.TCP_NODELAY</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#OUnix.time">OUnix.time</a> [inductive, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#OUnix.time_as_seconds">OUnix.time_as_seconds</a> [definition, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Time">OUnix.Time</a> [module, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.time">OUnix.time</a> [axiom, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Time.Microsec">OUnix.Time.Microsec</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Time.Seconds">OUnix.Time.Seconds</a> [constructor, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Time.setsock_timeout">OUnix.Time.setsock_timeout</a> [definition, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Time.time">OUnix.Time.time</a> [inductive, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Time.time_as_seconds">OUnix.Time.time_as_seconds</a> [definition, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_UnsafeNat.html#output_byte_nat">output_byte_nat</a> [definition, in <a href="SimpleIO.IO_UnsafeNat.html">SimpleIO.IO_UnsafeNat</a>]<br/>
 <a href="SimpleIO.IO_UnsafeNat.html#output_nat">output_nat</a> [definition, in <a href="SimpleIO.IO_UnsafeNat.html">SimpleIO.IO_UnsafeNat</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#output_byte">output_byte</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
@@ -747,6 +861,7 @@
 <a href="SimpleIO.IO_Stdlib.html#print_int">print_int</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#print_bytes">print_bytes</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#print_char">print_char</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#proto:53">proto:53</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <br/><br/><a id="global_R"></a><h2>R </h2>
 <a href="SimpleIO.IO_RawChar.html#read_line'">read_line'</a> [definition, in <a href="SimpleIO.IO_RawChar.html">SimpleIO.IO_RawChar</a>]<br/>
 <a href="SimpleIO.IO_UnsafeNat.html#read_nat_opt">read_nat_opt</a> [definition, in <a href="SimpleIO.IO_UnsafeNat.html">SimpleIO.IO_UnsafeNat</a>]<br/>
@@ -759,17 +874,19 @@
 <a href="SimpleIO.IO_UnsafeNat.html#r:10">r:10</a> [binder, in <a href="SimpleIO.IO_UnsafeNat.html">SimpleIO.IO_UnsafeNat</a>]<br/>
 <a href="SimpleIO.IO_UnsafeNat.html#r:8">r:8</a> [binder, in <a href="SimpleIO.IO_UnsafeNat.html">SimpleIO.IO_UnsafeNat</a>]<br/>
 <br/><br/><a id="global_S"></a><h2>S </h2>
+<a href="SimpleIO.IO_Unix.html#sd:51">sd:51</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.SimpleIO.html">SimpleIO</a> [library]<br/>
-<a href="SimpleIO.IO_Unix.html#sock:38">sock:38</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#sock:40">sock:40</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#stderr">stderr</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#stdin">stdin</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#stdout">stdout</a> [axiom, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#st:52">st:52</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_String.html#s:11">s:11</a> [binder, in <a href="SimpleIO.IO_String.html">SimpleIO.IO_String</a>]<br/>
 <a href="SimpleIO.IO_String.html#s:13">s:13</a> [binder, in <a href="SimpleIO.IO_String.html">SimpleIO.IO_String</a>]<br/>
 <br/><br/><a id="global_T"></a><h2>T </h2>
 <a href="SimpleIO.IO_RawChar.html#to_ostring">to_ostring</a> [axiom, in <a href="SimpleIO.IO_RawChar.html">SimpleIO.IO_RawChar</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#t:36">t:36</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#t:40">t:40</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#t:38">t:38</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#t:42">t:42</a> [binder, in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <br/><br/><a id="global_U"></a><h2>U </h2>
 <a href="SimpleIO.IO_Unsafe.html#unsafe_asr">unsafe_asr</a> [axiom, in <a href="SimpleIO.IO_Unsafe.html">SimpleIO.IO_Unsafe</a>]<br/>
 <a href="SimpleIO.IO_Unsafe.html#unsafe_lsr">unsafe_lsr</a> [axiom, in <a href="SimpleIO.IO_Unsafe.html">SimpleIO.IO_Unsafe</a>]<br/>
@@ -794,25 +911,32 @@
 <br/><br/><a id="global_Y"></a><h2>Y </h2>
 <a href="SimpleIO.IO_Monad.html#y':27">y':27</a> [binder, in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <br/><br/><a id="global_*"></a><h2>other </h2>
-<a href="SimpleIO.IO_Stdlib.html#cb99f38eedaf0bf2945519f1d3cafb4e">_ <>? _ (int_scope)</a> [notation, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#cb99f38eedaf0bf2945519f1d3cafb4e">_ &lt;&gt;? _ (int_scope)</a> [notation, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#bc5e7300866e638d5abae769797580b0">_ =? _ (int_scope)</a> [notation, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
-<a href="SimpleIO.IO_Stdlib.html#77fe47c432cfe6a9c10612350f655faa">_ <=? _ (int_scope)</a> [notation, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
-<a href="SimpleIO.IO_Stdlib.html#c148083f700bc02f2dc2ff76b4c13321">_ <? _ (int_scope)</a> [notation, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#77fe47c432cfe6a9c10612350f655faa">_ &lt;=? _ (int_scope)</a> [notation, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#c148083f700bc02f2dc2ff76b4c13321">_ &lt;? _ (int_scope)</a> [notation, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#f957f03f82d81f8d3648cb35791a36c5">_ * _ (int_scope)</a> [notation, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#::int_scope:x_'-'_x">_ - _ (int_scope)</a> [notation, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#eb485f4cd55d957aba496ff444892245">_ + _ (int_scope)</a> [notation, in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <br/><br/><hr/>
 <h1>Notation Index</h1>
-<a id="notation_I"></a><h2>I </h2>
+<a id="notation_F"></a><h2>F </h2>
+<a href="SimpleIO.IO_Float.html#1087cf590ead9a6e8a19e0c198640ccf">_ ^ _</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#91dc76ebbfcbb65c1ed58c3a0d9010fc">_ / _</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#63e6e665757a285682996a80f0df284c">_ * _</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#FloatNotations.:::x_'-'_x">_ - _</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#d3412fea06f7817f9d0c9fa92159965e">_ + _</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#FloatNotations.:::'-'_x">- _</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<br/><br/><a id="notation_I"></a><h2>I </h2>
 <a href="SimpleIO.IO_Monad.html#de50b9c597ea8777d678998be4ddbc71">_ ;; _ (io_scope)</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
-<a href="SimpleIO.IO_Monad.html#164113ba0bd5a05cfd732828da5c8e55">_ <- _ ;; _ (io_scope)</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
-<a href="SimpleIO.IO_Monad.html#6d1ca9e53ae71f736ad68472349e4c9e">_ =<< _ (io_scope)</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
-<a href="SimpleIO.IO_Monad.html#3cd93ac874989291e714dd9264c9a62c">_ >>= _ (io_scope)</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
+<a href="SimpleIO.IO_Monad.html#164113ba0bd5a05cfd732828da5c8e55">_ &lt;- _ ;; _ (io_scope)</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
+<a href="SimpleIO.IO_Monad.html#6d1ca9e53ae71f736ad68472349e4c9e">_ =&lt;&lt; _ (io_scope)</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
+<a href="SimpleIO.IO_Monad.html#3cd93ac874989291e714dd9264c9a62c">_ &gt;&gt;= _ (io_scope)</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <br/><br/><a id="notation_*"></a><h2>other </h2>
-<a href="SimpleIO.IO_Stdlib.html#cb99f38eedaf0bf2945519f1d3cafb4e">_ <>? _ (int_scope)</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#cb99f38eedaf0bf2945519f1d3cafb4e">_ &lt;&gt;? _ (int_scope)</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#bc5e7300866e638d5abae769797580b0">_ =? _ (int_scope)</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
-<a href="SimpleIO.IO_Stdlib.html#77fe47c432cfe6a9c10612350f655faa">_ <=? _ (int_scope)</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
-<a href="SimpleIO.IO_Stdlib.html#c148083f700bc02f2dc2ff76b4c13321">_ <? _ (int_scope)</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#77fe47c432cfe6a9c10612350f655faa">_ &lt;=? _ (int_scope)</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#c148083f700bc02f2dc2ff76b4c13321">_ &lt;? _ (int_scope)</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#f957f03f82d81f8d3648cb35791a36c5">_ * _ (int_scope)</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#::int_scope:x_'-'_x">_ - _ (int_scope)</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#eb485f4cd55d957aba496ff444892245">_ + _ (int_scope)</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
@@ -834,19 +958,20 @@
 <a href="SimpleIO.IO_Stdlib.html#a:36">a:36</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:39">a:39</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:42">a:42</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#a:45">a:45</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#a:47">a:47</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:5">a:5</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Exceptions.html#a:5">a:5</a> [in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:50">a:50</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:58">a:58</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#a:59">a:59</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:60">a:60</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#a:61">a:61</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Exceptions.html#a:7">a:7</a> [in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
-<a href="SimpleIO.IO_Stdlib.html#a:70">a:70</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
-<a href="SimpleIO.IO_Stdlib.html#a:72">a:72</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
-<a href="SimpleIO.IO_Stdlib.html#a:74">a:74</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
-<a href="SimpleIO.IO_Stdlib.html#a:78">a:78</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#a:73">a:73</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#a:75">a:75</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#a:77">a:77</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#a:8">a:8</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#a:81">a:81</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Exceptions.html#a:9">a:9</a> [in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
 <br/><br/><a id="binder_B"></a><h2>B </h2>
 <a href="SimpleIO.IO_Monad.html#b:14">b:14</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#b:31">b:31</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
@@ -856,7 +981,7 @@
 <a href="SimpleIO.IO_Monad.html#b:6">b:6</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#b:9">b:9</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <br/><br/><a id="binder_C"></a><h2>C </h2>
-<a href="SimpleIO.IO_Unix.html#code:43">code:43</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#code:57">code:57</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_StdlibAxioms.html#c:1">c:1</a> [in <a href="SimpleIO.IO_StdlibAxioms.html">SimpleIO.IO_StdlibAxioms</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#c:44">c:44</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_RawChar.html#c:5">c:5</a> [in <a href="SimpleIO.IO_RawChar.html">SimpleIO.IO_RawChar</a>]<br/>
@@ -897,17 +1022,21 @@
 <a href="SimpleIO.IO_UnsafeNat.html#n:6">n:6</a> [in <a href="SimpleIO.IO_UnsafeNat.html">SimpleIO.IO_UnsafeNat</a>]<br/>
 <a href="SimpleIO.IO_UnsafeNat.html#n:9">n:9</a> [in <a href="SimpleIO.IO_UnsafeNat.html">SimpleIO.IO_UnsafeNat</a>]<br/>
 <br/><br/><a id="binder_O"></a><h2>O </h2>
-<a href="SimpleIO.IO_Unix.html#opt:39">opt:39</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#opt:41">opt:41</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<br/><br/><a id="binder_P"></a><h2>P </h2>
+<a href="SimpleIO.IO_Unix.html#proto:53">proto:53</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <br/><br/><a id="binder_R"></a><h2>R </h2>
 <a href="SimpleIO.IO_UnsafeNat.html#r:10">r:10</a> [in <a href="SimpleIO.IO_UnsafeNat.html">SimpleIO.IO_UnsafeNat</a>]<br/>
 <a href="SimpleIO.IO_UnsafeNat.html#r:8">r:8</a> [in <a href="SimpleIO.IO_UnsafeNat.html">SimpleIO.IO_UnsafeNat</a>]<br/>
 <br/><br/><a id="binder_S"></a><h2>S </h2>
-<a href="SimpleIO.IO_Unix.html#sock:38">sock:38</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#sd:51">sd:51</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#sock:40">sock:40</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#st:52">st:52</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_String.html#s:11">s:11</a> [in <a href="SimpleIO.IO_String.html">SimpleIO.IO_String</a>]<br/>
 <a href="SimpleIO.IO_String.html#s:13">s:13</a> [in <a href="SimpleIO.IO_String.html">SimpleIO.IO_String</a>]<br/>
 <br/><br/><a id="binder_T"></a><h2>T </h2>
-<a href="SimpleIO.IO_Unix.html#t:36">t:36</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#t:40">t:40</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#t:38">t:38</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#t:42">t:42</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <br/><br/><a id="binder_V"></a><h2>V </h2>
 <a href="SimpleIO.IO_Monad.html#void:19">void:19</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <br/><br/><a id="binder_X"></a><h2>X </h2>
@@ -923,7 +1052,9 @@
 <a href="SimpleIO.IO_Monad.html#y':27">y':27</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <br/><br/><hr/>
 <h1>Module Index</h1>
-<a id="module_I"></a><h2>I </h2>
+<a id="module_F"></a><h2>F </h2>
+<a href="SimpleIO.IO_Float.html#FloatNotations">FloatNotations</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<br/><br/><a id="module_I"></a><h2>I </h2>
 <a href="SimpleIO.IO_Monad.html#IO">IO</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#IO.Notations">IO.Notations</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <br/><br/><a id="module_O"></a><h2>O </h2>
@@ -935,6 +1066,7 @@
 <a href="SimpleIO.IO_String.html#OString.Unsafe">OString.Unsafe</a> [in <a href="SimpleIO.IO_String.html">SimpleIO.IO_String</a>]<br/>
 <a href="SimpleIO.IO_Sys.html#OSys">OSys</a> [in <a href="SimpleIO.IO_Sys.html">SimpleIO.IO_Sys</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix">OUnix</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Time">OUnix.Time</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <br/><br/><hr/>
 <h1>Library Index</h1>
 <a id="library_I"></a><h2>I </h2>
@@ -949,6 +1081,7 @@
 <a href="SimpleIO.IO_Stdlib.html">IO_Stdlib</a> <br/>
 <a href="SimpleIO.IO_Sys.html">IO_Sys</a> <br/>
 <a href="SimpleIO.IO_StdlibAxioms.html">IO_StdlibAxioms</a> <br/>
+<a href="SimpleIO.IO_MonadFix.html">IO_MonadFix</a> <br/>
 <a href="SimpleIO.IO_String.html">IO_String</a> <br/>
 <a href="SimpleIO.IO_UnsafeNat.html">IO_UnsafeNat</a> <br/>
 <br/><br/><a id="library_S"></a><h2>S </h2>
@@ -960,6 +1093,7 @@
 <br/><br/><a id="axiom_B"></a><h2>B </h2>
 <a href="SimpleIO.IO_Stdlib.html#bytes">bytes</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <br/><br/><a id="axiom_C"></a><h2>C </h2>
+<a href="SimpleIO.IO_Exceptions.html#catch_sys_error">catch_sys_error</a> [in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
 <a href="SimpleIO.IO_Exceptions.html#catch_not_found">catch_not_found</a> [in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
 <a href="SimpleIO.IO_Exceptions.html#catch_failure">catch_failure</a> [in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
 <a href="SimpleIO.IO_Exceptions.html#catch_invalid_arg">catch_invalid_arg</a> [in <a href="SimpleIO.IO_Exceptions.html">SimpleIO.IO_Exceptions</a>]<br/>
@@ -970,7 +1104,9 @@
 <a href="SimpleIO.IO_Stdlib.html#char_of_int_io">char_of_int_io</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#char_of_int_opt">char_of_int_opt</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#char_eqb">char_eqb</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#close_in_noerr">close_in_noerr</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#close_in">close_in</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#close_out_noerr">close_out_noerr</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#close_out">close_out</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <br/><br/><a id="axiom_D"></a><h2>D </h2>
 <a href="SimpleIO.IO_Stdlib.html#decr_ref">decr_ref</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
@@ -1002,6 +1138,7 @@
 <a href="SimpleIO.IO_Stdlib.html#int_sub">int_sub</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#int_add">int_add</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#invalid_arg">invalid_arg</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Stdlib.html#in_channel_length">in_channel_length</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#in_channel">in_channel</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#IO">IO</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#io_unit">io_unit</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
@@ -1033,11 +1170,18 @@
 <a href="SimpleIO.IO_Bytes.html#OBytes.length">OBytes.length</a> [in <a href="SimpleIO.IO_Bytes.html">SimpleIO.IO_Bytes</a>]<br/>
 <a href="SimpleIO.IO_Bytes.html#OBytes.of_string">OBytes.of_string</a> [in <a href="SimpleIO.IO_Bytes.html">SimpleIO.IO_Bytes</a>]<br/>
 <a href="SimpleIO.IO_Bytes.html#OBytes.set">OBytes.set</a> [in <a href="SimpleIO.IO_Bytes.html">SimpleIO.IO_Bytes</a>]<br/>
+<a href="SimpleIO.IO_Bytes.html#OBytes.sub">OBytes.sub</a> [in <a href="SimpleIO.IO_Bytes.html">SimpleIO.IO_Bytes</a>]<br/>
 <a href="SimpleIO.IO_Bytes.html#OBytes.to_string">OBytes.to_string</a> [in <a href="SimpleIO.IO_Bytes.html">SimpleIO.IO_Bytes</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#ocaml_string">ocaml_string</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
+<a href="SimpleIO.IO_Float.html#OFloat.add">OFloat.add</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#OFloat.div">OFloat.div</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat.micro">OFloat.micro</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#OFloat.mul">OFloat.mul</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#OFloat.neg">OFloat.neg</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat.of_string_opt">OFloat.of_string_opt</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat.of_int">OFloat.of_int</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#OFloat.pow">OFloat.pow</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
+<a href="SimpleIO.IO_Float.html#OFloat.sub">OFloat.sub</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat.to_string">OFloat.to_string</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat.Unsafe.of_string">OFloat.Unsafe.of_string</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
 <a href="SimpleIO.IO_Float.html#OFloat.Unsafe.to_int">OFloat.Unsafe.to_int</a> [in <a href="SimpleIO.IO_Float.html">SimpleIO.IO_Float</a>]<br/>
@@ -1062,8 +1206,10 @@
 <a href="SimpleIO.IO_String.html#OString.Unsafe.init">OString.Unsafe.init</a> [in <a href="SimpleIO.IO_String.html">SimpleIO.IO_String</a>]<br/>
 <a href="SimpleIO.IO_String.html#OString.Unsafe.make">OString.Unsafe.make</a> [in <a href="SimpleIO.IO_String.html">SimpleIO.IO_String</a>]<br/>
 <a href="SimpleIO.IO_String.html#OString.Unsafe.sub">OString.Unsafe.sub</a> [in <a href="SimpleIO.IO_String.html">SimpleIO.IO_String</a>]<br/>
+<a href="SimpleIO.IO_Sys.html#OSys.command">OSys.command</a> [in <a href="SimpleIO.IO_Sys.html">SimpleIO.IO_Sys</a>]<br/>
 <a href="SimpleIO.IO_Sys.html#OSys.getenv">OSys.getenv</a> [in <a href="SimpleIO.IO_Sys.html">SimpleIO.IO_Sys</a>]<br/>
 <a href="SimpleIO.IO_Sys.html#OSys.getenv_opt">OSys.getenv_opt</a> [in <a href="SimpleIO.IO_Sys.html">SimpleIO.IO_Sys</a>]<br/>
+<a href="SimpleIO.IO_Sys.html#OSys.time">OSys.time</a> [in <a href="SimpleIO.IO_Sys.html">SimpleIO.IO_Sys</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.accept">OUnix.accept</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.bind">OUnix.bind</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.catch_error">OUnix.catch_error</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
@@ -1072,8 +1218,10 @@
 <a href="SimpleIO.IO_Unix.html#OUnix.error_message">OUnix.error_message</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.file_descr_eqb">OUnix.file_descr_eqb</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.file_descr">OUnix.file_descr</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.getaddrinfo">OUnix.getaddrinfo</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.getsockopt">OUnix.getsockopt</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.getsockopt_float">OUnix.getsockopt_float</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.gettimeofday">OUnix.gettimeofday</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.inet_addr_loopback">OUnix.inet_addr_loopback</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.inet_addr_any">OUnix.inet_addr_any</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.inet_addr_of_string">OUnix.inet_addr_of_string</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
@@ -1088,6 +1236,7 @@
 <a href="SimpleIO.IO_Unix.html#OUnix.sleep">OUnix.sleep</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.socket">OUnix.socket</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.string_of_inet_addr">OUnix.string_of_inet_addr</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.time">OUnix.time</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#output_byte">output_byte</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#output_substring">output_substring</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
 <a href="SimpleIO.IO_Stdlib.html#output_bytes">output_bytes</a> [in <a href="SimpleIO.IO_Stdlib.html">SimpleIO.IO_Stdlib</a>]<br/>
@@ -1134,6 +1283,12 @@
 <a id="constructor_O"></a><h2>O </h2>
 <a href="SimpleIO.IO_Unix.html#OUnix.ADDR_INET">OUnix.ADDR_INET</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.ADDR_UNIX">OUnix.ADDR_UNIX</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.AI_PASSIVE">OUnix.AI_PASSIVE</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.AI_CANONNAME">OUnix.AI_CANONNAME</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.AI_NUMERICHOST">OUnix.AI_NUMERICHOST</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.AI_PROTOCOL">OUnix.AI_PROTOCOL</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.AI_SOCKTYPE">OUnix.AI_SOCKTYPE</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.AI_FAMILY">OUnix.AI_FAMILY</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.EACCES">OUnix.EACCES</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.EADDRINUSE">OUnix.EADDRINUSE</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.EADDRNOTAVAIL">OUnix.EADDRNOTAVAIL</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
@@ -1204,14 +1359,13 @@
 <a href="SimpleIO.IO_Unix.html#OUnix.EXDEV">OUnix.EXDEV</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.E2BIG">OUnix.E2BIG</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.IPV6_ONLY">OUnix.IPV6_ONLY</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#OUnix.Microsec">OUnix.Microsec</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Mk_addr_info">OUnix.Mk_addr_info</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.MSG_PEEK">OUnix.MSG_PEEK</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.MSG_DONTROUTE">OUnix.MSG_DONTROUTE</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.MSG_OOB">OUnix.MSG_OOB</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.PF_INET6">OUnix.PF_INET6</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.PF_INET">OUnix.PF_INET</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.PF_UNIX">OUnix.PF_UNIX</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#OUnix.Seconds">OUnix.Seconds</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.SOCK_SEQPACKET">OUnix.SOCK_SEQPACKET</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.SOCK_RAW">OUnix.SOCK_RAW</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.SOCK_DGRAM">OUnix.SOCK_DGRAM</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
@@ -1226,17 +1380,28 @@
 <a href="SimpleIO.IO_Unix.html#OUnix.SO_BROADCAST">OUnix.SO_BROADCAST</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.SO_DEBUG">OUnix.SO_DEBUG</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.TCP_NODELAY">OUnix.TCP_NODELAY</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Time.Microsec">OUnix.Time.Microsec</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Time.Seconds">OUnix.Time.Seconds</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <br/><br/><hr/>
 <h1>Inductive Index</h1>
 <a id="inductive_O"></a><h2>O </h2>
 <a href="SimpleIO.IO_Unix.html#OUnix.error">OUnix.error</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.getaddrinfo_option">OUnix.getaddrinfo_option</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.msg_flag">OUnix.msg_flag</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.sockaddr">OUnix.sockaddr</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.socket_float_option">OUnix.socket_float_option</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.socket_bool_option">OUnix.socket_bool_option</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.socket_type">OUnix.socket_type</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_Unix.html#OUnix.socket_domain">OUnix.socket_domain</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#OUnix.time">OUnix.time</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Time.time">OUnix.Time.time</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<br/><br/><hr/>
+<h1>Projection Index</h1>
+<a id="projection_O"></a><h2>O </h2>
+<a href="SimpleIO.IO_Unix.html#OUnix.ai_canonname">OUnix.ai_canonname</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.ai_addr">OUnix.ai_addr</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.ai_protocol">OUnix.ai_protocol</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.ai_socktype">OUnix.ai_socktype</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.ai_family">OUnix.ai_family</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <br/><br/><hr/>
 <h1>Instance Index</h1>
 <a id="instance_A"></a><h2>A </h2>
@@ -1244,11 +1409,16 @@
 <br/><br/><a id="instance_F"></a><h2>F </h2>
 <a href="SimpleIO.IO_Monad.html#Functor_IO">Functor_IO</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <br/><br/><a id="instance_M"></a><h2>M </h2>
+<a href="SimpleIO.IO_MonadFix.html#MonadFix_IO">MonadFix_IO</a> [in <a href="SimpleIO.IO_MonadFix.html">SimpleIO.IO_MonadFix</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#Monad_IO">Monad_IO</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <br/><br/><hr/>
 <h1>Abbreviation Index</h1>
 <a id="abbreviation_I"></a><h2>I </h2>
 <a href="SimpleIO.IO_Monad.html#IO.Notations.delay">IO.Notations.delay</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
+<br/><br/><hr/>
+<h1>Record Index</h1>
+<a id="record_O"></a><h2>O </h2>
+<a href="SimpleIO.IO_Unix.html#OUnix.addr_info">OUnix.addr_info</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <br/><br/><hr/>
 <h1>Definition Index</h1>
 <a id="definition_A"></a><h2>A </h2>
@@ -1268,8 +1438,8 @@
 <a href="SimpleIO.IO_Monad.html#IO.map">IO.map</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <a href="SimpleIO.IO_Monad.html#IO.while_loop">IO.while_loop</a> [in <a href="SimpleIO.IO_Monad.html">SimpleIO.IO_Monad</a>]<br/>
 <br/><br/><a id="definition_O"></a><h2>O </h2>
-<a href="SimpleIO.IO_Unix.html#OUnix.setsock_timeout">OUnix.setsock_timeout</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
-<a href="SimpleIO.IO_Unix.html#OUnix.time_as_seconds">OUnix.time_as_seconds</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Time.setsock_timeout">OUnix.Time.setsock_timeout</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
+<a href="SimpleIO.IO_Unix.html#OUnix.Time.time_as_seconds">OUnix.Time.time_as_seconds</a> [in <a href="SimpleIO.IO_Unix.html">SimpleIO.IO_Unix</a>]<br/>
 <a href="SimpleIO.IO_UnsafeNat.html#output_byte_nat">output_byte_nat</a> [in <a href="SimpleIO.IO_UnsafeNat.html">SimpleIO.IO_UnsafeNat</a>]<br/>
 <a href="SimpleIO.IO_UnsafeNat.html#output_nat">output_nat</a> [in <a href="SimpleIO.IO_UnsafeNat.html">SimpleIO.IO_UnsafeNat</a>]<br/>
 <br/><br/><a id="definition_P"></a><h2>P </h2>
@@ -1310,7 +1480,7 @@
 <td>Z</td>
 <td>_</td>
 <td><a href="indexpage.html#global_*">other</a></td>
-<td>(405 entries)</td>
+<td>(449 entries)</td>
 </tr>
 <tr>
 <td>Notation Index</td>
@@ -1319,7 +1489,7 @@
 <td>C</td>
 <td>D</td>
 <td>E</td>
-<td>F</td>
+<td><a href="indexpage.html#notation_F">F</a></td>
 <td>G</td>
 <td>H</td>
 <td><a href="indexpage.html#notation_I">I</a></td>
@@ -1342,7 +1512,7 @@
 <td>Z</td>
 <td>_</td>
 <td><a href="indexpage.html#notation_*">other</a></td>
-<td>(11 entries)</td>
+<td>(17 entries)</td>
 </tr>
 <tr>
 <td>Binder Index</td>
@@ -1361,7 +1531,7 @@
 <td><a href="indexpage.html#binder_M">M</a></td>
 <td><a href="indexpage.html#binder_N">N</a></td>
 <td><a href="indexpage.html#binder_O">O</a></td>
-<td>P</td>
+<td><a href="indexpage.html#binder_P">P</a></td>
 <td>Q</td>
 <td><a href="indexpage.html#binder_R">R</a></td>
 <td><a href="indexpage.html#binder_S">S</a></td>
@@ -1374,7 +1544,7 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(87 entries)</td>
+<td>(91 entries)</td>
 </tr>
 <tr>
 <td>Module Index</td>
@@ -1383,7 +1553,7 @@
 <td>C</td>
 <td>D</td>
 <td>E</td>
-<td>F</td>
+<td><a href="indexpage.html#module_F">F</a></td>
 <td>G</td>
 <td>H</td>
 <td><a href="indexpage.html#module_I">I</a></td>
@@ -1406,7 +1576,7 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(10 entries)</td>
+<td>(12 entries)</td>
 </tr>
 <tr>
 <td>Library Index</td>
@@ -1438,7 +1608,7 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(14 entries)</td>
+<td>(15 entries)</td>
 </tr>
 <tr>
 <td>Axiom Index</td>
@@ -1470,7 +1640,7 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(157 entries)</td>
+<td>(173 entries)</td>
 </tr>
 <tr>
 <td>Constructor Index</td>
@@ -1502,7 +1672,7 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(94 entries)</td>
+<td>(101 entries)</td>
 </tr>
 <tr>
 <td>Inductive Index</td>
@@ -1534,7 +1704,39 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(8 entries)</td>
+<td>(9 entries)</td>
+</tr>
+<tr>
+<td>Projection Index</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td>G</td>
+<td>H</td>
+<td>I</td>
+<td>J</td>
+<td>K</td>
+<td>L</td>
+<td>M</td>
+<td>N</td>
+<td><a href="indexpage.html#projection_O">O</a></td>
+<td>P</td>
+<td>Q</td>
+<td>R</td>
+<td>S</td>
+<td>T</td>
+<td>U</td>
+<td>V</td>
+<td>W</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+<td>_</td>
+<td>other</td>
+<td>(5 entries)</td>
 </tr>
 <tr>
 <td>Instance Index</td>
@@ -1566,7 +1768,7 @@
 <td>Z</td>
 <td>_</td>
 <td>other</td>
-<td>(3 entries)</td>
+<td>(4 entries)</td>
 </tr>
 <tr>
 <td>Abbreviation Index</td>
@@ -1585,6 +1787,38 @@
 <td>M</td>
 <td>N</td>
 <td>O</td>
+<td>P</td>
+<td>Q</td>
+<td>R</td>
+<td>S</td>
+<td>T</td>
+<td>U</td>
+<td>V</td>
+<td>W</td>
+<td>X</td>
+<td>Y</td>
+<td>Z</td>
+<td>_</td>
+<td>other</td>
+<td>(1 entry)</td>
+</tr>
+<tr>
+<td>Record Index</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td>G</td>
+<td>H</td>
+<td>I</td>
+<td>J</td>
+<td>K</td>
+<td>L</td>
+<td>M</td>
+<td>N</td>
+<td><a href="indexpage.html#record_O">O</a></td>
 <td>P</td>
 <td>Q</td>
 <td>R</td>
@@ -1633,10 +1867,11 @@
 <td>(20 entries)</td>
 </tr>
 </table>
-<hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
 </div>
-
+<div id="footer">
+  Generated by <a href="http://coq.inria.fr/">coqdoc</a> and improved with <a href="https://github.com/tebbi/coqdocjs">CoqdocJS</a>
 </div>
-
+</div>
 </body>
+
 </html>

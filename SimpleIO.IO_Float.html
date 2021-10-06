@@ -1,28 +1,37 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link href="coqdoc.css" rel="stylesheet" type="text/css" />
-<title>SimpleIO.IO_Float</title>
+<link href="coqdocjs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript" src="coqdocjs.js"></script>
 </head>
 
-<body>
+<body onload="document.getElementById('content').focus()">
+  <div id="header">
+    <span class="left">
+      <span class="modulename"> <script> document.write(document.title) </script> </span>
+    </span>
 
-<div id="page">
+    <span class="button" id="toggle-proofs"></span>
 
-<div id="header">
+    <span class="right">
+      <a href="../">Project Page</a>
+      <a href="./indexpage.html"> Index </a>
+      <a href="./toc.html"> Table of Contents </a>
+    </span>
 </div>
-
-<div id="main">
-
+    <div id="content" tabindex="-1" onblur="document.getElementById('content').focus()">
+    <div id="main">
 <h1 class="libtitle">SimpleIO.IO_Float</h1>
 
 <div class="code">
 </div>
 
 <div class="doc">
-<a id="lab63"></a><h1 class="section">Floating-point arithmetic</h1>
+<a id="lab64"></a><h1 class="section">Floating-point arithmetic</h1>
 
 </div>
 <div class="code">
@@ -39,7 +48,7 @@
 Convert an integer to floating-point. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a id="OFloat.of_int" class="idref" href="#OFloat.of_int"><span class="id" title="axiom">of_int</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OFloat.of_int" class="idref" href="#OFloat.of_int"><span class="id" title="axiom">of_int</span></a> : <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
 
 <br/>
 </div>
@@ -48,7 +57,61 @@ Convert an integer to floating-point.
 Multiply by <span class="inlinecode">10<span class="id" title="var">e</span>-6</span>. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a id="OFloat.micro" class="idref" href="#OFloat.micro"><span class="id" title="axiom">micro</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OFloat.micro" class="idref" href="#OFloat.micro"><span class="id" title="axiom">micro</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Unary negation. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a id="OFloat.neg" class="idref" href="#OFloat.neg"><span class="id" title="axiom">neg</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Floating-point addition. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a id="OFloat.add" class="idref" href="#OFloat.add"><span class="id" title="axiom">add</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Floating-point subtraction. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a id="OFloat.sub" class="idref" href="#OFloat.sub"><span class="id" title="axiom">sub</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Floating-point multiplication. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a id="OFloat.mul" class="idref" href="#OFloat.mul"><span class="id" title="axiom">mul</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Floating-point division. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a id="OFloat.div" class="idref" href="#OFloat.div"><span class="id" title="axiom">div</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
+
+<br/>
+</div>
+
+<div class="doc">
+Exponentiation. 
+</div>
+<div class="code">
+<span class="id" title="keyword">Parameter</span> <a id="OFloat.pow" class="idref" href="#OFloat.pow"><span class="id" title="axiom">pow</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
 
 <br/>
 <span class="id" title="keyword">Module</span> <a id="OFloat.Unsafe" class="idref" href="#OFloat.Unsafe"><span class="id" title="module">Unsafe</span></a>.<br/>
@@ -62,7 +125,7 @@ Truncate the given floating-point number to an integer.
     range of representable integers. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a id="OFloat.Unsafe.to_int" class="idref" href="#OFloat.Unsafe.to_int"><span class="id" title="axiom">to_int</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OFloat.Unsafe.to_int" class="idref" href="#OFloat.Unsafe.to_int"><span class="id" title="axiom">to_int</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.extraction.ExtrOcamlIntConv.html#int"><span class="id" title="axiom">int</span></a>.<br/>
 
 <br/>
 </div>
@@ -85,7 +148,7 @@ Convert the given string to a float.  The string is read in decimal
     representation of a float. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a id="OFloat.Unsafe.of_string" class="idref" href="#OFloat.Unsafe.of_string"><span class="id" title="axiom">of_string</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OFloat.Unsafe.of_string" class="idref" href="#OFloat.Unsafe.of_string"><span class="id" title="axiom">of_string</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
 
 <br/>
 
@@ -96,10 +159,10 @@ Convert the given string to a float.  The string is read in decimal
 </div>
 
 <div class="doc">
-Same as <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Float.html#OFloat.Unsafe.of_string"><span class="id" title="axiom">of_string</span></a></span>, but returns <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#None"><span class="id" title="constructor">None</span></a></span> instead of raising. 
+Same as <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Float.html#OFloat.Unsafe.of_string"><span class="id" title="axiom">of_string</span></a></span>, but returns <span class="inlinecode"><a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Datatypes.html#None"><span class="id" title="constructor">None</span></a></span> instead of raising. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a id="OFloat.of_string_opt" class="idref" href="#OFloat.of_string_opt"><span class="id" title="axiom">of_string_opt</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Datatypes.html#option"><span class="id" title="inductive">option</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OFloat.of_string_opt" class="idref" href="#OFloat.of_string_opt"><span class="id" title="axiom">of_string_opt</span></a> : <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Datatypes.html#option"><span class="id" title="inductive">option</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a>.<br/>
 
 <br/>
 </div>
@@ -108,20 +171,33 @@ Same as <span class="inlinecode"><a class="idref" href="SimpleIO.IO_Float.html#O
 Return the string representation of a floating-point number. 
 </div>
 <div class="code">
-<span class="id" title="keyword">Parameter</span> <a id="OFloat.to_string" class="idref" href="#OFloat.to_string"><span class="id" title="axiom">to_string</span></a>     : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.12.0/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
+<span class="id" title="keyword">Parameter</span> <a id="OFloat.to_string" class="idref" href="#OFloat.to_string"><span class="id" title="axiom">to_string</span></a>     : <a class="idref" href="SimpleIO.IO_Stdlib.html#float"><span class="id" title="axiom">float</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.13.2/stdlib//Coq.Init.Logic.html#::type_scope:x_'-&gt;'_x"><span class="id" title="notation">-&gt;</span></a> <a class="idref" href="SimpleIO.IO_Stdlib.html#ocaml_string"><span class="id" title="axiom">ocaml_string</span></a>.<br/>
 
 <br/>
 
 <br/>
 <span class="id" title="keyword">End</span> <a class="idref" href="SimpleIO.IO_Float.html#OFloat"><span class="id" title="module">OFloat</span></a>.<br/>
-</div>
-</div>
 
+<br/>
+<span class="id" title="keyword">Module</span> <a id="FloatNotations" class="idref" href="#FloatNotations"><span class="id" title="module">FloatNotations</span></a>.<br/>
+<span class="id" title="keyword">Import</span> <span class="id" title="var">OFloat</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">Notation</span> <a id="FloatNotations.:::'-'_x" class="idref" href="#FloatNotations.:::'-'_x"><span class="id" title="notation">&quot;</span></a>- x" := (<a class="idref" href="SimpleIO.IO_Float.html#OFloat.neg"><span class="id" title="axiom">neg</span></a> <span class="id" title="var">x</span>).<br/>
+<span class="id" title="keyword">Infix</span>    <a id="d3412fea06f7817f9d0c9fa92159965e" class="idref" href="#d3412fea06f7817f9d0c9fa92159965e"><span class="id" title="notation">&quot;</span></a>+"   :=  <a class="idref" href="SimpleIO.IO_Float.html#OFloat.add"><span class="id" title="axiom">add</span></a>.<br/>
+<span class="id" title="keyword">Infix</span>    <a id="FloatNotations.:::x_'-'_x" class="idref" href="#FloatNotations.:::x_'-'_x"><span class="id" title="notation">&quot;</span></a>-"   :=  <a class="idref" href="SimpleIO.IO_Float.html#OFloat.sub"><span class="id" title="axiom">sub</span></a>.<br/>
+<span class="id" title="keyword">Infix</span>    <a id="63e6e665757a285682996a80f0df284c" class="idref" href="#63e6e665757a285682996a80f0df284c"><span class="id" title="notation">&quot;</span></a>*"   :=  <a class="idref" href="SimpleIO.IO_Float.html#OFloat.mul"><span class="id" title="axiom">mul</span></a>.<br/>
+<span class="id" title="keyword">Infix</span>    <a id="91dc76ebbfcbb65c1ed58c3a0d9010fc" class="idref" href="#91dc76ebbfcbb65c1ed58c3a0d9010fc"><span class="id" title="notation">&quot;</span></a>/"   :=  <a class="idref" href="SimpleIO.IO_Float.html#OFloat.div"><span class="id" title="axiom">div</span></a>.<br/>
+<span class="id" title="keyword">Infix</span>    <a id="1087cf590ead9a6e8a19e0c198640ccf" class="idref" href="#1087cf590ead9a6e8a19e0c198640ccf"><span class="id" title="notation">&quot;</span></a>^"   :=  <a class="idref" href="SimpleIO.IO_Float.html#OFloat.pow"><span class="id" title="axiom">pow</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">End</span> <a class="idref" href="SimpleIO.IO_Float.html#FloatNotations"><span class="id" title="module">FloatNotations</span></a>.<br/>
+</div>
+</div>
 <div id="footer">
-<hr/><a href="indexpage.html">Index</a><hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
+  Generated by <a href="http://coq.inria.fr/">coqdoc</a> and improved with <a href="https://github.com/tebbi/coqdocjs">CoqdocJS</a>
 </div>
-
 </div>
-
 </body>
+
 </html>
