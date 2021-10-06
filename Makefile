@@ -20,12 +20,20 @@ uninstall: $(MAKEFILE_COQ)
 $(MAKEFILE_COQ): _CoqProject
 	coq_makefile -f $< -o $@
 
-COMPATFILES:=plugin/coqsimpleio.mlg
+COMPATFILES:=plugin/coqsimpleio.mlg \
+  src/IO_Stdlib.v \
+  src/IO_RawChar.v \
+  src/IO_String.v \
+  src/IO_Float.v \
+  src/IO_Unsafe.v
 
 compat: $(COMPATFILES)
 
+COQ_VERSION:=$(word 1, $(shell coqc -print-version))
+OCAML_VERSION:=$(shell ocamlc -version)
+
 %: %.cppo
-	$(V)cppo -V COQ:$(word 1, $(shell coqc -print-version)) -n -o $@ $^
+	$(V)cppo -V COQ:$(COQ_VERSION) -V OCAML:$(OCAML_VERSION) -n -o $@ $^
 
 # With local source files
 test: build

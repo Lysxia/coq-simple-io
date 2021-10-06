@@ -11,9 +11,8 @@ Open Scope string_scope.
 Set Warnings "-extraction-opaque-accessed,-extraction".
 (* end hide *)
 
-Parameter print_bool : bool -> IO unit.
-Extract Constant print_bool =>
-  "fun b k -> k (Pervasives.print_endline (Pervasives.string_of_bool b))".
+Definition print_bool (b : bool) : IO unit :=
+  print_string (ostring_of_bool b).
 
 Parameter int_constant : int.
 Extract Constant int_constant => "3".

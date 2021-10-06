@@ -21,7 +21,7 @@ From Coq.extraction Require Import
 From SimpleIO Require Import
      IO_Monad.
 
-Extraction Blacklist Pervasives.
+Extraction Blacklist Pervasives Stdlib.
 (* end hide *)
 
 (** * Types *)
@@ -217,6 +217,146 @@ Parameter exit : forall {a}, int -> IO a.
 
 (** * Extraction *)
 
+#if OCAML_VERSION >= (4, 8, 0)
+(** ** Types *)
+
+Extract Inlined Constant ocaml_string => "String.t".
+Extract Inlined Constant char => "char".
+Extract Inlined Constant float => "float".
+
+Extract Inlined Constant bytes => "bytes".
+Extract Inlined Constant in_channel => "Stdlib.in_channel".
+Extract Inlined Constant out_channel => "Stdlib.out_channel".
+Extract Constant ref "'a" => "'a Stdlib.ref".
+
+(** ** Operations on [int] *)
+
+Extract Inlined Constant int_add => "Stdlib.(+)".
+Extract Inlined Constant int_sub => "Stdlib.(-)".
+Extract Inlined Constant int_mul => "Stdlib.( * )".
+Extract Inlined Constant int_div_opt =>
+  "fun x y -> try Some (x Stdlib./ y)
+              with Division_by_zero -> None".
+Extract Inlined Constant int_mod_opt =>
+  "fun x y -> try Some Stdlib.(x mod y)
+              with Division_by_zero -> None".
+Extract Inlined Constant int_eqb => "Stdlib.(=)".
+Extract Inlined Constant int_neqb => "Stdlib.(<>)".
+Extract Inlined Constant int_le => "Stdlib.(<=)".
+Extract Inlined Constant int_lt => "Stdlib.(<)".
+
+Extract Inlined Constant int_min => "Stdlib.min".
+Extract Inlined Constant int_max => "Stdlib.max".
+
+Extract Inlined Constant land => "Stdlib.(land)".
+Extract Inlined Constant lor => "Stdlib.(lor)".
+Extract Inlined Constant lxor => "Stdlib.(lxor)".
+Extract Inlined Constant lnot => "Stdlib.lnot".
+
+Extract Inlined Constant max_int => "Stdlib.max_int".
+Extract Inlined Constant min_int => "Stdlib.min_int".
+
+(** ** Misc *)
+
+Extract Inlined Constant ostring_app => "Stdlib.(^)".
+
+Extract Inlined Constant ostring_eqb => "Stdlib.(=)".
+Extract Inlined Constant char_eqb => "Stdlib.(=)".
+
+Extract Inlined Constant int_of_char => "Stdlib.int_of_char".
+
+Extract Constant char_of_int_opt =>
+  "fun n ->
+     try Some (Stdlib.char_of_int n)
+     with Invalid_argument _ -> None".
+
+Extract Constant char_of_int_io => "fun n k -> k (Stdlib.char_of_int n)".
+
+Extract Constant ostring_of_bool => "Stdlib.string_of_bool".
+Extract Inlined Constant ostring_of_int => "Stdlib.string_of_int".
+Extract Inlined Constant int_of_ostring_opt => "Stdlib.int_of_string_opt".
+
+(** ** Exceptions *)
+
+Extract Inlined Constant invalid_arg => "Stdlib.invalid_arg".
+Extract Inlined Constant failwith => "Stdlib.failwith".
+
+(** ** Standard channels *)
+
+Extract Inlined Constant stdin  => "Stdlib.stdin".
+Extract Inlined Constant stdout => "Stdlib.stdout".
+Extract Inlined Constant stderr => "Stdlib.stderr".
+
+(** *** [stdout] *)
+
+Extract Constant print_char     => "fun c k -> k (Stdlib.print_char    c)".
+Extract Constant print_bytes    => "fun b k -> k (Stdlib.print_bytes   b)".
+Extract Constant print_int      => "fun n k -> k (Stdlib.print_int     n)".
+Extract Constant print_string   => "fun s k -> k (Stdlib.print_string  s)".
+Extract Constant print_endline  => "fun s k -> k (Stdlib.print_endline s)".
+Extract Constant print_newline  => "fun   k -> k (Stdlib.print_newline ())".
+
+(** *** [stderr] *)
+
+Extract Constant prerr_char     => "fun c  k -> k (Stdlib.prerr_char    c)".
+Extract Constant prerr_bytes    => "fun bs k -> k (Stdlib.prerr_bytes   bs)".
+Extract Constant prerr_int      => "fun n  k -> k (Stdlib.prerr_int     n)".
+Extract Constant prerr_string   => "fun s  k -> k (Stdlib.prerr_string  s)".
+Extract Constant prerr_endline  => "fun s  k -> k (Stdlib.prerr_endline s)".
+Extract Constant prerr_newline  => "fun    k -> k (Stdlib.prerr_newline ())".
+
+(** *** [stdin] *)
+
+Extract Constant read_line    => "fun k -> k (Stdlib.read_line ())".
+Extract Constant read_int     => "fun k -> k (Stdlib.read_int  ())".
+Extract Constant read_int_opt => "fun k -> k (Stdlib.read_int_opt ())".
+
+(** ** File handles *)
+
+(** *** Output *)
+
+Extract Constant open_out  => "fun s k -> k (Stdlib.open_out s)".
+Extract Constant flush     => "fun h k -> k (Stdlib.flush h)".
+Extract Constant flush_all => "fun   k -> k (Stdlib.flush_all ())".
+
+Extract Constant output_char    => "fun h c k -> k (Stdlib.output_char h c)".
+Extract Constant output_string  => "fun h s k -> k (Stdlib.output_string h s)".
+Extract Constant output_bytes   => "fun h b k -> k (Stdlib.output_bytes h b)".
+Extract Constant output_byte    => "fun h b k -> k (Stdlib.output_byte h b)".
+Extract Constant output_substring =>
+  "fun h s i n k -> k (Stdlib.output_substring h s i n)".
+
+Extract Constant close_out => "fun h k -> k (close_out h)".
+Extract Constant close_out_noerr => "fun h k -> k (close_out_noerr h)".
+
+(** *** Input *)
+
+Extract Constant open_in     => "fun s k -> k (Stdlib.open_in s)".
+
+Extract Constant input_char  => "fun h k -> k (Stdlib.input_char h)".
+Extract Constant input_line  => "fun h k -> k (Stdlib.input_line h)".
+Extract Constant input_byte  => "fun h k -> k (Stdlib.input_byte h)".
+Extract Constant in_channel_length =>
+  "fun h k -> k (Stdlib.in_channel_length h)".
+
+Extract Constant close_in => "fun h k -> k (Stdlib.close_in h)".
+Extract Constant close_in_noerr => "fun h k -> k (Stdlib.close_in_noerr h)".
+
+(** ** Mutable references *)
+
+Extract Constant new_ref   =>
+  "fun x k -> k (Stdlib.ref x)".
+Extract Constant read_ref  =>
+  "fun r k -> k (Stdlib.(!) r)".
+Extract Constant write_ref =>
+  "fun r x k -> k (Stdlib.(:=) r x)".
+Extract Constant incr_ref  => "fun r k -> k (Stdlib.incr r)".
+Extract Constant decr_ref  => "fun r k -> k (Stdlib.decr r)".
+
+(** ** Program termination *)
+
+Extract Constant exit => "fun n k -> k (Stdlib.exit n)".
+#else
 (** ** Types *)
 
 Extract Inlined Constant ocaml_string => "String.t".
@@ -355,3 +495,4 @@ Extract Constant decr_ref  => "fun r k -> k (Pervasives.decr r)".
 (** ** Program termination *)
 
 Extract Constant exit => "fun n k -> k (Pervasives.exit n)".
+#endif
