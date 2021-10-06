@@ -1,3 +1,15 @@
+# 1.6.0
+
+- Add `RunIO` command to compile and run executables from a Coq file
+- Rename `Pervasives` to `Stdlib` in extracted code (for OCaml >= 4.08)
+- Add new definitions from the stdlib:
+
+    + `IO_Stdlib.close_out_noerr`
+    + `IO_Stdlib.close_in_noerr`
+    + `IO_Stdlib.in_channel_length`
+    + `IO_Exceptions.catch_sys_error`
+    + `IO_Sys.OSys.command`
+
 # 1.5.0
 
 - Add `IO_MonadFix` with the `MonadFix` instance in its own module.
