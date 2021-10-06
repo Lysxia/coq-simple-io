@@ -2,7 +2,7 @@ From Coq Require Import
      Strings.String
      extraction.ExtrOcamlIntConv.
 
-From SimpleIO Require Import SimpleIO.
+From SimpleIO Require Import SimpleIO IO_Sys.
 Import IO.Notations.
 
 Open Scope string_scope.
@@ -31,6 +31,12 @@ Definition f : IO unit := IO.while_loop (fun b =>
       IO.ret (Some true)
   end) false.
 
-Definition y : io_unit := IO.unsafe_run f.
+Definition g : IO unit :=
+  _ <- OSys.command "echo ""echo test""" ;;
+  IO.ret tt.
 
-Separate Extraction y.
+Definition y := f ;; g.
+
+Definition y0 : io_unit := IO.unsafe_run y.
+
+Separate Extraction y0.
