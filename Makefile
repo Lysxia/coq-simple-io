@@ -76,6 +76,7 @@ html: html-raw
 	cp $(COQDOCJS_DIR)/extra/resources/* doc
 else
 html: html-raw
+	@echo "`tput bold``tput setaf 3`WARNING: coqdocjs not set.`tput sgr0` This will produce ugly docs. Set the COQDOCJS_DIR variable when invoking make."
 endif
 
 export COQDOCFLAGS
