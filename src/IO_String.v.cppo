@@ -17,7 +17,7 @@ From Coq Require Import
 From SimpleIO Require Import
      IO_Stdlib.
 
-Extraction Blacklist Bytes Pervasives String .
+Extraction Blacklist Bytes String.
 (* end hide *)
 
 (** * String module *)

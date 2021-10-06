@@ -8,21 +8,17 @@ From SimpleIO Require Import
 
 (** Throws an exception if the divisor is 0. *)
 Parameter unsafe_int_div : int -> int -> int.
-Extract Inlined Constant unsafe_int_div => "Pervasives.(/)".
 
 (** Throws an exception if the divisor is 0. *)
 Parameter unsafe_int_mod : int -> int -> int.
-Extract Inlined Constant unsafe_int_mod => "Pervasives.(mod)".
 
 (** Throws an exception if the argument is smaller than 0 or
     greater than 255. *)
 Parameter unsafe_char_of_int : int -> char.
-Extract Inlined Constant unsafe_char_of_int => "Pervasives.char_of_int".
 
 (** Throws an exception if the argument string does not represent
     an integer. *)
 Parameter unsafe_int_of_ostring : ocaml_string -> int.
-Extract Inlined Constant unsafe_int_of_ostring => "Pervasives.int_of_string".
 
 (* N.B.: I am not sure whether these are actually unsafe.
    It depends on what "undefined" means here. It might be fine if
@@ -42,6 +38,20 @@ Parameter unsafe_lsr : int -> int -> int.
     Undefined result if shift is negative or greater than [int] size. *)
 Parameter unsafe_asr : int -> int -> int.
 
+#if OCAML_VERSION >= (4, 8, 0)
+Extract Inlined Constant unsafe_int_div => "Stdlib.(/)".
+Extract Inlined Constant unsafe_int_mod => "Stdlib.(mod)".
+Extract Inlined Constant unsafe_char_of_int => "Stdlib.char_of_int".
+Extract Inlined Constant unsafe_int_of_ostring => "Stdlib.int_of_string".
+Extract Inlined Constant unsafe_lsl => "Stdlib.(lsl)".
+Extract Inlined Constant unsafe_lsr => "Stdlib.(lsr)".
+Extract Inlined Constant unsafe_asr => "Stdlib.(asr)".
+#else
+Extract Inlined Constant unsafe_int_div => "Pervasives.(/)".
+Extract Inlined Constant unsafe_int_mod => "Pervasives.(mod)".
+Extract Inlined Constant unsafe_char_of_int => "Pervasives.char_of_int".
+Extract Inlined Constant unsafe_int_of_ostring => "Pervasives.int_of_string".
 Extract Inlined Constant unsafe_lsl => "Pervasives.(lsl)".
 Extract Inlined Constant unsafe_lsr => "Pervasives.(lsr)".
 Extract Inlined Constant unsafe_asr => "Pervasives.(asr)".
+#endif

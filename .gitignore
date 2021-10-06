@@ -1,3 +1,10 @@
+plugin/coqsimpleio.mlg
+src/IO_Stdlib.v
+src/IO_String.v
+src/IO_RawChar.v
+src/IO_Float.v
+src/IO_Unsafe.v
+
 .coqdeps.d
 *~
 *.coq.d
@@ -17,7 +24,6 @@
 *.ml
 *.ml.d
 *.mli.d
-plugin/coqsimpleio.mlg
 *.mlg.d
 *.mlpack.d
 build
