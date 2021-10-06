@@ -12,7 +12,7 @@ This library provides tools to implement IO programs directly in Coq, in a
   functions in the OCaml Pervasives module are provided, and users are free to
   define their own APIs on top of this IO type."""
 maintainer: "Li-yao Xia <lysxia@gmail.com>"
-authors: "Li-yao Xia"
+authors: [ "Li-yao Xia" "Yishuai Li" ]
 license: "MIT"
 homepage: "https://github.com/Lysxia/coq-simple-io"
 bug-reports: "https://github.com/Lysxia/coq-simple-io/issues"
