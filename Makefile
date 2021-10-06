@@ -66,7 +66,7 @@ depgraph:
 ## coqdoc -------------------------------------------------
 COQDOCFLAGS:= \
   -t "Simple IO" \
-  --toc --toc-depth 2 --html --interpolate \
+  --toc --toc-depth 1 --html --interpolate \
   --index indexpage --no-lib-name --parse-comments
 
 ifdef COQDOCJS_DIR
