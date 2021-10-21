@@ -34,3 +34,4 @@ Makefile.coq
 Makefile.coq.conf
 doc/
 html/
+.DS_Store

@@ -192,6 +192,38 @@ Parameter close_in_noerr : in_channel -> IO unit.
 
 Parameter input_char : in_channel -> IO char.
 Parameter input_line : in_channel -> IO ocaml_string.
+
+(** [input ic buf pos len] reads up to [len] characters from
+   the given channel [ic], storing them in byte sequence [buf], starting at
+   character number [pos].
+   It returns the actual number of characters read, between 0 and
+   [len] (inclusive).
+   A return value of 0 means that the end of file was reached.
+   A return value between 0 and [len] exclusive means that
+   not all requested [len] characters were read, either because
+   no more characters were available at that time, or because
+   the implementation found it convenient to do a partial read;
+   [input] must be called again to read the remaining characters,
+   if desired.  (See also [really_input] for reading
+   exactly [len] characters.)
+   Exception [Invalid_argument "input"] is raised if [pos] and [len]
+   do not designate a valid range of [buf]. *)
+Parameter input : in_channel -> bytes -> int -> int -> IO int.
+
+(** [really_input ic buf pos len] reads [len] characters from channel [ic],
+   storing them in byte sequence [buf], starting at character number [pos].
+   @raise End_of_file if the end of file is reached before [len]
+   characters have been read.
+   @raise Invalid_argument if
+   [pos] and [len] do not designate a valid range of [buf]. *)
+Parameter really_input : in_channel -> bytes -> int -> int -> IO unit.
+
+(** [really_input_string ic len] reads [len] characters from channel [ic]
+   and returns them in a new string.
+   @raise End_of_file if the end of file is reached before [len]
+   characters have been read. *)
+Parameter really_input_string : in_channel -> int -> IO ocaml_string.
+
 Parameter input_byte : in_channel -> IO int.
 
 (** Return the size (number of characters) of the regular file
@@ -335,6 +367,11 @@ Extract Constant open_in     => "fun s k -> k (Stdlib.open_in s)".
 
 Extract Constant input_char  => "fun h k -> k (Stdlib.input_char h)".
 Extract Constant input_line  => "fun h k -> k (Stdlib.input_line h)".
+Extract Constant input       => "fun h b p l k -> k (Stdlib.input h b p l)".
+Extract Constant really_input =>
+  "fun h b p l k -> k (Stdlib.really_input h b p l)".
+Extract Constant really_input_string =>
+  "fun h l k -> k (Stdlib.really_input_string h l)".
 Extract Constant input_byte  => "fun h k -> k (Stdlib.input_byte h)".
 Extract Constant in_channel_length =>
   "fun h k -> k (Stdlib.in_channel_length h)".
@@ -474,6 +511,11 @@ Extract Constant open_in     => "fun s k -> k (Pervasives.open_in s)".
 
 Extract Constant input_char  => "fun h k -> k (Pervasives.input_char h)".
 Extract Constant input_line  => "fun h k -> k (Pervasives.input_line h)".
+Extract Constant input       => "fun h b p l k -> k (Pervasives.input h b p l)".
+Extract Constant really_input =>
+  "fun h b p l k -> k (Pervasives.really_input h b p l)".
+Extract Constant really_input_string =>
+  "fun h l k -> k (Pervasives.really_input_string h l)".
 Extract Constant input_byte  => "fun h k -> k (Pervasives.input_byte h)".
 Extract Constant in_channel_length =>
   "fun h k -> k (Pervasives.in_channel_length h)".
