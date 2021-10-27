@@ -42,3 +42,10 @@ Extract Constant catch_sys_error =>
   "(fun io k ->
      k (try Obj.magic io (fun a -> Some a) with
         | Sys_error _ -> None)".
+
+(** Catch any exception. *)
+Parameter catch_any_exc : forall {a : Type}, IO a -> IO (option a).
+Extract Constant catch_any_exc =>
+  "(fun io k ->
+     k (try Obj.magic io (fun a -> Some a) with
+        | _ -> None)".
