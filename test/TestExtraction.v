@@ -12,6 +12,9 @@ From SimpleIO Require Import
 Definition test :=
   ( IO_Stdlib.print_string,
     @IO_Exceptions.catch_eof,
+    @IO_Exceptions.catch_not_found,
+    @IO_Exceptions.catch_sys_error,
+    @IO_Exceptions.catch_any_exc,
     IO_RawChar.to_ostring,
     IO_String.OString.get_opt,
     IO_Bytes.OBytes.get,

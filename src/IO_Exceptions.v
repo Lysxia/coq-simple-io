@@ -34,18 +34,18 @@ Parameter catch_not_found : forall {a : Type}, IO a -> IO (option a).
 Extract Constant catch_not_found =>
   "(fun io k ->
      k (try Obj.magic io (fun a -> Some a) with
-        | Not_found -> None)".
+        | Not_found -> None))".
 
 (** Catch [Sys_error] exceptions. *)
 Parameter catch_sys_error : forall {a : Type}, IO a -> IO (option a).
 Extract Constant catch_sys_error =>
   "(fun io k ->
      k (try Obj.magic io (fun a -> Some a) with
-        | Sys_error _ -> None)".
+        | Sys_error _ -> None))".
 
 (** Catch any exception. *)
 Parameter catch_any_exc : forall {a : Type}, IO a -> IO (option a).
 Extract Constant catch_any_exc =>
   "(fun io k ->
      k (try Obj.magic io (fun a -> Some a) with
-        | _ -> None)".
+        | _ -> None))".
