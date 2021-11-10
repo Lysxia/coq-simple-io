@@ -14,4 +14,7 @@ Definition coin : IO unit :=
   b <- ORandom.bool tt;;
   print_endline (if b : bool then "head" else "tail").
 
+RunIOPackage "cppo".
+RunIOPackage "zarith".
+
 RunIO (ORandom.self_init tt;; coin;; coin;; coin).
