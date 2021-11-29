@@ -11,4 +11,4 @@ From SimpleIO Require Export
      IO_RawChar
      IO_String.
 
-Declare ML Module "coqsimpleio_plugin".
+Declare ML Module "coq-simple-io.plugin".
