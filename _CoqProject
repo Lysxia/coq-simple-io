@@ -1,3 +1,4 @@
+META.coq-simple-io
 -I plugin/
 -Q plugin SimpleIO
 plugin/coqsimpleio.mli
