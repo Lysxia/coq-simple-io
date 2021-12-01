@@ -21,6 +21,8 @@ $(MAKEFILE_COQ): _CoqProject
 	coq_makefile -f $< -o $@
 
 COMPATFILES:=plugin/coqsimpleio.mlg \
+  _CoqProject \
+  src/SimpleIO.v \
   src/IO_Stdlib.v \
   src/IO_RawChar.v \
   src/IO_String.v \
@@ -48,7 +50,7 @@ install-test: build
 
 clean:
 	if [ -e Makefile.coq ]; then $(MAKE) -f Makefile.coq cleanall; fi
-	$(RM) Makefile.coq* *.cmxs
+	$(RM) Makefile.coq Makefile.coq.conf *.cmxs
 	$(RM) -r _build/ build/
 	$(RM) $(DEPS_DOT) $(DEPS_OUT)
 	$(RM) test/*.ml{i,}

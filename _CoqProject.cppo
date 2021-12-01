@@ -1,4 +1,6 @@
+#if COQ_VERSION >= (8, 15, 0)
 META.coq-simple-io
+#endif
 -I plugin/
 -Q plugin SimpleIO
 plugin/coqsimpleio.mli

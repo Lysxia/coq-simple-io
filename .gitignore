@@ -1,4 +1,6 @@
 plugin/coqsimpleio.mlg
+_CoqProject
+src/SimpleIO.v
 src/IO_Stdlib.v
 src/IO_String.v
 src/IO_RawChar.v
