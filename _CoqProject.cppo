@@ -1,5 +1,5 @@
-#if COQ_VERSION >= (8, 15, 0)
-META.coq-simple-io
+#if COQ_VERSION >= (8, 16, 0)
+-generate-meta-for-package coq-simple-io
 #endif
 -I plugin/
 -Q plugin SimpleIO

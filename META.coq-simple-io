@@ -1,9 +1,0 @@
-directory = "."
-package "plugin" (
-  directory = "plugin"
-  requires = "coq-core.plugins.ltac coq-core.plugins.extraction"
-  archive(byte) = "coqsimpleio_plugin.cma"
-  archive(native) = "coqsimpleio_plugin.cmxa"
-  plugin(byte) = "coqsimpleio_plugin.cma"
-  plugin(native) = "coqsimpleio_plugin.cmxs"
-)
