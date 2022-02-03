@@ -44,11 +44,14 @@ Parameter getenv_opt: ocaml_string -> IO (option ocaml_string).
     since the beginning of execution. *)
 Parameter time : IO float.
 
+Parameter argv : IO (list ocaml_string).
+
 (** ** Extraction *)
 
 Extract Constant command    => "fun c k -> k (Sys.command    c)".
 Extract Constant getenv     => "fun e k -> k (Sys.getenv     e)".
 Extract Constant getenv_opt => "fun e k -> k (Sys.getenv_opt e)".
 Extract Constant time       => "fun   k -> k (Sys.time      ())".
+Extract Constant argv       => "fun   k -> k (Array.to_list (Sys.argv))".
 
 End OSys.
