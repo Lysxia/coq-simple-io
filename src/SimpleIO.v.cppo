@@ -11,7 +11,7 @@ From SimpleIO Require Export
      IO_RawChar
      IO_String.
 
-#if COQ_VERSION >= (8, 15, 0)
+#if COQ_VERSION >= (8, 16, 0)
 Declare ML Module "coq-simple-io.plugin".
 #else
 Declare ML Module "coqsimpleio_plugin".
