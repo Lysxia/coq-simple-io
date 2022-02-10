@@ -1,3 +1,11 @@
+# 1.7.0
+
+- Fix definitions of `catch_not_found`, `catch_sys_error`
+- Add:
+    + `IO_Exceptions.catch_any_exc`
+    + in `Stdlib`: `input`, `really_input`, `really_input_string`
+    + `IO_Sys.OSys.argv`.
+
 # 1.6.0
 
 - Add `RunIO` command to compile and run executables from a Coq file
