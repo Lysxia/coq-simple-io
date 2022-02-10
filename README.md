@@ -25,7 +25,7 @@ There is no canonical way to describe the effects of the arbitrary foreign
 constructs that this library allows, so this library commits to none.
 
 A possible workflow is to generalize your program to any monad with a
-certain interface, specialize it to a mathematical monad (*e.g.*, state)
+certain interface, specialize it to a mathematical monad (*e.g.*, state, or free monad)
 for formal verification, and to IO for execution.
 [coqffi](https://github.com/coq-community/coqffi) provides a toolchain for
 generating such interfaces from OCaml interfaces.
