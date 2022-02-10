@@ -43,6 +43,7 @@ test: build
 	sh test.sh TestPervasives
 	sh test.sh TestExtraction
 	sh test.sh RunIO -n
+	sh test.sh HelloWorld -n
 	sh test.sh Argv
 
 # With installed library (check proper installation)

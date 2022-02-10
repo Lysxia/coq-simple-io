@@ -1,13 +1,34 @@
 # Purely functional IO for Coq [![Build Status](https://travis-ci.org/Lysxia/coq-simple-io.svg?branch=master)](https://travis-ci.org/Lysxia/coq-simple-io)
 
-An IO monad with user-definable primitive operations.
+## Hello World in Coq
 
-This library provides tools to implement IO programs directly in Coq, in a
+```coq
+From SimpleIO Require Import SimpleIO.
+From Coq Require Import String.
+#[local] Open Scope string_scope.
+
+Definition main : IO unit :=
+  print_endline "Hello, world!".
+
+RunIO main.
+```
+
+The `coq-simple-io` library provides tools to implement IO programs directly in Coq, in a
 similar style to Haskell.
+
+- IO monad
+- Bindings to OCaml standard library
+- `RunIO` command for running programs
 
 Facilities for formal verification are not included.
 There is no canonical way to describe the effects of the arbitrary foreign
 constructs that this library allows, so this library commits to none.
+
+A possible workflow is to generalize your program to any monad with a
+certain interface, specialize it to a mathematical monad (*e.g.*, state)
+for formal verification, and to IO for execution.
+[coqffi](https://github.com/coq-community/coqffi) provides a toolchain for
+generating such interfaces from OCaml interfaces.
 
 ## Installation
 
