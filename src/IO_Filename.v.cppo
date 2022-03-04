@@ -45,17 +45,6 @@ Parameter check_suffix : ocaml_string -> ocaml_string -> bool.
  *)
 Parameter chop_suffix : ocaml_string -> ocaml_string -> IO ocaml_string.
 
-(** [chop_suffix_opt suffix filename] removes the suffix from
-    the [filename] if possible, or returns [None] if the
-    filename does not end with the suffix.
-    Under Windows ports (including Cygwin), comparison is
-    case-insensitive, relying on [String.lowercase_ascii].  Note that
-    this does not match exactly the interpretation of case-insensitive
-    filename equivalence from Windows.
-    @since 4.08
-*)
-Parameter chop_suffix_opt: ocaml_string -> ocaml_string -> option ocaml_string.
-
 (** [extension name] is the shortest suffix [ext] of [name0] where:
     - [name0] is the longest suffix of [name] that does not
       contain a directory separator;
@@ -93,11 +82,6 @@ Parameter basename : ocaml_string -> ocaml_string.
    This function conforms to the specification of POSIX.1-2008 for the
    [dirname] utility. *)
 Parameter dirname : ocaml_string -> ocaml_string.
-
-(** [null] is ["/dev/null"] on POSIX and ["NUL"] on Windows. It represents a
-    file on the OS that discards all writes and returns end of file on reads.
-    @since 4.10.0 *)
-Parameter null : ocaml_string.
 
 (** [temp_file prefix suffix] returns the name of a
    fresh temporary file in the temporary directory.
@@ -143,6 +127,28 @@ Parameter set_temp_dir_name : ocaml_string -> IO unit.
  *)
 Parameter quote : ocaml_string -> ocaml_string.
 
+#if OCAML_VERSION >= (4, 10, 0)
+(** [null] is ["/dev/null"] on POSIX and ["NUL"] on Windows. It represents a
+    file on the OS that discards all writes and returns end of file on reads.
+    @since 4.10.0 *)
+Parameter null : ocaml_string.
+Extract Constant null => "Filename.null".
+#endif
+
+#if OCAML_VERSION >= (4, 8, 0)
+(** [chop_suffix_opt suffix filename] removes the suffix from
+    the [filename] if possible, or returns [None] if the
+    filename does not end with the suffix.
+    Under Windows ports (including Cygwin), comparison is
+    case-insensitive, relying on [String.lowercase_ascii].  Note that
+    this does not match exactly the interpretation of case-insensitive
+    filename equivalence from Windows.
+    @since 4.08
+*)
+Parameter chop_suffix_opt: ocaml_string -> ocaml_string -> option ocaml_string.
+Extract Constant chop_suffix_opt  => "Filename.chop_suffix_opt".
+#endif
+
 (* begin hide *)
 Extract Constant current_dir_name => "Filename.current_dir_name".
 Extract Constant parent_dir_name  => "Filename.parent_dir_name".
@@ -151,12 +157,10 @@ Extract Constant concat           => "Filename.concat".
 Extract Constant is_relative      => "Filename.is_relative".
 Extract Constant is_implicit      => "Filename.is_implicit".
 Extract Constant check_suffix     => "Filename.check_suffix".
-Extract Constant chop_suffix_opt  => "Filename.chop_suffix_opt".
 Extract Constant extension        => "Filename.extension".
 Extract Constant remove_extension => "Filename.remove_extension".
 Extract Constant basename         => "Filename.basename".
 Extract Constant dirname          => "Filename.dirname".
-Extract Constant null             => "Filename.null".
 Extract Constant quote            => "Filename.quote".
 
 Extract Constant chop_suffix    => "fun s f k -> k (Filename.chop_suffix  s f)".
