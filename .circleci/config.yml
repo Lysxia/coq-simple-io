@@ -61,19 +61,19 @@ workflows:
     jobs:
       - test:
           name: 'Coq 8.11'
-          coq: '8.11'
+          coq: '8.11-ocaml-4.05'
       - test:
           name: 'Coq 8.12'
-          coq: '8.12'
+          coq: '8.12-ocaml-4.07-flambda'
       - test:
           name: 'Coq 8.13'
-          coq: '8.13'
+          coq: '8.13-ocaml-4.11-flambda'
       - test:
           name: 'Coq 8.14'
-          coq: '8.14'
+          coq: '8.14-ocaml-4.12-flambda'
       - test:
           name: 'Coq 8.15'
-          coq: '8.15'
+          coq: '8.15-ocaml-4.12-flambda'
       - test:
           name: 'Coq dev'
-          coq: 'dev'
+          coq: 'dev-ocaml-4.12-flambda'

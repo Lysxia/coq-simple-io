@@ -26,6 +26,7 @@ COMPATFILES:=plugin/coqsimpleio.mlg \
   src/IO_Stdlib.v \
   src/IO_RawChar.v \
   src/IO_String.v \
+  src/IO_Filename.v \
   src/IO_Float.v \
   src/IO_Unsafe.v
 
