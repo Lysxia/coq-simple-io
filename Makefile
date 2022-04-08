@@ -1,5 +1,4 @@
 NAME=coq-simple-io
-OCAMLBUILD = ocamlbuild
 
 MAKEFILE_COQ = Makefile.coq
 MAKE_COQ = $(MAKE) -f $(MAKEFILE_COQ)
@@ -43,6 +42,7 @@ test: build
 	sh test.sh Example
 	sh test.sh TestPervasives
 	sh test.sh TestExtraction
+	sh test.sh TestInt63 -n
 	sh test.sh RunIO -n
 	sh test.sh HelloWorld -n
 	sh test.sh Argv
