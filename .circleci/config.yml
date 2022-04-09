@@ -30,7 +30,6 @@ commands:
         name: Install dependencies
         command: |
           opam repo -a add coq-extra-dev https://coq.inria.fr/opam/extra-dev
-          opam update
           opam pin add --kind=path . -n  # Make opam aware of our dependency constraints
           opam install --deps-only .
     - run:
