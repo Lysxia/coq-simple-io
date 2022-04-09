@@ -1,21 +1,16 @@
-COQ_OPTS="-I ../plugin/ -Q ../src/ SimpleIO"
-case $2 in
-  -i)
-    COQ_OPTS=$3
-    ;;
-  *)
-    ;;
-esac
+set -e
+echo "Testing" $1 "..."
 
 mkdir -p build/
 
 cd build/
-coqc $COQ_OPTS ../test/$1.v
+coqc ../test/$1.v
 case $2 in
-  -n)
-     ;;
+  -s)
+    rm *.mli
+    ocamlbuild -lib unix $1.native
+    ./$1.native
+    ;;
   *)
-   rm *.mli
-   ocamlbuild -lib unix $1.native
-   ./$1.native
+    ;;
 esac

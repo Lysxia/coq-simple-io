@@ -93,7 +93,7 @@ End Notations.
 End IO.
 ```
 
-## Defining IO actions
+## Define IO actions
 
 The `IO` type extracts to the following definition in OCaml:
 
@@ -114,6 +114,47 @@ Basically, add an extra parameter `k` and apply it to the OCaml function call.
 
 This boilerplate can also be generated from OCaml interfaces using
 [coqffi](https://github.com/coq-community/coqffi).
+
+## Run
+
+The `RunIO` command extracts and runs an action of type `IO unit`.
+
+```coq
+Definition main : IO unit :=
+  print_endline "Hello, world!".
+
+RunIO main.
+```
+
+### Configuration
+
+```coq
+(* Open MyModule at the top of the extracted code *)
+RunIO Open "MyModule".
+
+(* Use basic build configuration, using ocamlfind (default) *)
+RunIO Builder Basic.
+
+(* Use ocamlbuild or dune. Must be installed separately.
+
+     opam install ocamlbuild
+     opam install dune
+ *)
+RunIO Builder Ocamlbuild.
+RunIO Builder Dune.
+
+(* Include my-package when compiling (only for builders Basic and Ocamlbuild). *)
+RunIO Package "my-package".
+
+(* Copy my-directory to the build location so it will be visible to ocamlbuild or dune. *)
+RunIO Include "my-directory".
+
+(* Enable or disable automatic detection of common dependencies (on by default):
+   - zarith for bigint representation of integers
+   - coq-core.kernel for Uint63 *)
+RunIO Smart On.
+RunIO Smart Off.
+```
 
 ## Library organization
 
