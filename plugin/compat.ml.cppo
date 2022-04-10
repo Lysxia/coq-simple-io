@@ -1,0 +1,6 @@
+open Constrexpr
+let apply_constr f xs =
+#if COQ_VERSION < (8, 15, 0)
+    let f = (None, f) in
+#endif
+    CApp (f, List.map (fun x -> (x, None)) xs)

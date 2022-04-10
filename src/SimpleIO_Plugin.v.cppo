@@ -1,0 +1,7 @@
+From Coq Require Import Extraction.
+
+#if COQ_VERSION >= (8, 16, 0)
+Declare ML Module "coqsimpleio_plugin:coq-simple-io.plugin".
+#else
+Declare ML Module "coqsimpleio_plugin".
+#endif

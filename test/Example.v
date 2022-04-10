@@ -21,10 +21,12 @@ Definition f : IO unit := IO.while_loop (fun b =>
   match b with
   | true =>
       print_bool false;;
+      print_newline;;
       print_endline "Hello";;
       IO.ret None
   | false =>
       print_bool true ;;
+      print_newline;;
       print_int int_constant;;
       print_newline;;
       IO.ret (Some true)

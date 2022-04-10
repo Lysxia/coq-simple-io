@@ -10,6 +10,7 @@ build: $(MAKEFILE_COQ) compat
 
 doc: html
 
+# NOT RECOMMENDED: coq_makefile's install doesn't install plugins as libraries
 install: build
 	$(MAKE_COQ) install
 
@@ -19,9 +20,9 @@ uninstall: $(MAKEFILE_COQ)
 $(MAKEFILE_COQ): _CoqProject
 	coq_makefile -f $< -o $@
 
-COMPATFILES:=plugin/coqsimpleio.mlg \
+COMPATFILES:=plugin/compat.ml \
   _CoqProject \
-  src/SimpleIO.v \
+  src/SimpleIO_Plugin.v \
   src/IO_Stdlib.v \
   src/IO_RawChar.v \
   src/IO_String.v \
@@ -37,19 +38,8 @@ OCAML_VERSION:=$(shell ocamlc -version)
 %: %.cppo
 	$(V)cppo -V COQ:$(COQ_VERSION) -V OCAML:$(OCAML_VERSION) -n -o $@ $^
 
-# With local source files
-test: build
-	sh test.sh Example
-	sh test.sh TestPervasives
-	sh test.sh TestExtraction
-	sh test.sh TestInt63 -n
-	sh test.sh RunIO -n
-	sh test.sh HelloWorld -n
-	sh test.sh Argv
-
-# With installed library (check proper installation)
-install-test: build
-	sh test.sh Example -i ""
+test:
+	sh ./testall.sh
 
 clean:
 	if [ -e Makefile.coq ]; then $(MAKE) -f Makefile.coq cleanall; fi

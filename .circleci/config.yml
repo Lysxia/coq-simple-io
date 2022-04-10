@@ -38,18 +38,16 @@ commands:
   build:
     steps:
     - run:
-        name: Build and test locally
-        command: |
-          make
-          make test
-    - run:
-        name: Build, test, and install package
+        name: Install
         command: opam install .
     - run:
-        name: Uninstall package
+        name: Test
+        command: sh ./testall.sh
+    - run:
+        name: Uninstall
         command: opam uninstall .
     - run:
-        name: Cleanup local directory
+        name: Cleanup
         command: |
           make clean
           ls -AGR

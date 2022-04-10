@@ -1,0 +1,4 @@
+(coq.theory
+ (name SimpleIO)
+ (package coq-simple-io)
+ (libraries coq-simple-io.plugin))
