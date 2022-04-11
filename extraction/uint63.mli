@@ -27,7 +27,6 @@ val to_int_min : t -> int -> int
 
       (* conversion to float *)
 val of_float : float -> t
-val to_float : t -> float
 
 val hash : t -> int
 

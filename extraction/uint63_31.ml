@@ -32,7 +32,6 @@ let to_int_min n m =
   if Int64.(compare n (of_int m)) < 0 then Int64.to_int n else m
 
 let of_float f = mask63 (Int64.of_float f)
-let to_float = Int64.to_float
 
 let hash i =
   let (h,l) = to_int2 i in
