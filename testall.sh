@@ -9,9 +9,7 @@ set -e
 sh test.sh TestOcamlbuild
 sh test.sh RunIO
 sh test.sh HelloWorld
-if version_greater_equal "$COQ_VERSION" "8.14" ; then
-  sh test.sh TestInt63
-fi
+sh test.sh TestInt63 -r
 
 # Testing separate extraction
 sh test.sh Example -s

@@ -28,7 +28,8 @@ COMPATFILES:=plugin/compat.ml \
   src/IO_String.v \
   src/IO_Filename.v \
   src/IO_Float.v \
-  src/IO_Unsafe.v
+  src/IO_Unsafe.v \
+  test/TestInt63.v
 
 compat: $(COMPATFILES)
 
