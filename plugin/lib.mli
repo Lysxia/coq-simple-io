@@ -9,7 +9,7 @@ val add_extra_dir : string -> unit
 val add_extra_pkg : string -> unit
 val add_module_to_open : string -> unit
 
-(* Automatically insert common dependencies (zarith, Uint63 from coq-core.kernel).
+(* Automatically insert common dependencies (zarith, coq-simple-io.extraction).
    [true] by default. *)
 val smart_mode : bool ref
 
