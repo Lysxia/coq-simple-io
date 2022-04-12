@@ -28,7 +28,7 @@ let add_extra_pkg s = extra_pkg := s :: !extra_pkg
 let modules_to_open : string list ref = Summary.ref ~name:"runio_modules_to_open" []
 let add_module_to_open s = modules_to_open := s :: !modules_to_open
 
-(* Automatically insert common dependencies (zarith, Uint63 from coq-core.kernel).
+(* Automatically insert common dependencies (zarith, coq-simple-io.extraction).
    [true] by default. *)
 let smart_mode : bool ref =
   Summary.ref ~name:"runio_smart_mode" true
@@ -134,7 +134,7 @@ let get_packages mlf =
           let try_add ~pkg md =
             if m = md && not (List.mem pkg !pkgs) then
               pkgs := pkg :: !pkgs in
-          try_add ~pkg:"coq-core.kernel" "Uint63";
+          try_add ~pkg:"coq-simple-io.extraction" "Uint63";
           try_add ~pkg:"zarith" "Big_int_Z")
       | exception End_of_file -> errmsg () in
     let () =
@@ -210,7 +210,7 @@ let compile dir mlif mlf =
         | x -> "-package " ^ (String.concat "," x)
       in
       run_command (Printf.sprintf
-        "cd %s && ocamlfind opt -linkpkg -w -3 -rectypes %s -o %s %s %s > build.log 2> build.err"
+        "cd %s && ocamlfind opt -linkpkg -w -3 %s -o %s %s %s > build.log 2> build.err"
         dir packages execn mlif mlf);
       execn
   | Ocamlbuild ->
@@ -221,7 +221,7 @@ let compile dir mlif mlf =
         | x -> "-pkgs " ^ (String.concat "," x)
       in
       run_command (Printf.sprintf
-        "cd %s && ocamlbuild -cflags -w,-3,-rectypes %s %s > build.log 2> build.err"
+        "cd %s && ocamlbuild -cflags -w,-3 %s %s > build.log 2> build.err"
         dir packages execn);
       dir </> "_build" </> execn
   | Dune dune ->

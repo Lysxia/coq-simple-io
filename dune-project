@@ -24,7 +24,8 @@ Coq, to be extracted to OCaml. Some wrappers for the basic types and
 functions in the OCaml Pervasives module are provided, and users are free to
 define their own APIs on top of this IO type.")
  (depends
-   ocaml ocamlfind
+   (ocaml (>= 4.08.0))
+   ocamlfind
    (coq (>= 8.11~))
    (coq-ext-lib (>= 0.10.0))
    (ocamlbuild (and :with-test (>= 0.9.0)))

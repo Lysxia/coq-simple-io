@@ -18,7 +18,7 @@ homepage: "https://github.com/Lysxia/coq-simple-io"
 bug-reports: "https://github.com/Lysxia/coq-simple-io/issues"
 depends: [
   "dune" {>= "2.5"}
-  "ocaml"
+  "ocaml" {>= "4.08.0"}
   "ocamlfind"
   "coq" {>= "8.11~"}
   "coq-ext-lib" {>= "0.10.0"}
