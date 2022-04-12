@@ -221,7 +221,7 @@ let compile dir mlif mlf =
         | x -> "-pkgs " ^ (String.concat "," x)
       in
       run_command (Printf.sprintf
-        "cd %s && ocamlbuild -cflags -w,-3 %s %s > build.log 2> build.err"
+        "cd %s && ocamlbuild -use-ocamlfind -cflags -w,-3 %s %s > build.log 2> build.err"
         dir packages execn);
       dir </> "_build" </> execn
   | Dune dune ->
