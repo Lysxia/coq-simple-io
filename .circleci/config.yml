@@ -39,10 +39,10 @@ commands:
     steps:
     - run:
         name: Install
-        command: opam install .
+        command: opam install . -j4  # gets killed at -j 35 by default
     - run:
         name: Test
-        command: sh ./testall.sh
+        command: make compat && sh ./testall.sh
     - run:
         name: Uninstall
         command: opam uninstall .
@@ -58,10 +58,10 @@ workflows:
     jobs:
       - test:
           name: 'Coq 8.11'
-          coq: '8.11-ocaml-4.05'
+          coq: '8.11-ocaml-4.10-flambda'
       - test:
           name: 'Coq 8.12'
-          coq: '8.12-ocaml-4.07-flambda'
+          coq: '8.12-ocaml-4.10-flambda'
       - test:
           name: 'Coq 8.13'
           coq: '8.13-ocaml-4.12-flambda'
