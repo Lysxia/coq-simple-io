@@ -7,7 +7,7 @@
 (generate_opam_files true)
 
 (source (github Lysxia/coq-simple-io))
-(license MIT)
+(license LGPL-2.1-only)
 (authors "Li-yao Xia" "Yishuai Li")
 (maintainers "lysxia@gmail.com")
 
