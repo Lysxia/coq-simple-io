@@ -13,7 +13,7 @@ functions in the OCaml Pervasives module are provided, and users are free to
 define their own APIs on top of this IO type."""
 maintainer: ["lysxia@gmail.com"]
 authors: ["Li-yao Xia" "Yishuai Li"]
-license: "LGPL-2.1-only"
+license: "MIT AND LGPL-2.1-only"
 homepage: "https://github.com/Lysxia/coq-simple-io"
 bug-reports: "https://github.com/Lysxia/coq-simple-io/issues"
 depends: [
