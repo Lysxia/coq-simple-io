@@ -5,8 +5,8 @@
 -Q plugin SimpleIO
 plugin/compat.mli
 plugin/compat.ml
-plugin/lib.mli
-plugin/lib.ml
+plugin/iOLib.mli
+plugin/iOLib.ml
 plugin/coqsimpleio.mli
 plugin/coqsimpleio.mlg
 plugin/coqsimpleio_plugin.mlpack
