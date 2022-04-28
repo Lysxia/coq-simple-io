@@ -1,3 +1,4 @@
+META
 _CoqProject
 src/SimpleIO_Plugin.v
 src/IO_Stdlib.v
@@ -20,11 +21,7 @@ test/TestInt63.v
 *.glob
 *.a
 *.o
-*.cmo
-*.cmx
-*.cmxa
-*.cmxs
-*.cmi
+*.cm*
 *.ml
 *.ml.d
 *.mli.d
