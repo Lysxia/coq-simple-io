@@ -3,6 +3,7 @@
 (** This reexports the most common modules for doing IO in Coq. *)
 
 From SimpleIO Require Export
+     SimpleIO_Plugin
      IO_Monad
      IO_Stdlib
      IO_StdlibAxioms
@@ -10,9 +11,3 @@ From SimpleIO Require Export
      IO_Exceptions
      IO_RawChar
      IO_String.
-
-#if COQ_VERSION >= (8, 16, 0)
-Declare ML Module "coq-simple-io.plugin".
-#else
-Declare ML Module "coqsimpleio_plugin".
-#endif

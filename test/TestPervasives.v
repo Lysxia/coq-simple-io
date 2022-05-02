@@ -20,9 +20,12 @@ Class Eq (a : Type) :=
 Class Print (a : Type) :=
   print : a -> IO unit.
 
+#[local]
 Instance Eq_nat : Eq nat := Nat.eqb.
+#[local]
 Instance Print_nat : Print nat := print_nat.
 
+#[local]
 Instance Eq_option {a : Type} `{Eq a} : Eq (option a) :=
   fun x y =>
     match x, y with
@@ -30,6 +33,7 @@ Instance Eq_option {a : Type} `{Eq a} : Eq (option a) :=
     | Some x, Some y => eqb x y
     | _, _ => false
     end.
+#[local]
 Instance Print_option {a : Type} `{Print a} : Print (option a) :=
   fun x =>
     match x with
@@ -39,14 +43,20 @@ Instance Print_option {a : Type} `{Print a} : Print (option a) :=
 
 (* Using coercions. [String.eqb] also exists since Coq 8.9 but this
    test needs to be compatible with 8.8. *)
+#[local]
 Instance Eq_string : Eq string := ostring_eqb.
+#[local]
 Instance Print_string : Print string := print_string.
 
+#[local]
 Instance Eq_ostring : Eq ocaml_string := ostring_eqb.
+#[local]
 Instance Print_ostring : Print ocaml_string :=
   fun s => print_string (OString.escaped s).
 
+#[local]
 Instance Eq_char : Eq char := char_eqb.
+#[local]
 Instance Print_char : Print char :=
   fun c => print (OString.of_list [c]).
 

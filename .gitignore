@@ -1,11 +1,14 @@
-plugin/coqsimpleio.mlg
+META
 _CoqProject
-src/SimpleIO.v
+src/SimpleIO_Plugin.v
 src/IO_Stdlib.v
 src/IO_String.v
 src/IO_RawChar.v
+src/IO_Filename.v
 src/IO_Float.v
 src/IO_Unsafe.v
+plugin/META.coq-simple-io
+test/TestInt63.v
 
 .coqdeps.d
 *~
@@ -18,11 +21,7 @@ src/IO_Unsafe.v
 *.glob
 *.a
 *.o
-*.cmo
-*.cmx
-*.cmxa
-*.cmxs
-*.cmi
+*.cm*
 *.ml
 *.ml.d
 *.mli.d

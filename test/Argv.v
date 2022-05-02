@@ -14,7 +14,8 @@ Set Warnings "-extraction-opaque-accessed,-extraction".
 
 Definition f : IO unit :=
   args <- OSys.argv ;;
-  print_int (int_of_nat (length args)).
+  print_int (int_of_nat (length args)) ;;
+  print_newline.
 
 Definition y0 : io_unit := IO.unsafe_run f.
 

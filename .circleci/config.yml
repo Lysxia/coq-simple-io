@@ -30,7 +30,6 @@ commands:
         name: Install dependencies
         command: |
           opam repo -a add coq-extra-dev https://coq.inria.fr/opam/extra-dev
-          opam update
           opam pin add --kind=path . -n  # Make opam aware of our dependency constraints
           opam install --deps-only .
     - run:
@@ -39,18 +38,16 @@ commands:
   build:
     steps:
     - run:
-        name: Build and test locally
-        command: |
-          make
-          make test
+        name: Install
+        command: opam install . -j4  # gets killed at -j 35 by default
     - run:
-        name: Build, test, and install package
-        command: opam install .
+        name: Test
+        command: make compat && sh ./testall.sh
     - run:
-        name: Uninstall package
+        name: Uninstall
         command: opam uninstall .
     - run:
-        name: Cleanup local directory
+        name: Cleanup
         command: |
           make clean
           ls -AGR
@@ -61,19 +58,19 @@ workflows:
     jobs:
       - test:
           name: 'Coq 8.11'
-          coq: '8.11'
+          coq: '8.11-ocaml-4.10-flambda'
       - test:
           name: 'Coq 8.12'
-          coq: '8.12'
+          coq: '8.12-ocaml-4.10-flambda'
       - test:
           name: 'Coq 8.13'
-          coq: '8.13'
+          coq: '8.13-ocaml-4.12-flambda'
       - test:
           name: 'Coq 8.14'
-          coq: '8.14'
+          coq: '8.14-ocaml-4.12-flambda'
       - test:
           name: 'Coq 8.15'
-          coq: '8.15'
+          coq: '8.15-ocaml-4.12-flambda'
       - test:
           name: 'Coq dev'
-          coq: 'dev'
+          coq: 'dev-ocaml-4.12-flambda'

@@ -1,13 +1,34 @@
 # Purely functional IO for Coq [![Build Status](https://travis-ci.org/Lysxia/coq-simple-io.svg?branch=master)](https://travis-ci.org/Lysxia/coq-simple-io)
 
-An IO monad with user-definable primitive operations.
+## Hello World in Coq
 
-This library provides tools to implement IO programs directly in Coq, in a
+```coq
+From SimpleIO Require Import SimpleIO.
+From Coq Require Import String.
+#[local] Open Scope string_scope.
+
+Definition main : IO unit :=
+  print_endline "Hello, world!".
+
+RunIO main.
+```
+
+The `coq-simple-io` library provides tools to implement IO programs directly in Coq, in a
 similar style to Haskell.
+
+- IO monad
+- Bindings to OCaml standard library
+- `RunIO` command for running programs
 
 Facilities for formal verification are not included.
 There is no canonical way to describe the effects of the arbitrary foreign
 constructs that this library allows, so this library commits to none.
+
+A possible workflow is to generalize your program to any monad with a
+certain interface, specialize it to a mathematical monad (*e.g.*, state, or free monad)
+for formal verification, and to IO for execution.
+[coqffi](https://github.com/coq-community/coqffi) provides a toolchain for
+generating such interfaces from OCaml interfaces.
 
 ## Installation
 
@@ -72,7 +93,7 @@ End Notations.
 End IO.
 ```
 
-## Defining IO actions
+## Define IO actions
 
 The `IO` type extracts to the following definition in OCaml:
 
@@ -93,6 +114,47 @@ Basically, add an extra parameter `k` and apply it to the OCaml function call.
 
 This boilerplate can also be generated from OCaml interfaces using
 [coqffi](https://github.com/coq-community/coqffi).
+
+## Run
+
+The `RunIO` command extracts and runs an action of type `IO unit`.
+
+```coq
+Definition main : IO unit :=
+  print_endline "Hello, world!".
+
+RunIO main.
+```
+
+### Configuration
+
+```coq
+(* Open MyModule at the top of the extracted code *)
+RunIO Open "MyModule".
+
+(* Use basic build configuration, using ocamlfind (default) *)
+RunIO Builder Basic.
+
+(* Use ocamlbuild or dune. Must be installed separately.
+
+     opam install ocamlbuild
+     opam install dune
+ *)
+RunIO Builder Ocamlbuild.
+RunIO Builder Dune.
+
+(* Include my-package when compiling (only for builders Basic and Ocamlbuild). *)
+RunIO Package "my-package".
+
+(* Copy my-directory to the build location so it will be visible to ocamlbuild or dune. *)
+RunIO Include "my-directory".
+
+(* Enable or disable automatic detection of common dependencies (on by default):
+   - zarith for bigint representation of integers
+   - coq-core.kernel for Uint63 *)
+RunIO Smart On.
+RunIO Smart Off.
+```
 
 ## Library organization
 

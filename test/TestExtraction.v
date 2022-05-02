@@ -5,6 +5,7 @@ From SimpleIO Require Import
   IO_Unix
   IO_Float
   IO_Sys
+  IO_Filename
   IO_Unsafe
   IO_UnsafeNat.
 
@@ -22,6 +23,7 @@ Definition test :=
     IO_Unix.OUnix.sleep,
     IO_Float.OFloat.of_int,
     IO_Sys.OSys.getenv,
+    IO_Filename.OFilename.get_temp_dir_name,
     IO_Unsafe.unsafe_int_div, (* This module contains only inlined constants... *)
     IO_UnsafeNat.print_nat
   ).

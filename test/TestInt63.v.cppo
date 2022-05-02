@@ -1,0 +1,127 @@
+#if COQ_VERSION < (8, 14, 0)
+#define Uint63 Int63
+#define uint63 int63
+#endif
+#if COQ_VERSION >= (8, 15, 0)
+From Coq Require ExtrOcamlZBigInt.
+#endif
+From Coq Require Import ZArith NArith String DecimalString Uint63 Extraction ExtrOCamlInt63.
+#[local] Open Scope string_scope.
+
+From SimpleIO Require Import SimpleIO.
+Import IO.Notations.
+
+#if COQ_VERSION < (8, 16, 0) && COQ_VERSION >= (8, 15, 0)
+(* ExtrOCamlInt63 extracts Lt|Eq|Gt to -1|0|1 *)
+Extract Constant Nat.compare =>
+ "(fun n m -> if n=m then 0 else if n<m then -1 else 1)".
+Extract Constant Pos.compare =>
+ "(fun x y -> let s = Big_int_Z.compare_big_int x y in
+  if s = 0 then 0 else if s < 0 then -1 else 1)".
+Extract Constant Pos.compare_cont =>
+ "(fun c x y -> let s = Big_int_Z.compare_big_int x y in
+  if s = 0 then c else if s < 0 then -1 else 1)".
+Extract Constant N.compare =>
+ "(fun x y -> let s = Big_int_Z.compare_big_int x y in
+  if s = 0 then 0 else if s < 0 then -1 else 1)".
+Extract Constant Z.compare =>
+ "(fun x y -> let s = Big_int_Z.compare_big_int x y in
+  if s = 0 then 0 else if s < 0 then -1 else 1)".
+#endif
+
+Class Eq (A : Type) : Type :=
+  eqb : A -> A -> bool.
+
+Class Show (A : Type) : Type :=
+  show : A -> string.
+
+Global Instance Eq_prod {A B} `{Eq A, Eq B} : Eq (A * B) :=
+  fun x y => (eqb (fst x) (fst y) && eqb (snd x) (snd y))%bool.
+Global Instance Eq_bool : Eq bool := bool_eq.
+Global Instance Eq_int : Eq int := fun x y =>
+#if COQ_VERSION >= (8, 13, 0)
+  (x =? y)%uint63
+#else
+  (x == y)%uint63
+#endif
+.
+
+Global Instance Eq_Z : Eq Z := Z.eqb.
+Global Instance Eq_N : Eq N := N.eqb.
+
+Global Instance Show_prod {A B} `{Show A, Show B} : Show (A * B) :=
+  fun xy => "(" ++ show (fst xy) ++ "," ++ show (snd xy) ++ ")".
+Global Instance Show_bool : Show bool :=
+  fun b => if b then "true" else "false".
+Global Instance Show_Z : Show Z :=
+  fun x => NilZero.string_of_int (Z.to_int x).
+Global Instance Show_N : Show N :=
+  fun x => NilZero.string_of_int (N.to_int x).
+
+Definition _assert_equal {A} `{Eq A} `{Show A} (x y : A) (_ : x = y) : IO unit :=
+  if eqb x y then IO.ret tt else print_endline ("Failed: " ++ show (x, y))%string.
+
+Notation assert_equal x y := (_assert_equal x y eq_refl).
+
+Definition test_div : IO unit :=
+  ( assert_equal (1 / (-3)) (-1) ;;
+    assert_equal ((-1) / (-3)) 0 ;;
+    assert_equal ((-1) / 3) (-1)
+  )%Z%io.
+
+Definition test_mod : IO unit :=
+  ( assert_equal (1 mod (-3)) (-2) ;;
+    assert_equal ((-1) mod (-3)) (-1) ;;
+    assert_equal ((-1) mod 3) 2
+  )%Z%io.
+
+Definition test_shiftr : IO unit :=
+  ( assert_equal (Z.shiftr 3 1) 1 ;;
+    assert_equal (Z.shiftr 3 (-1)) 6 ;;
+    assert_equal (Z.shiftr (-3) 1) (-2) ;;
+    assert_equal (Z.shiftr (-3) (-1)) (-6)
+  )%Z%io.
+
+Definition test_shiftl : IO unit :=
+  ( assert_equal (Z.shiftl 3 1) 6 ;;
+    assert_equal (Z.shiftl 3 (-1)) 1 ;;
+    assert_equal (Z.shiftl (-3) 1) (-6) ;;
+    assert_equal (Z.shiftl (-3) (-1)) (-2)
+  )%Z%io.
+
+Definition is_left {A B} (x : {A} + {B}) : bool :=
+  match x with
+  | left _ => true
+  | right _ => false
+  end.
+
+Definition test_misc_Z : IO unit :=
+  ( assert_equal (Z.eqb 0%Z 1%Z) false ;;
+    assert_equal (is_left (Z.eq_dec 0%Z 1%Z)) false ;;
+    assert_equal (Z.div_eucl 17 5) (3, 2)%Z ;;
+    assert_equal (Z.div_eucl (-17) (-5)) (3, -2)%Z ;;
+    assert_equal (Z.to_N 3%Z) 3%N ;;
+    assert_equal (Z.to_N (-1)%Z) 0%N ;;
+    assert_equal (Uint63.to_Z (Uint63.of_Z 0)) 0%Z
+  )%io.
+
+Definition test_misc_N : IO unit :=
+  ( assert_equal (N.eqb 0%N 1%N) false ;;
+    assert_equal (is_left (N.eq_dec 0%N 1%N)) false ;;
+    assert_equal (N.div_eucl 17 5) (3, 2)%N ;;
+    assert_equal (N.div 10 2) 5%N ;;
+    assert_equal (N.modulo 17 5) 2%N ;;
+    assert_equal (N.shiftl 10 1) 20%N ;;
+    assert_equal (N.shiftr 10 1) 5%N
+  )%io.
+
+Definition test_all : IO unit :=
+  ( test_div ;;
+    test_mod ;;
+    test_shiftr ;;
+    test_shiftl ;;
+    test_misc_Z ;;
+    test_misc_N
+  )%io.
+
+RunIO test_all.
