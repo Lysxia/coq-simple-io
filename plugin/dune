@@ -2,7 +2,7 @@
  (name coqsimpleio_plugin)
  (public_name coq-simple-io.plugin)
  (flags :standard -rectypes -warn-error -3 -w -8-27+40)
- (modules Coqsimpleio Lib Compat)
+ (modules Coqsimpleio IOLib Compat)
  (libraries unix
    (select void_for_linking-plugin-extraction from
     (coq-core.plugins.extraction -> void_for_linking-plugin-extraction.empty)
