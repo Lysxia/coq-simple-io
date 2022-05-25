@@ -67,6 +67,9 @@ Parameter lnot : int -> int -> int.
 Parameter max_int : int.
 Parameter min_int : int.
 
+(* Note: Coq renamed its int_scope to dec_int_scope seemingly to not clash with
+   math-comp. It might be a good idea to rename here too. *)
+Declare Scope int_scope.
 Delimit Scope int_scope with int.
 Bind Scope int_scope with int.
 Infix "+" := int_add : int_scope.
