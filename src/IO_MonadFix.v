@@ -6,6 +6,6 @@
 From ExtLib.Structures Require Import MonadFix.
 From SimpleIO Require Import IO_Monad.
 
-Instance MonadFix_IO : MonadFix IO := {|
+Global Instance MonadFix_IO : MonadFix IO := {|
   mfix _ _ := IO.fix_io
 |}.

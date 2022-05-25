@@ -69,6 +69,7 @@ Definition while_loop : forall {a}, (a -> IO (option a)) -> (a -> IO unit) :=
 
 Module Notations.
 
+Declare Scope io_scope.
 Delimit Scope io_scope with io.
 
 Notation "c >>= f" := (bind c f)
@@ -139,11 +140,11 @@ End IO.
 
 (** * Instances *)
 
-Instance Functor_IO : Functor IO := {
+Global Instance Functor_IO : Functor IO := {
   fmap _ _ := IO.map;
 }.
 
-Instance Applicative_IO : Applicative IO := {
+Global Instance Applicative_IO : Applicative IO := {
   pure _ := IO.ret;
   ap _ _ iof iox :=
     IO.bind iof (fun f =>
@@ -151,7 +152,7 @@ Instance Applicative_IO : Applicative IO := {
     IO.ret (f x)));
 }.
 
-Instance Monad_IO : Monad IO := {
+Global Instance Monad_IO : Monad IO := {
   ret _ := IO.ret;
   bind _ _ := IO.bind;
 }.
