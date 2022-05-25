@@ -233,7 +233,7 @@ let compile dir mlif mlf =
       ignore (Sys.command awk_cmd);
       (* The command is just dune build *)
       run_command (Printf.sprintf
-        "cd %s && dune build %s.exe --display=quiet > build.log 2> build.err"
+        "cd %s && dune build %s.exe --root=. --display=quiet > build.log 2> build.err"
         dir execn);
       dir </> "_build/default" </> execn ^ ".exe"
 
