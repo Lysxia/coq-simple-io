@@ -12,6 +12,11 @@ jobs:
       OPAMWITHTEST: true
       OPAMYES: true
       TERM: xterm
+      DEPENDANTS: |
+        coq-itree-io
+        coq-quickchick
+        coq-freespec-ffi
+        coq-bonsai
     steps:
       - startup
       - build
@@ -43,6 +48,15 @@ commands:
     - run:
         name: Test
         command: make compat && sh ./testall.sh
+    - run:
+        name: Test dependants
+        command: |
+          for PACKAGE in $DEPENDANTS
+          do DEPS_FAILED=false
+             opam install --deps-only $PACKAGE || DEPS_FAILED=true
+             ([ $DEPS_FAILED == true ] && echo Skipping $PACKAGE) || \
+             (opam install -t $PACKAGE && echo Tested $PACKAGE)
+          done
     - run:
         name: Uninstall
         command: opam uninstall .
