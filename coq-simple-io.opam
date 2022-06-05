@@ -17,13 +17,14 @@ license: "MIT"
 homepage: "https://github.com/Lysxia/coq-simple-io"
 bug-reports: "https://github.com/Lysxia/coq-simple-io/issues"
 depends: [
-  "dune" {>= "2.5"}
+  "dune" {>= "2.8"}
   "ocaml" {>= "4.08.0"}
   "ocamlfind"
   "coq" {>= "8.11~"}
   "coq-ext-lib" {>= "0.10.0"}
   "ocamlbuild" {with-test & >= "0.9.0"}
   "cppo" {build & >= "1.6.8"}
+  "odoc" {with-doc}
 ]
 dev-repo: "git+https://github.com/Lysxia/coq-simple-io.git"
 build: [
