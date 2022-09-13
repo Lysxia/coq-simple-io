@@ -3,7 +3,7 @@ NAME=coq-simple-io
 MAKEFILE_COQ = Makefile.coq
 MAKE_COQ = $(MAKE) -f $(MAKEFILE_COQ)
 
-.PHONY: all build install clean example depgraph doc html html-raw compat
+.PHONY: all build install clean example depgraph doc html html-raw compat test
 
 build: $(MAKEFILE_COQ) compat
 	$(MAKE_COQ)
