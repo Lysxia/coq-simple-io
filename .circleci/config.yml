@@ -28,20 +28,14 @@ commands:
     steps:
     - checkout
     - run:
-        name: Pull submodules
-        command: git submodule update --init
-    - run:
         name: Configure environment
         command: echo . ~/.profile >> $BASH_ENV
     - run:
         name: Install dependencies
         command: |
-          opam repo -a add coq-extra-dev https://coq.inria.fr/opam/extra-dev
           opam pin add --kind=path . -n  # Make opam aware of our dependency constraints
           opam install --deps-only .
-    - run:
-        name: List installed packages
-        command: opam list
+          opam list
   build:
     steps:
     - run:
@@ -60,13 +54,11 @@ commands:
              (opam install -t $PACKAGE && echo Tested $PACKAGE)
           done
     - run:
-        name: Uninstall
-        command: opam uninstall .
-    - run:
-        name: Cleanup
+        name: Uninstall and cleanup
         command: |
+          opam uninstall .
           make clean
-          ls -AGR
+          ls -AGR -I .git
 
 workflows:
   version: 2
@@ -77,16 +69,19 @@ workflows:
           coq: '8.11-ocaml-4.10-flambda'
       - test:
           name: 'Coq 8.12'
-          coq: '8.12-ocaml-4.10-flambda'
+          coq: '8.12-ocaml-4.11-flambda'
       - test:
           name: 'Coq 8.13'
-          coq: '8.13-ocaml-4.12-flambda'
+          coq: '8.13-ocaml-4.13-flambda'
       - test:
           name: 'Coq 8.14'
-          coq: '8.14-ocaml-4.12-flambda'
+          coq: '8.14-ocaml-4.14-flambda'
       - test:
           name: 'Coq 8.15'
-          coq: '8.15-ocaml-4.12-flambda'
+          coq: '8.15-ocaml-4.14-flambda'
+      - test:
+          name: 'Coq 8.16'
+          coq: '8.16'
       - test:
           name: 'Coq dev'
-          coq: 'dev-ocaml-4.12-flambda'
+          coq: 'dev'
