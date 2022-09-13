@@ -47,7 +47,7 @@ clean:
 	$(RM) Makefile.coq Makefile.coq.conf *.cmxs
 	$(RM) -r _build/ build/
 	$(RM) $(DEPS_DOT) $(DEPS_OUT)
-	$(RM) test/*.ml{i,}
+	$(RM) test/*.ml{i,} test/.*.aux
 	$(RM) $(COMPATFILES)
 
 COQDEP=coqdep
