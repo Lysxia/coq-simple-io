@@ -1,3 +1,19 @@
+# 1.8.0
+
+- Redesign `RunIO` auxiliary commands for configuring extraction.
+    + `RunIO Include "dir".` copies `dir` when compiling package.
+    + `RunIO Open "M".` prefixes the extracted OCaml file with `open M`.
+    + `RunIO Package "pkg".` adds `pkg` when compiling with `ocamlfind opt` or `ocamlbuild`.
+    + `RunIO Builder Basic.` (default) compiles using `ocamlfind opt`.
+    + `RunIO Builder Ocamlbuild.` compiles using `ocamlbuild`.
+    + `RunIO Builder Dune.` compiles using `dune`. This ignores `RunIO Package`;
+      dependencies should be specified in the `dune` file.
+    + `RunIO Smart (On|Off).` (`On` by default) enable|disable automatic
+      detection of common package dependencies (currently `zarith` for `Big_Int_Z`
+      and `coq-core.kernel` for `Uint63`).
+- Add `IO_Filename`.
+- Use `dune` for building.
+
 # 1.7.0
 
 - Fix definitions of `catch_not_found`, `catch_sys_error`
