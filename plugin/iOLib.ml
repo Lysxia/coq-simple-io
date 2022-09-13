@@ -25,10 +25,13 @@ let add_extra_dir s = extra_dir := s :: !extra_dir
 let extra_pkg : string list ref = Summary.ref ~name:"runio_ocaml_pkg" []
 let add_extra_pkg s = extra_pkg := s :: !extra_pkg
 
+let ocaml_opts : string list ref = Summary.ref ~name:"runio_ocaml_opts" []
+let add_ocaml_opts s = ocaml_opts := s :: !ocaml_opts
+
 let modules_to_open : string list ref = Summary.ref ~name:"runio_modules_to_open" []
 let add_module_to_open s = modules_to_open := s :: !modules_to_open
 
-(* Automatically insert common dependencies (zarith, coq-simple-io.extraction).
+(* Automatically insert common dependencies (zarith, coq-core.kernel).
    [true] by default. *)
 let smart_mode : bool ref =
   Summary.ref ~name:"runio_smart_mode" true
@@ -121,6 +124,8 @@ let new_ml_file ~plugin_name : string =
 
 (** * Extract, fix, compile, run *)
 
+let coq_kernel = if Coq_config.version < "8.14" then "coq.kernel" else "coq-core.kernel"
+
 let get_packages mlf =
   if !smart_mode then
     let (p_out, _, p_err) as process = Unix.open_process_full ("ocamldep -modules " ^ mlf) (Unix.environment ()) in
@@ -134,7 +139,8 @@ let get_packages mlf =
           let try_add ~pkg md =
             if m = md && not (List.mem pkg !pkgs) then
               pkgs := pkg :: !pkgs in
-          try_add ~pkg:"coq-simple-io.extraction" "Uint63";
+          try_add ~pkg:coq_kernel "Uint63";
+          if m = "Uint63" then add_ocaml_opts "-rectypes";
           try_add ~pkg:"zarith" "Big_int_Z")
       | exception End_of_file -> errmsg () in
     let () =
@@ -209,9 +215,14 @@ let compile dir mlif mlf =
         | [] -> ""
         | x -> "-package " ^ (String.concat "," x)
       in
+      let opts =
+        match !ocaml_opts with
+        | [] -> ""
+        | x -> String.concat " " x
+      in
       run_command (Printf.sprintf
-        "cd %s && ocamlfind opt -linkpkg -w -3 %s -o %s %s %s > build.log 2> build.err"
-        dir packages execn mlif mlf);
+        "cd %s && ocamlfind opt -linkpkg -w -3 %s %s -o %s %s %s > build.log 2> build.err"
+        dir opts packages execn mlif mlf);
       execn
   | Ocamlbuild ->
       let execn = Filename.basename (fileprefix ^ ".native") in
@@ -220,9 +231,14 @@ let compile dir mlif mlf =
         | [] -> ""
         | x -> "-pkgs " ^ (String.concat "," x)
       in
+      let opts =
+        match !ocaml_opts with
+        | [] -> ""
+        | x -> "," ^ String.concat "," x
+      in
       run_command (Printf.sprintf
-        "cd %s && ocamlbuild -use-ocamlfind -cflags -w,-3 %s %s > build.log 2> build.err"
-        dir packages execn);
+        "cd %s && ocamlbuild -use-ocamlfind -cflags -w,-3%s %s %s > build.log 2> build.err"
+        dir opts packages execn);
       dir </> "_build" </> execn
   | Dune dune ->
       let execn = Filename.basename fileprefix in

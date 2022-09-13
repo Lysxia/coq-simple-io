@@ -6,8 +6,12 @@
  (libraries unix
    (select void_for_linking-plugin-extraction from
     (coq-core.plugins.extraction -> void_for_linking-plugin-extraction.empty)
-    (coq.plugins.extraction -> void_for_linking-plugin-extraction.empty))))
+    (coq.plugins.extraction -> void_for_linking-plugin-extraction.empty))
+   (select void_for_linking-config from
+    (coq-core.config -> void_for_linking-config.empty)
+    (coq.config -> void_for_linking-config.empty))))
 
 (coq.pp (modules coqsimpleio))
 
 (rule (action (write-file void_for_linking-plugin-extraction.empty "")))
+(rule (action (write-file void_for_linking-config.empty "")))
