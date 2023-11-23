@@ -37,7 +37,7 @@ COQ_VERSION:=$(word 1, $(shell coqc -print-version))
 OCAML_VERSION:=$(shell ocamlc -version)
 
 %: %.cppo
-	$(V)cppo -V COQ:$(COQ_VERSION) -V OCAML:$(OCAML_VERSION) -n -o $@ $^
+	cppo -V COQ:$(COQ_VERSION) -V OCAML:$(OCAML_VERSION) -n -o $@ $^
 
 test:
 	sh ./testall.sh
