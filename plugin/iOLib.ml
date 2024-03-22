@@ -160,11 +160,11 @@ let get_packages mlf =
   else [], !extra_pkg
 
 (* Extract the term and its dependencies *)
-let extract ~file ident =
+let extract ~opaque_access ~file ident =
   let warnings = CWarnings.get_flags () in
   let mute_extraction = (if warnings = "" then "" else warnings ^ ",") ^ "-extraction-opaque-accessed" in
   CWarnings.set_flags mute_extraction;
-  Flags.silently (Extraction_plugin.Extract_env.full_extraction (Some file)) [qualid_of_ident ident];
+  Flags.silently (Extraction_plugin.Extract_env.full_extraction ~opaque_access (Some file)) [qualid_of_ident ident];
   CWarnings.set_flags warnings
 
 (* Add any modules that have been marked "open" *)
@@ -282,12 +282,12 @@ let run_exec execn =
 let compile_and_run dir mlif mlf =
   compile dir mlif mlf |> run_exec
 
-let extract_and_run ~plugin_name ident =
+let extract_and_run ~plugin_name ~opaque_access ident =
   let mlf   : string = new_ml_file ~plugin_name in
   let mlif  : string = Filename.chop_extension mlf ^ ".mli" in
   let dir   : string = Filename.dirname mlf in
 
-  extract ~file:mlf ident;
+  extract ~opaque_access ~file:mlf ident;
   fixup mlif mlf;
   copy_dirs dir !extra_dir;
   compile_and_run dir mlif mlf
@@ -305,15 +305,15 @@ let define env evd c =
       (DefinitionEntry (definition_entry ~univs (EConstr.to_constr evd c))) in
   fn
 
-let define_and_run ~plugin_name env evd term =
+let define_and_run ~plugin_name ~opaque_access env evd term =
   let term = define env evd term in
-  extract_and_run ~plugin_name term
+  extract_and_run ~plugin_name ~opaque_access term
 
-let run ~plugin_name term =
+let run ~plugin_name ~opaque_access term =
   let env = Global.env () in
   let evd = Evd.from_env env in
   let (term,_) = interp_constr env evd term in
-  define_and_run ~plugin_name env evd term
+  define_and_run ~plugin_name ~opaque_access env evd term
   (* TODO: clean leftover files *)
 
 let string_of_constr_expr c =

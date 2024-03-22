@@ -18,5 +18,6 @@ val reset : unit -> unit
 val apply_constr : constr_expr -> constr_expr list -> constr_expr_r
 val mk_ref : string -> constr_expr
 val string_of_constr_expr : constr_expr -> string
-val define_and_run : plugin_name:string -> Environ.env -> Evd.evar_map -> Evd.econstr -> unit
-val run : plugin_name:string -> constr_expr -> unit
+val define_and_run : plugin_name:string -> opaque_access:Global.indirect_accessor ->
+  Environ.env -> Evd.evar_map -> Evd.econstr -> unit
+val run : plugin_name:string -> opaque_access:Global.indirect_accessor -> constr_expr -> unit
