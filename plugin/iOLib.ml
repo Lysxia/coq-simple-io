@@ -12,10 +12,11 @@ include Compat
 
 (** * Global settings *)
 
-type builder = Ocamlfind | Ocamlbuild | Dune of string
+type filename = string
+type builder = Ocamlfind of string | Ocamlbuild of string | Dune of filename * string
 
 let builder : builder ref =
-  Summary.ref ~name:"runio_builder" Ocamlfind
+  Summary.ref ~name:"runio_builder" (Ocamlfind "")
 let set_builder b = builder := b
 
 (* Handle extra ocaml directory to be copied *)
@@ -25,9 +26,6 @@ let add_extra_dir s = extra_dir := s :: !extra_dir
 let extra_pkg : string list ref = Summary.ref ~name:"runio_ocaml_pkg" []
 let add_extra_pkg s = extra_pkg := s :: !extra_pkg
 
-let ocaml_opts : string list ref = Summary.ref ~name:"runio_ocaml_opts" []
-let add_ocaml_opts s = ocaml_opts := s :: !ocaml_opts
-
 let modules_to_open : string list ref = Summary.ref ~name:"runio_modules_to_open" []
 let add_module_to_open s = modules_to_open := s :: !modules_to_open
 
@@ -35,6 +33,13 @@ let add_module_to_open s = modules_to_open := s :: !modules_to_open
    [true] by default. *)
 let smart_mode : bool ref =
   Summary.ref ~name:"runio_smart_mode" true
+
+let reset () =
+  builder := Ocamlfind "";
+  extra_dir := [];
+  extra_pkg := [];
+  modules_to_open := [];
+  smart_mode := true
 
 (** * General helper functions *)
 
@@ -131,6 +136,7 @@ let get_packages mlf =
     let (p_out, _, p_err) as process = Unix.open_process_full ("ocamldep -modules " ^ mlf) (Unix.environment ()) in
     let errmsg () = Feedback.msg_info (str "Unexpected error in coq-simple-io: ocamldep failed") in
     let pkgs = ref !extra_pkg in
+    let opts = ref [] in
     let () =
       match input_line p_out with
       | e ->
@@ -140,7 +146,7 @@ let get_packages mlf =
             if m = md && not (List.mem pkg !pkgs) then
               pkgs := pkg :: !pkgs in
           try_add ~pkg:coq_kernel "Uint63";
-          if m = "Uint63" then add_ocaml_opts "-rectypes";
+          if m = "Uint63" then opts := "-rectypes" :: !opts;
           try_add ~pkg:"zarith" "Big_int_Z")
       | exception End_of_file -> errmsg () in
     let () =
@@ -150,8 +156,8 @@ let get_packages mlf =
       | _ -> errmsg ()
         (* probably an unparseable file, which will fail compilation *)
     in
-    !pkgs
-  else !extra_pkg
+    !opts, !pkgs
+  else [], !extra_pkg
 
 (* Extract the term and its dependencies *)
 let extract ~file ident =
@@ -208,39 +214,41 @@ let compile dir mlif mlf =
       CErrors.user_err msg in
   let fileprefix = Filename.chop_extension mlf in
   match !builder with
-  | Ocamlfind ->
+  | Ocamlfind opts ->
       let execn = fileprefix ^ ".native" in
+      let pkg_opts, packages = get_packages mlf in
       let packages =
-        match get_packages mlf with
+        match packages with
         | [] -> ""
         | x -> "-package " ^ (String.concat "," x)
       in
-      let opts =
-        match !ocaml_opts with
+      let pkg_opts =
+        match pkg_opts with
         | [] -> ""
-        | x -> String.concat " " x
+        | pkg_opts -> String.concat " " pkg_opts
       in
       run_command (Printf.sprintf
-        "cd %s && ocamlfind opt -linkpkg -w -3 %s %s -o %s %s %s > build.log 2> build.err"
-        dir opts packages execn mlif mlf);
+        "cd %s && ocamlfind opt -linkpkg -w -3 %s %s %s -o %s %s %s > build.log 2> build.err"
+        dir pkg_opts packages opts execn mlif mlf);
       execn
-  | Ocamlbuild ->
+  | Ocamlbuild opts ->
       let execn = Filename.basename (fileprefix ^ ".native") in
+      let pkg_opts, packages = get_packages mlf in
       let packages =
-        match get_packages mlf with
+        match packages with
         | [] -> ""
         | x -> "-pkgs " ^ (String.concat "," x)
       in
-      let opts =
-        match !ocaml_opts with
+      let pkg_opts =
+        match pkg_opts with
         | [] -> ""
-        | x -> "," ^ String.concat "," x
+        | x -> "-cflags " ^ String.concat "," x
       in
       run_command (Printf.sprintf
-        "cd %s && ocamlbuild -use-ocamlfind -cflags -w,-3%s %s %s > build.log 2> build.err"
-        dir opts packages execn);
+        "cd %s && ocamlbuild -use-ocamlfind -cflags -w,-3 %s %s %s %s > build.log 2> build.err"
+        dir pkg_opts packages opts execn);
       dir </> "_build" </> execn
-  | Dune dune ->
+  | Dune (dune, opts) ->
       let execn = Filename.basename fileprefix in
       (* Modify the dune file to add the executable name and put it in the output dir *)
       let awk_cmd = Printf.sprintf
@@ -249,8 +257,8 @@ let compile dir mlif mlf =
       ignore (Sys.command awk_cmd);
       (* The command is just dune build *)
       run_command (Printf.sprintf
-        "cd %s && dune build %s.exe --root=. --display=quiet > build.log 2> build.err"
-        dir execn);
+        "cd %s && dune build %s.exe --root=. --display=quiet %s > build.log 2> build.err"
+        dir execn opts);
       dir </> "_build/default" </> execn ^ ".exe"
 
 let run_exec execn =

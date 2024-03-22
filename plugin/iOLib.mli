@@ -1,6 +1,7 @@
 open Constrexpr
 
-type builder = Ocamlfind | Ocamlbuild | Dune of string
+type filename = string
+type builder = Ocamlfind of string | Ocamlbuild of string | Dune of filename * string
 
 val set_builder : builder -> unit
 
@@ -12,6 +13,7 @@ val add_module_to_open : string -> unit
 (* Automatically insert common dependencies (zarith, coq-simple-io.extraction).
    [true] by default. *)
 val smart_mode : bool ref
+val reset : unit -> unit
 
 val apply_constr : constr_expr -> constr_expr list -> constr_expr_r
 val mk_ref : string -> constr_expr
