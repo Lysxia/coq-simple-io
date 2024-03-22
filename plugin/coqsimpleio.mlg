@@ -10,6 +10,10 @@ let run c =
   Feedback.msg_info (Pp.str ("Running " ^ string_of_constr_expr c ^ " ..."));
   run ~plugin_name:"coq_simple_io"
     (CAst.make @@ apply_constr run_ast [c])
+
+let string_unopt = function
+  | None -> ""
+  | Some s -> s
 }
 
 VERNAC COMMAND EXTEND RunIO CLASSIFIED AS SIDEFF
@@ -17,9 +21,10 @@ VERNAC COMMAND EXTEND RunIO CLASSIFIED AS SIDEFF
   | ["RunIO" "Include" string(s)] -> { add_extra_dir s }
   | ["RunIO" "Open" string(s)] -> { add_module_to_open s }
   | ["RunIO" "Package" string(s)] -> { add_extra_pkg s }
-  | ["RunIO" "Builder" "Basic"] -> { set_builder Ocamlfind }
-  | ["RunIO" "Builder" "Ocamlbuild"] -> { set_builder Ocamlbuild }
-  | ["RunIO" "Builder" "Dune" string(s)] -> { set_builder (Dune s) }
+  | ["RunIO" "Builder" "Ocamlfind" string_opt(opts)] -> { set_builder (Ocamlfind (string_unopt opts)) }
+  | ["RunIO" "Builder" "Ocamlbuild" string_opt(opts)] -> { set_builder (Ocamlbuild (string_unopt opts))}
+  | ["RunIO" "Builder" "Dune" string(s) string_opt(opts)] -> { set_builder (Dune (s, string_unopt opts)) }
   | ["RunIO" "Smart" "On"] -> { smart_mode := true }
   | ["RunIO" "Smart" "Off"] -> { smart_mode := false }
+  | ["RunIO" "Reset"] -> { IOLib.reset () }
 END
