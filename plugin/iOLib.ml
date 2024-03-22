@@ -36,6 +36,14 @@ let add_module_to_open s = modules_to_open := s :: !modules_to_open
 let smart_mode : bool ref =
   Summary.ref ~name:"runio_smart_mode" true
 
+let reset () =
+  builder := Ocamlfind;
+  extra_dir := [];
+  extra_pkg := [];
+  ocaml_opts := [];
+  modules_to_open := [];
+  smart_mode := true
+
 (** * General helper functions *)
 
 let (</>) = Filename.concat

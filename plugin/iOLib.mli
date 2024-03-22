@@ -8,10 +8,12 @@ val set_builder : builder -> unit
 val add_extra_dir : string -> unit
 val add_extra_pkg : string -> unit
 val add_module_to_open : string -> unit
+val add_ocaml_opts : string -> unit
 
 (* Automatically insert common dependencies (zarith, coq-simple-io.extraction).
    [true] by default. *)
 val smart_mode : bool ref
+val reset : unit -> unit
 
 val apply_constr : constr_expr -> constr_expr list -> constr_expr_r
 val mk_ref : string -> constr_expr

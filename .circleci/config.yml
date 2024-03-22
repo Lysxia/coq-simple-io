@@ -83,5 +83,14 @@ workflows:
           name: 'Coq 8.16'
           coq: '8.16'
       - test:
+          name: 'Coq 8.17'
+          coq: '8.17'
+      - test:
+          name: 'Coq 8.18'
+          coq: '8.18'
+      - test:
+          name: 'Coq 8.19'
+          coq: '8.19'
+      - test:
           name: 'Coq dev'
           coq: 'dev'
