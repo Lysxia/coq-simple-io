@@ -125,6 +125,8 @@ Definition main (_ : unit) : IO unit :=
 
 Definition run_main : io_unit := IO.unsafe_run (main tt).
 
+Set Extraction Output Directory ".".
+
 (* We extract the whole library to typecheck it. *)
 Separate Extraction
   SimpleIO.SimpleIO

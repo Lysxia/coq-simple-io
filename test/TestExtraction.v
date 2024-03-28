@@ -28,6 +28,8 @@ Definition test :=
     IO_UnsafeNat.print_nat
   ).
 
+Set Extraction Output Directory ".".
+
 Separate Extraction test
   SimpleIO
   IO_Bytes

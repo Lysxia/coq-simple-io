@@ -124,4 +124,5 @@ Definition test_all : IO unit :=
     test_misc_N
   )%io.
 
+RunIO Builder Ocamlfind "-thread".
 RunIO test_all.
