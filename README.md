@@ -132,18 +132,23 @@ RunIO main.
 (* Open MyModule at the top of the extracted code *)
 RunIO Open "MyModule".
 
-(* Use basic build configuration, using ocamlfind (default) *)
-RunIO Builder Basic.
+(* Build with ocamlfind (default) *)
+RunIO Builder Ocamlfind.
 
-(* Use ocamlbuild or dune. Must be installed separately.
+(* Build with dune, specifying a dune file. *)
+RunIO Builder Dune "dune".
+
+(* Build with ocamlbuild. It must be installed separately.
 
      opam install ocamlbuild
-     opam install dune
  *)
 RunIO Builder Ocamlbuild.
-RunIO Builder Dune.
 
-(* Include my-package when compiling (only for builders Basic and Ocamlbuild). *)
+(* `RunIO Builder` can also take extra arguments for the build command in a string. *)
+RunIO Builder Ocamlfind "-rectypes".
+
+(* Include my-package when compiling (only for builders Ocamlfind and Ocamlbuild;
+   Dune is configured via the dune file). *)
 RunIO Package "my-package".
 
 (* Copy my-directory to the build location so it will be visible to ocamlbuild or dune. *)
