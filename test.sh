@@ -8,7 +8,7 @@ coqc ../test/$1.v > $1.out
 case $2 in
   -s)
     rm *.mli
-    ocamlbuild -use-ocamlfind -lib unix $1.native
+    ocamlbuild -use-ocamlfind -pkg unix $1.native
     ./$1.native
     ;;
   -r)
