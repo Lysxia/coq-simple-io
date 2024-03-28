@@ -1,3 +1,10 @@
+# 1.9.0
+
+- Add `RunIO Reset`
+- Rename `RunIO Builder Basic` to `RunIO Builder Ocamlfind`
+- Extend `RunIO Builder` commands with an optional string to pass to the build executable.
+  Example: `RunIO Builder Ocamlfind "-I mydir"`.
+
 # 1.8.0
 
 - Redesign `RunIO` auxiliary commands for configuring extraction.
