@@ -28,7 +28,6 @@ depends: [
 ]
 dev-repo: "git+https://github.com/Lysxia/coq-simple-io.git"
 build: [
-  [make "compat"]
-  ["dune" "subst"] {pinned}
+  ["dune" "subst"] {dev}
   [ "dune" "build" "-p" name "-j" jobs "@install" ]
 ]

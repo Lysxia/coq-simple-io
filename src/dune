@@ -2,3 +2,38 @@
  (name SimpleIO)
  (package coq-simple-io)
  (libraries coq-simple-io.plugin))
+
+(rule
+  (alias compat)
+  (target IO_Stdlib.v)
+  (action (run %{exe:../scripts/mycppo} %{dep:IO_Stdlib.v.cppo} %{target})))
+
+(rule
+  (alias compat)
+  (target IO_RawChar.v)
+  (action (run %{exe:../scripts/mycppo} %{dep:IO_RawChar.v.cppo} %{target})))
+
+(rule
+  (alias compat)
+  (target IO_String.v)
+  (action (run %{exe:../scripts/mycppo} %{dep:IO_String.v.cppo} %{target})))
+
+(rule
+  (alias compat)
+  (target IO_Filename.v)
+  (action (run %{exe:../scripts/mycppo} %{dep:IO_Filename.v.cppo} %{target})))
+
+(rule
+  (alias compat)
+  (target IO_Float.v)
+  (action (run %{exe:../scripts/mycppo} %{dep:IO_Float.v.cppo} %{target})))
+
+(rule
+  (alias compat)
+  (target IO_Unsafe.v)
+  (action (run %{exe:../scripts/mycppo} %{dep:IO_Unsafe.v.cppo} %{target})))
+
+(rule
+  (alias compat)
+  (target SimpleIO_Plugin.v)
+  (action (run %{exe:../scripts/mycppo} %{dep:SimpleIO_Plugin.v.cppo} %{target})))

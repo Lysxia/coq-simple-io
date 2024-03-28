@@ -20,15 +20,7 @@ uninstall: $(MAKEFILE_COQ)
 $(MAKEFILE_COQ): _CoqProject
 	coq_makefile -f $< -o $@
 
-COMPATFILES:=plugin/compat.ml \
-  _CoqProject \
-  src/SimpleIO_Plugin.v \
-  src/IO_Stdlib.v \
-  src/IO_RawChar.v \
-  src/IO_String.v \
-  src/IO_Filename.v \
-  src/IO_Float.v \
-  src/IO_Unsafe.v \
+COMPATFILES:=_CoqProject \
   test/TestInt63.v
 
 compat: $(COMPATFILES)

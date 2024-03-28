@@ -15,3 +15,8 @@
 
 (rule (action (write-file void_for_linking-plugin-extraction.empty "")))
 (rule (action (write-file void_for_linking-config.empty "")))
+
+(rule
+  (alias compat)
+  (target compat.ml)
+  (action (run %{exe:../scripts/mycppo} %{dep:compat.ml.cppo} %{target})))
