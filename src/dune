@@ -6,34 +6,41 @@
 (rule
   (alias compat)
   (target IO_Stdlib.v)
-  (action (run %{exe:../scripts/mycppo} %{dep:IO_Stdlib.v.cppo} %{target})))
+  (deps IO_Stdlib.v.cppo)
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
 
 (rule
   (alias compat)
   (target IO_RawChar.v)
-  (action (run %{exe:../scripts/mycppo} %{dep:IO_RawChar.v.cppo} %{target})))
+  (deps IO_RawChar.v.cppo)
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
 
 (rule
   (alias compat)
   (target IO_String.v)
-  (action (run %{exe:../scripts/mycppo} %{dep:IO_String.v.cppo} %{target})))
+  (deps IO_String.v.cppo)
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
 
 (rule
   (alias compat)
   (target IO_Filename.v)
-  (action (run %{exe:../scripts/mycppo} %{dep:IO_Filename.v.cppo} %{target})))
+  (deps IO_Filename.v.cppo)
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
 
 (rule
   (alias compat)
   (target IO_Float.v)
-  (action (run %{exe:../scripts/mycppo} %{dep:IO_Float.v.cppo} %{target})))
+  (deps IO_Float.v.cppo)
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
 
 (rule
   (alias compat)
   (target IO_Unsafe.v)
-  (action (run %{exe:../scripts/mycppo} %{dep:IO_Unsafe.v.cppo} %{target})))
+  (deps IO_Unsafe.v.cppo)
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
 
 (rule
   (alias compat)
   (target SimpleIO_Plugin.v)
-  (action (run %{exe:../scripts/mycppo} %{dep:SimpleIO_Plugin.v.cppo} %{target})))
+  (deps SimpleIO_Plugin.v.cppo)
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
