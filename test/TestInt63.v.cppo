@@ -96,7 +96,7 @@ Definition is_left {A B} (x : {A} + {B}) : bool :=
   end.
 
 Definition test_misc_Z : IO unit :=
-  ( assert_equal (Z.eqb 0%Z 1%Z) false ;;
+  ( assert_equal (Z.eqb 1%Z 0%Z) false ;;
     assert_equal (is_left (Z.eq_dec 0%Z 1%Z)) false ;;
     assert_equal (Z.div_eucl 17 5) (3, 2)%Z ;;
     assert_equal (Z.div_eucl (-17) (-5)) (3, -2)%Z ;;

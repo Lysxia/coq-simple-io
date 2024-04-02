@@ -39,11 +39,8 @@ commands:
   build:
     steps:
     - run:
-        name: Install
+        name: Build, test, and install
         command: opam install . -j4  # gets killed at -j 35 by default
-    - run:
-        name: Test
-        command: make compat && sh ./testall.sh
     - run:
         name: Test dependants
         command: |

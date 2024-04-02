@@ -1,0 +1,13 @@
+(coq.extraction
+ (prelude main)
+ (extracted_modules Datatypes Nat String0 ExtrOcamlIntConv IO_Monad IO_RawChar IO_Stdlib IO_Bytes IO_String IO_UnsafeNat
+                    main)
+ (theories SimpleIO))
+
+(test
+ (name main)
+ (flags :standard -w -33-39-67))
+
+(rule
+ (alias runtest)
+ (action (diff main.expected main.output)))

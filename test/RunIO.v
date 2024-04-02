@@ -1,4 +1,5 @@
 From Coq Require Import
+     ExtrOcamlIntConv
      String.
 From ExtLib Require Import
      Monad.
@@ -14,4 +15,4 @@ Definition coin : IO unit :=
   b <- ORandom.bool tt;;
   print_endline (if b : bool then "head" else "tail").
 
-RunIO (ORandom.self_init tt;; coin;; coin;; coin).
+RunIO (ORandom.init (int_of_nat 42);; coin;; coin;; coin).

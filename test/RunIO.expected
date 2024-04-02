@@ -1,0 +1,4 @@
+Running (ORandom.init (int_of_nat 42);; coin;; coin;; coin) ...
+tail
+head
+tail
