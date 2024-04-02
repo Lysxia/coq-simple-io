@@ -33,9 +33,11 @@ commands:
     - run:
         name: Install dependencies
         command: |
+          opam update
           opam pin add --kind=path . -n  # Make opam aware of our dependency constraints
           opam install --deps-only .
           opam list
+        no_output_timeout: 30m
   build:
     steps:
     - run:
