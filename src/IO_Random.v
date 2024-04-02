@@ -13,6 +13,10 @@ From SimpleIO Require Import
 
 Module ORandom.
 
+(** Initialize using a given seed. The same seed will always yield the same
+    sequence of numbers. *)
+Parameter init : int -> IO unit.
+
 (** Initialize the generator with a random seed chosen in a system-dependent
     way.  If [/dev/urandom] is available on the host machine, it is used to
     provide a highly random initial seed.  Otherwise, a less random seed is
@@ -27,6 +31,7 @@ Parameter int : int -> IO int.
 Parameter bool : unit -> IO bool.
 
 (* begin hide *)
+Extract Constant init => "fun n k -> k (Random.init n)".
 Extract Constant self_init => "fun t k -> k (Random.self_init t)".
 Extract Constant int       => "fun i k -> k (Random.int i)".
 Extract Constant bool         => "fun t k -> k (Random.bool t)".

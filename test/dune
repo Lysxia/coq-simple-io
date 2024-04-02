@@ -1,0 +1,41 @@
+(alias
+ (name runtest)
+ (deps (alias_rec all)))
+
+(rule
+ (deps (package coq-simple-io))
+ (action (with-stdout-to HelloWorld.out
+  (run %{bin:coqc} -I ../plugin -Q ../src SimpleIO %{dep:HelloWorld.v}))))
+
+(rule (alias runtest)
+ (action (diff HelloWorld.expected HelloWorld.out)))
+
+(rule
+ (deps (package coq-simple-io))
+ (action (with-stdout-to TestOcamlbuild.out
+  (run %{bin:coqc} -I ../plugin -Q ../src SimpleIO %{dep:TestOcamlbuild.v}))))
+
+(rule (alias runtest)
+ (action (diff TestOcamlbuild.expected TestOcamlbuild.out)))
+
+(rule
+ (deps (package coq-simple-io))
+ (action (with-stdout-to RunIO.out
+  (run %{bin:coqc} -I ../plugin -Q ../src SimpleIO %{dep:RunIO.v}))))
+
+(rule (alias runtest)
+ (action (diff RunIO.expected RunIO.out)))
+
+(rule
+ (deps (package coq-simple-io))
+ (action (with-stdout-to TestInt63.out
+  (run %{bin:coqc} -I ../plugin -Q ../src SimpleIO %{dep:TestInt63.v}))))
+
+(rule (alias runtest)
+ (action (diff TestInt63.expected TestInt63.out)))
+
+(rule
+ (alias compat)
+ (target TestInt63.v)
+ (deps TestInt63.v.cppo)
+ (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
