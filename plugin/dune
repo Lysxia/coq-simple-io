@@ -19,4 +19,5 @@
 (rule
   (alias compat)
   (target compat.ml)
-  (action (run %{exe:../scripts/mycppo} %{dep:compat.ml.cppo} %{target})))
+  (deps compat.ml.cppo)
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
