@@ -64,9 +64,6 @@ workflows:
   build:
     jobs:
       - test:
-          name: 'Coq 8.11'
-          coq: '8.11-ocaml-4.10-flambda'
-      - test:
           name: 'Coq 8.12'
           coq: '8.12-ocaml-4.11-flambda'
       - test:
