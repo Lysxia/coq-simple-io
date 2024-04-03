@@ -1,4 +1,6 @@
-# Purely functional IO for Coq [![Build Status](https://travis-ci.org/Lysxia/coq-simple-io.svg?branch=master)](https://travis-ci.org/Lysxia/coq-simple-io)
+# Purely functional IO for Coq
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Lysxia/coq-simple-io/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Lysxia/coq-simple-io/tree/master)
 
 ## Hello World in Coq
 
