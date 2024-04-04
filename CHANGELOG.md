@@ -4,6 +4,7 @@
 - Rename `RunIO Builder Basic` to `RunIO Builder Ocamlfind`
 - Extend `RunIO Builder` commands with an optional string to pass to the build executable.
   Example: `RunIO Builder Ocamlfind "-I mydir"`.
+- Add `IO_Random.init`.
 
 # 1.8.0
 
