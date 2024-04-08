@@ -6,7 +6,13 @@ open IOLib
 
 let run_ast = mk_ref "SimpleIO.IO_Monad.IO.unsafe_run'"
 
-let run ~opaque_access c =
+(* Since Coq 8.20, called as [run c ~opaque_access]. Before Coq 8.20, called as [run c]. *)
+let run c =
+#if COQ_VERSION >= (8,20,0)
+  fun ~opaque_access ->
+#else
+  let opaque_access = () in
+#endif
   Feedback.msg_info (Pp.str ("Running " ^ string_of_constr_expr c ^ " ..."));
   run ~plugin_name:"coq_simple_io" ~opaque_access
     (CAst.make @@ apply_constr run_ast [c])
@@ -17,7 +23,11 @@ let string_unopt = function
 }
 
 VERNAC COMMAND EXTEND RunIO CLASSIFIED AS SIDEFF
-  | ![opaque_access] ["RunIO" constr(c)] -> {run c}
+  |
+#if COQ_VERSION >= (8,20,0)
+    ![opaque_access]
+#endif
+    ["RunIO" constr(c)] -> {run c}
   | ["RunIO" "Include" string(s)] -> { add_extra_dir s }
   | ["RunIO" "Open" string(s)] -> { add_module_to_open s }
   | ["RunIO" "Package" string(s)] -> { add_extra_pkg s }

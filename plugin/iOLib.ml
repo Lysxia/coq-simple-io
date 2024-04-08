@@ -164,7 +164,7 @@ let extract ~opaque_access ~file ident =
   let warnings = CWarnings.get_flags () in
   let mute_extraction = (if warnings = "" then "" else warnings ^ ",") ^ "-extraction-opaque-accessed" in
   CWarnings.set_flags mute_extraction;
-  Flags.silently (Extraction_plugin.Extract_env.full_extraction ~opaque_access (Some file)) [qualid_of_ident ident];
+  Flags.silently (Compat.apply_accessor Extraction_plugin.Extract_env.full_extraction ~opaque_access (Some file)) [qualid_of_ident ident];
   CWarnings.set_flags warnings
 
 (* Add any modules that have been marked "open" *)
