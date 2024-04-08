@@ -21,3 +21,15 @@
   (target compat.ml)
   (deps compat.ml.cppo)
   (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
+
+(rule
+  (alias compat)
+  (target compat.mli)
+  (deps compat.mli.cppo)
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
+
+(rule
+  (alias compat)
+  (target coqsimpleio.mlg)
+  (deps coqsimpleio.mlg.cppo)
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))

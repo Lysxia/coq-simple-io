@@ -1,16 +1,13 @@
 open Constrexpr
-let apply_constr f xs =
-#if COQ_VERSION < (8, 15, 0)
-    let f = (None, f) in
-#endif
-    CApp (f, List.map (fun x -> (x, None)) xs)
+val apply_constr : constr_expr -> constr_expr list -> constr_expr_r
 
 #if COQ_VERSION >= (8,20,0)
 type indirect_accessor = Global.indirect_accessor
 type 'a with_accessor = opaque_access:Global.indirect_accessor -> 'a
-let apply_accessor f = f
 #else
 type indirect_accessor = unit
 type 'a with_accessor = 'a
-let apply_accessor f ~opaque_access:() = f
 #endif
+
+(* Compat adaptor for Coq functions *)
+val apply_accessor : 'a with_accessor -> opaque_access:indirect_accessor -> 'a
