@@ -1,3 +1,7 @@
+# 1.10.0
+
+- Compatibility with Coq 8.20
+
 # 1.9.0
 
 - Add `RunIO Reset`
