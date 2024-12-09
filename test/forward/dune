@@ -1,0 +1,11 @@
+(rule
+ (alias runtest)
+ (action (diff main.expected main.output)))
+
+(rule
+ (deps (package coq-simple-io))
+ (action
+  (with-stdout-to main.output
+   (pipe-stdout
+    (run echo "this is\na test")
+    (run %{bin:coqc} -I ../../plugin -Q ../../src SimpleIO %{dep:main.v})))))

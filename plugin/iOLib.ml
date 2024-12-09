@@ -34,12 +34,22 @@ let add_module_to_open s = modules_to_open := s :: !modules_to_open
 let smart_mode : bool ref =
   Summary.ref ~name:"runio_smart_mode" true
 
+type io_mode
+  = Repl
+  (** Default mode compatible with interactive Coq sessions *)
+  | Forward
+  (** Forward stdin,stdout,stderr to the child processes running the extracted
+      programs. This option lets you run [RunIO] scripts from the command line. *)
+
+let io_mode = Summary.ref ~name:"runio_io_mode" Repl
+
 let reset () =
   builder := Ocamlfind "";
   extra_dir := [];
   extra_pkg := [];
   modules_to_open := [];
-  smart_mode := true
+  smart_mode := true;
+  io_mode := Repl
 
 (** * General helper functions *)
 
@@ -261,7 +271,7 @@ let compile dir mlif mlf =
         dir execn opts);
       dir </> "_build/default" </> execn ^ ".exe"
 
-let run_exec execn =
+let run_exec_repl execn =
   let (p_out, _, p_err) as process = Unix.open_process_full execn (Unix.environment ()) in
   let rec process_otl_aux () =
     let e = input_line p_out in
@@ -278,6 +288,22 @@ let run_exec execn =
        | Unix.WSIGNALED i -> err (Printf.sprintf "Killed (%d)" i)
        | Unix.WSTOPPED i -> err (Printf.sprintf "Stopped (%d)" i)
        end
+
+let run_exec_forward execn =
+  let pid = Unix.create_process execn [|execn|] Unix.stdin Unix.stdout Unix.stderr in
+  let _, status = Unix.waitpid [] pid in
+  let err descr = CErrors.user_err (str (execn ^ ": " ^ descr) ++ fnl ()) in
+  begin match status with
+  | Unix.WEXITED 0 -> ()
+  | Unix.WEXITED i -> err (Printf.sprintf "Exited with status %d" i)
+  | Unix.WSIGNALED i -> err (Printf.sprintf "Killed (%d)" i)
+  | Unix.WSTOPPED i -> err (Printf.sprintf "Stopped (%d)" i)
+  end
+
+let run_exec execn =
+  match !io_mode with
+  | Repl -> run_exec_repl execn
+  | Forward -> run_exec_forward execn
 
 let compile_and_run dir mlif mlf =
   compile dir mlif mlf |> run_exec
@@ -309,7 +335,13 @@ let define_and_run ~plugin_name ~opaque_access env evd term =
   let term = define env evd term in
   extract_and_run ~plugin_name ~opaque_access term
 
-let run ~plugin_name ~opaque_access term =
+let chatty () =
+  match !io_mode with
+  | Repl -> true
+  | Forward -> false
+
+let run ~plugin_name ~opaque_access ~name term =
+  if chatty () then Feedback.msg_info (Pp.str ("Running " ^ name ^ " ..."));
   let env = Global.env () in
   let evd = Evd.from_env env in
   let (term,_) = interp_constr env evd term in
