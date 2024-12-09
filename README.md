@@ -128,6 +128,29 @@ Definition main : IO unit :=
 RunIO main.
 ```
 
+### Run as a command-line script
+
+You can run a `.v` file from the command line with `coqc`.
+To forward stdin and stdout to your `RunIO` scripts,
+set the option `RunIO IOMode Forward`.
+
+```coq
+From SimpleIO Require Import SimpleIO.
+Import IO.Notations.
+
+RunIO IOMode Forward.
+
+Definition cat : IO unit :=
+  _ <- catch_eof
+    (IO.fix_io (fun f _ =>
+      input <- read_line ;;
+      print_endline input ;;
+      f tt :> IO unit) tt) ;;
+  IO.ret tt.
+
+RunIO cat.
+```
+
 ### Configuration
 
 ```coq
@@ -162,6 +185,11 @@ RunIO Include "my-directory".
 RunIO Smart On.
 RunIO Smart Off.
 ```
+
+New `RunIO` options may be added in the future.
+To avoid risks of future collisions with the main `RunIO` command,
+use names with a lower case initial (like `RunIO main`),
+or put the action name in parentheses (like `RunIO (Builder)` to run the `IO` action `Builder`).
 
 ## Library organization
 
