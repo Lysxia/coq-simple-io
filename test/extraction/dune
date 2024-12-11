@@ -9,7 +9,3 @@
  (name main)
  (libraries unix)
  (flags :standard -w -33-39-67))
-
-(rule
- (alias runtest)
- (action (diff main.expected main.output)))

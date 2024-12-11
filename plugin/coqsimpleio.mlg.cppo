@@ -13,8 +13,8 @@ let run c =
 #else
   let opaque_access = () in
 #endif
-  Feedback.msg_info (Pp.str ("Running " ^ string_of_constr_expr c ^ " ..."));
-  run ~plugin_name:"coq_simple_io" ~opaque_access
+  let name = string_of_constr_expr c in
+  run ~plugin_name:"coq_simple_io" ~opaque_access ~name
     (CAst.make @@ apply_constr run_ast [c])
 
 let string_unopt = function
@@ -37,4 +37,6 @@ VERNAC COMMAND EXTEND RunIO CLASSIFIED AS SIDEFF
   | ["RunIO" "Smart" "On"] -> { smart_mode := true }
   | ["RunIO" "Smart" "Off"] -> { smart_mode := false }
   | ["RunIO" "Reset"] -> { IOLib.reset () }
+  | ["RunIO" "IOMode" "Repl"] -> { io_mode := Repl }
+  | ["RunIO" "IOMode" "Forward"] -> { io_mode := Forward }
 END
