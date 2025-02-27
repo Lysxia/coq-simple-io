@@ -1,4 +1,7 @@
 open Constrexpr
+
+val mk_temp_dir : string -> string
+
 val apply_constr : constr_expr -> constr_expr list -> constr_expr_r
 
 #if COQ_VERSION >= (8,20,0)
