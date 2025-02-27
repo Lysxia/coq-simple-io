@@ -1,4 +1,31 @@
 open Constrexpr
+
+let mk_temp_dir temp_dir =
+  let tm = Unix.localtime (Unix.time ()) in
+  let ts = Printf.sprintf "%02d%02d%02d_" tm.Unix.tm_hour tm.Unix.tm_min tm.Unix.tm_sec in
+#if OCAML_VERSION >= (5, 1, 0)
+  Filename.temp_dir ~temp_dir ts ""
+#else
+  (* https://discuss.ocaml.org/t/how-to-create-a-temporary-directory-in-ocaml/1815/4 *)
+  let rand_digits () =
+    let rand = Random.State.(bits (make_self_init ()) land 0xFFFFFF) in
+    Printf.sprintf "%06x" rand in
+  let (</>) = Filename.concat in
+  let pat = temp_dir </> ts in
+  let mode = 0o700 in
+  let raise_err msg = raise (Sys_error msg) in
+  let rec loop count =
+    if count < 0 then raise_err "mk_temp_dir: too many failing attemps" else
+    let dir = pat ^ rand_digits () in
+    try (Unix.mkdir dir mode; dir) with
+    | Unix.Unix_error (Unix.EEXIST, _, _) -> loop (count - 1)
+    | Unix.Unix_error (Unix.EINTR, _, _)  -> loop count
+    | Unix.Unix_error (e, _, _)           ->
+      raise_err ("mk_temp_dir: " ^ (Unix.error_message e))
+  in
+  loop 1000
+#endif
+
 let apply_constr f xs =
 #if COQ_VERSION < (8, 15, 0)
     let f = (None, f) in

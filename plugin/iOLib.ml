@@ -107,35 +107,13 @@ let rec mkdir_ dname =
     mkdir_ (Filename.dirname dname);
     cmd ()
 
-(* https://discuss.ocaml.org/t/how-to-create-a-temporary-directory-in-ocaml/1815/4 *)
-let rand_digits () =
-  let rand = Random.State.(bits (make_self_init ()) land 0xFFFFFF) in
-  Printf.sprintf "%06x" rand
-
-let mk_temp_dir ?(mode=0o700) pat =
-  let raise_err msg = raise (Sys_error msg) in
-  let rec loop count =
-    if count < 0 then raise_err "mk_temp_dir: too many failing attemps" else
-    let dir = pat ^ rand_digits () in
-    try (Unix.mkdir dir mode; dir) with
-    | Unix.Unix_error (Unix.EEXIST, _, _) -> loop (count - 1)
-    | Unix.Unix_error (Unix.EINTR, _, _)  -> loop count
-    | Unix.Unix_error (e, _, _)           ->
-      raise_err ("mk_temp_dir: " ^ (Unix.error_message e))
-  in
-  loop 1000
-
-let mainfile = "extracted_main.ml"
-
 (* [${TMP}/${PLUGIN_NAME}/${TIME}_${SALT}/main.ml],
    where [${TIME}] is the current time in format [HHMMSS]
    and [${SALT}] is a random string for uniqueness. *)
-let new_ml_file ~plugin_name : string =
-  let tm = Unix.localtime (Unix.time ()) in
-  let ts = Printf.sprintf "%02d%02d%02d_" tm.Unix.tm_hour tm.Unix.tm_min tm.Unix.tm_sec in
+let mk_tmp_dir ~plugin_name : string =
   let tmp = Filename.get_temp_dir_name () </> plugin_name in
   mkdir_ tmp;
-  mk_temp_dir (tmp </> ts) </> mainfile
+  mk_temp_dir tmp
 
 (** * Extract, fix, compile, run *)
 
@@ -309,10 +287,9 @@ let compile_and_run dir mlif mlf =
   compile dir mlif mlf |> run_exec
 
 let extract_and_run ~plugin_name ~opaque_access ident =
-  let mlf   : string = new_ml_file ~plugin_name in
+  let dir            = mk_tmp_dir ~plugin_name in
+  let mlf   : string = dir </> "extracted_main.ml" in
   let mlif  : string = Filename.chop_extension mlf ^ ".mli" in
-  let dir   : string = Filename.dirname mlf in
-
   extract ~opaque_access ~file:mlf ident;
   fixup mlif mlf;
   copy_dirs dir !extra_dir;
