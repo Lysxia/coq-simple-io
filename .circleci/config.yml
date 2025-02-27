@@ -6,7 +6,7 @@ jobs:
       coq:
         type: string
     docker:
-      - image: coqorg/coq:<<parameters.coq>>
+      - image: <<parameters.coq>>
     resource_class: large
     environment:
       OPAMJOBS: 4
@@ -65,31 +65,31 @@ workflows:
     jobs:
       - test:
           name: 'Coq 8.12'
-          coq: '8.12-ocaml-4.11-flambda'
+          coq: 'coqorg/coq:8.12-ocaml-4.11-flambda'
       - test:
           name: 'Coq 8.13'
-          coq: '8.13-ocaml-4.13-flambda'
+          coq: 'coqorg/coq:8.13-ocaml-4.13-flambda'
       - test:
           name: 'Coq 8.14'
-          coq: '8.14-ocaml-4.14-flambda'
+          coq: 'coqorg/coq:8.14-ocaml-4.14-flambda'
       - test:
           name: 'Coq 8.15'
-          coq: '8.15-ocaml-4.14-flambda'
+          coq: 'coqorg/coq:8.15-ocaml-4.14-flambda'
       - test:
           name: 'Coq 8.16'
-          coq: '8.16'
+          coq: 'coqorg/coq:8.16'
       - test:
           name: 'Coq 8.17'
-          coq: '8.17'
+          coq: 'coqorg/coq:8.17'
       - test:
           name: 'Coq 8.18'
-          coq: '8.18'
+          coq: 'coqorg/coq:8.18'
       - test:
           name: 'Coq 8.19'
-          coq: '8.19'
+          coq: 'coqorg/coq:8.19'
       - test:
           name: 'Coq 8.20'
-          coq: '8.20'
+          coq: 'coqorg/coq:8.20'
       - test:
           name: 'Coq dev'
-          coq: 'dev'
+          coq: 'rocq/rocq-prover:dev'
