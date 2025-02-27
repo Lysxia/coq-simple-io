@@ -1,3 +1,10 @@
+# 1.11.0
+
+- Add option `RunIO IOMode Forward` to forward stdin and stdout of the extracted executable to
+  the coqc process, allowing IO actions to be run as interactive command-line scripts.
+- Fix a file system race: when multiple `RunIO` commands ran concurrently in the same folder,
+  they used the same local `__qc_tmp` temporary file, clobbering each other.
+
 # 1.10.0
 
 - Compatibility with Coq 8.20
