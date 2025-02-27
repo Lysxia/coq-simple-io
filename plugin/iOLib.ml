@@ -156,10 +156,11 @@ let extract ~opaque_access ~file ident =
   CWarnings.set_flags warnings
 
 (* Add any modules that have been marked "open" *)
-let open_modules ms mlf =
+let open_modules ~dir ms mlf =
   let prefix = String.concat "" List.(concat @@ map (fun m -> ["open "; m; ";;"]) ms) in
-  let open_cmd = Printf.sprintf "awk -v n=1 -v s=\"%s\" 'NR == n {print s} {print}' %s > __qc_tmp && mv __qc_tmp %s" prefix mlf mlf in
-  ignore (Sys.command open_cmd)
+  let open_cmd = Printf.sprintf "awk -v n=1 -v s=\"%s\" 'NR == n {print s} {print}' %s > %s/__qc_tmp && mv %s/__qc_tmp %s" prefix mlf dir dir mlf in
+  if Sys.command open_cmd <> 0 then
+    CErrors.user_err (str "awk command failed on " ++ str mlf ++ fnl ())
 
 let tmp_int_re = Str.regexp "type int =[ ]*int"
 
@@ -180,8 +181,8 @@ let remove_mli mlif =
   Sys.remove mlif;
   ignore (Sys.command ("touch " ^ mlif))
 
-let fixup mlif mlf =
-  open_modules !modules_to_open mlf;
+let fixup ~dir mlif mlf =
+  open_modules ~dir !modules_to_open mlf;
   redefine_int mlf;
   remove_mli mlif
 
@@ -189,7 +190,7 @@ let fixup mlif mlf =
 let copy_dirs dir ds =
   List.iter (fun s -> ignore (Sys.command (Printf.sprintf "cp -r %s %s" s dir))) ds
 
-let compile dir mlif mlf =
+let compile ~dir mlif mlf =
   let run_command cmd =
     if Sys.command cmd <> 0 then
       let build_log = read_file (dir ^ "/build.log") in
@@ -283,17 +284,17 @@ let run_exec execn =
   | Repl -> run_exec_repl execn
   | Forward -> run_exec_forward execn
 
-let compile_and_run dir mlif mlf =
-  compile dir mlif mlf |> run_exec
+let compile_and_run ~dir mlif mlf =
+  compile ~dir mlif mlf |> run_exec
 
 let extract_and_run ~plugin_name ~opaque_access ident =
   let dir            = mk_tmp_dir ~plugin_name in
   let mlf   : string = dir </> "extracted_main.ml" in
   let mlif  : string = Filename.chop_extension mlf ^ ".mli" in
   extract ~opaque_access ~file:mlf ident;
-  fixup mlif mlf;
+  fixup ~dir mlif mlf;
   copy_dirs dir !extra_dir;
-  compile_and_run dir mlif mlf
+  compile_and_run ~dir mlif mlf
 ;;
 
 let mk_ref s = CAst.make @@ CRef (qualid_of_string s, None)
