@@ -2,7 +2,7 @@
 
 (**
    [RawChar] provides some convenient operations to work with
-   Coq's standard [ascii] and [string] type, assuming they are
+   Rocq's standard [ascii] and [string] type, assuming they are
    extracted using [ExtrOcamlString]:
 
    - [ascii] is extracted to [char];
@@ -11,10 +11,10 @@
  *)
 
 (* begin hide *)
-From Coq.Strings Require Import
+From Stdlib.Strings Require Import
      String Ascii.
 
-From Coq.extraction Require Import
+From Stdlib Require Import
      ExtrOcamlIntConv
      ExtrOcamlString.
 

@@ -1,4 +1,4 @@
-From Coq Require Import Extraction.
+From Stdlib Require Import Extraction.
 
 #if COQ_VERSION >= (9, 0, 0)
 Declare ML Module "coq-simple-io.plugin".

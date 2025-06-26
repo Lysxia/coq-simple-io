@@ -12,5 +12,5 @@ type indirect_accessor = unit
 type 'a with_accessor = 'a
 #endif
 
-(* Compat adaptor for Coq functions *)
+(* Compat adaptor for Rocq functions *)
 val apply_accessor : 'a with_accessor -> opaque_access:indirect_accessor -> 'a

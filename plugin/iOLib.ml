@@ -36,7 +36,7 @@ let smart_mode : bool ref =
 
 type io_mode
   = Repl
-  (** Default mode compatible with interactive Coq sessions *)
+  (** Default mode compatible with interactive Rocq sessions *)
   | Forward
   (** Forward stdin,stdout,stderr to the child processes running the extracted
       programs. This option lets you run [RunIO] scripts from the command line. *)
@@ -87,7 +87,7 @@ let fresh_name n =
     let base = Id.of_string n in
 
     (* [is_visible_name id] returns [true] if [id] is already used on
-       the Coq side. *)
+       the Rocq side. *)
     let is_visible_name id =
       try
         ignore (Nametab.locate (Libnames.qualid_of_ident id));

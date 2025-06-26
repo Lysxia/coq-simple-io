@@ -5,15 +5,15 @@
 
   This depends on [ExtrOcamlBasic] and [ExtrOcamlIntConv] that define
   extraction for a few basic types ([option], [list], [int]).
-  Other types that do not have a natural counterpart in Coq are left
+  Other types that do not have a natural counterpart in Rocq are left
   abstract.
   In particular, this module does not assume any particular
-  representation of Coq's [string] and [ascii] (as opposed to the
+  representation of Rocq's [string] and [ascii] (as opposed to the
   [RawChar] module).
 *)
 
 (* begin hide *)
-From Coq.extraction Require Import
+From Stdlib Require Import
      Extraction
      ExtrOcamlBasic
      ExtrOcamlIntConv.
@@ -67,7 +67,7 @@ Parameter lnot : int -> int -> int.
 Parameter max_int : int.
 Parameter min_int : int.
 
-(* Note: Coq renamed its int_scope to dec_int_scope seemingly to not clash with
+(* Note: Rocq renamed its int_scope to dec_int_scope seemingly to not clash with
    math-comp. It might be a good idea to rename here too. *)
 Declare Scope int_scope.
 Delimit Scope int_scope with int.

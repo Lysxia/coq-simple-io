@@ -1,7 +1,7 @@
 (** * Exception handling *)
 
 (* begin hide *)
-From Coq.extraction Require
+From Stdlib.extraction Require
      Extraction.
 
 From SimpleIO Require Import

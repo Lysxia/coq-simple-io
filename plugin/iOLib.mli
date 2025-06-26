@@ -17,7 +17,7 @@ val smart_mode : bool ref
 (** Option for handling standard input and output *)
 type io_mode
   = Repl
-  (** Default mode compatible with interactive Coq sessions *)
+  (** Default mode compatible with interactive Rocq sessions *)
   | Forward
   (** Forward stdin,stdout,stderr to the child processes running the extracted
       programs. This option lets you run [RunIO] scripts from the command line. *)

@@ -13,14 +13,14 @@
 
 (package
  (name coq-simple-io)
- (synopsis "IO monad for Coq")
+ (synopsis "IO monad for Rocq")
  (description
-"This library provides tools to implement IO programs directly in Coq, in a
+"This library provides tools to implement IO programs directly in Rocq, in a
 similar style to Haskell. Facilities for formal verification are not
 included.
 
 IO is defined as a parameter with a purely functional interface in
-Coq, to be extracted to OCaml. Some wrappers for the basic types and
+Rocq, to be extracted to OCaml. Some wrappers for the basic types and
 functions in the OCaml Pervasives module are provided, and users are free to
 define their own APIs on top of this IO type.")
  (depends

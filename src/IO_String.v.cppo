@@ -5,11 +5,11 @@
     Operations are meant to be used qualified, e.g., [OString.length].
 
     The inner module is named [OString] to avoid the conflict with
-    with [Coq.Strings.String].
+    with [Stdlib.Strings.String].
  *)
 
 (* begin hide *)
-From Coq Require Import
+From Stdlib Require Import
      Strings.String
      Strings.Ascii
      ExtrOcamlIntConv.

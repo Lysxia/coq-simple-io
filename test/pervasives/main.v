@@ -1,9 +1,9 @@
-From Coq.Strings Require Import
+From Stdlib.Strings Require Import
      Ascii String.
-From Coq Require Import List.
+From Stdlib Require Import List.
 Import ListNotations.
 
-From Coq.extraction Require Import
+From Stdlib Require Import
      ExtrOcamlIntConv.
 
 From SimpleIO Require Import SimpleIO IO_UnsafeNat IO_Bytes.
