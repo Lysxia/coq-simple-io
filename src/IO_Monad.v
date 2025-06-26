@@ -1,7 +1,7 @@
 (** * The [IO] monad *)
 
 (* begin hide *)
-From Coq.extraction Require Import
+From Stdlib.extraction Require Import
      Extraction
      ExtrOcamlBasic.
 

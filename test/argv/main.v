@@ -1,4 +1,4 @@
-From Coq Require Import
+From Stdlib Require Import
      extraction.ExtrOcamlIntConv.
 
 From SimpleIO Require Import

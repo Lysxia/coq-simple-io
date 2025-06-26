@@ -1,6 +1,6 @@
 (** * Main module *)
 
-(** This reexports the most common modules for doing IO in Coq. *)
+(** This reexports the most common modules for doing IO in Rocq. *)
 
 From SimpleIO Require Export
      SimpleIO_Plugin

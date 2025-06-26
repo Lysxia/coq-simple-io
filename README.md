@@ -1,12 +1,12 @@
-# Purely functional IO for Coq
+# Purely functional IO for Rocq
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Lysxia/coq-simple-io/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Lysxia/coq-simple-io/tree/master)
 
-## Hello World in Coq
+## Hello World in Rocq
 
 ```coq
 From SimpleIO Require Import SimpleIO.
-From Coq Require Import String.
+From Stdlib Require Import String.
 #[local] Open Scope string_scope.
 
 Definition main : IO unit :=
@@ -15,7 +15,7 @@ Definition main : IO unit :=
 RunIO main.
 ```
 
-The `coq-simple-io` library provides tools to implement IO programs directly in Coq, in a
+The `coq-simple-io` library provides tools to implement IO programs directly in Rocq, in a
 similar style to Haskell.
 
 - IO monad
@@ -105,7 +105,7 @@ type 'a coq_IO = ('a -> Obj.t) -> Obj.t
 ```
 
 So an effectful function `f : t -> u -> v` in OCaml can be wrapped
-as a Coq function `f : t -> u -> IO v` in the following way:
+as a Rocq function `f : t -> u -> IO v` in the following way:
 
 ```coq
 Parameter f : t -> u -> IO v.

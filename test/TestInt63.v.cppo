@@ -3,9 +3,9 @@
 #define uint63 int63
 #endif
 #if COQ_VERSION >= (8, 15, 0)
-From Coq Require ExtrOcamlZBigInt.
+From Stdlib Require ExtrOcamlZBigInt.
 #endif
-From Coq Require Import ZArith NArith String DecimalString Uint63 Extraction ExtrOCamlInt63.
+From Stdlib Require Import ZArith NArith String DecimalString Uint63 Extraction ExtrOCamlInt63.
 #[local] Open Scope string_scope.
 
 From SimpleIO Require Import SimpleIO.

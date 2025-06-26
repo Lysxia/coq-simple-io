@@ -1,4 +1,4 @@
-From Coq Require Import
+From Stdlib Require Import
      ExtrOcamlIntConv
      String.
 From ExtLib Require Import

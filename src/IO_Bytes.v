@@ -4,7 +4,7 @@
     https://caml.inria.fr/pub/docs/manual-ocaml/libref/Bytes.html *)
 
 (* begin hide *)
-From Coq Require Import
+From Stdlib Require Import
      ExtrOcamlIntConv.
 From SimpleIO Require Import
      IO_Monad
