@@ -6,6 +6,18 @@ open IOLib
 
 let run_ast = mk_ref "SimpleIO.IO_Monad.IO.unsafe_run'"
 
+#if COQ_VERSION >= (9,2,0)
+let string_of_constr_expr c =
+  let env = Global.env () in
+  let evd = Evd.from_env env in
+  Pp.string_of_ppcmds (Ppconstr.pr_constr_expr ~flags:(Ppconstr.current_flags()) env evd c)
+#else
+let string_of_constr_expr c =
+  let env = Global.env () in
+  let evd = Evd.from_env env in
+  Pp.string_of_ppcmds (Ppconstr.pr_constr_expr env evd c)
+#endif
+
 (* Since Coq 8.20, called as [run c ~opaque_access]. Before Coq 8.20, called as [run c]. *)
 let run c =
 #if COQ_VERSION >= (8,20,0)

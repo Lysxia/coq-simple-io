@@ -325,8 +325,3 @@ let run ~plugin_name ~opaque_access ~name term =
   let (term,_) = interp_constr env evd term in
   define_and_run ~plugin_name ~opaque_access env evd term
   (* TODO: clean leftover files *)
-
-let string_of_constr_expr c =
-  let env = Global.env () in
-  let evd = Evd.from_env env in
-  Pp.string_of_ppcmds (Ppconstr.pr_constr_expr env evd c)
