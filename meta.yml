@@ -1,0 +1,16 @@
+fullname: Simple IO
+shortname: simple-io
+action: true
+ci_test_dependants:
+  enabled: true
+  packages: ['coq-itree-io', 'coq-quickchick', 'coq-freespec-ffi', 'coq-bonsai']
+dune: true
+tested_coq_opam_versions:
+- version: '8.12-ocaml-4.11-flambda'
+- version: '8.14-ocaml-4.14-flambda'
+- version: '8.16'
+- version: '8.18'
+- version: '8.20'
+tested_rocq_opam_versions:
+- version: '9.0'
+- version: 'dev'
