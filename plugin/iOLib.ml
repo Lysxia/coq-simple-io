@@ -302,7 +302,7 @@ let mk_ref s = CAst.make @@ CRef (qualid_of_string s, None)
 (** [define env evd c] introduces a fresh constant name for the term [c]. *)
 let define env evd c =
   let (evd,_) = Typing.type_of env evd c in
-  let univs = Evd.univ_entry ~poly:true evd in
+  let univs = Evd.univ_entry ~poly:(PolyFlags.of_univ_poly true) evd in
   let fn = fresh_name "quickchick" in
   (* TODO: Maxime - which of the new internal flags should be used here? The names aren't as clear :) *)
   let _ : Constant.t = declare_constant ~name:fn ~kind:Decls.(IsDefinition Definition)
