@@ -14,3 +14,9 @@ type 'a with_accessor = 'a
 
 (* Compat adaptor for Coq functions *)
 val apply_accessor : 'a with_accessor -> opaque_access:indirect_accessor -> 'a
+
+#if COQ_VERSION >= (9,2,0)
+val univ_poly : bool -> PolyFlags.t
+#else
+val univ_poly : bool -> bool
+#endif
