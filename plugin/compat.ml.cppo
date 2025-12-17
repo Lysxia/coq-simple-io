@@ -41,3 +41,9 @@ type indirect_accessor = unit
 type 'a with_accessor = 'a
 let apply_accessor f ~opaque_access:() = f
 #endif
+
+#if COQ_VERSION >= (9,2,0)
+let univ_poly = PolyFlags.of_univ_poly
+#else
+let univ_poly b = b
+#endif
