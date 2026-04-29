@@ -5,9 +5,11 @@
  (modules Coqsimpleio IOLib Compat)
  (libraries unix
    (select void_for_linking-plugin-extraction from
+    (rocq-runtime.plugins.extraction -> void_for_linking-plugin-extraction.empty)
     (coq-core.plugins.extraction -> void_for_linking-plugin-extraction.empty)
     (coq.plugins.extraction -> void_for_linking-plugin-extraction.empty))
    (select void_for_linking-config from
+    (rocq-runtime.config -> void_for_linking-config.empty)
     (coq-core.config -> void_for_linking-config.empty)
     (coq.config -> void_for_linking-config.empty))))
 
