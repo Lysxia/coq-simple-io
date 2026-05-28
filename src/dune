@@ -18,12 +18,6 @@
 
 (rule
   (alias compat)
-  (target IO_String.v)
-  (deps IO_String.v.cppo)
-  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V ROCQ:%{rocq:version} -n %{deps} -o %{target})))
-
-(rule
-  (alias compat)
   (target IO_Filename.v)
   (deps IO_Filename.v.cppo)
   (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V ROCQ:%{rocq:version} -n %{deps} -o %{target})))
@@ -38,10 +32,4 @@
   (alias compat)
   (target IO_Unsafe.v)
   (deps IO_Unsafe.v.cppo)
-  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V ROCQ:%{rocq:version} -n %{deps} -o %{target})))
-
-(rule
-  (alias compat)
-  (target SimpleIO_Plugin.v)
-  (deps SimpleIO_Plugin.v.cppo)
   (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V ROCQ:%{rocq:version} -n %{deps} -o %{target})))

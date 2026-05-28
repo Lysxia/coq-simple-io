@@ -1,9 +1,0 @@
-From Stdlib Require Import Extraction.
-
-#if ROCQ_VERSION >= (9, 0, 0)
-Declare ML Module "rocq-simple-io.plugin".
-#elif ROCQ_VERSION >= (8, 16, 0)
-Declare ML Module "rocqsimpleio_plugin:rocq-simple-io.plugin".
-#else
-Declare ML Module "rocqsimpleio_plugin".
-#endif

@@ -20,8 +20,7 @@ uninstall: $(MAKEFILE_COQ)
 $(MAKEFILE_COQ): _CoqProject
 	coq_makefile -f $< -o $@
 
-COMPATFILES:=_CoqProject \
-  test/TestInt63.v
+COMPATFILES:=""
 
 compat: $(COMPATFILES)
 

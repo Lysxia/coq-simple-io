@@ -27,8 +27,7 @@ val io_mode : io_mode ref
 
 val reset : unit -> unit
 
-val apply_constr : constr_expr -> constr_expr list -> constr_expr_r
 val mk_ref : string -> constr_expr
-val define_and_run : plugin_name:string -> opaque_access:Compat.indirect_accessor ->
+val define_and_run : plugin_name:string -> opaque_access:Global.indirect_accessor ->
   Environ.env -> Evd.evar_map -> Evd.econstr -> unit
-val run : plugin_name:string -> opaque_access:Compat.indirect_accessor -> name:string -> constr_expr -> unit
+val run : plugin_name:string -> opaque_access:Global.indirect_accessor -> name:string -> constr_expr -> unit

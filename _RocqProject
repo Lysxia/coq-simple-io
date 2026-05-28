@@ -1,6 +1,4 @@
-#if ROCQ_VERSION >= (8, 16, 0)
 -generate-meta-for-package rocq-simple-io
-#endif
 -I plugin/
 -Q plugin SimpleIO
 plugin/compat.mli

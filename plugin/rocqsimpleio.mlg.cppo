@@ -22,7 +22,7 @@ let run c =
   fun ~opaque_access ->
   let name = string_of_constr_expr c in
   run ~plugin_name:"rocq_simple_io" ~opaque_access ~name
-    (CAst.make @@ apply_constr run_ast [c])
+    (CAst.make @@ Constrexpr.CApp (run_ast, [(c, None)]))
 
 let string_unopt = function
   | None -> ""

@@ -33,9 +33,3 @@
 
 (rule (alias runtest)
  (action (diff TestInt63.expected TestInt63.out)))
-
-(rule
- (alias compat)
- (target TestInt63.v)
- (deps TestInt63.v.cppo)
- (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V ROCQ:%{rocq:version} -n %{deps} -o %{target})))
