@@ -1,19 +1,19 @@
 (library
- (name coqsimpleio_plugin)
- (public_name coq-simple-io.plugin)
+ (name rocqsimpleio_plugin)
+ (public_name rocq-simple-io.plugin)
  (flags :standard -rectypes -warn-error -3 -w -8-27+40)
- (modules Coqsimpleio IOLib Compat)
+ (modules Rocqsimpleio IOLib Compat)
  (libraries unix
    (select void_for_linking-plugin-extraction from
     (rocq-runtime.plugins.extraction -> void_for_linking-plugin-extraction.empty)
-    (coq-core.plugins.extraction -> void_for_linking-plugin-extraction.empty)
-    (coq.plugins.extraction -> void_for_linking-plugin-extraction.empty))
+    (rocq-core.plugins.extraction -> void_for_linking-plugin-extraction.empty)
+    (rocq.plugins.extraction -> void_for_linking-plugin-extraction.empty))
    (select void_for_linking-config from
     (rocq-runtime.config -> void_for_linking-config.empty)
-    (coq-core.config -> void_for_linking-config.empty)
-    (coq.config -> void_for_linking-config.empty))))
+    (rocq-core.config -> void_for_linking-config.empty)
+    (rocq.config -> void_for_linking-config.empty))))
 
-(coq.pp (modules coqsimpleio))
+(rocq.pp (modules rocqsimpleio))
 
 (rule (action (write-file void_for_linking-plugin-extraction.empty "")))
 (rule (action (write-file void_for_linking-config.empty "")))
@@ -22,16 +22,16 @@
   (alias compat)
   (target compat.ml)
   (deps compat.ml.cppo)
-  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V ROCQ:%{rocq:version} -n %{deps} -o %{target})))
 
 (rule
   (alias compat)
   (target compat.mli)
   (deps compat.mli.cppo)
-  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V ROCQ:%{rocq:version} -n %{deps} -o %{target})))
 
 (rule
   (alias compat)
-  (target coqsimpleio.mlg)
-  (deps coqsimpleio.mlg.cppo)
-  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
+  (target rocqsimpleio.mlg)
+  (deps rocqsimpleio.mlg.cppo)
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V ROCQ:%{rocq:version} -n %{deps} -o %{target})))

@@ -1,9 +1,9 @@
-From Coq.Strings Require Import
+From Stdlib.Strings Require Import
      Ascii String.
-From Coq Require Import List.
+From Stdlib Require Import List.
 Import ListNotations.
 
-From Coq.extraction Require Import
+From Stdlib.extraction Require Import
      ExtrOcamlIntConv.
 
 From SimpleIO Require Import SimpleIO IO_UnsafeNat IO_Bytes.
@@ -41,10 +41,8 @@ Instance Print_option {a : Type} `{Print a} : Print (option a) :=
     | Some x => print_string "Some (";; print x;; print_string ")"
     end.
 
-(* Using coercions. [String.eqb] also exists since Coq 8.9 but this
-   test needs to be compatible with 8.8. *)
 #[local]
-Instance Eq_string : Eq string := ostring_eqb.
+Instance Eq_string : Eq string := String.eqb.
 #[local]
 Instance Print_string : Print string := print_string.
 

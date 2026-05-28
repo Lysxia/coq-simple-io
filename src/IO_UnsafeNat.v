@@ -5,7 +5,7 @@
   *)
 
 (* begin hide *)
-From Coq.extraction Require Import
+From Stdlib.extraction Require Import
      ExtrOcamlIntConv.
 
 From SimpleIO Require Import

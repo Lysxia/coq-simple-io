@@ -1,4 +1,4 @@
-DECLARE PLUGIN "coq-simple-io.plugin"
+DECLARE PLUGIN "rocq-simple-io.plugin"
 
 {
 open Stdarg
@@ -6,7 +6,7 @@ open IOLib
 
 let run_ast = mk_ref "SimpleIO.IO_Monad.IO.unsafe_run'"
 
-#if COQ_VERSION >= (9,2,0)
+#if ROCQ_VERSION >= (9,2,0)
 let string_of_constr_expr c =
   let env = Global.env () in
   let evd = Evd.from_env env in
@@ -18,15 +18,10 @@ let string_of_constr_expr c =
   Pp.string_of_ppcmds (Ppconstr.pr_constr_expr env evd c)
 #endif
 
-(* Since Coq 8.20, called as [run c ~opaque_access]. Before Coq 8.20, called as [run c]. *)
 let run c =
-#if COQ_VERSION >= (8,20,0)
   fun ~opaque_access ->
-#else
-  let opaque_access = () in
-#endif
   let name = string_of_constr_expr c in
-  run ~plugin_name:"coq_simple_io" ~opaque_access ~name
+  run ~plugin_name:"rocq_simple_io" ~opaque_access ~name
     (CAst.make @@ apply_constr run_ast [c])
 
 let string_unopt = function
@@ -35,10 +30,7 @@ let string_unopt = function
 }
 
 VERNAC COMMAND EXTEND RunIO CLASSIFIED AS SIDEFF
-  |
-#if COQ_VERSION >= (8,20,0)
-    ![opaque_access]
-#endif
+  | ![opaque_access]
     ["RunIO" constr(c)] -> {run c}
   | ["RunIO" "Include" string(s)] -> { add_extra_dir s }
   | ["RunIO" "Open" string(s)] -> { add_module_to_open s }

@@ -29,14 +29,14 @@ let add_extra_pkg s = extra_pkg := s :: !extra_pkg
 let modules_to_open : string list ref = Summary.ref ~name:"runio_modules_to_open" []
 let add_module_to_open s = modules_to_open := s :: !modules_to_open
 
-(* Automatically insert common dependencies (zarith, coq-core.kernel).
+(* Automatically insert common dependencies (zarith, rocq-core.kernel).
    [true] by default. *)
 let smart_mode : bool ref =
   Summary.ref ~name:"runio_smart_mode" true
 
 type io_mode
   = Repl
-  (** Default mode compatible with interactive Coq sessions *)
+  (** Default mode compatible with interactive Rocq sessions *)
   | Forward
   (** Forward stdin,stdout,stderr to the child processes running the extracted
       programs. This option lets you run [RunIO] scripts from the command line. *)
@@ -87,7 +87,7 @@ let fresh_name n =
     let base = Id.of_string n in
 
     (* [is_visible_name id] returns [true] if [id] is already used on
-       the Coq side. *)
+       the Rocq side. *)
     let is_visible_name id =
       try
         ignore (Nametab.locate (Libnames.qualid_of_ident id));
@@ -117,12 +117,12 @@ let mk_tmp_dir ~plugin_name : string =
 
 (** * Extract, fix, compile, run *)
 
-let coq_kernel = if Coq_config.version < "8.14" then "coq.kernel" else "coq-core.kernel"
+let rocq_kernel = "coq-core.kernel"
 
 let get_packages mlf =
   if !smart_mode then
     let (p_out, _, p_err) as process = Unix.open_process_full ("ocamldep -modules " ^ mlf) (Unix.environment ()) in
-    let errmsg () = Feedback.msg_info (str "Unexpected error in coq-simple-io: ocamldep failed") in
+    let errmsg () = Feedback.msg_info (str "Unexpected error in rocq-simple-io: ocamldep failed") in
     let pkgs = ref !extra_pkg in
     let opts = ref [] in
     let () =
@@ -133,7 +133,7 @@ let get_packages mlf =
           let try_add ~pkg md =
             if m = md && not (List.mem pkg !pkgs) then
               pkgs := pkg :: !pkgs in
-          try_add ~pkg:coq_kernel "Uint63";
+          try_add ~pkg:rocq_kernel "Uint63";
           if m = "Uint63" then opts := "-rectypes" :: !opts;
           try_add ~pkg:"zarith" "Big_int_Z")
       | exception End_of_file -> errmsg () in

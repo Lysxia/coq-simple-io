@@ -27,12 +27,12 @@ let mk_temp_dir temp_dir =
 #endif
 
 let apply_constr f xs =
-#if COQ_VERSION < (8, 15, 0)
+#if ROCQ_VERSION < (8, 15, 0)
     let f = (None, f) in
 #endif
     CApp (f, List.map (fun x -> (x, None)) xs)
 
-#if COQ_VERSION >= (8,20,0)
+#if ROCQ_VERSION >= (8,20,0)
 type indirect_accessor = Global.indirect_accessor
 type 'a with_accessor = opaque_access:Global.indirect_accessor -> 'a
 let apply_accessor f = f
@@ -42,7 +42,7 @@ type 'a with_accessor = 'a
 let apply_accessor f ~opaque_access:() = f
 #endif
 
-#if COQ_VERSION >= (9,2,0)
+#if ROCQ_VERSION >= (9,2,0)
 let univ_poly = PolyFlags.of_univ_poly
 #else
 let univ_poly b = b

@@ -10,14 +10,14 @@ val add_extra_dir : string -> unit
 val add_extra_pkg : string -> unit
 val add_module_to_open : string -> unit
 
-(* Automatically insert common dependencies (zarith, coq-simple-io.extraction).
+(* Automatically insert common dependencies (zarith, rocq-simple-io.extraction).
    [true] by default. *)
 val smart_mode : bool ref
 
 (** Option for handling standard input and output *)
 type io_mode
   = Repl
-  (** Default mode compatible with interactive Coq sessions *)
+  (** Default mode compatible with interactive Rocq sessions *)
   | Forward
   (** Forward stdin,stdout,stderr to the child processes running the extracted
       programs. This option lets you run [RunIO] scripts from the command line. *)

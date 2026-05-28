@@ -1,4 +1,4 @@
-NAME=coq-simple-io
+NAME=rocq-simple-io
 
 MAKEFILE_COQ = Makefile.coq
 MAKE_COQ = $(MAKE) -f $(MAKEFILE_COQ)
