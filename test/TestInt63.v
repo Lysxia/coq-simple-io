@@ -1,33 +1,9 @@
-#if COQ_VERSION < (8, 14, 0)
-#define Uint63 Int63
-#define uint63 int63
-#endif
-#if COQ_VERSION >= (8, 15, 0)
-From Coq Require ExtrOcamlZBigInt.
-#endif
-From Coq Require Import ZArith NArith String DecimalString Uint63 Extraction ExtrOCamlInt63.
+From Stdlib Require Import
+  ExtrOcamlZBigInt ZArith NArith String DecimalString Uint63 Extraction ExtrOCamlInt63.
 #[local] Open Scope string_scope.
 
 From SimpleIO Require Import SimpleIO.
 Import IO.Notations.
-
-#if COQ_VERSION < (8, 16, 0) && COQ_VERSION >= (8, 15, 0)
-(* ExtrOCamlInt63 extracts Lt|Eq|Gt to -1|0|1 *)
-Extract Constant Nat.compare =>
- "(fun n m -> if n=m then 0 else if n<m then -1 else 1)".
-Extract Constant Pos.compare =>
- "(fun x y -> let s = Big_int_Z.compare_big_int x y in
-  if s = 0 then 0 else if s < 0 then -1 else 1)".
-Extract Constant Pos.compare_cont =>
- "(fun c x y -> let s = Big_int_Z.compare_big_int x y in
-  if s = 0 then c else if s < 0 then -1 else 1)".
-Extract Constant N.compare =>
- "(fun x y -> let s = Big_int_Z.compare_big_int x y in
-  if s = 0 then 0 else if s < 0 then -1 else 1)".
-Extract Constant Z.compare =>
- "(fun x y -> let s = Big_int_Z.compare_big_int x y in
-  if s = 0 then 0 else if s < 0 then -1 else 1)".
-#endif
 
 Class Eq (A : Type) : Type :=
   eqb : A -> A -> bool.
@@ -38,13 +14,7 @@ Class Show (A : Type) : Type :=
 Global Instance Eq_prod {A B} `{Eq A, Eq B} : Eq (A * B) :=
   fun x y => (eqb (fst x) (fst y) && eqb (snd x) (snd y))%bool.
 Global Instance Eq_bool : Eq bool := bool_eq.
-Global Instance Eq_int : Eq int := fun x y =>
-#if COQ_VERSION >= (8, 13, 0)
-  (x =? y)%uint63
-#else
-  (x == y)%uint63
-#endif
-.
+Global Instance Eq_int : Eq int := fun x y => (x =? y)%uint63.
 
 Global Instance Eq_Z : Eq Z := Z.eqb.
 Global Instance Eq_N : Eq N := N.eqb.

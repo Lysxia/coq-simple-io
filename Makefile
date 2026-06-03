@@ -1,4 +1,4 @@
-NAME=coq-simple-io
+NAME=rocq-simple-io
 
 MAKEFILE_COQ = Makefile.coq
 MAKE_COQ = $(MAKE) -f $(MAKEFILE_COQ)
@@ -20,8 +20,7 @@ uninstall: $(MAKEFILE_COQ)
 $(MAKEFILE_COQ): _CoqProject
 	coq_makefile -f $< -o $@
 
-COMPATFILES:=_CoqProject \
-  test/TestInt63.v
+COMPATFILES:=""
 
 compat: $(COMPATFILES)
 

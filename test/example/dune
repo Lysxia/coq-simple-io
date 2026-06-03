@@ -1,8 +1,8 @@
-(coq.extraction
+(rocq.extraction
  (prelude main)
  (extracted_modules IO_Monad IO_RawChar IO_Stdlib IO_Sys
                     main)
- (theories SimpleIO))
+ (theories SimpleIO Stdlib ExtLib))
 
 (test
  (name main)

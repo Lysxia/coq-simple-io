@@ -1,9 +1,9 @@
-(coq.extraction
+(rocq.extraction
  (prelude main)
  (extracted_modules Datatypes ExtrOcamlIntConv Nat
                     IO_Monad IO_RawChar IO_Stdlib IO_Sys IO_Bytes IO_Exceptions IO_Filename IO_Float IO_Random IO_String IO_Unix IO_UnsafeNat
                     main)
- (theories SimpleIO))
+ (theories SimpleIO Stdlib ExtLib))
 
 (test
  (name main)

@@ -1,15 +1,13 @@
-#if COQ_VERSION >= (8, 16, 0)
--generate-meta-for-package coq-simple-io
-#endif
+-generate-meta-for-package rocq-simple-io
 -I plugin/
 -Q plugin SimpleIO
 plugin/compat.mli
 plugin/compat.ml
 plugin/iOLib.mli
 plugin/iOLib.ml
-plugin/coqsimpleio.mli
-plugin/coqsimpleio.mlg
-plugin/coqsimpleio_plugin.mlpack
+plugin/rocqsimpleio.mli
+plugin/rocqsimpleio.mlg
+plugin/rocqsimpleio_plugin.mlpack
 
 -Q src/ SimpleIO
 src/IO_Monad.v

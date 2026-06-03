@@ -1,7 +1,7 @@
 (** * Floating-point arithmetic *)
 
 (* begin hide *)
-From Coq Require Import ExtrOcamlIntConv.
+From Stdlib Require Import ExtrOcamlIntConv.
 From SimpleIO Require Import
      IO_Stdlib.
 (* end hide *)

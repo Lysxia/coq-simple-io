@@ -1,46 +1,35 @@
-(coq.theory
+(rocq.theory
  (name SimpleIO)
- (package coq-simple-io)
- (plugins coq-simple-io.plugin))
+ (package rocq-simple-io)
+ (plugins rocq-simple-io.plugin)
+ (theories ExtLib Stdlib))
 
 (rule
   (alias compat)
   (target IO_Stdlib.v)
   (deps IO_Stdlib.v.cppo)
-  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V ROCQ:%{rocq:version} -n %{deps} -o %{target})))
 
 (rule
   (alias compat)
   (target IO_RawChar.v)
   (deps IO_RawChar.v.cppo)
-  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
-
-(rule
-  (alias compat)
-  (target IO_String.v)
-  (deps IO_String.v.cppo)
-  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V ROCQ:%{rocq:version} -n %{deps} -o %{target})))
 
 (rule
   (alias compat)
   (target IO_Filename.v)
   (deps IO_Filename.v.cppo)
-  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V ROCQ:%{rocq:version} -n %{deps} -o %{target})))
 
 (rule
   (alias compat)
   (target IO_Float.v)
   (deps IO_Float.v.cppo)
-  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V ROCQ:%{rocq:version} -n %{deps} -o %{target})))
 
 (rule
   (alias compat)
   (target IO_Unsafe.v)
   (deps IO_Unsafe.v.cppo)
-  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
-
-(rule
-  (alias compat)
-  (target SimpleIO_Plugin.v)
-  (deps SimpleIO_Plugin.v.cppo)
-  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V COQ:%{coq:version} -n %{deps} -o %{target})))
+  (action (run %{bin:cppo} -V OCAML:%{ocaml_version} -V ROCQ:%{rocq:version} -n %{deps} -o %{target})))

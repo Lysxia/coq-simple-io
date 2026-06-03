@@ -1,12 +1,12 @@
-# Purely functional IO for Coq
+# Purely functional IO for Rocq
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Lysxia/coq-simple-io/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Lysxia/coq-simple-io/tree/master)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Lysxia/rocq-simple-io/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Lysxia/rocq-simple-io/tree/master)
 
-## Hello World in Coq
+## Hello World in Rocq
 
-```coq
+```rocq
 From SimpleIO Require Import SimpleIO.
-From Coq Require Import String.
+From Stdlib Require Import String.
 #[local] Open Scope string_scope.
 
 Definition main : IO unit :=
@@ -15,7 +15,7 @@ Definition main : IO unit :=
 RunIO main.
 ```
 
-The `coq-simple-io` library provides tools to implement IO programs directly in Coq, in a
+The `rocq-simple-io` library provides tools to implement IO programs directly in Rocq, in a
 similar style to Haskell.
 
 - IO monad
@@ -37,23 +37,23 @@ generating such interfaces from OCaml interfaces.
 ### From OPAM
 
 ```
-opam install coq-simple-io
+opam install rocq-simple-io
 ```
 
 ### From this repository as a local package
 
 ```
 # Clone this repository
-git clone https://github.com/Lysxia/coq-simple-io
+git clone https://github.com/Lysxia/rocq-simple-io
 
 # Register it with opam (the last argument is the path to the repo)
-opam pin add coq-simple-io ./coq-simple-io
+opam pin add rocq-simple-io ./rocq-simple-io
 ```
 
 ## Documentation
 
 The documentation of the latest released version is available on website at
-https://lysxia.github.io/coq-simple-io/toc.html
+https://lysxia.github.io/rocq-simple-io/toc.html
 
 Consult the [OCaml user manual](https://caml.inria.fr/pub/docs/manual-ocaml/)
 for detailed description of extracted code.
@@ -62,7 +62,7 @@ for detailed description of extracted code.
 
 To use this library:
 
-```coq
+```rocq
 Require Import SimpleIO.SimpleIO.
 
 (* And to use the monadic notations: *)
@@ -74,7 +74,7 @@ Local Open Scope io_scope.
 
 Combinators for IO actions.
 
-```coq
+```rocq
 Parameter IO : Type -> Type.
 
 Module IO.
@@ -101,13 +101,13 @@ The `IO` type extracts to the following definition in OCaml:
 
 ```ocaml
 (* Implicitly [forall r, (a -> r) -> r]. *)
-type 'a coq_IO = ('a -> Obj.t) -> Obj.t
+type 'a rocq_IO = ('a -> Obj.t) -> Obj.t
 ```
 
 So an effectful function `f : t -> u -> v` in OCaml can be wrapped
-as a Coq function `f : t -> u -> IO v` in the following way:
+as a Rocq function `f : t -> u -> IO v` in the following way:
 
-```coq
+```rocq
 Parameter f : t -> u -> IO v.
 Extract Constant f => "fun a b k -> k (f a b)".
 ```
@@ -121,7 +121,7 @@ This boilerplate can also be generated from OCaml interfaces using
 
 The `RunIO` command extracts and runs an action of type `IO unit`.
 
-```coq
+```rocq
 Definition main : IO unit :=
   print_endline "Hello, world!".
 
@@ -130,11 +130,11 @@ RunIO main.
 
 ### Run as a command-line script
 
-You can run a `.v` file from the command line with `coqc`.
+You can run a `.v` file from the command line with `rocq`.
 To forward stdin and stdout to your `RunIO` scripts,
 set the option `RunIO IOMode Forward`.
 
-```coq
+```rocq
 From SimpleIO Require Import SimpleIO.
 Import IO.Notations.
 
@@ -153,7 +153,7 @@ RunIO cat.
 
 ### Configuration
 
-```coq
+```rocq
 (* Open MyModule at the top of the extracted code *)
 RunIO Open "MyModule".
 
@@ -181,7 +181,7 @@ RunIO Include "my-directory".
 
 (* Enable or disable automatic detection of common dependencies (on by default):
    - zarith for bigint representation of integers
-   - coq-core.kernel for Uint63 *)
+   - rocq-core.kernel for Uint63 *)
 RunIO Smart On.
 RunIO Smart Off.
 ```
