@@ -47,3 +47,19 @@ let univ_poly = PolyFlags.of_univ_poly
 #else
 let univ_poly b = b
 #endif
+
+#if COQ_VERSION >= (9,4,0)
+module SummaryRef =
+struct
+include Summary.Ref
+let ref ~name x = Summary.ref ~name x
+end
+#else
+module SummaryRef =
+struct
+type 'a t = 'a ref
+let ref ~name x = Summary.ref ~name x
+let (!) = (!)
+let (:=) = (:=)
+end
+#endif

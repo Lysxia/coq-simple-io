@@ -12,7 +12,7 @@ val add_module_to_open : string -> unit
 
 (* Automatically insert common dependencies (zarith, coq-simple-io.extraction).
    [true] by default. *)
-val smart_mode : bool ref
+val smart_mode : bool Compat.SummaryRef.t
 
 (** Option for handling standard input and output *)
 type io_mode
@@ -23,7 +23,7 @@ type io_mode
       programs. This option lets you run [RunIO] scripts from the command line. *)
 
 (** See [type io_mode] above. *)
-val io_mode : io_mode ref
+val io_mode : io_mode Compat.SummaryRef.t
 
 val reset : unit -> unit
 

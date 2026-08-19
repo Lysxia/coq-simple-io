@@ -15,24 +15,32 @@ include Compat
 type filename = string
 type builder = Ocamlfind of string | Ocamlbuild of string | Dune of filename * string
 
-let builder : builder ref =
-  Summary.ref ~name:"runio_builder" (Ocamlfind "")
-let set_builder b = builder := b
+let builder : builder SummaryRef.t =
+  SummaryRef.ref ~name:"runio_builder" (Ocamlfind "")
+let set_builder b =
+  let open SummaryRef in
+  builder := b
 
 (* Handle extra ocaml directory to be copied *)
-let extra_dir : string list ref = Summary.ref ~name:"runio_ocaml_dir" []
-let add_extra_dir s = extra_dir := s :: !extra_dir
+let extra_dir : string list SummaryRef.t = SummaryRef.ref ~name:"runio_ocaml_dir" []
+let add_extra_dir s =
+  let open SummaryRef in
+  extra_dir := s :: !extra_dir
 
-let extra_pkg : string list ref = Summary.ref ~name:"runio_ocaml_pkg" []
-let add_extra_pkg s = extra_pkg := s :: !extra_pkg
+let extra_pkg : string list SummaryRef.t = SummaryRef.ref ~name:"runio_ocaml_pkg" []
+let add_extra_pkg s =
+  let open SummaryRef in
+  extra_pkg := s :: !extra_pkg
 
-let modules_to_open : string list ref = Summary.ref ~name:"runio_modules_to_open" []
-let add_module_to_open s = modules_to_open := s :: !modules_to_open
+let modules_to_open : string list SummaryRef.t = SummaryRef.ref ~name:"runio_modules_to_open" []
+let add_module_to_open s =
+  let open SummaryRef in
+  modules_to_open := s :: !modules_to_open
 
 (* Automatically insert common dependencies (zarith, coq-core.kernel).
    [true] by default. *)
-let smart_mode : bool ref =
-  Summary.ref ~name:"runio_smart_mode" true
+let smart_mode : bool SummaryRef.t =
+  SummaryRef.ref ~name:"runio_smart_mode" true
 
 type io_mode
   = Repl
@@ -41,9 +49,10 @@ type io_mode
   (** Forward stdin,stdout,stderr to the child processes running the extracted
       programs. This option lets you run [RunIO] scripts from the command line. *)
 
-let io_mode = Summary.ref ~name:"runio_io_mode" Repl
+let io_mode = SummaryRef.ref ~name:"runio_io_mode" Repl
 
 let reset () =
+  let open SummaryRef in
   builder := Ocamlfind "";
   extra_dir := [];
   extra_pkg := [];
@@ -120,10 +129,10 @@ let mk_tmp_dir ~plugin_name : string =
 let coq_kernel = if Coq_config.version < "8.14" then "coq.kernel" else "coq-core.kernel"
 
 let get_packages mlf =
-  if !smart_mode then
+  if SummaryRef.(!smart_mode) then
     let (p_out, _, p_err) as process = Unix.open_process_full ("ocamldep -modules " ^ mlf) (Unix.environment ()) in
     let errmsg () = Feedback.msg_info (str "Unexpected error in coq-simple-io: ocamldep failed") in
-    let pkgs = ref !extra_pkg in
+    let pkgs = ref SummaryRef.(!extra_pkg) in
     let opts = ref [] in
     let () =
       match input_line p_out with
@@ -145,7 +154,7 @@ let get_packages mlf =
         (* probably an unparseable file, which will fail compilation *)
     in
     !opts, !pkgs
-  else [], !extra_pkg
+  else [], SummaryRef.(!extra_pkg)
 
 (* Extract the term and its dependencies *)
 let extract ~opaque_access ~file ident =
@@ -182,6 +191,7 @@ let remove_mli mlif =
   ignore (Sys.command ("touch " ^ mlif))
 
 let fixup ~dir mlif mlf =
+  let open SummaryRef in
   open_modules ~dir !modules_to_open mlf;
   redefine_int mlf;
   remove_mli mlif
@@ -202,6 +212,7 @@ let compile ~dir mlif mlf =
         msg ++ fnl () ++ str "Build stderr:" ++ fnl () ++ str build_err ++ fnl () in
       CErrors.user_err msg in
   let fileprefix = Filename.chop_extension mlf in
+  let open SummaryRef in
   match !builder with
   | Ocamlfind opts ->
       let execn = fileprefix ^ ".native" in
@@ -280,6 +291,7 @@ let run_exec_forward execn =
   end
 
 let run_exec execn =
+  let open SummaryRef in
   match !io_mode with
   | Repl -> run_exec_repl execn
   | Forward -> run_exec_forward execn
@@ -288,6 +300,7 @@ let compile_and_run ~dir mlif mlf =
   compile ~dir mlif mlf |> run_exec
 
 let extract_and_run ~plugin_name ~opaque_access ident =
+  let open SummaryRef in
   let dir            = mk_tmp_dir ~plugin_name in
   let mlf   : string = dir </> "extracted_main.ml" in
   let mlif  : string = Filename.chop_extension mlf ^ ".mli" in
@@ -314,6 +327,7 @@ let define_and_run ~plugin_name ~opaque_access env evd term =
   extract_and_run ~plugin_name ~opaque_access term
 
 let chatty () =
+  let open SummaryRef in
   match !io_mode with
   | Repl -> true
   | Forward -> false
