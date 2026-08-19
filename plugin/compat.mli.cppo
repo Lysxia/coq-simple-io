@@ -20,3 +20,11 @@ val univ_poly : bool -> PolyFlags.t
 #else
 val univ_poly : bool -> bool
 #endif
+
+module SummaryRef :
+sig
+  type 'a t
+  val ref : name:string -> 'a -> 'a t
+  val (!) : 'a t -> 'a
+  val (:=) : 'a t -> 'a -> unit
+end

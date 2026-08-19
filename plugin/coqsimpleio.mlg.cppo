@@ -3,6 +3,7 @@ DECLARE PLUGIN "coq-simple-io.plugin"
 {
 open Stdarg
 open IOLib
+open Compat.SummaryRef
 
 let run_ast = mk_ref "SimpleIO.IO_Monad.IO.unsafe_run'"
 
